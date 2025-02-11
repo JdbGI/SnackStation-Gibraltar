@@ -1,0 +1,434 @@
+<svg width="400" height="600" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Black background -->
+  <rect width="400" height="600" fill="black" />
+
+  <!-- Group 1: Outer border (40 bubbles) -->
+  <!-- Top edge: final y = 50, initial y = 0; x values from 80 to 320 -->
+  <circle cx="80" cy="0" r="3" fill="white">
+    <animate attributeName="cx" values="80;80;80" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="0;50;0" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="106.67" cy="0" r="3" fill="white">
+    <animate attributeName="cx" values="106.67;106.67;106.67" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="0;50;0" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="133.33" cy="0" r="3" fill="white">
+    <animate attributeName="cx" values="133.33;133.33;133.33" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="0;50;0" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="160" cy="0" r="3" fill="white">
+    <animate attributeName="cx" values="160;160;160" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="0;50;0" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="186.67" cy="0" r="3" fill="white">
+    <animate attributeName="cx" values="186.67;186.67;186.67" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="0;50;0" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="213.33" cy="0" r="3" fill="white">
+    <animate attributeName="cx" values="213.33;213.33;213.33" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="0;50;0" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="240" cy="0" r="3" fill="white">
+    <animate attributeName="cx" values="240;240;240" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="0;50;0" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="266.67" cy="0" r="3" fill="white">
+    <animate attributeName="cx" values="266.67;266.67;266.67" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="0;50;0" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="293.33" cy="0" r="3" fill="white">
+    <animate attributeName="cx" values="293.33;293.33;293.33" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="0;50;0" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="320" cy="0" r="3" fill="white">
+    <animate attributeName="cx" values="320;320;320" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="0;50;0" dur="20s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Right edge: final x = 320, y values from 60 to 500, initial x = 400 -->
+  <circle cx="400" cy="60" r="3" fill="white">
+    <animate attributeName="cx" values="400;320;400" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="60;60;60" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="400" cy="108.89" r="3" fill="white">
+    <animate attributeName="cx" values="400;320;400" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="108.89;108.89;108.89" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="400" cy="157.78" r="3" fill="white">
+    <animate attributeName="cx" values="400;320;400" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="157.78;157.78;157.78" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="400" cy="206.67" r="3" fill="white">
+    <animate attributeName="cx" values="400;320;400" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="206.67;206.67;206.67" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="400" cy="255.56" r="3" fill="white">
+    <animate attributeName="cx" values="400;320;400" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="255.56;255.56;255.56" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="400" cy="304.44" r="3" fill="white">
+    <animate attributeName="cx" values="400;320;400" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="304.44;304.44;304.44" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="400" cy="353.33" r="3" fill="white">
+    <animate attributeName="cx" values="400;320;400" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="353.33;353.33;353.33" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="400" cy="402.22" r="3" fill="white">
+    <animate attributeName="cx" values="400;320;400" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="402.22;402.22;402.22" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="400" cy="451.11" r="3" fill="white">
+    <animate attributeName="cx" values="400;320;400" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="451.11;451.11;451.11" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="400" cy="500" r="3" fill="white">
+    <animate attributeName="cx" values="400;320;400" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="500;500;500" dur="20s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Bottom edge: final y = 500, x values from 320 to 80, initial y = 600 -->
+  <circle cx="320" cy="600" r="3" fill="white">
+    <animate attributeName="cx" values="320;320;320" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="600;500;600" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="293.33" cy="600" r="3" fill="white">
+    <animate attributeName="cx" values="293.33;293.33;293.33" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="600;500;600" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="266.67" cy="600" r="3" fill="white">
+    <animate attributeName="cx" values="266.67;266.67;266.67" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="600;500;600" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="240" cy="600" r="3" fill="white">
+    <animate attributeName="cx" values="240;240;240" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="600;500;600" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="213.33" cy="600" r="3" fill="white">
+    <animate attributeName="cx" values="213.33;213.33;213.33" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="600;500;600" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="186.67" cy="600" r="3" fill="white">
+    <animate attributeName="cx" values="186.67;186.67;186.67" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="600;500;600" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="160" cy="600" r="3" fill="white">
+    <animate attributeName="cx" values="160;160;160" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="600;500;600" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="133.33" cy="600" r="3" fill="white">
+    <animate attributeName="cx" values="133.33;133.33;133.33" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="600;500;600" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="106.67" cy="600" r="3" fill="white">
+    <animate attributeName="cx" values="106.67;106.67;106.67" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="600;500;600" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="80" cy="600" r="3" fill="white">
+    <animate attributeName="cx" values="80;80;80" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="600;500;600" dur="20s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Left edge: final x = 80, y values from 460 to 90, initial x = 0 -->
+  <circle cx="0" cy="460" r="3" fill="white">
+    <animate attributeName="cx" values="0;80;0" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="460;460;460" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="0" cy="418.89" r="3" fill="white">
+    <animate attributeName="cx" values="0;80;0" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="418.89;418.89;418.89" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="0" cy="377.78" r="3" fill="white">
+    <animate attributeName="cx" values="0;80;0" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="377.78;377.78;377.78" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="0" cy="336.67" r="3" fill="white">
+    <animate attributeName="cx" values="0;80;0" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="336.67;336.67;336.67" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="0" cy="295.56" r="3" fill="white">
+    <animate attributeName="cx" values="0;80;0" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="295.56;295.56;295.56" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="0" cy="254.44" r="3" fill="white">
+    <animate attributeName="cx" values="0;80;0" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="254.44;254.44;254.44" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="0" cy="213.33" r="3" fill="white">
+    <animate attributeName="cx" values="0;80;0" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="213.33;213.33;213.33" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="0" cy="172.22" r="3" fill="white">
+    <animate attributeName="cx" values="0;80;0" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="172.22;172.22;172.22" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="0" cy="131.11" r="3" fill="white">
+    <animate attributeName="cx" values="0;80;0" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="131.11;131.11;131.11" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="0" cy="90" r="3" fill="white">
+    <animate attributeName="cx" values="0;80;0" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="90;90;90" dur="20s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Group 2: Inner display border (20 bubbles) -->
+  <!-- Top edge of display: final y = 70, x values from 120 to 300; initial y = 20 -->
+  <circle cx="120" cy="20" r="3" fill="white">
+    <animate attributeName="cx" values="120;120;120" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="20;70;20" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="165" cy="20" r="3" fill="white">
+    <animate attributeName="cx" values="165;165;165" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="20;70;20" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="210" cy="20" r="3" fill="white">
+    <animate attributeName="cx" values="210;210;210" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="20;70;20" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="255" cy="20" r="3" fill="white">
+    <animate attributeName="cx" values="255;255;255" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="20;70;20" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="300" cy="20" r="3" fill="white">
+    <animate attributeName="cx" values="300;300;300" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="20;70;20" dur="20s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Right edge of display: final x = 300, y values from 80 to 130; initial x = 350 -->
+  <circle cx="350" cy="80" r="3" fill="white">
+    <animate attributeName="cx" values="350;300;350" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="80;80;80" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="350" cy="92.5" r="3" fill="white">
+    <animate attributeName="cx" values="350;300;350" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="92.5;92.5;92.5" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="350" cy="105" r="3" fill="white">
+    <animate attributeName="cx" values="350;300;350" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="105;105;105" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="350" cy="117.5" r="3" fill="white">
+    <animate attributeName="cx" values="350;300;350" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="117.5;117.5;117.5" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="350" cy="130" r="3" fill="white">
+    <animate attributeName="cx" values="350;300;350" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="130;130;130" dur="20s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Bottom edge of display: final y = 130, x values from 300 to 120; initial y = 180 -->
+  <circle cx="300" cy="180" r="3" fill="white">
+    <animate attributeName="cx" values="300;300;300" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="180;130;180" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="255" cy="180" r="3" fill="white">
+    <animate attributeName="cx" values="255;255;255" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="180;130;180" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="210" cy="180" r="3" fill="white">
+    <animate attributeName="cx" values="210;210;210" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="180;130;180" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="165" cy="180" r="3" fill="white">
+    <animate attributeName="cx" values="165;165;165" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="180;130;180" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="120" cy="180" r="3" fill="white">
+    <animate attributeName="cx" values="120;120;120" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="180;130;180" dur="20s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Left edge of display: final x = 120, y values from 125 to 75; initial x = 70 -->
+  <circle cx="70" cy="125" r="3" fill="white">
+    <animate attributeName="cx" values="70;120;70" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="125;125;125" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="70" cy="112.5" r="3" fill="white">
+    <animate attributeName="cx" values="70;120;70" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="112.5;112.5;112.5" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="70" cy="100" r="3" fill="white">
+    <animate attributeName="cx" values="70;120;70" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="100;100;100" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="70" cy="87.5" r="3" fill="white">
+    <animate attributeName="cx" values="70;120;70" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="87.5;87.5;87.5" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="70" cy="75" r="3" fill="white">
+    <animate attributeName="cx" values="70;120;70" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="75;75;75" dur="20s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Group 3: Product grid (20 bubbles) -->
+  <!-- Grid rows: y = 150, 225, 300, 375, 450; columns: x = 100, 166.67, 233.33, 300 -->
+  <!-- Initial positions are 30 left and 30 down from final positions -->
+  <!-- Row 0 -->
+  <circle cx="70" cy="180" r="3" fill="white">
+    <animate attributeName="cx" values="70;100;70" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="180;150;180" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="136.67" cy="180" r="3" fill="white">
+    <animate attributeName="cx" values="136.67;166.67;136.67" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="180;150;180" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="203.33" cy="180" r="3" fill="white">
+    <animate attributeName="cx" values="203.33;233.33;203.33" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="180;150;180" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="270" cy="180" r="3" fill="white">
+    <animate attributeName="cx" values="270;300;270" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="180;150;180" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <!-- Row 1 -->
+  <circle cx="70" cy="255" r="3" fill="white">
+    <animate attributeName="cx" values="70;100;70" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="255;225;255" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="136.67" cy="255" r="3" fill="white">
+    <animate attributeName="cx" values="136.67;166.67;136.67" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="255;225;255" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="203.33" cy="255" r="3" fill="white">
+    <animate attributeName="cx" values="203.33;233.33;203.33" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="255;225;255" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="270" cy="255" r="3" fill="white">
+    <animate attributeName="cx" values="270;300;270" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="255;225;255" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <!-- Row 2 -->
+  <circle cx="70" cy="330" r="3" fill="white">
+    <animate attributeName="cx" values="70;100;70" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="330;300;330" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="136.67" cy="330" r="3" fill="white">
+    <animate attributeName="cx" values="136.67;166.67;136.67" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="330;300;330" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="203.33" cy="330" r="3" fill="white">
+    <animate attributeName="cx" values="203.33;233.33;203.33" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="330;300;330" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="270" cy="330" r="3" fill="white">
+    <animate attributeName="cx" values="270;300;270" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="330;300;330" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <!-- Row 3 -->
+  <circle cx="70" cy="405" r="3" fill="white">
+    <animate attributeName="cx" values="70;100;70" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="405;375;405" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="136.67" cy="405" r="3" fill="white">
+    <animate attributeName="cx" values="136.67;166.67;136.67" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="405;375;405" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="203.33" cy="405" r="3" fill="white">
+    <animate attributeName="cx" values="203.33;233.33;203.33" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="405;375;405" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="270" cy="405" r="3" fill="white">
+    <animate attributeName="cx" values="270;300;270" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="405;375;405" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <!-- Row 4 -->
+  <circle cx="70" cy="480" r="3" fill="white">
+    <animate attributeName="cx" values="70;100;70" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="480;450;480" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="136.67" cy="480" r="3" fill="white">
+    <animate attributeName="cx" values="136.67;166.67;136.67" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="480;450;480" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="203.33" cy="480" r="3" fill="white">
+    <animate attributeName="cx" values="203.33;233.33;203.33" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="480;450;480" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="270" cy="480" r="3" fill="white">
+    <animate attributeName="cx" values="270;300;270" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="480;450;480" dur="20s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Group 4: Decorative row (20 bubbles) -->
+  <!-- A horizontal row from x = 100 to 300 at final y = 60; initial y = 10 -->
+  <circle cx="100" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="100;100;100" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="110.53" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="110.53;110.53;110.53" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="121.05" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="121.05;121.05;121.05" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="131.58" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="131.58;131.58;131.58" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="142.11" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="142.11;142.11;142.11" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="152.63" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="152.63;152.63;152.63" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="163.16" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="163.16;163.16;163.16" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="173.68" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="173.68;173.68;173.68" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="184.21" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="184.21;184.21;184.21" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="194.74" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="194.74;194.74;194.74" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="205.26" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="205.26;205.26;205.26" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="215.79" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="215.79;215.79;215.79" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="226.32" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="226.32;226.32;226.32" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="236.84" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="236.84;236.84;236.84" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="247.37" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="247.37;247.37;247.37" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="257.89" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="257.89;257.89;257.89" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="268.42" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="268.42;268.42;268.42" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="278.95" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="278.95;278.95;278.95" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="289.47" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="289.47;289.47;289.47" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="300" cy="10" r="3" fill="white">
+    <animate attributeName="cx" values="300;300;300" dur="20s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="10;60;10" dur="20s" repeatCount="indefinite" />
+  </circle>
+</svg>
