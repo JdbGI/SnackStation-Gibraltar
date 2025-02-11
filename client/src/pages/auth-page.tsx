@@ -36,7 +36,7 @@ export default function AuthPage() {
         <div className="w-full max-w-md">
           <Card>
             <CardHeader>
-              <CardTitle>Customer Login</CardTitle>
+              <CardTitle>Partner Login</CardTitle>
               <CardDescription>
                 Access your vending machine statistics and reports
               </CardDescription>

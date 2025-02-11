@@ -47,7 +47,7 @@ export default function Navbar() {
               </Button>
             ) : (
               <Button variant="outline" asChild>
-                <Link href="/auth">Customer Login</Link>
+                <Link href="/auth">Partner Login</Link>
               </Button>
             )}
 
