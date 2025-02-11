@@ -44,13 +44,13 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="border-b">
+      <header className="border-b bg-card">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <h1 className="text-xl font-semibold">Admin Dashboard</h1>
-          <Button asChild>
+          <Button size="lg" asChild>
             <Link href="/admin/partners/new">
-              <UserPlus className="h-4 w-4 mr-2" />
-              Add Partner
+              <UserPlus className="h-5 w-5 mr-2" />
+              Add New Partner
             </Link>
           </Button>
         </div>
