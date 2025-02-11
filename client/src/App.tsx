@@ -9,7 +9,6 @@ import { ProtectedRoute } from "./lib/protected-route";
 import AuthPage from "@/pages/auth-page";
 import Dashboard from "@/pages/dashboard";
 import AdminDashboard from "@/pages/admin/dashboard";
-import NewPartner from "@/pages/admin/new-partner";
 import { useAuth } from "@/hooks/use-auth";
 import { Redirect, Route as WouterRoute } from "wouter";
 
@@ -40,12 +39,11 @@ function AdminRoute({
 function Router() {
   return (
     <Switch>
-      <WouterRoute path="/" component={Home} />
-      <WouterRoute path="/auth" component={AuthPage} />
+      <Route path="/" component={Home} />
+      <Route path="/auth" component={AuthPage} />
       <ProtectedRoute path="/dashboard" component={Dashboard} />
       <AdminRoute path="/admin" component={AdminDashboard} />
-      <AdminRoute path="/admin/new-partner" component={NewPartner} />
-      <WouterRoute component={NotFound} />
+      <Route component={NotFound} />
     </Switch>
   );
 }
