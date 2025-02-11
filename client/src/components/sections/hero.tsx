@@ -38,114 +38,260 @@ export default function Hero() {
             {/* Black background */}
             <rect width="400" height="600" className="fill-background" />
 
-            {/* Outer corners (approximate) */}
-            {/* Top left corner (final: 80,30) */}
-            <circle cx="50" cy="0" r="4" className="fill-primary">
-              <animate attributeName="cx" values="50;80;50" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="0;30;0" dur="20s" repeatCount="indefinite" />
-            </circle>
-            {/* Top right corner (final: 320,30) */}
-            <circle cx="350" cy="0" r="4" className="fill-primary">
-              <animate attributeName="cx" values="350;320;350" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="0;30;0" dur="20s" repeatCount="indefinite" />
-            </circle>
-            {/* Bottom left corner (final: 80,570) */}
-            <circle cx="60" cy="600" r="4" className="fill-primary">
+            {/* =======================
+                 1. OUTER MACHINE EDGES
+                 ======================= */}
+
+            {/* --- Top Edge (5 circles) --- */}
+            {/* Circle 1 */}
+            <circle cx="60" cy="0" r="3" className="fill-primary">
               <animate attributeName="cx" values="60;80;60" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="600;570;600" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="0;30;0" dur="20s" repeatCount="indefinite" />
             </circle>
-            {/* Bottom right corner (final: 320,570) */}
-            <circle cx="340" cy="600" r="4" className="fill-primary">
+            {/* Circle 2 */}
+            <circle cx="140" cy="10" r="3" className="fill-primary">
+              <animate attributeName="cx" values="140;140;140" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="10;30;10" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 3 */}
+            <circle cx="220" cy="0" r="3" className="fill-primary">
+              <animate attributeName="cx" values="220;200;220" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="0;30;0" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 4 */}
+            <circle cx="280" cy="15" r="3" className="fill-primary">
+              <animate attributeName="cx" values="280;260;280" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="15;30;15" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 5 */}
+            <circle cx="340" cy="0" r="3" className="fill-primary">
               <animate attributeName="cx" values="340;320;340" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="0;30;0" dur="20s" repeatCount="indefinite" />
+            </circle>
+
+            {/* --- Left Edge (6 circles) --- */}
+            {/* Circle 6 */}
+            <circle cx="40" cy="50" r="3" className="fill-primary">
+              <animate attributeName="cx" values="40;80;40" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="50;30;50" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 7 */}
+            <circle cx="20" cy="150" r="3" className="fill-primary">
+              <animate attributeName="cx" values="20;80;20" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="150;150;150" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 8 */}
+            <circle cx="40" cy="250" r="3" className="fill-primary">
+              <animate attributeName="cx" values="40;80;40" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="250;230;250" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 9 */}
+            <circle cx="60" cy="350" r="3" className="fill-primary">
+              <animate attributeName="cx" values="60;80;60" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="350;330;350" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 10 */}
+            <circle cx="30" cy="450" r="3" className="fill-primary">
+              <animate attributeName="cx" values="30;80;30" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="450;430;450" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 11 */}
+            <circle cx="50" cy="550" r="3" className="fill-primary">
+              <animate attributeName="cx" values="50;80;50" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="550;570;550" dur="20s" repeatCount="indefinite" />
+            </circle>
+
+            {/* --- Right Edge (6 circles) --- */}
+            {/* Circle 12 */}
+            <circle cx="370" cy="50" r="3" className="fill-primary">
+              <animate attributeName="cx" values="370;320;370" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="50;30;50" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 13 */}
+            <circle cx="380" cy="150" r="3" className="fill-primary">
+              <animate attributeName="cx" values="380;320;380" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="150;150;150" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 14 */}
+            <circle cx="360" cy="250" r="3" className="fill-primary">
+              <animate attributeName="cx" values="360;320;360" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="250;230;250" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 15 */}
+            <circle cx="390" cy="350" r="3" className="fill-primary">
+              <animate attributeName="cx" values="390;320;390" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="350;330;350" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 16 */}
+            <circle cx="370" cy="450" r="3" className="fill-primary">
+              <animate attributeName="cx" values="370;320;370" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="450;430;450" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 17 */}
+            <circle cx="380" cy="550" r="3" className="fill-primary">
+              <animate attributeName="cx" values="380;320;380" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="550;570;550" dur="20s" repeatCount="indefinite" />
+            </circle>
+
+            {/* --- Bottom Edge (5 circles) --- */}
+            {/* Circle 18 */}
+            <circle cx="100" cy="600" r="3" className="fill-primary">
+              <animate attributeName="cx" values="100;80;100" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="600;570;600" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 19 */}
+            <circle cx="150" cy="590" r="3" className="fill-primary">
+              <animate attributeName="cx" values="150;140;150" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="590;570;590" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 20 */}
+            <circle cx="210" cy="610" r="3" className="fill-primary">
+              <animate attributeName="cx" values="210;200;210" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="610;570;610" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 21 */}
+            <circle cx="270" cy="590" r="3" className="fill-primary">
+              <animate attributeName="cx" values="270;260;270" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="590;570;590" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 22 */}
+            <circle cx="330" cy="600" r="3" className="fill-primary">
+              <animate attributeName="cx" values="330;320;330" dur="20s" repeatCount="indefinite" />
               <animate attributeName="cy" values="600;570;600" dur="20s" repeatCount="indefinite" />
             </circle>
 
-            {/* Outer edges (roughly shaped) */}
-            {/* Left edge, mid-upper (final: 80,150) */}
-            <circle cx="40" cy="140" r="3" className="fill-primary">
-              <animate attributeName="cx" values="40;80;40" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="140;150;140" dur="20s" repeatCount="indefinite" />
-            </circle>
-            {/* Left edge, mid-lower (final: 80,400) */}
-            <circle cx="30" cy="430" r="3" className="fill-primary">
-              <animate attributeName="cx" values="30;80;30" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="430;400;430" dur="20s" repeatCount="indefinite" />
-            </circle>
-            {/* Right edge, mid-upper (final: 320,150) */}
-            <circle cx="370" cy="130" r="3" className="fill-primary">
-              <animate attributeName="cx" values="370;320;370" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="130;150;130" dur="20s" repeatCount="indefinite" />
-            </circle>
-            {/* Right edge, mid-lower (final: 320,400) */}
-            <circle cx="360" cy="420" r="3" className="fill-primary">
-              <animate attributeName="cx" values="360;320;360" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="420;400;420" dur="20s" repeatCount="indefinite" />
-            </circle>
+            {/* =======================
+                 2. MAIN GLASS DISPLAY
+                 ======================= */}
 
-            {/* Large display window area (approx from 90,60 to 310,420) */}
-            {/* Top left of window */}
-            <circle cx="70" cy="20" r="3" className="fill-primary">
-              <animate attributeName="cx" values="70;90;70" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="20;60;20" dur="20s" repeatCount="indefinite" />
+            {/* --- Top Edge of Display (4 circles) --- */}
+            {/* Circle 23 */}
+            <circle cx="80" cy="40" r="3" className="fill-primary">
+              <animate attributeName="cx" values="80;100;80" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="40;70;40" dur="20s" repeatCount="indefinite" />
             </circle>
-            {/* Top right of window */}
-            <circle cx="330" cy="50" r="3" className="fill-primary">
-              <animate attributeName="cx" values="330;310;330" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="50;60;50" dur="20s" repeatCount="indefinite" />
+            {/* Circle 24 */}
+            <circle cx="160" cy="60" r="3" className="fill-primary">
+              <animate attributeName="cx" values="160;180;160" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="60;70;60" dur="20s" repeatCount="indefinite" />
             </circle>
-            {/* Bottom left of window */}
-            <circle cx="60" cy="450" r="3" className="fill-primary">
-              <animate attributeName="cx" values="60;90;60" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="450;420;450" dur="20s" repeatCount="indefinite" />
-            </circle>
-            {/* Bottom right of window */}
-            <circle cx="330" cy="450" r="3" className="fill-primary">
-              <animate attributeName="cx" values="330;310;330" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="450;420;450" dur="20s" repeatCount="indefinite" />
-            </circle>
-
-            {/* Payment/display section (roughly top-right area) */}
-            {/* Display top-left */}
+            {/* Circle 25 */}
             <circle cx="220" cy="40" r="3" className="fill-primary">
-              <animate attributeName="cx" values="220;230;220" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="40;80;40" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cx" values="220;240;220" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="40;70;40" dur="20s" repeatCount="indefinite" />
             </circle>
-            {/* Display top-right */}
-            <circle cx="320" cy="40" r="3" className="fill-primary">
-              <animate attributeName="cx" values="320;310;320" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="40;80;40" dur="20s" repeatCount="indefinite" />
-            </circle>
-            {/* Display bottom-left */}
-            <circle cx="210" cy="120" r="3" className="fill-primary">
-              <animate attributeName="cx" values="210;230;210" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="120;130;120" dur="20s" repeatCount="indefinite" />
-            </circle>
-            {/* Display bottom-right */}
-            <circle cx="320" cy="140" r="3" className="fill-primary">
-              <animate attributeName="cx" values="320;310;320" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="140;130;140" dur="20s" repeatCount="indefinite" />
+            {/* Circle 26 */}
+            <circle cx="340" cy="50" r="3" className="fill-primary">
+              <animate attributeName="cx" values="340;300;340" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="50;70;50" dur="20s" repeatCount="indefinite" />
             </circle>
 
-            {/* Push panel near bottom */}
-            {/* Top left of push panel */}
-            <circle cx="130" cy="480" r="4" className="fill-primary">
-              <animate attributeName="cx" values="130;150;130" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="480;470;480" dur="20s" repeatCount="indefinite" />
+            {/* --- Bottom Edge of Display (4 circles) --- */}
+            {/* Circle 27 */}
+            <circle cx="80" cy="460" r="3" className="fill-primary">
+              <animate attributeName="cx" values="80;100;80" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="460;430;460" dur="20s" repeatCount="indefinite" />
             </circle>
-            {/* Top right of push panel */}
-            <circle cx="270" cy="480" r="4" className="fill-primary">
-              <animate attributeName="cx" values="270;250;270" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="480;470;480" dur="20s" repeatCount="indefinite" />
+            {/* Circle 28 */}
+            <circle cx="160" cy="450" r="3" className="fill-primary">
+              <animate attributeName="cx" values="160;180;160" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="450;430;450" dur="20s" repeatCount="indefinite" />
             </circle>
-            {/* Bottom left of push panel */}
-            <circle cx="140" cy="520" r="4" className="fill-primary">
-              <animate attributeName="cx" values="140;150;140" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="520;510;520" dur="20s" repeatCount="indefinite" />
+            {/* Circle 29 */}
+            <circle cx="220" cy="460" r="3" className="fill-primary">
+              <animate attributeName="cx" values="220;240;220" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="460;430;460" dur="20s" repeatCount="indefinite" />
             </circle>
-            {/* Bottom right of push panel */}
-            <circle cx="280" cy="525" r="4" className="fill-primary">
-              <animate attributeName="cx" values="280;250;280" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="525;510;525" dur="20s" repeatCount="indefinite" />
+            {/* Circle 30 */}
+            <circle cx="340" cy="420" r="3" className="fill-primary">
+              <animate attributeName="cx" values="340;300;340" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="420;430;420" dur="20s" repeatCount="indefinite" />
+            </circle>
+
+            {/* --- Left Edge of Display (3 circles) --- */}
+            {/* Circle 31 */}
+            <circle cx="60" cy="120" r="3" className="fill-primary">
+              <animate attributeName="cx" values="60;100;60" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="120;70;120" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 32 */}
+            <circle cx="70" cy="240" r="3" className="fill-primary">
+              <animate attributeName="cx" values="70;100;70" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="240;250;240" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 33 */}
+            <circle cx="80" cy="360" r="3" className="fill-primary">
+              <animate attributeName="cx" values="80;100;80" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="360;430;360" dur="20s" repeatCount="indefinite" />
+            </circle>
+
+            {/* --- Right Edge of Display (3 circles) --- */}
+            {/* Circle 34 */}
+            <circle cx="360" cy="120" r="3" className="fill-primary">
+              <animate attributeName="cx" values="360;300;360" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="120;70;120" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 35 */}
+            <circle cx="350" cy="240" r="3" className="fill-primary">
+              <animate attributeName="cx" values="350;300;350" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="240;250;240" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 36 */}
+            <circle cx="340" cy="360" r="3" className="fill-primary">
+              <animate attributeName="cx" values="340;300;340" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="360;430;360" dur="20s" repeatCount="indefinite" />
+            </circle>
+
+            {/* ==================
+                 3. PUSH PANEL
+                 ================== */}
+
+            {/* Corners */}
+            {/* Circle 37 */}
+            <circle cx="110" cy="500" r="4" className="fill-primary">
+              <animate attributeName="cx" values="110;130;110" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="500;480;500" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 38 */}
+            <circle cx="290" cy="500" r="4" className="fill-primary">
+              <animate attributeName="cx" values="290;270;290" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="500;480;500" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 39 */}
+            <circle cx="120" cy="550" r="4" className="fill-primary">
+              <animate attributeName="cx" values="120;130;120" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="550;530;550" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 40 */}
+            <circle cx="280" cy="550" r="4" className="fill-primary">
+              <animate attributeName="cx" values="280;270;280" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="550;530;550" dur="20s" repeatCount="indefinite" />
+            </circle>
+
+            {/* ====================
+                 4. PAYMENT AREA
+                 ==================== */}
+
+            {/* Corners */}
+            {/* Circle 41 */}
+            <circle cx="210" cy="20" r="3" className="fill-primary">
+              <animate attributeName="cx" values="210;230;210" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="20;40;20" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 42 */}
+            <circle cx="330" cy="20" r="3" className="fill-primary">
+              <animate attributeName="cx" values="330;310;330" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="20;40;20" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 43 */}
+            <circle cx="220" cy="160" r="3" className="fill-primary">
+              <animate attributeName="cx" values="220;230;220" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="160;140;160" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Circle 44 */}
+            <circle cx="330" cy="160" r="3" className="fill-primary">
+              <animate attributeName="cx" values="330;310;330" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="160;140;160" dur="20s" repeatCount="indefinite" />
             </circle>
           </svg>
         </motion.div>
