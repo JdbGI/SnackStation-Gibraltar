@@ -20,7 +20,12 @@ export default function AuthPage() {
 
   useEffect(() => {
     if (user) {
-      setLocation("/dashboard");
+      // Redirect admin users to the admin dashboard
+      if (user.isAdmin) {
+        setLocation("/admin");
+      } else {
+        setLocation("/dashboard");
+      }
     }
   }, [user, setLocation]);
 
