@@ -36,12 +36,18 @@ export default function AdminDashboard() {
             </CardHeader>
             <CardContent>
               <div className="grid gap-4">
-                <Button 
-                  className="justify-start" 
-                  onClick={() => setLocation("/admin/partners")}
-                >
-                  Manage Partners
-                </Button>
+              <Button 
+                className="justify-start" 
+                onClick={() => setLocation("/admin/new-partner")}
+              >
+                Add Partner
+              </Button>
+              <Button 
+                className="justify-start" 
+                onClick={() => setLocation("/admin/partners")}
+              >
+                Manage Partners
+              </Button>
                 <Button 
                   className="justify-start"
                   onClick={() => setLocation("/admin/machines")}
