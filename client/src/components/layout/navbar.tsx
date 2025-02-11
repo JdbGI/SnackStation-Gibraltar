@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { useState } from "react";
+import { Link } from "wouter";
+import { useAuth } from "@/hooks/use-auth";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { user } = useAuth();
 
   const menuItems = [
     { label: "About", href: "#about" },
@@ -37,14 +40,26 @@ export default function Navbar() {
             ))}
           </div>
 
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            <Menu className="h-6 w-6" />
-          </Button>
+          <div className="flex items-center gap-4">
+            {user ? (
+              <Button asChild>
+                <Link href="/dashboard">Dashboard</Link>
+              </Button>
+            ) : (
+              <Button variant="outline" asChild>
+                <Link href="/auth">Customer Login</Link>
+              </Button>
+            )}
+
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              <Menu className="h-6 w-6" />
+            </Button>
+          </div>
         </div>
 
         {isOpen && (
