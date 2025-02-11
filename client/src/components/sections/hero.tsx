@@ -35,146 +35,64 @@ export default function Hero() {
           className="relative flex justify-center"
         >
           <svg width="400" height="600" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-md">
+            <defs>
+              {/* Define the vending machine shape as a clipPath */}
+              <clipPath id="machineClip">
+                <path d="M80,30 
+                         L320,30
+                         L320,570
+                         L80,570
+                         Z" />
+              </clipPath>
+
+              {/* Create a symbol for the halftone dots pattern */}
+              <symbol id="halftonePattern" viewBox="0 0 400 600">
+                <g>
+                  {/* Generate a grid of circles for the halftone effect */}
+                  {Array.from({ length: 20 }).map((_, row) =>
+                    Array.from({ length: 15 }).map((_, col) => (
+                      <circle
+                        key={`${row}-${col}`}
+                        cx={col * 30 + (row % 2 ? 15 : 0)}
+                        cy={row * 30}
+                        r="3"
+                        className="fill-primary"
+                      >
+                        <animate
+                          attributeName="r"
+                          values="2;4;2"
+                          dur={`${2 + Math.random()}s`}
+                          repeatCount="indefinite"
+                        />
+                      </circle>
+                    ))
+                  )}
+                </g>
+              </symbol>
+            </defs>
+
             {/* Black background */}
             <rect width="400" height="600" className="fill-background" />
 
-            {/* Group 1: Outer border (40 bubbles) */}
-            {/* Top edge: final y = 50, initial y = 0; x values from 80 to 320 */}
-            {Array.from({ length: 10 }).map((_, i) => {
-              const x = 80 + (i * 240) / 9;
-              return (
-                <circle key={`top-${i}`} cx={x} cy="0" r="3" className="fill-primary">
-                  <animate
-                    attributeName="cx"
-                    values={`${x};${x};${x}`}
-                    dur="20s"
-                    repeatCount="indefinite"
-                  />
-                  <animate
-                    attributeName="cy"
-                    values="0;50;0"
-                    dur="20s"
-                    repeatCount="indefinite"
-                  />
-                </circle>
-              );
-            })}
-
-            {/* Right edge: final x = 320, y values from 60 to 500, initial x = 400 */}
-            {Array.from({ length: 10 }).map((_, i) => {
-              const y = 60 + (i * 440) / 9;
-              return (
-                <circle key={`right-${i}`} cx="400" cy={y} r="3" className="fill-primary">
-                  <animate
-                    attributeName="cx"
-                    values="400;320;400"
-                    dur="20s"
-                    repeatCount="indefinite"
-                  />
-                  <animate
-                    attributeName="cy"
-                    values={`${y};${y};${y}`}
-                    dur="20s"
-                    repeatCount="indefinite"
-                  />
-                </circle>
-              );
-            })}
-
-            {/* Bottom edge: final y = 500, initial y = 600 */}
-            {Array.from({ length: 10 }).map((_, i) => {
-              const x = 320 - (i * 240) / 9;
-              return (
-                <circle key={`bottom-${i}`} cx={x} cy="600" r="3" className="fill-primary">
-                  <animate
-                    attributeName="cx"
-                    values={`${x};${x};${x}`}
-                    dur="20s"
-                    repeatCount="indefinite"
-                  />
-                  <animate
-                    attributeName="cy"
-                    values="600;500;600"
-                    dur="20s"
-                    repeatCount="indefinite"
-                  />
-                </circle>
-              );
-            })}
-
-            {/* Left edge: final x = 80, initial x = 0 */}
-            {Array.from({ length: 10 }).map((_, i) => {
-              const y = 460 - (i * 370) / 9;
-              return (
-                <circle key={`left-${i}`} cx="0" cy={y} r="3" className="fill-primary">
-                  <animate
-                    attributeName="cx"
-                    values="0;80;0"
-                    dur="20s"
-                    repeatCount="indefinite"
-                  />
-                  <animate
-                    attributeName="cy"
-                    values={`${y};${y};${y}`}
-                    dur="20s"
-                    repeatCount="indefinite"
-                  />
-                </circle>
-              );
-            })}
-
-            {/* Group 2: Product grid (20 bubbles) */}
-            {Array.from({ length: 5 }).map((_, row) =>
-              Array.from({ length: 4 }).map((_, col) => {
-                const x = 100 + col * 66.67;
-                const y = 150 + row * 75;
-                const initialX = 70 + col * 66.67;
-                const initialY = 180 + row * 75;
-                return (
-                  <circle
-                    key={`grid-${row}-${col}`}
-                    cx={initialX}
-                    cy={initialY}
-                    r="3"
-                    className="fill-primary"
-                  >
-                    <animate
-                      attributeName="cx"
-                      values={`${initialX};${x};${initialX}`}
-                      dur="20s"
-                      repeatCount="indefinite"
-                    />
-                    <animate
-                      attributeName="cy"
-                      values={`${initialY};${y};${initialY}`}
-                      dur="20s"
-                      repeatCount="indefinite"
-                    />
-                  </circle>
-                );
-              })
-            )}
-
-            {/* Group 4: Decorative row (20 bubbles) */}
-            {Array.from({ length: 20 }).map((_, i) => {
-              const x = 100 + (i * 200) / 19;
-              return (
-                <circle key={`decorative-${i}`} cx={x} cy="10" r="3" className="fill-primary">
-                  <animate
-                    attributeName="cx"
-                    values={`${x};${x};${x}`}
-                    dur="20s"
-                    repeatCount="indefinite"
-                  />
-                  <animate
-                    attributeName="cy"
-                    values="10;60;10"
-                    dur="20s"
-                    repeatCount="indefinite"
-                  />
-                </circle>
-              );
-            })}
+            {/* Apply the halftone pattern with the machine clipPath */}
+            <g clipPath="url(#machineClip)">
+              {/* Use the halftone pattern */}
+              <use
+                href="#halftonePattern"
+                className="fill-primary"
+                width="400"
+                height="600"
+              >
+                {/* Add shimmer animation */}
+                <animateTransform
+                  attributeName="transform"
+                  type="translate"
+                  values="0,0; 5,-5; 0,0"
+                  dur="3s"
+                  repeatCount="indefinite"
+                />
+              </use>
+            </g>
           </svg>
         </motion.div>
       </div>
