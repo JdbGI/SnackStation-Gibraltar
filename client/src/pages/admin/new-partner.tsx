@@ -15,12 +15,14 @@ import { useLocation } from "wouter";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { ArrowLeft } from "lucide-react";
 
 export default function NewPartner() {
   const { toast } = useToast();
   const [, setLocation] = useLocation();
   const { user } = useAuth();
 
+  // Redirect if not admin
   if (!user?.isAdmin) {
     setLocation("/");
     return null;
@@ -57,8 +59,17 @@ export default function NewPartner() {
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b">
-        <div className="container mx-auto px-4 h-16 flex items-center">
-          <h1 className="text-xl font-semibold">Create New Partner</h1>
+        <div className="container mx-auto px-4">
+          <div className="h-16 flex items-center space-x-4">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={() => setLocation("/admin")}
+            >
+              <ArrowLeft className="h-5 w-5" />
+            </Button>
+            <h1 className="text-xl font-semibold">Create New Partner</h1>
+          </div>
         </div>
       </header>
 

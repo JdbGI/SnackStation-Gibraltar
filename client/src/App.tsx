@@ -10,10 +10,8 @@ import AuthPage from "@/pages/auth-page";
 import Dashboard from "@/pages/dashboard";
 import AdminDashboard from "@/pages/admin/dashboard";
 import NewPartner from "@/pages/admin/new-partner";
-import PartnerDetails from "@/pages/admin/partner-details";
 import { useAuth } from "@/hooks/use-auth";
 import { Redirect, Route as WouterRoute } from "wouter";
-import Loader2 from "@/components/ui/loader2";
 
 function AdminRoute({ 
   path, 
@@ -27,7 +25,7 @@ function AdminRoute({
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <Loader2 />
+        <div className="animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full" />
       </div>
     );
   }
@@ -46,8 +44,7 @@ function Router() {
       <WouterRoute path="/auth" component={AuthPage} />
       <ProtectedRoute path="/dashboard" component={Dashboard} />
       <AdminRoute path="/admin" component={AdminDashboard} />
-      <AdminRoute path="/admin/partners/new" component={NewPartner} />
-      <AdminRoute path="/admin/partners/:id" component={PartnerDetails} />
+      <AdminRoute path="/admin/new-partner" component={NewPartner} />
       <WouterRoute component={NotFound} />
     </Switch>
   );
