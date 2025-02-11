@@ -5,6 +5,13 @@ import { setupAuth } from "./auth";
 import { insertInquirySchema } from "@shared/schema";
 import { ZodError } from "zod";
 
+function isAdmin(req: Express.Request, res: Express.Response, next: Express.NextFunction) {
+  if (!req.isAuthenticated() || !req.user.isAdmin) {
+    return res.sendStatus(403);
+  }
+  next();
+}
+
 export function registerRoutes(app: Express): Server {
   setupAuth(app);
 
@@ -39,6 +46,21 @@ export function registerRoutes(app: Express): Server {
     const month = req.query.month ? new Date(req.query.month as string) : undefined;
     const sales = await storage.getSalesByMachine(machine.id, month);
     res.json(sales);
+  });
+
+  // Admin routes
+  app.get("/api/admin/partners", isAdmin, async (req, res) => {
+    const partners = await storage.getAllUsers();
+    res.json(partners.filter(user => !user.isAdmin));
+  });
+
+  app.get("/api/admin/partners/:id", isAdmin, async (req, res) => {
+    const partner = await storage.getUser(parseInt(req.params.id));
+    if (!partner || partner.isAdmin) {
+      return res.sendStatus(404);
+    }
+    const machines = await storage.getMachinesByUser(partner.id);
+    res.json({ partner, machines });
   });
 
   const httpServer = createServer(app);

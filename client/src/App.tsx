@@ -8,6 +8,18 @@ import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "./lib/protected-route";
 import AuthPage from "@/pages/auth-page";
 import Dashboard from "@/pages/dashboard";
+import AdminDashboard from "@/pages/admin/dashboard";
+import { useAuth } from "@/hooks/use-auth"; // Added import
+import { Redirect } from "wouter"; // Added import
+
+
+function AdminRoute(props: { path: string; component: () => React.JSX.Element }) {
+  const { user } = useAuth();
+  if (!user?.isAdmin) {
+    return <Redirect to="/" />;
+  }
+  return <Route {...props} />;
+}
 
 function Router() {
   return (
@@ -15,6 +27,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/auth" component={AuthPage} />
       <ProtectedRoute path="/dashboard" component={Dashboard} />
+      <AdminRoute path="/admin" component={AdminDashboard} />
       <Route component={NotFound} />
     </Switch>
   );

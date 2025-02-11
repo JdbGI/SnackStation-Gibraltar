@@ -6,7 +6,6 @@ import session from "express-session";
 import connectPg from "connect-pg-simple";
 
 const PostgresSessionStore = connectPg(session);
-
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const db = drizzle(pool);
 
@@ -23,6 +22,9 @@ export interface IStorage {
   // Sales operations
   getSalesByMachine(machineId: number, month?: Date): Promise<Sales[]>;
   createSales(sales: InsertSales): Promise<Sales>;
+
+  getAllUsers(): Promise<User[]>;
+  getUsersWithMachines(): Promise<(User & { machines: Machine[] })[]>;
 
   sessionStore: session.Store;
 }
@@ -76,8 +78,8 @@ export class DatabaseStorage implements IStorage {
       query = query.where(
         and(
           eq(sales.machineId, machineId),
-          sales.date >= startDate,
-          sales.date <= endDate
+          sales.date >= startDate.toISOString(),
+          sales.date <= endDate.toISOString()
         )
       );
     }
@@ -87,6 +89,21 @@ export class DatabaseStorage implements IStorage {
   async createSales(salesData: InsertSales): Promise<Sales> {
     const result = await db.insert(sales).values(salesData).returning();
     return result[0];
+  }
+
+  async getAllUsers(): Promise<User[]> {
+    return await db.select().from(users);
+  }
+
+  async getUsersWithMachines(): Promise<(User & { machines: Machine[] })[]> {
+    const allUsers = await this.getAllUsers();
+    const usersWithMachines = await Promise.all(
+      allUsers.map(async (user) => ({
+        ...user,
+        machines: await this.getMachinesByUser(user.id),
+      }))
+    );
+    return usersWithMachines;
   }
 }
 
