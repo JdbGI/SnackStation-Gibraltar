@@ -16,32 +16,21 @@ export default function Locations() {
             Our Growing Network
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Join the growing list of satisfied businesses across Gibraltar using
-            SnackStation vending solutions.
+            Join our expanding network of SnackStation locations across Gibraltar.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {[
             {
-              type: "Corporate Offices",
-              image: "https://images.unsplash.com/photo-1580785693001-bb53b8a17707",
-              count: "15+ Locations",
+              name: "Mid Harbours Small Boats Marina",
+              image: "http://www.barton.gi/wp-content/uploads/2025/02/IMG_7792-Large.jpeg",
+              description: "Serving the boating community with convenient refreshments",
             },
             {
-              type: "Business Centers",
-              image: "https://images.unsplash.com/photo-1588087889332-444c3354c8d9",
-              count: "8+ Locations",
-            },
-            {
-              type: "Tech Hubs",
-              image: "https://images.unsplash.com/photo-1561198929-06611095c95d",
-              count: "5+ Locations",
-            },
-            {
-              type: "Coworking Spaces",
-              image: "https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf",
-              count: "10+ Locations",
+              name: "Gibtelecom Mount Pleasant",
+              image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2",
+              description: "Providing snacks and drinks to the Gibtelecom team",
             },
           ].map((location, index) => (
             <motion.div
@@ -54,12 +43,12 @@ export default function Locations() {
               <Card>
                 <img
                   src={location.image}
-                  alt={location.type}
+                  alt={location.name}
                   className="w-full h-48 object-cover rounded-t-lg"
                 />
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{location.type}</h3>
-                  <p className="text-primary font-medium">{location.count}</p>
+                  <h3 className="text-xl font-semibold mb-2">{location.name}</h3>
+                  <p className="text-muted-foreground">{location.description}</p>
                 </CardContent>
               </Card>
             </motion.div>
