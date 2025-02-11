@@ -37,7 +37,7 @@ export default function Hero() {
           <img 
             src="https://www.barton.gi/wp-content/uploads/2025/02/vhm_1739290463.png" 
             alt="SnackStation Vending Machine" 
-            className="w-full max-w-sm object-contain h-auto"
+            className="w-auto h-[300px] max-w-[280px] object-contain"
           />
         </motion.div>
       </div>
