@@ -10,8 +10,10 @@ import AuthPage from "@/pages/auth-page";
 import Dashboard from "@/pages/dashboard";
 import AdminDashboard from "@/pages/admin/dashboard";
 import NewPartner from "@/pages/admin/new-partner";
+import PartnerDetails from "@/pages/admin/partner-details";
 import { useAuth } from "@/hooks/use-auth";
 import { Redirect, Route as WouterRoute } from "wouter";
+import Loader2 from "@/components/ui/loader2";
 
 function AdminRoute({ 
   path, 
@@ -23,7 +25,11 @@ function AdminRoute({
   const { user, isLoading } = useAuth();
 
   if (isLoading) {
-    return null;
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <Loader2 />
+      </div>
+    );
   }
 
   if (!user?.isAdmin) {
@@ -41,6 +47,7 @@ function Router() {
       <ProtectedRoute path="/dashboard" component={Dashboard} />
       <AdminRoute path="/admin" component={AdminDashboard} />
       <AdminRoute path="/admin/partners/new" component={NewPartner} />
+      <AdminRoute path="/admin/partners/:id" component={PartnerDetails} />
       <WouterRoute component={NotFound} />
     </Switch>
   );
