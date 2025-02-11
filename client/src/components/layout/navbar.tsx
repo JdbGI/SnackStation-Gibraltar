@@ -19,7 +19,7 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           <a href="#" className="flex items-center">
             <img 
-              src="/attached_assets/Asset 2@3x.png" 
+              src="/attached_assets/Asset 2@3xPink.png" 
               alt="SnackStation" 
               className="h-8 w-auto"
             />
