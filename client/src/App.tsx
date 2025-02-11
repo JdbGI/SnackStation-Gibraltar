@@ -11,25 +11,37 @@ import Dashboard from "@/pages/dashboard";
 import AdminDashboard from "@/pages/admin/dashboard";
 import NewPartner from "@/pages/admin/new-partner";
 import { useAuth } from "@/hooks/use-auth";
-import { Redirect } from "wouter";
+import { Redirect, Route as WouterRoute } from "wouter";
 
-function AdminRoute(props: { path: string; component: () => React.JSX.Element }) {
-  const { user } = useAuth();
+function AdminRoute({ 
+  path, 
+  component: Component 
+}: { 
+  path: string; 
+  component: () => React.JSX.Element;
+}) {
+  const { user, isLoading } = useAuth();
+
+  if (isLoading) {
+    return null;
+  }
+
   if (!user?.isAdmin) {
     return <Redirect to="/" />;
   }
-  return <Route {...props} />;
+
+  return <WouterRoute path={path} component={Component} />;
 }
 
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/auth" component={AuthPage} />
+      <WouterRoute path="/" component={Home} />
+      <WouterRoute path="/auth" component={AuthPage} />
       <ProtectedRoute path="/dashboard" component={Dashboard} />
       <AdminRoute path="/admin" component={AdminDashboard} />
       <AdminRoute path="/admin/partners/new" component={NewPartner} />
-      <Route component={NotFound} />
+      <WouterRoute component={NotFound} />
     </Switch>
   );
 }
