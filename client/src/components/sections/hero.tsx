@@ -34,64 +34,50 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="relative flex justify-center"
         >
-          <svg width="400" height="600" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-md">
+          <svg xmlns="http://www.w3.org/2000/svg" width="224" height="500" className="w-full max-w-md">
             <defs>
-              {/* Define the vending machine shape as a clipPath */}
-              <clipPath id="machineClip">
-                <path d="M80,30 
-                         L320,30
-                         L320,570
-                         L80,570
-                         Z" />
-              </clipPath>
-
-              {/* Create a symbol for the halftone dots pattern */}
-              <symbol id="halftonePattern" viewBox="0 0 400 600">
-                <g>
-                  {/* Generate a grid of circles for the halftone effect */}
-                  {Array.from({ length: 20 }).map((_, row) =>
-                    Array.from({ length: 15 }).map((_, col) => (
-                      <circle
-                        key={`${row}-${col}`}
-                        cx={col * 30 + (row % 2 ? 15 : 0)}
-                        cy={row * 30}
-                        r="3"
-                        className="fill-primary"
-                      >
-                        <animate
-                          attributeName="r"
-                          values="2;4;2"
-                          dur={`${2 + Math.random()}s`}
-                          repeatCount="indefinite"
-                        />
-                      </circle>
-                    ))
-                  )}
-                </g>
-              </symbol>
+              {/* The "wobble" filter creates a subtle displacement effect that animates over 20s */}
+              <filter id="wobble" x="-20%" y="-20%" width="140%" height="140%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.005" numOctaves="3" result="noise">
+                  <animate attributeName="baseFrequency" values="0.005;0.01;0.005" dur="20s" repeatCount="indefinite" />
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+              </filter>
             </defs>
-
-            {/* Black background */}
-            <rect width="400" height="600" className="fill-background" />
-
-            {/* Apply the halftone pattern with the machine clipPath */}
-            <g clipPath="url(#machineClip)">
-              {/* Use the halftone pattern */}
-              <use
-                href="#halftonePattern"
-                className="fill-primary"
-                width="400"
-                height="600"
-              >
-                {/* Add shimmer animation */}
-                <animateTransform
-                  attributeName="transform"
-                  type="translate"
-                  values="0,0; 5,-5; 0,0"
-                  dur="3s"
-                  repeatCount="indefinite"
-                />
-              </use>
+            {/* The group uses both the wobble filter and a slow translate animation */}
+            <g className="fill-primary" filter="url(#wobble)">
+              <animateTransform attributeName="transform" attributeType="XML" type="translate"
+                values="0 0; 2 2; 0 0" keyTimes="0;0.5;1" dur="20s" repeatCount="indefinite" />
+              <circle cx="66.967" cy="328" r="3.855"/>
+              <circle cx="78.225" cy="328" r="3.855"/>
+              <circle cx="89.483" cy="328" r="3.855"/>
+              <circle cx="100.742" cy="328" r="3.855"/>
+              <circle cx="112" cy="328" r="3.855"/>
+              <circle cx="123.258" cy="328" r="3.855"/>
+              <circle cx="134.517" cy="328" r="3.855"/>
+              <circle cx="145.775" cy="328" r="3.855"/>
+              <circle cx="157.033" cy="328" r="3.855"/>
+              <circle cx="162.662" cy="181.75" r=".523"/>
+              <circle cx="157.033" cy="172" r=".725"/>
+              <circle cx="21.933" cy="250" r=".952"/>
+              <circle cx="61.338" cy="337.75" r="5.016"/>
+              <circle cx="72.596" cy="337.75" r="5.016"/>
+              <circle cx="83.854" cy="337.75" r="5.016"/>
+              <circle cx="95.113" cy="337.75" r="4.992"/>
+              <circle cx="106.371" cy="337.75" r="4.992"/>
+              <circle cx="117.629" cy="337.75" r="4.992"/>
+              <circle cx="128.887" cy="337.75" r="4.967"/>
+              <circle cx="140.146" cy="337.75" r="4.967"/>
+              <circle cx="151.404" cy="337.75" r="4.967"/>
+              <circle cx="162.662" cy="337.75" r="4.967"/>
+              <circle cx="168.292" cy="328" r="3.855"/>
+              <circle cx="207.696" cy="259.75" r="3.463"/>
+              <circle cx="213.325" cy="250" r="4.665"/>
+              <circle cx="207.696" cy="240.25" r="3.515"/>
+              <circle cx="173.921" cy="181.75" r=".859"/>
+              <circle cx="168.292" cy="172" r="4.833"/>
+              <circle cx="162.662" cy="162.25" r="4.031"/>
+              <circle cx="16.304" cy="6.25" r="1.072"/>
             </g>
           </svg>
         </motion.div>
