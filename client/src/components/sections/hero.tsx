@@ -38,66 +38,115 @@ export default function Hero() {
             {/* Black background */}
             <rect width="400" height="600" className="fill-background" />
 
-            {/* Outer outline of vending machine */}
-            {/* 1. Top left corner (final: 80,50; initial: 50,20) */}
-            <circle cx="50" cy="20" r="4" className="fill-primary">
+            {/* Outer corners (approximate) */}
+            {/* Top left corner (final: 80,30) */}
+            <circle cx="50" cy="0" r="4" className="fill-primary">
               <animate attributeName="cx" values="50;80;50" dur="20s" repeatCount="indefinite" />
-              <animate attributeName="cy" values="20;50;20" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="0;30;0" dur="20s" repeatCount="indefinite" />
             </circle>
-            {/* Rest of the animation points */}
-            {[
-              // Top edge interior points
-              { initial: { x: 160, y: 30 }, final: { x: 140, y: 50 } },
-              { initial: { x: 210, y: 10 }, final: { x: 200, y: 50 } },
-              { initial: { x: 240, y: 70 }, final: { x: 260, y: 50 } },
-              { initial: { x: 350, y: 40 }, final: { x: 320, y: 50 } },
-              // Left edge interior points
-              { initial: { x: 20, y: 150 }, final: { x: 80, y: 150 } },
-              { initial: { x: 30, y: 300 }, final: { x: 80, y: 250 } },
-              { initial: { x: 60, y: 400 }, final: { x: 80, y: 350 } },
-              { initial: { x: 40, y: 500 }, final: { x: 80, y: 450 } },
-              // Right edge interior points
-              { initial: { x: 380, y: 120 }, final: { x: 320, y: 150 } },
-              { initial: { x: 370, y: 280 }, final: { x: 320, y: 250 } },
-              { initial: { x: 360, y: 330 }, final: { x: 320, y: 350 } },
-              { initial: { x: 390, y: 470 }, final: { x: 320, y: 450 } },
-              // Bottom edge points
-              { initial: { x: 100, y: 550 }, final: { x: 80, y: 500 } },
-              { initial: { x: 130, y: 520 }, final: { x: 140, y: 500 } },
-              { initial: { x: 190, y: 530 }, final: { x: 200, y: 500 } },
-              { initial: { x: 270, y: 510 }, final: { x: 260, y: 500 } },
-              { initial: { x: 310, y: 540 }, final: { x: 320, y: 500 } },
-              // Inner display points
-              { initial: { x: 100, y: 0 }, final: { x: 120, y: 70 } },
-              { initial: { x: 220, y: 20 }, final: { x: 210, y: 70 } },
-              { initial: { x: 310, y: 30 }, final: { x: 300, y: 70 } },
-              { initial: { x: 90, y: 160 }, final: { x: 120, y: 130 } },
-              { initial: { x: 200, y: 140 }, final: { x: 210, y: 130 } },
-              { initial: { x: 290, y: 150 }, final: { x: 300, y: 130 } },
-              { initial: { x: 60, y: 80 }, final: { x: 120, y: 100 } },
-              { initial: { x: 340, y: 90 }, final: { x: 300, y: 100 } },
-            ].map((point, index) => (
-              <circle
-                key={index}
-                cx={point.initial.x}
-                cy={point.initial.y}
-                r="4"
-                className="fill-primary"
-              >
-                <animate
-                  attributeName="cx"
-                  values={`${point.initial.x};${point.final.x};${point.initial.x}`}
-                  dur="20s"
-                  repeatCount="indefinite"
-                />
-                <animate
-                  attributeName="cy"
-                  values={`${point.initial.y};${point.final.y};${point.initial.y}`}
-                  dur="20s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-            ))}
+            {/* Top right corner (final: 320,30) */}
+            <circle cx="350" cy="0" r="4" className="fill-primary">
+              <animate attributeName="cx" values="350;320;350" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="0;30;0" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Bottom left corner (final: 80,570) */}
+            <circle cx="60" cy="600" r="4" className="fill-primary">
+              <animate attributeName="cx" values="60;80;60" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="600;570;600" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Bottom right corner (final: 320,570) */}
+            <circle cx="340" cy="600" r="4" className="fill-primary">
+              <animate attributeName="cx" values="340;320;340" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="600;570;600" dur="20s" repeatCount="indefinite" />
+            </circle>
+
+            {/* Outer edges (roughly shaped) */}
+            {/* Left edge, mid-upper (final: 80,150) */}
+            <circle cx="40" cy="140" r="3" className="fill-primary">
+              <animate attributeName="cx" values="40;80;40" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="140;150;140" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Left edge, mid-lower (final: 80,400) */}
+            <circle cx="30" cy="430" r="3" className="fill-primary">
+              <animate attributeName="cx" values="30;80;30" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="430;400;430" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Right edge, mid-upper (final: 320,150) */}
+            <circle cx="370" cy="130" r="3" className="fill-primary">
+              <animate attributeName="cx" values="370;320;370" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="130;150;130" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Right edge, mid-lower (final: 320,400) */}
+            <circle cx="360" cy="420" r="3" className="fill-primary">
+              <animate attributeName="cx" values="360;320;360" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="420;400;420" dur="20s" repeatCount="indefinite" />
+            </circle>
+
+            {/* Large display window area (approx from 90,60 to 310,420) */}
+            {/* Top left of window */}
+            <circle cx="70" cy="20" r="3" className="fill-primary">
+              <animate attributeName="cx" values="70;90;70" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="20;60;20" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Top right of window */}
+            <circle cx="330" cy="50" r="3" className="fill-primary">
+              <animate attributeName="cx" values="330;310;330" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="50;60;50" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Bottom left of window */}
+            <circle cx="60" cy="450" r="3" className="fill-primary">
+              <animate attributeName="cx" values="60;90;60" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="450;420;450" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Bottom right of window */}
+            <circle cx="330" cy="450" r="3" className="fill-primary">
+              <animate attributeName="cx" values="330;310;330" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="450;420;450" dur="20s" repeatCount="indefinite" />
+            </circle>
+
+            {/* Payment/display section (roughly top-right area) */}
+            {/* Display top-left */}
+            <circle cx="220" cy="40" r="3" className="fill-primary">
+              <animate attributeName="cx" values="220;230;220" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="40;80;40" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Display top-right */}
+            <circle cx="320" cy="40" r="3" className="fill-primary">
+              <animate attributeName="cx" values="320;310;320" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="40;80;40" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Display bottom-left */}
+            <circle cx="210" cy="120" r="3" className="fill-primary">
+              <animate attributeName="cx" values="210;230;210" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="120;130;120" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Display bottom-right */}
+            <circle cx="320" cy="140" r="3" className="fill-primary">
+              <animate attributeName="cx" values="320;310;320" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="140;130;140" dur="20s" repeatCount="indefinite" />
+            </circle>
+
+            {/* Push panel near bottom */}
+            {/* Top left of push panel */}
+            <circle cx="130" cy="480" r="4" className="fill-primary">
+              <animate attributeName="cx" values="130;150;130" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="480;470;480" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Top right of push panel */}
+            <circle cx="270" cy="480" r="4" className="fill-primary">
+              <animate attributeName="cx" values="270;250;270" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="480;470;480" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Bottom left of push panel */}
+            <circle cx="140" cy="520" r="4" className="fill-primary">
+              <animate attributeName="cx" values="140;150;140" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="520;510;520" dur="20s" repeatCount="indefinite" />
+            </circle>
+            {/* Bottom right of push panel */}
+            <circle cx="280" cy="525" r="4" className="fill-primary">
+              <animate attributeName="cx" values="280;250;280" dur="20s" repeatCount="indefinite" />
+              <animate attributeName="cy" values="525;510;525" dur="20s" repeatCount="indefinite" />
+            </circle>
           </svg>
         </motion.div>
       </div>
