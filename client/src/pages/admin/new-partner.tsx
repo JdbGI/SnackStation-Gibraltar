@@ -45,7 +45,7 @@ export default function NewPartner() {
         title: "Success",
         description: "Partner account created successfully",
       });
-      setLocation("/admin");
+      setLocation("/admin/partners");
     },
     onError: (error: Error) => {
       toast({
@@ -64,7 +64,7 @@ export default function NewPartner() {
             <Button 
               variant="ghost" 
               size="icon" 
-              onClick={() => setLocation("/admin")}
+              onClick={() => setLocation("/admin/partners")}
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
@@ -144,7 +144,7 @@ export default function NewPartner() {
                 <Button
                   type="button"
                   variant="outline"
-                  onClick={() => setLocation("/admin")}
+                  onClick={() => setLocation("/admin/partners")}
                 >
                   Cancel
                 </Button>

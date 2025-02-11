@@ -5,7 +5,6 @@ import {
   Users,
   ShoppingBag,
   BarChart3,
-  Settings,
   LogOut,
   Menu,
   Plus,
@@ -42,12 +41,6 @@ const menuItems = [
     icon: BarChart3,
     href: "/admin/reports",
     description: "View sales and performance reports",
-  },
-  {
-    title: "Settings",
-    icon: Settings,
-    href: "/admin/settings",
-    description: "Configure system settings",
   },
 ];
 
@@ -150,7 +143,7 @@ export default function AdminDashboard() {
             </Button>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-8">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-8">
             {[
               {
                 label: "Total Partners",
@@ -165,11 +158,6 @@ export default function AdminDashboard() {
               {
                 label: "Monthly Revenue",
                 value: "£24,500",
-                href: "/admin/reports",
-              },
-              {
-                label: "Total Sales",
-                value: "2,450",
                 href: "/admin/reports",
               },
             ].map((stat, index) => (
