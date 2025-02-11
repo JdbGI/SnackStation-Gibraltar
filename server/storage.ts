@@ -1,13 +1,10 @@
 import { users, type User, type InsertUser, machines, type Machine, type InsertMachine, sales, type Sales, type InsertSales } from "@shared/schema";
 import { eq, and } from "drizzle-orm";
-import { drizzle } from "drizzle-orm/neon-serverless";
-import { Pool } from "@neondatabase/serverless";
 import session from "express-session";
 import connectPg from "connect-pg-simple";
+import { db, pool } from "./db";
 
 const PostgresSessionStore = connectPg(session);
-const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-const db = drizzle(pool);
 
 export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
@@ -30,11 +27,9 @@ export interface IStorage {
 }
 
 export class DatabaseStorage implements IStorage {
-  private pool: Pool;
   sessionStore: session.Store;
 
   constructor() {
-    this.pool = pool;
     this.sessionStore = new PostgresSessionStore({
       pool,
       createTableIfMissing: true,
@@ -78,8 +73,8 @@ export class DatabaseStorage implements IStorage {
       query = query.where(
         and(
           eq(sales.machineId, machineId),
-          sales.date >= startDate.toISOString(),
-          sales.date <= endDate.toISOString()
+          sales.date >= startDate, //Corrected this line
+          sales.date <= endDate   //Corrected this line
         )
       );
     }
