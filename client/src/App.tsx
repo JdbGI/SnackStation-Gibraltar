@@ -23,14 +23,20 @@ function AdminRoute({
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full" />
-      </div>
+      <WouterRoute path={path}>
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full" />
+        </div>
+      </WouterRoute>
     );
   }
 
   if (!user?.isAdmin) {
-    return <Redirect to="/" />;
+    return (
+      <WouterRoute path={path}>
+        <Redirect to="/" />
+      </WouterRoute>
+    );
   }
 
   return <WouterRoute path={path} component={Component} />;
@@ -43,6 +49,10 @@ function Router() {
       <Route path="/auth" component={AuthPage} />
       <ProtectedRoute path="/dashboard" component={Dashboard} />
       <AdminRoute path="/admin" component={AdminDashboard} />
+      <AdminRoute path="/admin/partners" component={() => <div>Partners Page (Coming Soon)</div>} />
+      <AdminRoute path="/admin/machines" component={() => <div>Machines Page (Coming Soon)</div>} />
+      <AdminRoute path="/admin/reports" component={() => <div>Reports Page (Coming Soon)</div>} />
+      <AdminRoute path="/admin/settings" component={() => <div>Settings Page (Coming Soon)</div>} />
       <Route component={NotFound} />
     </Switch>
   );
