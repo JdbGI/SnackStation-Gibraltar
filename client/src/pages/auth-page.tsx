@@ -15,9 +15,9 @@ import { useLocation } from "wouter";
 import { useEffect } from "react";
 
 export default function AuthPage() {
-  const { user, loginMutation, registerMutation } = useAuth();
+  const { user, loginMutation } = useAuth();
   const [, setLocation] = useLocation();
-  
+
   useEffect(() => {
     if (user) {
       setLocation("/dashboard");
@@ -30,19 +30,15 @@ export default function AuthPage() {
     ),
   });
 
-  const registerForm = useForm<InsertUser>({
-    resolver: zodResolver(insertUserSchema),
-  });
-
   return (
     <div className="min-h-screen grid md:grid-cols-2">
       <div className="flex items-center justify-center p-8">
-        <div className="w-full max-w-md space-y-8">
+        <div className="w-full max-w-md">
           <Card>
             <CardHeader>
-              <CardTitle>Sign In</CardTitle>
+              <CardTitle>Customer Login</CardTitle>
               <CardDescription>
-                Access your vending machine statistics
+                Access your vending machine statistics and reports
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -50,64 +46,39 @@ export default function AuthPage() {
                 onSubmit={loginForm.handleSubmit((data) => loginMutation.mutate(data))}
                 className="space-y-4"
               >
-                <Input
-                  placeholder="Username"
-                  {...loginForm.register("username")}
-                />
-                <Input
-                  type="password"
-                  placeholder="Password"
-                  {...loginForm.register("password")}
-                />
+                <div className="space-y-2">
+                  <Input
+                    placeholder="Username"
+                    {...loginForm.register("username")}
+                    className={loginForm.formState.errors.username ? "border-destructive" : ""}
+                  />
+                  {loginForm.formState.errors.username && (
+                    <p className="text-sm text-destructive">
+                      {loginForm.formState.errors.username.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <Input
+                    type="password"
+                    placeholder="Password"
+                    {...loginForm.register("password")}
+                    className={loginForm.formState.errors.password ? "border-destructive" : ""}
+                  />
+                  {loginForm.formState.errors.password && (
+                    <p className="text-sm text-destructive">
+                      {loginForm.formState.errors.password.message}
+                    </p>
+                  )}
+                </div>
+
                 <Button
                   type="submit"
                   className="w-full"
                   disabled={loginMutation.isPending}
                 >
                   {loginMutation.isPending ? "Signing in..." : "Sign In"}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Register</CardTitle>
-              <CardDescription>
-                Create a new account for your vending machine
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form
-                onSubmit={registerForm.handleSubmit((data) =>
-                  registerMutation.mutate(data)
-                )}
-                className="space-y-4"
-              >
-                <Input
-                  placeholder="Name"
-                  {...registerForm.register("name")}
-                />
-                <Input
-                  placeholder="Email"
-                  type="email"
-                  {...registerForm.register("email")}
-                />
-                <Input
-                  placeholder="Username"
-                  {...registerForm.register("username")}
-                />
-                <Input
-                  type="password"
-                  placeholder="Password"
-                  {...registerForm.register("password")}
-                />
-                <Button
-                  type="submit"
-                  className="w-full"
-                  disabled={registerMutation.isPending}
-                >
-                  {registerMutation.isPending ? "Creating..." : "Create Account"}
                 </Button>
               </form>
             </CardContent>
@@ -120,8 +91,12 @@ export default function AuthPage() {
           <h1 className="text-4xl font-bold">Welcome to SnackStation</h1>
           <p className="text-muted-foreground">
             Access your vending machine statistics, track sales, and monitor your revenue
-            sharing earnings all in one place.
+            sharing earnings all in one place. Contact us to join our network and get
+            your account credentials.
           </p>
+          <Button variant="outline" size="lg" asChild>
+            <a href="/#contact">Contact Us</a>
+          </Button>
         </div>
       </div>
     </div>
