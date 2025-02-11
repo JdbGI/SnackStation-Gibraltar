@@ -18,7 +18,7 @@ const scryptAsync = promisify(scrypt);
 async function comparePasswords(supplied: string, stored: string) {
   const [hashed, salt] = stored.split(".");
   const hashedBuf = Buffer.from(hashed, "hex");
-  const suppliedBuf = (await scryptAsync(supplied, salt, 64)) as Buffer;
+  const suppliedBuf = (await scryptAsync(supplied, salt, 32)) as Buffer;
   return timingSafeEqual(hashedBuf, suppliedBuf);
 }
 
