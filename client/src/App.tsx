@@ -9,9 +9,9 @@ import { ProtectedRoute } from "./lib/protected-route";
 import AuthPage from "@/pages/auth-page";
 import Dashboard from "@/pages/dashboard";
 import AdminDashboard from "@/pages/admin/dashboard";
-import { useAuth } from "@/hooks/use-auth"; // Added import
-import { Redirect } from "wouter"; // Added import
-
+import NewPartner from "@/pages/admin/new-partner";
+import { useAuth } from "@/hooks/use-auth";
+import { Redirect } from "wouter";
 
 function AdminRoute(props: { path: string; component: () => React.JSX.Element }) {
   const { user } = useAuth();
@@ -28,6 +28,7 @@ function Router() {
       <Route path="/auth" component={AuthPage} />
       <ProtectedRoute path="/dashboard" component={Dashboard} />
       <AdminRoute path="/admin" component={AdminDashboard} />
+      <AdminRoute path="/admin/partners/new" component={NewPartner} />
       <Route component={NotFound} />
     </Switch>
   );

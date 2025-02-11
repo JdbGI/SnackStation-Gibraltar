@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Loader2, UserPlus } from "lucide-react";
+import { Loader2, UserPlus, Building2, Package } from "lucide-react";
 import { Link } from "wouter";
 
 export default function AdminDashboard() {
@@ -66,26 +66,54 @@ export default function AdminDashboard() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="divide-y">
-                {partners?.map((partner) => (
-                  <div
-                    key={partner.id}
-                    className="py-4 flex items-center justify-between"
-                  >
-                    <div>
-                      <h3 className="font-semibold">{partner.name}</h3>
-                      <p className="text-sm text-muted-foreground">
-                        {partner.email}
-                      </p>
+              {partners?.length === 0 ? (
+                <div className="text-center py-8">
+                  <p className="text-muted-foreground mb-4">No partners yet</p>
+                  <Button asChild>
+                    <Link href="/admin/partners/new">Add Your First Partner</Link>
+                  </Button>
+                </div>
+              ) : (
+                <div className="divide-y">
+                  {partners?.map((partner) => (
+                    <div
+                      key={partner.id}
+                      className="py-4"
+                    >
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <h3 className="font-semibold">{partner.name}</h3>
+                          <p className="text-sm text-muted-foreground mb-2">
+                            {partner.email}
+                          </p>
+                          <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                            <div className="flex items-center">
+                              <Building2 className="h-4 w-4 mr-1" />
+                              <span>Company Name</span>
+                            </div>
+                            <div className="flex items-center">
+                              <Package className="h-4 w-4 mr-1" />
+                              <span>2 Machines</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex gap-2">
+                          <Button variant="outline" asChild>
+                            <Link href={`/admin/partners/${partner.id}`}>
+                              View Details
+                            </Link>
+                          </Button>
+                          <Button variant="outline" asChild>
+                            <Link href={`/admin/partners/${partner.id}/machines`}>
+                              Manage Machines
+                            </Link>
+                          </Button>
+                        </div>
+                      </div>
                     </div>
-                    <Button variant="outline" asChild>
-                      <Link href={`/admin/partners/${partner.id}`}>
-                        View Details
-                      </Link>
-                    </Button>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
             </CardContent>
           </Card>
         </div>

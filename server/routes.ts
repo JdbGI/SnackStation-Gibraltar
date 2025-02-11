@@ -1,7 +1,7 @@
 import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { setupAuth } from "./auth";
+import { setupAuth, hashPassword } from "./auth";
 import { insertInquirySchema } from "@shared/schema";
 import { ZodError } from "zod";
 
@@ -59,6 +59,49 @@ export function registerRoutes(app: Express): Server {
       res.json(sales);
     } catch (error) {
       console.error("Failed to get sales:", error);
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
+  // Admin routes for partner management
+  app.post("/api/admin/partners", isAdmin, async (req, res) => {
+    try {
+      const existingUser = await storage.getUserByUsername(req.body.username);
+      if (existingUser) {
+        return res.status(400).json({ message: "Username already exists" });
+      }
+
+      const hashedPassword = await hashPassword(req.body.password);
+      const user = await storage.createUser({
+        ...req.body,
+        password: hashedPassword,
+        isAdmin: false
+      });
+
+      res.status(201).json(user);
+    } catch (error) {
+      console.error("Failed to create partner:", error);
+      res.status(500).json({ message: "Failed to create partner" });
+    }
+  });
+
+  app.get("/api/admin/partners/:id/sales", isAdmin, async (req, res) => {
+    try {
+      const partner = await storage.getUser(parseInt(req.params.id));
+      if (!partner || partner.isAdmin) {
+        return res.status(404).json({ message: "Partner not found" });
+      }
+
+      const machines = await storage.getMachinesByUser(partner.id);
+      const salesPromises = machines.map(async (machine) => {
+        const sales = await storage.getSalesByMachine(machine.id);
+        return { machine, sales };
+      });
+
+      const results = await Promise.all(salesPromises);
+      res.json(results);
+    } catch (error) {
+      console.error("Failed to get partner sales:", error);
       res.status(500).json({ message: "Internal server error" });
     }
   });
