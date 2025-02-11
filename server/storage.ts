@@ -1,5 +1,5 @@
-import { users, type User, type InsertUser, machines, type Machine, type InsertMachine, sales, type Sales, type InsertSales } from "@shared/schema";
-import { eq, and } from "drizzle-orm";
+import { users, type User, type InsertUser, machines, type Machine, type InsertMachine, sales, type Sales, type InsertSales, inquiries, type Inquiry, type InsertInquiry } from "@shared/schema";
+import { eq, and, gte, lte } from "drizzle-orm";
 import session from "express-session";
 import connectPg from "connect-pg-simple";
 import { db, pool } from "./db";
@@ -10,6 +10,7 @@ export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
+  createInquiry(inquiry: InsertInquiry): Promise<Inquiry>;
 
   // Machine operations
   getMachinesByUser(userId: number): Promise<Machine[]>;
@@ -51,6 +52,11 @@ export class DatabaseStorage implements IStorage {
     return result[0];
   }
 
+  async createInquiry(inquiry: InsertInquiry): Promise<Inquiry> {
+    const result = await db.insert(inquiries).values(inquiry).returning();
+    return result[0];
+  }
+
   async getMachinesByUser(userId: number): Promise<Machine[]> {
     return await db.select().from(machines).where(eq(machines.userId, userId));
   }
@@ -67,17 +73,20 @@ export class DatabaseStorage implements IStorage {
 
   async getSalesByMachine(machineId: number, month?: Date): Promise<Sales[]> {
     let query = db.select().from(sales).where(eq(sales.machineId, machineId));
+
     if (month) {
       const startDate = new Date(month.getFullYear(), month.getMonth(), 1);
       const endDate = new Date(month.getFullYear(), month.getMonth() + 1, 0);
+
       query = query.where(
         and(
           eq(sales.machineId, machineId),
-          sales.date >= startDate, //Corrected this line
-          sales.date <= endDate   //Corrected this line
+          gte(sales.date, startDate.toISOString().split('T')[0]),
+          lte(sales.date, endDate.toISOString().split('T')[0])
         )
       );
     }
+
     return await query;
   }
 
