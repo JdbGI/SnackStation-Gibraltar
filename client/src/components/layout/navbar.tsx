@@ -17,8 +17,12 @@ export default function Navbar() {
     <nav className="fixed w-full z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          <a href="#" className="text-2xl font-bold text-primary">
-            SnackStation
+          <a href="#" className="flex items-center">
+            <img 
+              src="/attached_assets/Asset 2@3x.png" 
+              alt="SnackStation" 
+              className="h-8 w-auto"
+            />
           </a>
 
           <div className="hidden md:flex space-x-8">
