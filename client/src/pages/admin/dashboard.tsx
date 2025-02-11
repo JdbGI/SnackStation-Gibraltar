@@ -12,6 +12,7 @@ import {
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
+// Sidebar navigation items
 const menuItems = [
   {
     title: "Partners",
@@ -46,9 +47,9 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="h-screen flex bg-background">
       {/* Mobile Header */}
-      <div className="lg:hidden border-b bg-card/80 backdrop-blur-sm sticky top-0 z-50">
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 border-b bg-card/80 backdrop-blur-sm">
         <div className="flex h-16 items-center gap-4 px-4">
           <Button
             variant="ghost"
@@ -57,42 +58,42 @@ export default function AdminDashboard() {
           >
             <Menu className="h-5 w-5" />
           </Button>
-          <img src="/logo.png" alt="SnackStation" className="h-8 w-auto" />
+          <span className="font-semibold">Admin Dashboard</span>
         </div>
       </div>
 
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-50 flex w-64 flex-col bg-card/80 backdrop-blur-sm border-r transition-transform lg:translate-x-0",
+          "fixed inset-y-0 left-0 z-40 w-64 flex flex-col bg-card/80 backdrop-blur-sm border-r transition-transform lg:translate-x-0",
           !sidebarOpen && "-translate-x-full"
         )}
       >
         {/* Sidebar Header */}
-        <div className="border-b p-4">
-          <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="SnackStation" className="h-8 w-auto" />
-            <span className="font-semibold">Admin</span>
-          </div>
+        <div className="flex items-center gap-2 h-16 px-6 border-b">
+          <img src="/logo.png" alt="SnackStation" className="h-8 w-auto" />
+          <span className="font-semibold">Admin</span>
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 space-y-1 p-4">
-          {menuItems.map((item) => (
-            <Button
-              key={item.href}
-              variant="ghost"
-              className="w-full justify-start gap-2"
-              onClick={() => setLocation(item.href)}
-            >
-              <item.icon className="h-5 w-5" />
-              {item.title}
-            </Button>
-          ))}
+        <nav className="flex-1 overflow-y-auto p-4">
+          <div className="space-y-2">
+            {menuItems.map((item) => (
+              <Button
+                key={item.href}
+                variant="ghost"
+                className="w-full justify-start gap-2 h-11"
+                onClick={() => setLocation(item.href)}
+              >
+                <item.icon className="h-5 w-5" />
+                {item.title}
+              </Button>
+            ))}
+          </div>
         </nav>
 
         {/* Footer */}
-        <div className="border-t p-4">
+        <div className="p-4 border-t">
           <Button
             variant="ghost"
             className="w-full justify-start gap-2"
@@ -105,12 +106,10 @@ export default function AdminDashboard() {
       </aside>
 
       {/* Main Content */}
-      <main
-        className={cn(
-          "min-h-screen transition-all duration-200",
-          sidebarOpen ? "lg:pl-64" : ""
-        )}
-      >
+      <main className={cn(
+        "flex-1 overflow-y-auto transition-all duration-200 pt-16 lg:pt-0",
+        sidebarOpen ? "lg:pl-64" : ""
+      )}>
         <div className="container mx-auto p-8">
           <div className="mb-8">
             <h1 className="text-4xl font-bold">Welcome back, {user.name}</h1>
@@ -119,7 +118,7 @@ export default function AdminDashboard() {
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { label: "Total Partners", value: "24" },
               { label: "Active Machines", value: "156" },
