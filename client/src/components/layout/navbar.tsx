@@ -3,6 +3,7 @@ import { Menu } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
 import { useAuth } from "@/hooks/use-auth";
+import { SiWhatsapp } from "react-icons/si";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +16,8 @@ export default function Navbar() {
     { label: "Locations", href: "#locations" },
     { label: "Contact", href: "#contact" },
   ];
+
+  const whatsappLink = "https://wa.me/35054004002";
 
   return (
     <nav className="fixed w-full z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -42,6 +45,16 @@ export default function Navbar() {
 
           <div className="flex items-center gap-4">
             <Button
+              variant="outline"
+              size="icon"
+              className="hidden md:flex"
+              asChild
+            >
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                <SiWhatsapp className="h-5 w-5 text-green-600" />
+              </a>
+            </Button>
+            <Button
               variant="ghost"
               size="icon"
               className="md:hidden"
@@ -64,6 +77,16 @@ export default function Navbar() {
                 {item.label}
               </a>
             ))}
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 py-2 text-green-600 hover:text-green-700 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              <SiWhatsapp className="h-5 w-5" />
+              WhatsApp Us
+            </a>
           </div>
         )}
       </div>
