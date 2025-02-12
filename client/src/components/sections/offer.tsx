@@ -29,9 +29,9 @@ export default function Offer() {
               title: "High-Performing Locations",
               subtitle: "Fully Managed, No Cost",
               description:
-                "Perfect for sites with high footfall and significant sales potential. No upfront or ongoing costs, with full supply, installation, stocking and maintenance included.",
-              idealFor: "Large offices, busy public spaces, and tourist hubs such as Main Street or Casemates Square.",
-              features: ["Free installation", "No ongoing costs", "Full management", "Enhanced service"],
+                "Ideal for high-footfall locations where management prioritise providing users with convenient access to snacks and drinks. No upfront or ongoing costs—SnackStation handles full supply, installation, stocking, and maintenance, ensuring a hassle-free solution.",
+              idealFor: "Ideal For: Large offices, residential complexes, and public access areas.",
+              features: ["Free installation", "No ongoing costs", "Full management"],
             },
             {
               title: "Lower Footfall Locations",
