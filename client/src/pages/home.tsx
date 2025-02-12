@@ -16,8 +16,8 @@ export default function Home() {
         <About />
         <Brands />
         <Benefits />
-        <Locations />
         <Offer />
+        <Locations />
         <Contact />
       </main>
       <footer className="py-4 text-center text-sm text-muted-foreground border-t">
