@@ -41,16 +41,6 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
-            {user ? (
-              <Button asChild>
-                <Link href="/dashboard">Dashboard</Link>
-              </Button>
-            ) : (
-              <Button variant="outline" asChild>
-                <Link href="/auth">Partner Login</Link>
-              </Button>
-            )}
-
             <Button
               variant="ghost"
               size="icon"
