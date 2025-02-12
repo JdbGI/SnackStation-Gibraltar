@@ -19,8 +19,8 @@ export default function Contact() {
             Get a Vending Machine for Your Space
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-            Ready to get started? Contact us via WhatsApp for a quick response about
-            our free vending machine program.
+            Looking to install a vending machine? Contact us via WhatsApp for a quick response
+            and to find the best vending solution for your location.
           </p>
           <Button size="lg" className="gap-2 bg-[#25D366] hover:bg-[#25D366]/90 text-white" asChild>
             <a
