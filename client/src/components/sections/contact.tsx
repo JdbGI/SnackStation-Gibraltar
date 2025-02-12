@@ -22,7 +22,7 @@ export default function Contact() {
             Ready to get started? Contact us via WhatsApp for a quick response about
             our free vending machine program.
           </p>
-          <Button size="lg" className="gap-2" asChild>
+          <Button size="lg" className="gap-2 bg-[#25D366] hover:bg-[#25D366]/90 text-white" asChild>
             <a
               href={whatsappLink}
               target="_blank"
