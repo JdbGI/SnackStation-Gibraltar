@@ -46,7 +46,7 @@ export default function Offer() {
               subtitle: "Profit-Sharing Model",
               description:
                 "For premium locations with high commercial viability. The machine is installed and managed at no cost, with profits shared between partners.",
-              idealFor: "High-traffic commercial areas and premium business locations.",
+              idealFor: "High-traffic commercial areas and tourist hotspots.",
               features: ["No upfront cost", "Profit sharing", "Full maintenance", "Partnership benefits"],
             },
           ].map((model, index) => (
