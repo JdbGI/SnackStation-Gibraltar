@@ -3,6 +3,7 @@ import Hero from "@/components/sections/hero";
 import About from "@/components/sections/about";
 import Benefits from "@/components/sections/benefits";
 import Offer from "@/components/sections/offer";
+import Brands from "@/components/sections/brands";
 import Locations from "@/components/sections/locations";
 import Contact from "@/components/sections/contact";
 
@@ -15,6 +16,7 @@ export default function Home() {
         <About />
         <Benefits />
         <Offer />
+        <Brands />
         <Locations />
         <Contact />
       </main>
