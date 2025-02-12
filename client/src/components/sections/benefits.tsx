@@ -13,7 +13,7 @@ export default function Benefits() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Benefits for Your Business
+            Benefits for Your Location
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Discover how SnackStation can enhance your workplace environment and
@@ -24,9 +24,9 @@ export default function Benefits() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             {
-              title: "Boost Employee Satisfaction",
+              title: "Convenient Access to Snacks & Drinks",
               description:
-                "Keep your team happy and energized with easy access to their favorite snacks and drinks.",
+                "Ensure everyone in your space can easily grab their favourite snacks and drinks whenever they need them.",
               image: "https://images.unsplash.com/photo-1502323777036-f29e3972d82f",
             },
             {
