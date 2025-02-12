@@ -26,11 +26,11 @@ export default function Offer() {
         <div className="grid md:grid-cols-3 gap-8 mb-20">
           {[
             {
-              title: "High-Performing Locations",
+              title: "Standard Locations",
               subtitle: "Fully Managed, No Cost",
               description:
-                "Ideal for high-footfall locations where management prioritise providing users with convenient access to snacks and drinks. No upfront or ongoing costs—SnackStation handles full supply, installation, stocking, and maintenance, ensuring a hassle-free solution.",
-              idealFor: "Ideal For: Large offices, residential complexes, and public access areas.",
+                "Ideal for locations where management prioritise providing users with convenient access to snacks and drinks. No upfront or ongoing costs—SnackStation handles full supply, installation, stocking, and maintenance, ensuring a hassle-free solution.",
+              idealFor: "Large offices, residential complexes, and public access areas.",
               features: ["Free installation", "No ongoing costs", "Full management"],
             },
             {
