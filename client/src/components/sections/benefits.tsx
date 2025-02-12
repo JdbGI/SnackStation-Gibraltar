@@ -16,8 +16,7 @@ export default function Benefits() {
             Benefits for Your Location
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Discover how SnackStation can enhance your workplace environment and
-            employee satisfaction.
+            Discover how SnackStation enhances convenience and accessibility for everyone in your location.
           </p>
         </motion.div>
 
