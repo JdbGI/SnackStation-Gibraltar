@@ -20,6 +20,19 @@ export default function Home() {
         <Offer />
         <Contact />
       </main>
+      <footer className="py-4 text-center text-sm text-muted-foreground border-t">
+        <p>
+          Copyright Superfoods Limited - Website built by{" "}
+          <a 
+            href="https://www.barton.gi" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-primary hover:underline"
+          >
+            Barton Solutions
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }
