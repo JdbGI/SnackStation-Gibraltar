@@ -89,7 +89,7 @@ export default function Brands() {
   useEffect(() => {
     const startAnimation = async () => {
       await controls.start({
-        x: [-2000, 0], // Start from left, move to right
+        x: [-2000, 0],
         transition: {
           duration: 40,
           repeat: Infinity,
@@ -102,34 +102,28 @@ export default function Brands() {
   }, [controls]);
 
   return (
-    <section className="relative py-16 bg-muted/50 overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Removed gradient */}
-      </div>
-
-      <div className="relative">
-        <h2 className="text-center text-4xl font-bold mb-12 text-foreground">
+    <section className="py-24 bg-muted/50">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center mb-16">
           Stocking the Best Brands
         </h2>
 
-        <div className="relative overflow-hidden">
+        <div className="overflow-hidden -mx-4">
           <motion.div
             animate={controls}
-            className="flex items-center space-x-16"
+            className="flex items-center gap-16"
             style={{ width: "fit-content" }}
           >
             {[...brands, ...brands].map((brand, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-32 h-24 relative group"
+                className="flex-shrink-0 w-40 h-32 flex items-center justify-center group"
               >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <img
-                    src={brand.logo}
-                    alt={brand.name}
-                    className="max-h-16 w-auto object-contain transition-all duration-300 filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100"
-                  />
-                </div>
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="max-w-[120px] max-h-20 object-contain transition-all duration-300 filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100"
+                />
               </div>
             ))}
           </motion.div>
