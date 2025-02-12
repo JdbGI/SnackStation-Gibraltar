@@ -35,7 +35,7 @@ export default function Hero() {
           className="relative flex justify-center"
         >
           <img 
-            src="https://www.barton.gi/wp-content/uploads/2025/02/vhm_1739290463.png" 
+            src="https://www.barton.gi/wp-content/uploads/2025/02/vhm_1739344535.png" 
             alt="SnackStation Vending Machine" 
             className="w-auto h-[480px] max-w-[456px] object-contain"
           />
