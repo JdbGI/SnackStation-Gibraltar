@@ -24,7 +24,7 @@ export default function Benefits() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             {
-              title: "Convenient Access to Snacks & Drinks",
+              title: "Snacks & Drinks - 24/7",
               description:
                 "Ensure everyone in your space can easily grab their favourite snacks and drinks whenever they need them.",
               image: "https://images.unsplash.com/photo-1502323777036-f29e3972d82f",
