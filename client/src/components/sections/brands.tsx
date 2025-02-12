@@ -6,82 +6,95 @@ export default function Brands() {
   const brands = [
     {
       name: "M&M's",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/e/e5/M%26M%27s_logo.svg"
+      logo: "/brands/mms.svg"
     },
     {
       name: "Skittles",
-      logo: "https://logos-world.net/wp-content/uploads/2021/08/Skittles-Logo.png"
+      logo: "/brands/skittles.svg"
     },
     {
-      name: "Swizzels",
-      logo: "https://www.swizzels.com/content/images/swizzels-logo.svg"
+      name: "Swizzels Squashies",
+      logo: "/brands/swizzels.svg"
     },
     {
       name: "Kettle",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Kettle_Brand_logo.svg"
+      logo: "/brands/kettle.svg"
     },
     {
       name: "Cadbury",
-      logo: "https://upload.wikimedia.org/wikipedia/en/e/e3/Cadbury-Chocolate-Logo.svg"
+      logo: "/brands/cadbury.svg"
     },
     {
       name: "Grenade",
-      logo: "https://www.grenade.com/cdn/shop/t/21/assets/grenade-logo.png"
+      logo: "/brands/grenade.svg"
     },
     {
       name: "7Up",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/4/45/7_Up_Logo.svg"
+      logo: "/brands/7up.svg"
     },
     {
       name: "Aquarius",
-      logo: "https://www.coca-cola.co.uk/content/dam/one/gb/en/brand-header/aquarius-logo.png"
+      logo: "/brands/aquarius.svg"
     },
     {
       name: "Coca-Cola",
-      logo: "https://www.coca-cola.com/content/dam/onexp/gb/en/brand-header/coca-cola-logo.png"
+      logo: "/brands/coca-cola.svg"
     },
     {
       name: "Pepsi",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Pepsi_logo_2014.svg/2000px-Pepsi_logo_2014.svg.png"
+      logo: "/brands/pepsi.svg"
     },
     {
       name: "Fanta",
-      logo: "https://www.coca-cola.co.uk/content/dam/one/gb/en/brand-header/fanta-logo.png"
+      logo: "/brands/fanta.svg"
     },
     {
       name: "Font Vella",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/8/85/Font_Vella_logo.svg"
+      logo: "/brands/font-vella.svg"
     },
     {
       name: "Lipton",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Lipton_Logo.svg"
+      logo: "/brands/lipton.svg"
     },
     {
       name: "Oasis",
-      logo: "https://www.coca-cola.co.uk/content/dam/one/gb/en/brand-header/oasis-logo.png"
+      logo: "/brands/oasis.svg"
     },
     {
       name: "Powerade",
-      logo: "https://www.coca-cola.co.uk/content/dam/one/gb/en/brand-header/powerade-logo.png"
+      logo: "/brands/powerade.svg"
+    },
+    {
+      name: "Rostoy",
+      logo: "/brands/rostoy.svg"
+    },
+    {
+      name: "Simon Life",
+      logo: "/brands/simon-life.svg"
     },
     {
       name: "Sprite",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Sprite_logo_2004.svg/2000px-Sprite_logo_2004.svg.png"
+      logo: "/brands/sprite.svg"
     },
     {
       name: "Tango",
-      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/9/99/Tango_logo.svg/1200px-Tango_logo.svg.png"
+      logo: "/brands/tango.svg"
+    },
+    {
+      name: "Wowhydrate",
+      logo: "/brands/wowhydrate.svg"
     }
   ];
 
   useEffect(() => {
     const startAnimation = async () => {
       await controls.start({
-        x: [0, -2000],
+        x: [-2000, 0], // Start from left, move to right
         transition: {
-          duration: 30, // Slower animation
+          duration: 40,
           repeat: Infinity,
-          ease: "linear"
+          ease: "linear",
+          repeatType: "loop"
         }
       });
     };
@@ -89,29 +102,39 @@ export default function Brands() {
   }, [controls]);
 
   return (
-    <div className="py-12 bg-background">
-      <div className="container mx-auto">
-        <div className="overflow-hidden">
+    <section className="relative py-16 bg-background overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background z-10" />
+      </div>
+
+      <div className="relative">
+        <h2 className="text-center text-3xl font-bold mb-12">
+          Trusted by Leading Brands
+        </h2>
+
+        <div className="relative overflow-hidden">
           <motion.div
             animate={controls}
-            className="flex space-x-32 items-center" // Increased spacing
+            className="flex items-center space-x-16"
             style={{ width: "fit-content" }}
           >
             {[...brands, ...brands].map((brand, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-32" // Fixed width container
+                className="flex-shrink-0 w-32 h-24 relative group"
               >
-                <img
-                  src={brand.logo}
-                  alt={brand.name}
-                  className="h-16 w-auto max-w-[120px] object-contain grayscale opacity-60 hover:opacity-100 transition-opacity"
-                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    className="max-h-16 w-auto object-contain transition-all duration-300 filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100"
+                  />
+                </div>
               </div>
             ))}
           </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
