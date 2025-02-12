@@ -25,7 +25,7 @@ export default function Locations() {
           {[
             {
               name: "Mid Harbours Small Boats Marina",
-              image: "/marina.jpg",
+              image: "https://www.barton.gi/wp-content/uploads/2025/02/MHSBM-Machine-Image.jpg",
               description: "Serving the boating community with convenient refreshments 24/7. Our machines provide easy access to snacks and drinks for marina visitors and boat owners.",
               features: ["24/7 Access", "Waterfront Location", "Card Payments"]
             },
