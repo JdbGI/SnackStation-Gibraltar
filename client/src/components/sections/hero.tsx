@@ -23,7 +23,7 @@ export default function Hero() {
               <a href="#contact">Get Started</a>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <a href="#offer">Free Machine Offer</a>
+              <a href="#offer">Get a Vending Machine for Your Location</a>
             </Button>
           </div>
         </motion.div>

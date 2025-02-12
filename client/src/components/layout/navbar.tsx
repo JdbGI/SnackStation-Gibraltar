@@ -12,7 +12,7 @@ export default function Navbar() {
   const menuItems = [
     { label: "About", href: "#about" },
     { label: "Benefits", href: "#benefits" },
-    { label: "Our Models", href: "#offer" },
+    { label: "Our Service", href: "#offer" },
     { label: "Locations", href: "#locations" },
     { label: "Contact", href: "#contact" },
   ];
