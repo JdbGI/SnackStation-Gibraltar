@@ -1,6 +1,8 @@
-import { motion } from "framer-motion";
+import { motion, useAnimationControls } from "framer-motion";
+import { useEffect } from "react";
 
 export default function Brands() {
+  const controls = useAnimationControls();
   const brands = [
     {
       name: "Pepsi",
@@ -8,47 +10,56 @@ export default function Brands() {
     },
     {
       name: "Coca Cola",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Coca-Cola_bottle_cap.svg/1200px-Coca-Cola_bottle_cap.svg.png"
+      logo: "https://www.coca-cola.com/content/dam/onexp/gb/en/brand-header/coca-cola-logo.png"
     },
     {
       name: "Fanta",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Fanta_logo_%282016%29.svg/1280px-Fanta_logo_%282016%29.svg.png"
+      logo: "https://www.coca-cola.co.uk/content/dam/one/gb/en/brand-header/fanta-logo.png"
     },
     {
       name: "Grenade",
-      logo: "https://www.grenade.com/cdn/shop/files/grenade-logo_200x.png"
+      logo: "https://cdn11.bigcommerce.com/s-c6v2qp8g99/images/stencil/original/grenade-logo_1639040451__60705.original.png"
     },
     {
       name: "Cadbury",
-      logo: "https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/Cadbury-Chocolate-Logo.svg/1200px-Cadbury-Chocolate-Logo.svg.png"
+      logo: "https://logowik.com/content/uploads/images/cadbury-new-2020.jpg"
     }
   ];
+
+  useEffect(() => {
+    const startAnimation = async () => {
+      await controls.start({
+        x: [0, -1500],
+        transition: {
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear"
+        }
+      });
+    };
+    startAnimation();
+  }, [controls]);
 
   return (
     <div className="py-12 bg-background">
       <div className="container mx-auto">
         <div className="overflow-hidden">
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="flex space-x-16 items-center"
+            animate={controls}
+            className="flex space-x-24 items-center"
+            style={{ width: "fit-content" }}
           >
-            {brands.map((brand, index) => (
-              <motion.div
+            {[...brands, ...brands].map((brand, index) => (
+              <div
                 key={index}
                 className="flex-shrink-0"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
               >
                 <img
                   src={brand.logo}
                   alt={brand.name}
-                  className="h-12 w-auto object-contain grayscale opacity-70 hover:opacity-100 transition-opacity"
+                  className="h-16 w-auto object-contain grayscale opacity-70 hover:opacity-100 transition-opacity"
                 />
-              </motion.div>
+              </div>
             ))}
           </motion.div>
         </div>
