@@ -60,7 +60,7 @@ export default function Offer() {
             >
               <Card className="h-full relative">
                 {model.badge && (
-                  <span className="absolute -top-3 right-4 bg-primary text-primary-foreground text-sm font-semibold px-3 py-1 rounded-full shadow-lg">
+                  <span className="absolute -top-3 right-4 bg-primary/90 text-primary-foreground text-sm font-bold px-4 py-1.5 rounded-lg shadow-lg transform -rotate-12 border-2 border-primary/20 backdrop-blur-sm">
                     {model.badge}
                   </span>
                 )}
