@@ -16,7 +16,7 @@ export default function Contact() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Get Your Free Vending Machine
+            Get a Vending Machine for Your Space
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
             Ready to get started? Contact us via WhatsApp for a quick response about
