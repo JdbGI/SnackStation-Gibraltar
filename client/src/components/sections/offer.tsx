@@ -29,9 +29,10 @@ export default function Offer() {
               title: "Standard Locations",
               subtitle: "Fully Managed, No Cost",
               description:
-                "Ideal for locations where management prioritise providing users with convenient access to snacks and drinks. No upfront or ongoing costs—SnackStation handles full supply, installation, stocking, and maintenance, ensuring a hassle-free solution.",
-              idealFor: "Large offices, residential complexes, and public access areas.",
-              features: ["Free installation", "No ongoing costs", "Full management"],
+                "Perfect for sites with high footfall and significant sales potential. No upfront or ongoing costs, with full supply, installation, stocking and maintenance included.",
+              idealFor: "Large offices, busy public spaces, and tourist hubs such as Main Street or Casemates Square.",
+              features: ["Free installation", "No ongoing costs", "Full management", "Enhanced service"],
+              badge: "Free!",
             },
             {
               title: "Lower Footfall Locations",
@@ -46,7 +47,7 @@ export default function Offer() {
               subtitle: "Profit-Sharing Model",
               description:
                 "For premium locations with high commercial viability. The machine is installed and managed at no cost, with profits shared between partners.",
-              idealFor: "High-traffic commercial areas and tourist hotspots.",
+              idealFor: "High-traffic commercial areas and premium business locations.",
               features: ["No upfront cost", "Profit sharing", "Full maintenance", "Partnership benefits"],
             },
           ].map((model, index) => (
@@ -57,7 +58,12 @@ export default function Offer() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full">
+              <Card className="h-full relative">
+                {model.badge && (
+                  <span className="absolute -top-3 right-4 bg-primary text-primary-foreground text-sm font-semibold px-3 py-1 rounded-full shadow-lg">
+                    {model.badge}
+                  </span>
+                )}
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-2">{model.title}</h3>
                   <p className="text-primary font-medium mb-4">{model.subtitle}</p>
