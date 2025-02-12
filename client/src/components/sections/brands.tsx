@@ -102,27 +102,27 @@ export default function Brands() {
   }, [controls]);
 
   return (
-    <section className="py-24 bg-muted/50">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-16">
+    <section className="py-16 bg-muted/50">
+      <div className="container mx-auto">
+        <h2 className="text-4xl font-bold text-center mb-12">
           Stocking the Best Brands
         </h2>
 
-        <div className="overflow-hidden -mx-4">
+        <div className="overflow-hidden">
           <motion.div
             animate={controls}
-            className="flex items-center gap-16"
+            className="flex items-center gap-12"
             style={{ width: "fit-content" }}
           >
             {[...brands, ...brands].map((brand, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-40 h-32 flex items-center justify-center group"
+                className="flex-shrink-0 w-32 h-24 flex items-center justify-center group"
               >
                 <img
                   src={brand.logo}
                   alt={brand.name}
-                  className="max-w-[120px] max-h-20 object-contain transition-all duration-300 filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100"
+                  className="max-w-[100px] max-h-16 object-contain transition-all duration-300 filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100"
                 />
               </div>
             ))}
