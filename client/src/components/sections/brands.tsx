@@ -14,75 +14,75 @@ export default function Brands() {
     },
     {
       name: "Swizzels Squashies",
-      logo: "/brands/swizzels.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/squashies-logo.png"
     },
     {
       name: "Kettle",
-      logo: "/brands/kettle.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/Kettle_Foods_logo.svg.png"
     },
     {
       name: "Cadbury",
-      logo: "/brands/cadbury.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/png-clipart-cadbury-logo-history-of-cadbury-birmingham-bournvita-chocolate-bar-oreo-purple-food.png"
     },
     {
       name: "Grenade",
-      logo: "/brands/grenade.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/Grenade-Logo.png"
     },
     {
       name: "7Up",
-      logo: "/brands/7up.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/7up-13-logo-png-transparent.png"
     },
     {
       name: "Aquarius",
-      logo: "/brands/aquarius.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/aquarius-logo-png-transparent.png"
     },
     {
       name: "Coca-Cola",
-      logo: "/brands/coca-cola.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/Coca-Cola-logo.png"
     },
     {
       name: "Pepsi",
-      logo: "/brands/pepsi.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/Pepsi_logo_2023.png"
     },
     {
       name: "Fanta",
-      logo: "/brands/fanta.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/Fanta_logo_2009.svg.png"
     },
     {
       name: "Font Vella",
-      logo: "/brands/font-vella.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/hdT2flbj6kaa.png"
     },
     {
       name: "Lipton",
-      logo: "/brands/lipton.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/logo-3.png"
     },
     {
       name: "Oasis",
-      logo: "/brands/oasis.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/Oasis_Drinks_logo.png"
     },
     {
       name: "Powerade",
-      logo: "/brands/powerade.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/Powerade_logo.png"
     },
     {
       name: "Rostoy",
-      logo: "/brands/rostoy.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/Diseno-sin-titulo-2022-11-25T131833.565-300x120-1.png"
     },
     {
       name: "Simon Life",
-      logo: "/brands/simon-life.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/logo_ds-1.png"
     },
     {
       name: "Sprite",
-      logo: "/brands/sprite.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/Sprite-Logo.png"
     },
     {
       name: "Tango",
-      logo: "/brands/tango.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/TANGO.png"
     },
     {
       name: "Wowhydrate",
-      logo: "/brands/wowhydrate.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/52f9b909-f8bc-4b0a-8822-7721207024af.__CR00970300_PT0_SX970_V1__.png"
     }
   ];
 
