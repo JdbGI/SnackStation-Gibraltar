@@ -42,7 +42,7 @@ export default function Brands() {
     },
     {
       name: "Pepsi",
-      logo: "https://www.barton.gi/wp-content/uploads/2025/02/Pepsi_logo_2023.png"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/Pepsi-Logo.wine.png"
     },
     {
       name: "Fanta",
@@ -102,9 +102,9 @@ export default function Brands() {
   }, [controls]);
 
   return (
-    <section className="py-16 bg-muted/50">
-      <div className="container mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12">
+    <section className="py-12 bg-black">
+      <div className="w-full"> {/* Removed container class */}
+        <h2 className="text-4xl font-bold text-center mb-8">
           Stocking the Best Brands
         </h2>
 
