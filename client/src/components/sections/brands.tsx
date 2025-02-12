@@ -22,7 +22,7 @@ export default function Brands() {
     },
     {
       name: "Cadbury",
-      logo: "https://www.barton.gi/wp-content/uploads/2025/02/png-clipart-cadbury-logo-history-of-cadbury-birmingham-bournvita-chocolate-bar-oreo-purple-food.png"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/cadbury-logo-png_seeklogo-24483.png"
     },
     {
       name: "Grenade",
@@ -102,13 +102,13 @@ export default function Brands() {
   }, [controls]);
 
   return (
-    <section className="relative py-16 bg-background overflow-hidden">
+    <section className="relative py-16 bg-muted/50 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         {/* Removed gradient */}
       </div>
 
       <div className="relative">
-        <h2 className="text-center text-3xl font-bold mb-12 text-foreground">
+        <h2 className="text-center text-4xl font-bold mb-12 text-foreground">
           Stocking the Best Brands
         </h2>
 
