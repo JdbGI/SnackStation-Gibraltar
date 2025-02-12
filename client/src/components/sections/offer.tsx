@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, ArrowRight } from "lucide-react";
+import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -23,7 +23,7 @@ export default function Offer() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <div className="grid md:grid-cols-3 gap-8">
           {[
             {
               title: "Standard Locations",
@@ -83,24 +83,6 @@ export default function Offer() {
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <h3 className="text-2xl font-bold mb-6">Ready For Your Next Step?</h3>
-          <p className="text-xl text-muted-foreground mb-8">
-            Let's reach your destination together.
-          </p>
-          <Button size="lg" className="gap-2" asChild>
-            <a href="#contact">
-              Get Started <ArrowRight className="h-4 w-4" />
-            </a>
-          </Button>
-        </motion.div>
       </div>
     </section>
   );
