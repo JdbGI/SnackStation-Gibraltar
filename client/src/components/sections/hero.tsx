@@ -15,7 +15,7 @@ export default function Hero() {
           </h1>
           <p className="text-muted-foreground text-lg mb-8">
             SnackStation delivers high-quality, fresh snacks to key locations across Gibraltar. 
-            Our card-only, cashless vending machines reduce maintenance issues and maximize uptime, 
+            Our cashless vending machines reduce maintenance issues and maximize uptime, 
             while our local team handles free installation and ongoing support.
           </p>
           <div className="flex gap-4">
