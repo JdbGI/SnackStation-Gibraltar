@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import VendingMachine from "../vending-machine";
 
 export default function Hero() {
   return (
@@ -34,11 +35,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="relative flex justify-center"
         >
-          <img 
-            src="https://www.barton.gi/wp-content/uploads/2025/02/vhm_1739344756.png" 
-            alt="SnackStation Vending Machine" 
-            className="w-auto h-[480px] max-w-[456px] object-contain"
-          />
+          <VendingMachine />
         </motion.div>
       </div>
     </section>
