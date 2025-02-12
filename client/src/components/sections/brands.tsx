@@ -22,7 +22,7 @@ export default function Brands() {
     },
     {
       name: "Cadbury",
-      logo: "https://www.barton.gi/wp-content/uploads/2025/02/cadbury-logo-png_seeklogo-24483.png"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/Cadbury-Logo.png"
     },
     {
       name: "Grenade",
