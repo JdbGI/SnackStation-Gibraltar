@@ -17,6 +17,7 @@ export default function Locations() {
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Join our expanding network of SnackStation locations across Gibraltar.
+            Our machines are strategically placed to serve various communities and businesses.
           </p>
         </motion.div>
 
@@ -24,13 +25,15 @@ export default function Locations() {
           {[
             {
               name: "Mid Harbours Small Boats Marina",
-              image: "http://www.barton.gi/wp-content/uploads/2025/02/IMG_7792-Large.jpeg",
-              description: "Serving the boating community with convenient refreshments",
+              image: "/marina.jpg",
+              description: "Serving the boating community with convenient refreshments 24/7. Our machines provide easy access to snacks and drinks for marina visitors and boat owners.",
+              features: ["24/7 Access", "Waterfront Location", "Card Payments"]
             },
             {
               name: "Gibtelecom Mount Pleasant",
-              image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2",
-              description: "Providing snacks and drinks to the Gibtelecom team",
+              image: "/office.jpg",
+              description: "Supporting Gibtelecom's workforce with quality refreshments throughout the day. Our machines help keep their team energized and productive.",
+              features: ["Corporate Location", "Premium Snacks", "Staff Favorite"]
             },
           ].map((location, index) => (
             <motion.div
@@ -48,7 +51,17 @@ export default function Locations() {
                 />
                 <CardContent className="p-6">
                   <h3 className="text-xl font-semibold mb-2">{location.name}</h3>
-                  <p className="text-muted-foreground">{location.description}</p>
+                  <p className="text-muted-foreground mb-4">{location.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {location.features.map((feature, fIndex) => (
+                      <span
+                        key={fIndex}
+                        className="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full"
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>

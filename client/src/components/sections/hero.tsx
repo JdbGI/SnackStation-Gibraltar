@@ -11,12 +11,12 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Smart Vending Solutions for Your{" "}
-            <span className="text-primary">Workspace</span>
+            Fully Managed <span className="text-primary">Vending Solutions</span> in Gibraltar
           </h1>
           <p className="text-muted-foreground text-lg mb-8">
-            Transform your office snacking experience with SnackStation's modern
-            vending machines. Premium refreshments available 24/7.
+            SnackStation delivers high-quality, fresh snacks to key locations across Gibraltar. 
+            Our card-only, cashless vending machines reduce maintenance issues and maximize uptime, 
+            while our local team handles free installation and ongoing support.
           </p>
           <div className="flex gap-4">
             <Button size="lg" asChild>
@@ -35,7 +35,7 @@ export default function Hero() {
           className="relative flex justify-center"
         >
           <img 
-            src="https://www.barton.gi/wp-content/uploads/2025/02/vhm_1739344756.png" 
+            src="/vending-machine.png" 
             alt="SnackStation Vending Machine" 
             className="w-auto h-[480px] max-w-[456px] object-contain"
           />

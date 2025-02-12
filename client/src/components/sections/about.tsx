@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ShieldCheck, Clock, Zap } from "lucide-react";
+import { ShieldCheck, CreditCard, Settings, Clock } from "lucide-react";
 
 export default function About() {
   return (
@@ -13,7 +13,7 @@ export default function About() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Why Choose SnackStation?
+            What We Offer
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             We're Gibraltar's leading vending machine provider, offering modern
@@ -21,25 +21,31 @@ export default function About() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-4 gap-8">
           {[
             {
-              icon: ShieldCheck,
-              title: "Quality Guaranteed",
+              icon: CreditCard,
+              title: "Cashless Operation",
               description:
-                "Premium snacks and beverages from trusted brands, regularly restocked.",
+                "Card-only system minimizes maintenance issues and keeps your machine running efficiently.",
+            },
+            {
+              icon: Settings,
+              title: "Free Installation",
+              description:
+                "Our local team manages the complete installation process at no extra cost.",
+            },
+            {
+              icon: ShieldCheck,
+              title: "Fully Managed Service",
+              description:
+                "We handle supply, stocking, servicing and maintenance to ensure your machine is always operational.",
             },
             {
               icon: Clock,
               title: "24/7 Availability",
               description:
                 "Round-the-clock access to refreshments, perfect for any schedule.",
-            },
-            {
-              icon: Zap,
-              title: "Smart Technology",
-              description:
-                "Modern machines with contactless payment and real-time monitoring.",
             },
           ].map((feature, index) => (
             <motion.div
