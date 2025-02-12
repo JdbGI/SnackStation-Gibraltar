@@ -6,11 +6,11 @@ export default function Brands() {
   const brands = [
     {
       name: "M&M's",
-      logo: "/brands/mms.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/m-ms-2-logo-png-transparent.png"
     },
     {
       name: "Skittles",
-      logo: "/brands/skittles.svg"
+      logo: "https://www.barton.gi/wp-content/uploads/2025/02/Skittles-Logo.png"
     },
     {
       name: "Swizzels Squashies",
@@ -104,12 +104,12 @@ export default function Brands() {
   return (
     <section className="relative py-16 bg-background overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background z-10" />
+        {/* Removed gradient */}
       </div>
 
       <div className="relative">
-        <h2 className="text-center text-3xl font-bold mb-12">
-          Trusted by Leading Brands
+        <h2 className="text-center text-3xl font-bold mb-12 text-foreground">
+          Stocking the Best Brands
         </h2>
 
         <div className="relative overflow-hidden">
