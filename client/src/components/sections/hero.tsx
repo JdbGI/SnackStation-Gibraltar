@@ -14,7 +14,7 @@ export default function Hero() {
             Fully Managed <span className="text-primary">Vending Solutions</span> in Gibraltar
           </h1>
           <p className="text-muted-foreground text-lg mb-8">
-            SnackStation delivers high-quality, fresh snacks to key locations across Gibraltar. 
+            SnackStation delivers high-quality snacks and drinks to key locations across Gibraltar. 
             Our cashless vending machines reduce maintenance issues and maximize uptime, 
             while our local team handles free installation and ongoing support.
           </p>
