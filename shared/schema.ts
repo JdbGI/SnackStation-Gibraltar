@@ -39,15 +39,16 @@ export const sales = pgTable("sales", {
   machineId: integer("machine_id").references(() => machines.id).notNull(),
   date: date("date").notNull(),
   totalSales: integer("total_sales").notNull(),
-  revenue: decimal("revenue").notNull(),
-  cardCommission: decimal("card_commission").notNull(),
-  profitSharingEarnings: decimal("profit_sharing_earnings").notNull(),
-  cogs: decimal("cogs").notNull(),
+  revenue: decimal("revenue", { precision: 10, scale: 2 }).notNull(),
+  cardCommission: decimal("card_commission", { precision: 10, scale: 2 }).notNull(),
+  profitSharingEarnings: decimal("profit_sharing_earnings", { precision: 10, scale: 2 }).notNull(),
+  cogs: decimal("cogs", { precision: 10, scale: 2 }).notNull(),
 });
 
 // User schemas
 export const insertUserSchema = createInsertSchema(users).extend({
-  password: z.string().min(6, "Password must be at least 6 characters")
+  password: z.string().min(6, "Password must be at least 6 characters"),
+  email: z.string().email("Please enter a valid email address"),
 });
 
 export type User = typeof users.$inferSelect;
