@@ -6,12 +6,22 @@ import { insertInquirySchema } from "@shared/schema";
 import { ZodError } from "zod";
 
 function isAdmin(req: Request, res: Response, next: NextFunction) {
+  console.log('Auth check:', {
+    isAuthenticated: req.isAuthenticated(),
+    user: req.user,
+    session: req.session
+  });
+
   if (!req.isAuthenticated()) {
+    console.log('User not authenticated');
     return res.status(401).json({ message: "Unauthorized" });
   }
+
   if (!req.user?.isAdmin) {
+    console.log('User not admin:', req.user);
     return res.status(403).json({ message: "Access denied" });
   }
+
   next();
 }
 
