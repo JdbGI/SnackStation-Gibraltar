@@ -29,7 +29,10 @@ export class DatabaseStorage implements IStorage {
       pool,
       createTableIfMissing: true,
       tableName: 'session',
-      pruneSessionInterval: 60 * 15 // Prune expired sessions every 15 minutes
+      pruneSessionInterval: 60 * 15, // Prune expired sessions every 15 minutes
+      cookie: {
+        maxAge: 30 * 24 * 60 * 60 * 1000 // 30 days
+      }
     });
   }
 
