@@ -44,6 +44,18 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Route to update machine information
+  app.patch("/api/admin/machines/:id", isAdmin, async (req, res) => {
+    try {
+      const machineId = parseInt(req.params.id);
+      const updatedMachine = await storage.updateMachine(machineId, req.body);
+      res.json(updatedMachine);
+    } catch (error) {
+      console.error("Failed to update machine:", error);
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
   app.get("/api/machines/:id/sales", async (req, res) => {
     if (!req.isAuthenticated()) {
       return res.status(401).json({ message: "Unauthorized" });
@@ -131,41 +143,19 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Route to input monthly sales data
+  app.post("/api/admin/machines/:id/sales", isAdmin, async (req, res) => {
+    try {
+      const machineId = parseInt(req.params.id);
+      const { month, sales } = req.body;
+      const updatedSales = await storage.updateSales(machineId, month, sales);
+      res.json(updatedSales);
+    } catch (error) {
+      console.error("Failed to update sales", error);
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
-}
-// Route to update machine information
-app.post("/api/admin/machines/:id", isAdmin, async (req, res) => {
-  try {
-    const machineId = parseInt(req.params.id);
-    const updatedMachine = await storage.updateMachine(machineId, req.body);
-    res.json(updatedMachine);
-  } catch (error) {
-    console.error("Failed to update machine", error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-});
-
-// Route to input monthly sales data
-app.post("/api/admin/machines/:id/sales", isAdmin, async (req, res) => {
-  try {
-    const machineId = parseInt(req.params.id);
-    const { month, sales } = req.body;
-    const updatedSales = await storage.updateSales(machineId, month, sales);
-    res.json(updatedSales);
-  } catch (error) {
-    console.error("Failed to update sales", error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-});
-// Function to update machine information
-async updateMachine(machineId: number, machineData: Partial<Machine>): Promise<Machine> {
-  const updatedMachine = await machines.update(machineId, machineData);
-  return updatedMachine;
-}
-
-// Function to update monthly sales data
-async updateSales(machineId: number, month: string, sales: number): Promise<Sales> {
-  const updatedSales = await salesTable.update({ machineId, month }, { sales });
-  return updatedSales;
 }

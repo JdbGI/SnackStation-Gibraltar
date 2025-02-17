@@ -16,6 +16,7 @@ export interface IStorage {
   getMachinesByUser(userId: number): Promise<Machine[]>;
   getMachine(id: number): Promise<Machine | undefined>;
   createMachine(machine: InsertMachine): Promise<Machine>;
+  updateMachine(machineId: number, machineData: Partial<Machine>): Promise<Machine>;
 
   // Sales operations
   getSalesByMachine(machineId: number, month?: Date): Promise<Sales[]>;
@@ -68,6 +69,15 @@ export class DatabaseStorage implements IStorage {
 
   async createMachine(machine: InsertMachine): Promise<Machine> {
     const result = await db.insert(machines).values(machine).returning();
+    return result[0];
+  }
+
+  async updateMachine(machineId: number, machineData: Partial<Machine>): Promise<Machine> {
+    const result = await db
+      .update(machines)
+      .set(machineData)
+      .where(eq(machines.id, machineId))
+      .returning();
     return result[0];
   }
 
