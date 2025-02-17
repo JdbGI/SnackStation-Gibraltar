@@ -11,19 +11,13 @@ export interface IStorage {
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
   createInquiry(inquiry: InsertInquiry): Promise<Inquiry>;
-
-  // Machine operations
   getMachinesByUser(userId: number): Promise<Machine[]>;
   getMachine(id: number): Promise<Machine | undefined>;
   createMachine(machine: InsertMachine): Promise<Machine>;
-
-  // Sales operations
   getSalesByMachine(machineId: number, month?: Date): Promise<Sales[]>;
   createSales(sales: InsertSales): Promise<Sales>;
-
   getAllUsers(): Promise<User[]>;
   getUsersWithMachines(): Promise<(User & { machines: Machine[] })[]>;
-
   sessionStore: session.Store;
 }
 
@@ -34,6 +28,8 @@ export class DatabaseStorage implements IStorage {
     this.sessionStore = new PostgresSessionStore({
       pool,
       createTableIfMissing: true,
+      tableName: 'session',
+      pruneSessionInterval: 60 * 15 // Prune expired sessions every 15 minutes
     });
   }
 
