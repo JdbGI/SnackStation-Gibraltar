@@ -1,0 +1,309 @@
+Below is a complete example using Python with Flask and SQLite. You can create a new Python Flask repl on Replit and add the following files. This example provides:
+	•	A login page (used by both admin and partners)
+	•	An admin dashboard with links to add a new partner and add machine data
+	•	A partner dashboard that shows month‐by‐month machine data
+
+	Note: This example is basic and does not cover all production-level security or error checking. You may need to adapt it further for your needs.
+
+1. Create a File Called app.py
+
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+import sqlite3
+from werkzeug.security import generate_password_hash, check_password_hash
+
+app = Flask(__name__)
+app.secret_key = 'your_secret_key_here'  # Replace with a secure key
+
+def get_db_connection():
+    conn = sqlite3.connect('database.db')
+    conn.row_factory = sqlite3.Row
+    return conn
+
+def init_db():
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    # Create the users table
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT NOT NULL UNIQUE,
+            password TEXT NOT NULL,
+            role TEXT NOT NULL
+        )
+    ''')
+    # Create the machine_data table
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS machine_data (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            partner_id INTEGER,
+            month TEXT,
+            sales INTEGER,
+            commission REAL,
+            FOREIGN KEY (partner_id) REFERENCES users(id)
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
+# Initialise the database
+init_db()
+
+@app.route('/')
+def index():
+    if 'user_id' in session:
+        if session.get('role') == 'admin':
+            return redirect(url_for('admin_dashboard'))
+        elif session.get('role') == 'partner':
+            return redirect(url_for('partner_dashboard'))
+    return redirect(url_for('login'))
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        
+        conn = get_db_connection()
+        user = conn.execute('SELECT * FROM users WHERE username = ?', (username,)).fetchone()
+        conn.close()
+        
+        if user and check_password_hash(user['password'], password):
+            session['user_id'] = user['id']
+            session['username'] = user['username']
+            session['role'] = user['role']
+            flash('Logged in successfully!', 'success')
+            if user['role'] == 'admin':
+                return redirect(url_for('admin_dashboard'))
+            else:
+                return redirect(url_for('partner_dashboard'))
+        else:
+            flash('Invalid username or password', 'error')
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash('You have been logged out', 'info')
+    return redirect(url_for('login'))
+
+@app.route('/admin_dashboard')
+def admin_dashboard():
+    if 'user_id' not in session or session.get('role') != 'admin':
+        flash('You need to be logged in as an admin to access this page', 'error')
+        return redirect(url_for('login'))
+    return render_template('admin_dashboard.html')
+
+@app.route('/partner_dashboard')
+def partner_dashboard():
+    if 'user_id' not in session or session.get('role') != 'partner':
+        flash('You need to be logged in as a partner to access this page', 'error')
+        return redirect(url_for('login'))
+    
+    partner_id = session.get('user_id')
+    conn = get_db_connection()
+    data = conn.execute('SELECT * FROM machine_data WHERE partner_id = ?', (partner_id,)).fetchall()
+    conn.close()
+    
+    return render_template('partner_dashboard.html', data=data)
+
+@app.route('/add_partner', methods=['GET', 'POST'])
+def add_partner():
+    if 'user_id' not in session or session.get('role') != 'admin':
+        flash('You need to be logged in as an admin to access this page', 'error')
+        return redirect(url_for('login'))
+    
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        
+        hashed_password = generate_password_hash(password)
+        conn = get_db_connection()
+        try:
+            conn.execute('INSERT INTO users (username, password, role) VALUES (?, ?, ?)',
+                         (username, hashed_password, 'partner'))
+            conn.commit()
+            flash('Partner added successfully!', 'success')
+        except sqlite3.IntegrityError:
+            flash('Username already exists', 'error')
+        conn.close()
+        return redirect(url_for('admin_dashboard'))
+    
+    return render_template('add_partner.html')
+
+@app.route('/add_machine_data', methods=['GET', 'POST'])
+def add_machine_data():
+    if 'user_id' not in session or session.get('role') != 'admin':
+        flash('You need to be logged in as an admin to access this page', 'error')
+        return redirect(url_for('login'))
+    
+    if request.method == 'POST':
+        partner_username = request.form['partner_username']
+        month = request.form['month']
+        sales = request.form['sales']
+        commission = request.form['commission']
+        
+        conn = get_db_connection()
+        partner = conn.execute('SELECT * FROM users WHERE username = ? AND role = ?', (partner_username, 'partner')).fetchone()
+        if partner:
+            conn.execute('INSERT INTO machine_data (partner_id, month, sales, commission) VALUES (?, ?, ?, ?)',
+                         (partner['id'], month, sales, commission))
+            conn.commit()
+            flash('Machine data added successfully!', 'success')
+        else:
+            flash('Partner not found', 'error')
+        conn.close()
+        return redirect(url_for('admin_dashboard'))
+    
+    return render_template('add_machine_data.html')
+
+if __name__ == '__main__':
+    # Replit typically runs on port 3000
+    app.run(host='0.0.0.0', port=3000, debug=True)
+
+2. Create a templates Folder and Add the Following HTML Files
+
+layout.html
+
+This is the base template that others extend.
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}SnackStation Dashboard{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav>
+    <a href="{{ url_for('index') }}">Home</a>
+    {% if session.get('user_id') %}
+      <a href="{{ url_for('logout') }}">Logout</a>
+    {% endif %}
+  </nav>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul class="flashes">
+      {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  <div class="content">
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>
+
+login.html
+
+{% extends "layout.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+  <h2>Login</h2>
+  <form method="post">
+    <label for="username">Username:</label>
+    <input type="text" name="username" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" required>
+    <br>
+    <button type="submit">Login</button>
+  </form>
+{% endblock %}
+
+admin_dashboard.html
+
+{% extends "layout.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+  <h2>Admin Dashboard</h2>
+  <ul>
+    <li><a href="{{ url_for('add_partner') }}">Add New Partner</a></li>
+    <li><a href="{{ url_for('add_machine_data') }}">Add Machine Data</a></li>
+  </ul>
+{% endblock %}
+
+partner_dashboard.html
+
+{% extends "layout.html" %}
+{% block title %}Partner Dashboard{% endblock %}
+{% block content %}
+  <h2>Partner Dashboard</h2>
+  <table border="1">
+    <tr>
+      <th>Month</th>
+      <th>Sales</th>
+      <th>Commission</th>
+    </tr>
+    {% for row in data %}
+      <tr>
+        <td>{{ row['month'] }}</td>
+        <td>{{ row['sales'] }}</td>
+        <td>{{ row['commission'] }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
+
+add_partner.html
+
+{% extends "layout.html" %}
+{% block title %}Add Partner{% endblock %}
+{% block content %}
+  <h2>Add New Partner</h2>
+  <form method="post">
+    <label for="username">Partner Username:</label>
+    <input type="text" name="username" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" required>
+    <br>
+    <button type="submit">Add Partner</button>
+  </form>
+{% endblock %}
+
+add_machine_data.html
+
+{% extends "layout.html" %}
+{% block title %}Add Machine Data{% endblock %}
+{% block content %}
+  <h2>Add Machine Data for a Partner</h2>
+  <form method="post">
+    <label for="partner_username">Partner Username:</label>
+    <input type="text" name="partner_username" required>
+    <br>
+    <label for="month">Month (e.g. 2025-01):</label>
+    <input type="text" name="month" required>
+    <br>
+    <label for="sales">Sales:</label>
+    <input type="number" name="sales" required>
+    <br>
+    <label for="commission">Commission:</label>
+    <input type="number" step="0.01" name="commission" required>
+    <br>
+    <button type="submit">Add Machine Data</button>
+  </form>
+{% endblock %}
+
+3. (Optional) Create a static Folder
+
+If you wish to add custom CSS, create a folder named static and add a file called style.css with your desired styles.
+
+4. Running the Application on Replit
+	1.	Ensure Flask is installed:
+In your requirements.txt, add:
+
+Flask==2.2.5
+
+(Adjust the version as needed.)
+
+	2.	Run the App:
+Replit usually uses port 3000. The code is set to run on host='0.0.0.0' and port=3000, so simply click the run button on Replit.
+	3.	Using the Dashboard:
+	•	Navigate to the login page.
+	•	For testing, you might need to manually add an admin user to your database (for example, by temporarily adding a route or by using the SQLite shell).
+	•	Once logged in as an admin, you can add new partner accounts and machine data.
+	•	Partners can then log in to view their monthly sales and commission data.
+
+This should provide a solid starting point for your management dashboard. You can then instruct Replit’s AI agent to create and manage these files if needed by providing the code blocks and file names.
