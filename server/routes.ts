@@ -2,7 +2,7 @@ import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { setupAuth, hashPassword } from "./auth";
-import { insertInquirySchema, insertSalesSchema } from "@shared/schema";
+import { insertInquirySchema } from "@shared/schema";
 import { ZodError } from "zod";
 
 function isAdmin(req: Request, res: Response, next: NextFunction) {
@@ -40,17 +40,6 @@ export function registerRoutes(app: Express): Server {
       res.json(machines);
     } catch (error) {
       console.error("Failed to get machines:", error);
-      res.status(500).json({ message: "Internal server error" });
-    }
-  });
-
-  app.patch("/api/admin/machines/:id", isAdmin, async (req, res) => {
-    try {
-      const machineId = parseInt(req.params.id);
-      const updatedMachine = await storage.updateMachine(machineId, req.body);
-      res.json(updatedMachine);
-    } catch (error) {
-      console.error("Failed to update machine:", error);
       res.status(500).json({ message: "Internal server error" });
     }
   });
@@ -96,30 +85,6 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
-  app.get("/api/admin/partners", isAdmin, async (req, res) => {
-    try {
-      const partners = await storage.getAllUsers();
-      res.json(partners.filter(user => !user.isAdmin));
-    } catch (error) {
-      console.error("Failed to get partners:", error);
-      res.status(500).json({ message: "Internal server error" });
-    }
-  });
-
-  app.get("/api/admin/partners/:id", isAdmin, async (req, res) => {
-    try {
-      const partner = await storage.getUser(parseInt(req.params.id));
-      if (!partner || partner.isAdmin) {
-        return res.status(404).json({ message: "Partner not found" });
-      }
-      const machines = await storage.getMachinesByUser(partner.id);
-      res.json({ partner, machines });
-    } catch (error) {
-      console.error("Failed to get partner details:", error);
-      res.status(500).json({ message: "Internal server error" });
-    }
-  });
-
   app.get("/api/admin/partners/:id/sales", isAdmin, async (req, res) => {
     try {
       const partner = await storage.getUser(parseInt(req.params.id));
@@ -141,15 +106,27 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
-  // Route to input monthly sales data
-  app.post("/api/admin/machines/:id/sales", isAdmin, async (req, res) => {
+  // Admin routes
+  app.get("/api/admin/partners", isAdmin, async (req, res) => {
     try {
-      const machineId = parseInt(req.params.id);
-      const { month, ...salesData } = req.body;
-      const updatedSales = await storage.updateSales(machineId, month, salesData);
-      res.json(updatedSales);
+      const partners = await storage.getAllUsers();
+      res.json(partners.filter(user => !user.isAdmin));
     } catch (error) {
-      console.error("Failed to update sales:", error);
+      console.error("Failed to get partners:", error);
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
+  app.get("/api/admin/partners/:id", isAdmin, async (req, res) => {
+    try {
+      const partner = await storage.getUser(parseInt(req.params.id));
+      if (!partner || partner.isAdmin) {
+        return res.status(404).json({ message: "Partner not found" });
+      }
+      const machines = await storage.getMachinesByUser(partner.id);
+      res.json({ partner, machines });
+    } catch (error) {
+      console.error("Failed to get partner details:", error);
       res.status(500).json({ message: "Internal server error" });
     }
   });

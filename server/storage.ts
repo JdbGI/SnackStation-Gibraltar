@@ -16,12 +16,10 @@ export interface IStorage {
   getMachinesByUser(userId: number): Promise<Machine[]>;
   getMachine(id: number): Promise<Machine | undefined>;
   createMachine(machine: InsertMachine): Promise<Machine>;
-  updateMachine(machineId: number, machineData: Partial<Machine>): Promise<Machine>;
 
   // Sales operations
   getSalesByMachine(machineId: number, month?: Date): Promise<Sales[]>;
   createSales(sales: InsertSales): Promise<Sales>;
-  updateSales(machineId: number, month: string, salesData: InsertSales): Promise<Sales>;
 
   getAllUsers(): Promise<User[]>;
   getUsersWithMachines(): Promise<(User & { machines: Machine[] })[]>;
@@ -73,42 +71,27 @@ export class DatabaseStorage implements IStorage {
     return result[0];
   }
 
-  async updateMachine(machineId: number, machineData: Partial<Machine>): Promise<Machine> {
-    const result = await db
-      .update(machines)
-      .set(machineData)
-      .where(eq(machines.id, machineId))
-      .returning();
-    return result[0];
-  }
-
   async getSalesByMachine(machineId: number, month?: Date): Promise<Sales[]> {
-    if (!month) {
-      return await db.select().from(sales).where(eq(sales.machineId, machineId));
+    let query = db.select().from(sales).where(eq(sales.machineId, machineId));
+
+    if (month) {
+      const startDate = new Date(month.getFullYear(), month.getMonth(), 1);
+      const endDate = new Date(month.getFullYear(), month.getMonth() + 1, 0);
+
+      query = query.where(
+        and(
+          eq(sales.machineId, machineId),
+          gte(sales.date, startDate.toISOString().split('T')[0]),
+          lte(sales.date, endDate.toISOString().split('T')[0])
+        )
+      );
     }
 
-    const startDate = new Date(month.getFullYear(), month.getMonth(), 1);
-    const endDate = new Date(month.getFullYear(), month.getMonth() + 1, 0);
-
-    return await db.select().from(sales).where(
-      and(
-        eq(sales.machineId, machineId),
-        gte(sales.date, startDate.toISOString().split('T')[0]),
-        lte(sales.date, endDate.toISOString().split('T')[0])
-      )
-    );
+    return await query;
   }
 
   async createSales(salesData: InsertSales): Promise<Sales> {
     const result = await db.insert(sales).values(salesData).returning();
-    return result[0];
-  }
-
-  async updateSales(machineId: number, month: string, salesData: InsertSales): Promise<Sales> {
-    const result = await db
-      .insert(sales)
-      .values({ ...salesData, machineId })
-      .returning();
     return result[0];
   }
 
