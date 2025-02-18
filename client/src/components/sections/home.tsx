@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 
-export default function Home() {
+const Home = () => {
   const handlePartnerLogin = () => {
     window.location.href = "https://partner.snackstation.gi";
   };
@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b">
+      <header className="fixed top-0 left-0 right-0 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-4">
           <div className="h-16 flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -27,9 +27,11 @@ export default function Home() {
       </header>
 
       {/* Main Content */}
-      <main>
+      <main className="pt-16">
         {/* Your landing page content will go here */}
       </main>
     </div>
   );
-}
+};
+
+export default Home;
