@@ -13,7 +13,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Plus, ArrowUpRight, ArrowLeft } from "lucide-react";
-import { Loader2 } from "lucide-react";
+import Loader2 from "@/components/ui/loader2";
 
 export default function Partners() {
   const { user } = useAuth();
@@ -21,8 +21,6 @@ export default function Partners() {
 
   const { data: partners, isLoading } = useQuery<User[]>({
     queryKey: ["/api/admin/partners"],
-    staleTime: 0, // Always refetch when mounting
-    refetchOnMount: true // Always refetch when mounting
   });
 
   if (!user?.isAdmin) {
@@ -31,9 +29,7 @@ export default function Partners() {
   }
 
   if (isLoading) {
-    return <div className="flex items-center justify-center min-h-screen">
-      <Loader2 className="h-8 w-8 animate-spin" />
-    </div>;
+    return <Loader2 className="min-h-screen" />;
   }
 
   return (

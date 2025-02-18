@@ -13,7 +13,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { insertUserSchema, type InsertUser } from "@shared/schema";
 import { useLocation } from "wouter";
 import { useMutation } from "@tanstack/react-query";
-import { apiRequest, queryClient } from "@/lib/queryClient";
+import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowLeft } from "lucide-react";
 
@@ -41,8 +41,6 @@ export default function NewPartner() {
       return res.json();
     },
     onSuccess: () => {
-      // Invalidate the partners query to refetch the list
-      queryClient.invalidateQueries({ queryKey: ["/api/admin/partners"] });
       toast({
         title: "Success",
         description: "Partner account created successfully",
