@@ -18,6 +18,7 @@ export default function Navbar() {
   ];
 
   const whatsappLink = "https://wa.me/35054004002";
+  const partnerLoginLink = "https://partner.snackstation.gi";
 
   return (
     <nav className="fixed w-full z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -55,6 +56,15 @@ export default function Navbar() {
               </a>
             </Button>
             <Button
+              variant="default"
+              className="hidden md:flex"
+              asChild
+            >
+              <a href={partnerLoginLink} target="_blank" rel="noopener noreferrer">
+                Partner Login
+              </a>
+            </Button>
+            <Button
               variant="ghost"
               size="icon"
               className="md:hidden"
@@ -86,6 +96,15 @@ export default function Navbar() {
             >
               <SiWhatsapp className="h-5 w-5" />
               WhatsApp Us
+            </a>
+            <a
+              href={partnerLoginLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 py-2 text-primary hover:text-primary/80 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              Partner Login
             </a>
           </div>
         )}
