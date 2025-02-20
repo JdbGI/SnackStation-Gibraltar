@@ -18,7 +18,7 @@ export default function Navbar() {
   ];
 
   const whatsappLink = "https://wa.me/35054004002";
-  const partnerLoginLink = "https://partner.snackstation.gi";
+  const partnerLoginLink = "https://partners.snackstation.gi";
 
   return (
     <nav className="fixed w-full z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
