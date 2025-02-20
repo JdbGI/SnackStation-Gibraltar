@@ -38,7 +38,7 @@ export default function Benefits() {
               title: "Modern Payment Solutions",
               description:
                 "Accept all payment methods including contactless cards and mobile payments.",
-              image: "https://images.unsplash.com/photo-1529678407585-55ac0053aa47",
+              image: "https://ir.nayax.com/files/doc_news/thumbnail_PR.jpeg",
             },
           ].map((benefit, index) => (
             <motion.div
