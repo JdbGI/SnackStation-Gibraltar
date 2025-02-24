@@ -30,7 +30,7 @@ export default function Offer() {
               subtitle: "Fully Managed, No Cost",
               description:
                 "Perfect for sites with high footfall and significant sales potential. No upfront or ongoing costs, with full supply, installation, stocking and maintenance included.",
-              idealFor: "Large offices, busy public spaces, and tourist hubs such as Main Street or Casemates Square.",
+              idealFor: "Large offices, public spaces, and waiting areas.",
               features: ["Free installation", "No ongoing costs", "Full management", "Enhanced service"],
               badge: "Free!",
             },
