@@ -26,19 +26,19 @@ export default function Benefits() {
               title: "Snacks & Drinks - 24/7",
               description:
                 "Ensure everyone in your space can easily grab their favourite snacks and drinks whenever they need them.",
-              image: "https://images.unsplash.com/photo-1502323777036-f29e3972d82f",
+              image: "https://www.barton.gi/wp-content/uploads/2025/02/20-IMG_5264-Large.jpeg",
             },
             {
               title: "Zero Maintenance Required",
               description:
                 "We handle everything from restocking to maintenance, letting you focus on your business.",
-              image: "https://images.unsplash.com/photo-1515923256482-1c04580b477c",
+              image: "https://www.barton.gi/wp-content/uploads/2025/02/31-IMG_5233-Large.jpeg",
             },
             {
               title: "Modern Payment Solutions",
               description:
                 "Accept all payment methods including contactless cards and mobile payments.",
-              image: "https://ir.nayax.com/files/doc_news/thumbnail_PR.jpeg",
+              image: "https://www.barton.gi/wp-content/uploads/2025/02/7-IMG_5297-Large.jpeg",
             },
           ].map((benefit, index) => (
             <motion.div
