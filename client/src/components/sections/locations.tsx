@@ -31,7 +31,7 @@ export default function Locations() {
             },
             {
               name: "Gibtelecom Mount Pleasant",
-              image: "https://datacentercatalog.com/dc-images/gibraltar-uk/mount-pleasant.jpg",
+              image: "https://www.barton.gi/wp-content/uploads/2025/02/Gibtel-Machine-Image.jpg",
               description: "Supporting Gibtelecom's workforce with quality refreshments throughout the day. Our machines help keep their team energized and productive.",
               features: ["Corporate Location", "Premium Snacks", "Staff Favorite"]
             },
