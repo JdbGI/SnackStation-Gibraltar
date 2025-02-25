@@ -28,18 +28,21 @@ export default function About() {
               title: "Cashless Operation",
               description:
                 "Card-only system minimizes maintenance issues and keeps your machine running efficiently.",
+              image: "https://www.barton.gi/wp-content/uploads/2025/02/7-IMG_5297-Large.jpeg"
             },
             {
               icon: Settings,
               title: "Free Installation",
               description:
                 "Our local team manages the complete installation process at no extra cost.",
+              image: "https://www.barton.gi/wp-content/uploads/2025/02/31-IMG_5233-Large.jpeg"
             },
             {
               icon: ShieldCheck,
               title: "Fully Managed Service",
               description:
                 "We handle supply, stocking, servicing and maintenance to ensure your machine is always operational.",
+              image: "https://www.barton.gi/wp-content/uploads/2025/02/20-IMG_5264-Large.jpeg"
             },
             {
               icon: Clock,
@@ -56,7 +59,11 @@ export default function About() {
               viewport={{ once: true }}
               className="text-center p-6"
             >
-              <feature.icon className="w-12 h-12 text-primary mx-auto mb-4" />
+              {feature.image ? (
+                <img src={feature.image} alt={feature.title} className="w-full h-48 object-cover rounded-lg mb-4" />
+              ) : (
+                <feature.icon className="w-12 h-12 text-primary mx-auto mb-4" />
+              )}
               <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
               <p className="text-muted-foreground">{feature.description}</p>
             </motion.div>
