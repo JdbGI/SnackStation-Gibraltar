@@ -93,9 +93,9 @@ export default function AuthPage() {
 
       <div className="hidden md:flex bg-muted items-center justify-center p-8">
         <div className="max-w-md space-y-4 text-center">
-          <h1 className="text-4xl font-bold">Welcome to SnackStation</h1>
+          <h1 className="text-4xl font-bold">Welcome to SnackStation Gibraltar</h1>
           <p className="text-muted-foreground">
-            Access your vending machine statistics, track sales, and monitor your revenue
+            Fully managed vending machine provider. Access your vending machine statistics, track sales, and monitor your revenue
             sharing earnings all in one place. Contact us to join our network and get
             your account credentials.
           </p>
