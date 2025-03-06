@@ -21,7 +21,7 @@ export default function Locations() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {[
             {
               name: "Mid Harbours Small Boats Marina",
@@ -34,6 +34,12 @@ export default function Locations() {
               image: "https://www.barton.gi/wp-content/uploads/2025/02/Gibtel-Machine-Image.jpg",
               description: "Supporting Gibtelecom's workforce with quality refreshments throughout the day. Our machines help keep their team energized and productive.",
               features: ["Corporate Location", "Premium Snacks", "Staff Favorite"]
+            },
+            {
+              name: "Gibraltar Broadcasting Corporation",
+              image: "https://www.barton.gi/wp-content/uploads/2025/03/GBC-Web-image.jpg",
+              description: "From morning radio hosts to evening news teams, the busy staff at GBC now have drinks and snacks available on site throughout their workday, keeping them energized and focused.",
+              features: ["Media Center", "24/7 Access", "Staff Favorite"]
             },
           ].map((location, index) => (
             <motion.div
