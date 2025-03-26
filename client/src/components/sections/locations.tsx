@@ -41,6 +41,12 @@ export default function Locations() {
               description: "From morning radio hosts to evening news teams, the busy staff at GBC now have drinks and snacks available on site throughout their workday, keeping them energized and focused.",
               features: ["Media Center", "24/7 Access", "Staff Favorite"]
             },
+            {
+              name: "Bus Company Depot",
+              image: "https://www.barton.gi/wp-content/uploads/2025/03/Bus-Company.jpg",
+              description: "Providing essential refreshments for Gibraltar's transport workers at all hours. Our strategically placed vending machines ensure drivers and staff stay fueled throughout their shifts.",
+              features: ["Transportation Hub", "24/7 Access", "Staff Essential"]
+            },
           ].map((location, index) => (
             <motion.div
               key={index}
