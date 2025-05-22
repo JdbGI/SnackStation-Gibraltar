@@ -47,6 +47,12 @@ export default function Locations() {
               description: "Providing essential refreshments for Gibraltar's transport workers at all hours. Our strategically placed vending machines ensure drivers and staff stay fueled throughout their shifts.",
               features: ["Transportation Hub", "24/7 Access", "Staff Essential"]
             },
+            {
+              name: "Gibraltar Defence Police HQ",
+              image: "/attached_assets/GDP Web Image.jpg",
+              description: "Supporting Gibraltar's security forces around the clock. Our vending machines provide quick refreshments for officers working 24-hour shifts, ensuring they stay alert and energized while protecting our community.",
+              features: ["Security Hub", "24/7 Operations", "Round-the-Clock Service"]
+            },
           ].map((location, index) => (
             <motion.div
               key={index}
