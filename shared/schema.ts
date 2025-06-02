@@ -45,6 +45,18 @@ export const sales = pgTable("sales", {
   cogs: decimal("cogs").notNull(),
 });
 
+export const products = pgTable("products", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  brand: text("brand").notNull(),
+  description: text("description"),
+  price: decimal("price").notNull(),
+  imageUrl: text("image_url"),
+  category: text("category").notNull(),
+  inStock: boolean("in_stock").notNull().default(true),
+  sku: text("sku"),
+});
+
 // User schemas
 export const insertUserSchema = createInsertSchema(users).extend({
   password: z.string().min(6, "Password must be at least 6 characters")
@@ -62,3 +74,10 @@ export type InsertMachine = z.infer<typeof insertMachineSchema>;
 export const insertSalesSchema = createInsertSchema(sales);
 export type Sales = typeof sales.$inferSelect;
 export type InsertSales = z.infer<typeof insertSalesSchema>;
+
+// Product schemas
+export const insertProductSchema = createInsertSchema(products).extend({
+  price: z.string().refine((val) => !isNaN(parseFloat(val)), "Price must be a valid number")
+});
+export type Product = typeof products.$inferSelect;
+export type InsertProduct = z.infer<typeof insertProductSchema>;
