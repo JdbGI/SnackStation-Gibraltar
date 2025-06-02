@@ -131,6 +131,26 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Products
+  app.get("/api/products", async (req, res) => {
+    try {
+      const products = await storage.getProducts();
+      res.json(products);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+  app.get("/api/products/category/:category", async (req, res) => {
+    try {
+      const { category } = req.params;
+      const products = await storage.getProductsByCategory(category);
+      res.json(products);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }

@@ -9,6 +9,7 @@ import { ProtectedRoute } from "./lib/protected-route";
 import AuthPage from "@/pages/auth-page";
 import Dashboard from "@/pages/dashboard";
 import AdminDashboard from "@/pages/admin/dashboard";
+import Catalogue from "@/pages/catalogue";
 import { useAuth } from "@/hooks/use-auth";
 import { Redirect, Route as WouterRoute } from "wouter";
 
@@ -53,6 +54,7 @@ function Router() {
       <AdminRoute path="/admin/machines" component={() => <div>Machines Page (Coming Soon)</div>} />
       <AdminRoute path="/admin/reports" component={() => <div>Reports Page (Coming Soon)</div>} />
       <AdminRoute path="/admin/settings" component={() => <div>Settings Page (Coming Soon)</div>} />
+      <Route path="/catalogue" component={Catalogue} />
       <Route component={NotFound} />
     </Switch>
   );
