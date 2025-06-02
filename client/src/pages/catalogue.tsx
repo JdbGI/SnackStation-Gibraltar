@@ -17,30 +17,40 @@ type Product = {
   sku: string;
 };
 
-// Static product data based on approved list
+// Static product data from various retailers
 const TRAVEL_TOILETRIES: Product[] = [
   {
     id: 1,
-    name: "Nivea Micellar Water Sensitive Skin 100ml",
-    brand: "Nivea",
-    description: "Gentle micellar water for sensitive skin, removes makeup and cleanses in one step",
-    imageUrl: "https://images.unsplash.com/photo-1556229174-f6ac7c2610de?w=300&h=300&fit=crop&auto=format",
+    name: "Malibu Travel 3 Pack - Lotion SPF30 100ml, Lotion SPF50 100ml & Aftersun Lotion 100ml",
+    brand: "Malibu",
+    description: "Travel-sized sun protection pack with SPF30, SPF50 lotions and aftersun lotion",
+    imageUrl: "https://bunny-wp-pullzone-azlbpjuk8d.b-cdn.net/wp-content/uploads/2025/05/69274-Malibu-Travel-3-Pack-Lotion-SPF30-100ml-Lotion-SPF50-100ml-Aftersun-Lotion-100ml-300x300.png",
     category: "Travel Size Toiletries",
-    sku: "NV001",
+    sku: "69274",
     inStock: true
   },
   {
     id: 2,
-    name: "Colgate Plax Cool Mint Travel Mouthwash 100ml",
-    brand: "Colgate",
-    description: "Antibacterial mouthwash with cool mint flavor for fresh breath and plaque protection",
-    imageUrl: "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=300&h=300&fit=crop&auto=format",
+    name: "Aussie Conditioner Miracle Moist Travel 100ml",
+    brand: "Aussie",
+    description: "Travel-sized miracle moist conditioner for dry hair",
+    imageUrl: "https://bunny-wp-pullzone-azlbpjuk8d.b-cdn.net/wp-content/uploads/2025/05/Aussie-Conditioner-Miracle-Moist-Travel-100ml-69232B-300x300.jpg",
     category: "Travel Size Toiletries",
-    sku: "CG001",
+    sku: "69232B",
     inStock: true
   },
   {
     id: 3,
+    name: "Aussie Shampoo Miracle Moist Travel 100ml",
+    brand: "Aussie",
+    description: "Travel-sized miracle moist shampoo for dry hair",
+    imageUrl: "https://bunny-wp-pullzone-azlbpjuk8d.b-cdn.net/wp-content/uploads/2025/05/Aussie-Shampoo-Miracle-Moist-Travel-100ml-69231A-300x300.jpg",
+    category: "Travel Size Toiletries",
+    sku: "69231A",
+    inStock: true
+  },
+  {
+    id: 4,
     name: "Gillette Fusion Ultra Sensitive Shaving Gel 75ml",
     brand: "Gillette",
     description: "Ultra-sensitive shaving gel for a smooth, comfortable shave",
@@ -50,47 +60,7 @@ const TRAVEL_TOILETRIES: Product[] = [
     inStock: true
   },
   {
-    id: 4,
-    name: "Nivea Hand Cream Protective Care Beeswax 75ml",
-    brand: "Nivea",
-    description: "Protective hand cream with beeswax for dry and rough hands",
-    imageUrl: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=300&h=300&fit=crop&auto=format",
-    category: "Travel Size Toiletries",
-    sku: "NV002",
-    inStock: true
-  },
-  {
     id: 5,
-    name: "Femfresh Wipes 15's",
-    brand: "Femfresh",
-    description: "Gentle intimate wipes for daily freshness and comfort",
-    imageUrl: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=300&h=300&fit=crop&auto=format",
-    category: "Travel Size Toiletries",
-    sku: "FF001",
-    inStock: true
-  },
-  {
-    id: 6,
-    name: "Head & Shoulders Shampoo Classic 95ml",
-    brand: "Head & Shoulders",
-    description: "Anti-dandruff shampoo with zinc pyrithione for effective dandruff control",
-    imageUrl: "https://images.unsplash.com/photo-1556229174-f6ac7c2610de?w=300&h=300&fit=crop&auto=format",
-    category: "Travel Size Toiletries",
-    sku: "HS001",
-    inStock: true
-  },
-  {
-    id: 7,
-    name: "Pantene Shampoo Repair & Protect 90ml",
-    brand: "Pantene",
-    description: "Repair and protect shampoo with Pro-Vitamin B5 for damaged hair",
-    imageUrl: "https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=300&h=300&fit=crop&auto=format",
-    category: "Travel Size Toiletries",
-    sku: "PT001",
-    inStock: true
-  },
-  {
-    id: 8,
     name: "Fluorodine Dental Travel Kit",
     brand: "Fluorodine",
     description: "Complete dental care travel kit with toothbrush and toothpaste",
@@ -100,7 +70,7 @@ const TRAVEL_TOILETRIES: Product[] = [
     inStock: true
   },
   {
-    id: 9,
+    id: 6,
     name: "Sanex Deodorant Roll On Men Active 50ml",
     brand: "Sanex",
     description: "Active deodorant roll-on for men in travel size",
@@ -110,17 +80,7 @@ const TRAVEL_TOILETRIES: Product[] = [
     inStock: true
   },
   {
-    id: 10,
-    name: "Original Source Shower Gel Coconut 50ml",
-    brand: "Original Source",
-    description: "Natural coconut shower gel with moisturizing properties",
-    imageUrl: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=300&h=300&fit=crop&auto=format",
-    category: "Travel Size Toiletries",
-    sku: "OS001",
-    inStock: true
-  },
-  {
-    id: 11,
+    id: 7,
     name: "Sanex Shower Gel Dermo Moist 50ml",
     brand: "Sanex",
     description: "Dermatologically tested moisturizing shower gel in travel size",
@@ -130,13 +90,83 @@ const TRAVEL_TOILETRIES: Product[] = [
     inStock: true
   },
   {
-    id: 12,
-    name: "Simple Refreshing Face Wash Gel 50ml",
-    brand: "Simple",
-    description: "Gentle face wash gel with vitamin B5 and vitamin E for all skin types",
-    imageUrl: "https://images.unsplash.com/photo-1556229010-aa4e0b57b4c9?w=300&h=300&fit=crop&auto=format",
+    id: 8,
+    name: "Head & Shoulders Classic Clean Travel Shampoo 90ml",
+    brand: "Head & Shoulders",
+    description: "Anti-dandruff shampoo with zinc pyrithione for effective dandruff control in convenient travel size",
+    imageUrl: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=300&fit=crop",
     category: "Travel Size Toiletries",
-    sku: "SP001",
+    sku: "HS90",
+    inStock: true
+  },
+  {
+    id: 9,
+    name: "Dove Original Beauty Bar Travel Size 25g",
+    brand: "Dove",
+    description: "¼ moisturizing cream beauty bar that cleanses and nourishes skin in travel-friendly size",
+    imageUrl: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=300&h=300&fit=crop",
+    category: "Travel Size Toiletries",
+    sku: "DV25",
+    inStock: true
+  },
+  {
+    id: 10,
+    name: "Nivea Protect & Care Deodorant Roll-On 25ml",
+    brand: "Nivea",
+    description: "48h protection deodorant with caring aloe vera extract in mini travel size",
+    imageUrl: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=300&h=300&fit=crop",
+    category: "Travel Size Toiletries",
+    sku: "NV25",
+    inStock: true
+  },
+  {
+    id: 11,
+    name: "Colgate Total Toothpaste Travel Size 19ml",
+    brand: "Colgate",
+    description: "Advanced whitening toothpaste with 12-hour protection against bacteria in portable tube",
+    imageUrl: "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=300&h=300&fit=crop",
+    category: "Travel Size Toiletries",
+    sku: "CG19",
+    inStock: true
+  },
+  {
+    id: 12,
+    name: "L'Oréal Elvive Total Repair 5 Shampoo 50ml",
+    brand: "L'Oréal",
+    description: "Reconstructing shampoo for damaged hair with ceramide and protein complex",
+    imageUrl: "https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=300&h=300&fit=crop",
+    category: "Travel Size Toiletries",
+    sku: "LO50",
+    inStock: true
+  },
+  {
+    id: 13,
+    name: "Johnson's Baby Shampoo Travel Size 50ml",
+    brand: "Johnson's",
+    description: "No more tears formula gentle baby shampoo with mild cleansing ingredients",
+    imageUrl: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=300&h=300&fit=crop",
+    category: "Travel Size Toiletries",
+    sku: "JB50",
+    inStock: true
+  },
+  {
+    id: 14,
+    name: "Pantene Pro-V Daily Moisture Renewal Conditioner 50ml",
+    brand: "Pantene",
+    description: "Nourishing conditioner with Pro-Vitamin B5 for soft, manageable hair",
+    imageUrl: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=300&fit=crop",
+    category: "Travel Size Toiletries",
+    sku: "PT50",
+    inStock: true
+  },
+  {
+    id: 15,
+    name: "Simple Kind to Skin Refreshing Facial Wash 50ml",
+    brand: "Simple",
+    description: "Soap-free facial cleanser with vitamin B5 and vitamin E for sensitive skin",
+    imageUrl: "https://images.unsplash.com/photo-1556229010-aa4e0b57b4c9?w=300&h=300&fit=crop",
+    category: "Travel Size Toiletries",
+    sku: "SP50",
     inStock: true
   }
 ];
@@ -283,7 +313,13 @@ function ProductCard({ product }: { product: Product }) {
           )}
         </div>
         
-
+        <div className="mt-auto">
+          <div className="flex items-center justify-end">
+            <Button size="sm" variant="outline">
+              Add to Selection
+            </Button>
+          </div>
+        </div>
       </CardContent>
     </Card>
   );
