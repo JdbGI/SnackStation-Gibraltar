@@ -29,26 +29,7 @@ const TRAVEL_TOILETRIES: Product[] = [
     sku: "69274",
     inStock: true
   },
-  {
-    id: 2,
-    name: "Aussie Conditioner Miracle Moist Travel 100ml",
-    brand: "Aussie",
-    description: "Travel-sized miracle moist conditioner for dry hair",
-    imageUrl: "https://bunny-wp-pullzone-azlbpjuk8d.b-cdn.net/wp-content/uploads/2025/05/Aussie-Conditioner-Miracle-Moist-Travel-100ml-69232B-300x300.jpg",
-    category: "Travel Size Toiletries",
-    sku: "69232B",
-    inStock: true
-  },
-  {
-    id: 3,
-    name: "Aussie Shampoo Miracle Moist Travel 100ml",
-    brand: "Aussie",
-    description: "Travel-sized miracle moist shampoo for dry hair",
-    imageUrl: "https://bunny-wp-pullzone-azlbpjuk8d.b-cdn.net/wp-content/uploads/2025/05/Aussie-Shampoo-Miracle-Moist-Travel-100ml-69231A-300x300.jpg",
-    category: "Travel Size Toiletries",
-    sku: "69231A",
-    inStock: true
-  },
+
   {
     id: 4,
     name: "Gillette Fusion Ultra Sensitive Shaving Gel 75ml",
@@ -94,7 +75,7 @@ const TRAVEL_TOILETRIES: Product[] = [
     name: "Head & Shoulders Classic Clean Travel Shampoo 90ml",
     brand: "Head & Shoulders",
     description: "Anti-dandruff shampoo with zinc pyrithione for effective dandruff control in convenient travel size",
-    imageUrl: "https://www.headandshoulders.com/sites/hs_ca_2/files/styles/product_image_large/public/touts/hns_cla_sha_tos_main.png",
+    imageUrl: "https://images.unsplash.com/photo-1556229174-f6ac7c2610de?w=300&h=300&fit=crop&auto=format",
     category: "Travel Size Toiletries",
     sku: "HS90",
     inStock: true
@@ -104,7 +85,7 @@ const TRAVEL_TOILETRIES: Product[] = [
     name: "Dove Original Beauty Bar Travel Size 25g",
     brand: "Dove",
     description: "¼ moisturizing cream beauty bar that cleanses and nourishes skin in travel-friendly size",
-    imageUrl: "https://www.dove.com/content/dam/brands/dove/global/1072013/personal_wash/dove_original_beauty_bar_90g_tcm1305-461074_w768.png",
+    imageUrl: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=300&h=300&fit=crop&auto=format",
     category: "Travel Size Toiletries",
     sku: "DV25",
     inStock: true
@@ -114,7 +95,7 @@ const TRAVEL_TOILETRIES: Product[] = [
     name: "Nivea Protect & Care Deodorant Roll-On 25ml",
     brand: "Nivea",
     description: "48h protection deodorant with caring aloe vera extract in mini travel size",
-    imageUrl: "https://www.nivea.co.uk/-/media/nivea/local/uk/deodorants/packshots/1000x1000_83717_front.png",
+    imageUrl: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=300&h=300&fit=crop&auto=format",
     category: "Travel Size Toiletries",
     sku: "NV25",
     inStock: true
@@ -124,7 +105,7 @@ const TRAVEL_TOILETRIES: Product[] = [
     name: "Colgate Total Toothpaste Travel Size 19ml",
     brand: "Colgate",
     description: "Advanced whitening toothpaste with 12-hour protection against bacteria in portable tube",
-    imageUrl: "https://www.colgate.com/content/dam/cp-sites/oral-care/oral-care-center/global/products/toothpaste/total/colgate-total-advanced-whitening-toothpaste-75ml.png",
+    imageUrl: "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=300&h=300&fit=crop&auto=format",
     category: "Travel Size Toiletries",
     sku: "CG19",
     inStock: true
@@ -134,7 +115,7 @@ const TRAVEL_TOILETRIES: Product[] = [
     name: "L'Oréal Elvive Total Repair 5 Shampoo 50ml",
     brand: "L'Oréal",
     description: "Reconstructing shampoo for damaged hair with ceramide and protein complex",
-    imageUrl: "https://www.lorealparis.co.uk/-/media/project/loreal/brand-sites/oap/emea/uk/products/hair-care/elvive/total-repair/packshots/elvive_total_repair_5_shampoo_400ml_3600523573912_front.png",
+    imageUrl: "https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=300&h=300&fit=crop&auto=format",
     category: "Travel Size Toiletries",
     sku: "LO50",
     inStock: true
@@ -144,7 +125,7 @@ const TRAVEL_TOILETRIES: Product[] = [
     name: "Johnson's Baby Shampoo Travel Size 50ml",
     brand: "Johnson's",
     description: "No more tears formula gentle baby shampoo with mild cleansing ingredients",
-    imageUrl: "https://www.johnsonsbaby.co.uk/sites/johnsonsbaby_uk_3/files/styles/product_image/public/touts/jjb_sha_not_500ml_front_0.png",
+    imageUrl: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=300&h=300&fit=crop&auto=format",
     category: "Travel Size Toiletries",
     sku: "JB50",
     inStock: true
@@ -154,7 +135,7 @@ const TRAVEL_TOILETRIES: Product[] = [
     name: "Pantene Pro-V Daily Moisture Renewal Conditioner 50ml",
     brand: "Pantene",
     description: "Nourishing conditioner with Pro-Vitamin B5 for soft, manageable hair",
-    imageUrl: "https://pantene.com/sites/pantene_us_2/files/styles/product_image/public/touts/pantene_daily_moisture_renewal_conditioner_12oz.png",
+    imageUrl: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=300&fit=crop&auto=format",
     category: "Travel Size Toiletries",
     sku: "PT50",
     inStock: true
