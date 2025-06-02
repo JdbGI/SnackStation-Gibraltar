@@ -1,15 +1,21 @@
 import express from "express";
 import path from "path";
 import { setupVite, serveStatic } from "./vite";
+import { registerRoutes } from "./routes";
 
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Serve static files from the public directory
 app.use(express.static(path.resolve("public")));
 
 (async () => {
-  // Create a basic Express server that only serves static content
-  const server = app.listen(5000, "0.0.0.0", () => {
+  // Register API routes first
+  const server = registerRoutes(app);
+  
+  server.listen(5000, "0.0.0.0", () => {
     console.log("serving on port 5000");
   });
 
