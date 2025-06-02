@@ -1,0 +1,317 @@
+
+Files
+Commands
+Search
+Packager files
+Config files
+Saved your changes before rolling back
+New chat with Agent
+Agent can make changes, review its work, and debug itself automatically.
+
+Scroll to latest
+Wh
+Chats
+Archived
+Website Title and Auth Page Update
+3 months ago
+Benefit Section Image Update
+3 months ago
+Code changes to offer component description
+3 months ago
+website favicon troubleshooting
+3 months ago
+App Troubleshooting Console Errors
+3 months ago
+Restoring Specific Device or File Backup
+3 months ago
+Snack Delivery Service Improving Vending in Gibraltar
+4 months ago
+snack station service for high traffic locations
+4 months ago
+Adding Partner Button Not Showing
+4 months ago
+crypto comparison length mismatch error troubleshooting
+4 months ago
+App Troubleshooting Console Errors
+4 months ago
+Admin Login Access Methods
+4 months ago
+New chat with Assistant
+Assistant answers questions, refines code, and makes precise edits.
+Assistant mode
+
+advanced
+Claude 4.0 Sonnet
+
+Ask Assistant, use @ to include specific files...
+/catalogue
+
+Channel with name module:nodejs-20/packager:upmNodejs already opened
+Search
+Time
+Deployment
+Source
+Log
+2025-06-02 21:21:17.32
+1f55db7b
+User
+error: password authentication failed for user 'neondb_owner'
+2025-06-02 21:25:21.07
+b15c9d6f
+User
+at async PGStore._asyncQuery (/home/runner/workspace/node_modules/connect-pg-simple/index.js:322:21)
+2025-06-02 21:25:21.07
+b15c9d6f
+User
+at async PGStore._rawEnsureSessionStoreTable (/home/runner/workspace/node_modules/connect-pg-simple/index.js:177:19)
+2025-06-02 21:25:21.07
+b15c9d6f
+User
+at async PGStore._asyncQuery (/home/runner/workspace/node_modules/connect-pg-simple/index.js:315:7)
+2025-06-02 21:25:25.28
+b15c9d6f
+System
+system: received signal terminated
+2025-06-02 21:25:25.30
+b15c9d6f
+System
+command finished with error [sh -c npm run start]: signal: terminated
+2025-06-02 21:25:25.33
+b15c9d6f
+System
+main done, exiting
+2025-06-02 21:25:26.63
+b15c9d6f
+User
+error: password authentication failed for user 'neondb_owner'
+2025-06-02 21:25:26.63
+b15c9d6f
+User
+at file:///home/runner/workspace/node_modules/@neondatabase/serverless/index.mjs:1345:74
+2025-06-02 21:25:26.63
+b15c9d6f
+User
+at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-06-02 21:25:26.63
+b15c9d6f
+User
+at async PGStore._asyncQuery (/home/runner/workspace/node_modules/connect-pg-simple/index.js:322:21)
+2025-06-02 21:25:26.63
+b15c9d6f
+User
+at async PGStore._rawEnsureSessionStoreTable (/home/runner/workspace/node_modules/connect-pg-simple/index.js:177:19)
+2025-06-02 21:25:26.63
+b15c9d6f
+User
+at async PGStore._asyncQuery (/home/runner/workspace/node_modules/connect-pg-simple/index.js:315:7)
+2025-06-02 21:25:26.81
+b15c9d6f
+User
+error: password authentication failed for user 'neondb_owner'
+2025-06-02 21:25:26.81
+b15c9d6f
+User
+at file:///home/runner/workspace/node_modules/@neondatabase/serverless/index.mjs:1345:74
+2025-06-02 21:25:26.81
+b15c9d6f
+User
+at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-06-02 21:25:26.81
+b15c9d6f
+User
+at async PGStore._asyncQuery (/home/runner/workspace/node_modules/connect-pg-simple/index.js:322:21)
+2025-06-02 21:25:26.81
+b15c9d6f
+User
+at async PGStore._rawEnsureSessionStoreTable (/home/runner/workspace/node_modules/connect-pg-simple/index.js:177:19)
+2025-06-02 21:25:26.81
+b15c9d6f
+User
+at async PGStore._asyncQuery (/home/runner/workspace/node_modules/connect-pg-simple/index.js:315:7)
+2025-06-02 21:25:26.82
+b15c9d6f
+User
+error: password authentication failed for user 'neondb_owner'
+2025-06-02 21:25:26.82
+b15c9d6f
+User
+at file:///home/runner/workspace/node_modules/@neondatabase/serverless/index.mjs:1345:74
+2025-06-02 21:25:26.82
+b15c9d6f
+User
+at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-06-02 21:25:26.82
+b15c9d6f
+User
+at async PGStore._asyncQuery (/home/runner/workspace/node_modules/connect-pg-simple/index.js:322:21)
+2025-06-02 21:25:26.82
+b15c9d6f
+User
+at async PGStore._rawEnsureSessionStoreTable (/home/runner/workspace/node_modules/connect-pg-simple/index.js:177:19)
+2025-06-02 21:25:26.82
+b15c9d6f
+User
+at async PGStore._asyncQuery (/home/runner/workspace/node_modules/connect-pg-simple/index.js:315:7)
+2025-06-02 21:25:34.34
+b15c9d6f
+User
+error: password authentication failed for user 'neondb_owner'
+2025-06-02 21:25:34.34
+b15c9d6f
+User
+at file:///home/runner/workspace/node_modules/@neondatabase/serverless/index.mjs:1345:74
+2025-06-02 21:25:34.34
+b15c9d6f
+User
+at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-06-02 21:25:34.34
+b15c9d6f
+User
+at async PGStore._asyncQuery (/home/runner/workspace/node_modules/connect-pg-simple/index.js:322:21)
+2025-06-02 21:25:34.34
+b15c9d6f
+User
+at async PGStore._rawEnsureSessionStoreTable (/home/runner/workspace/node_modules/connect-pg-simple/index.js:177:19)
+2025-06-02 21:25:34.34
+b15c9d6f
+User
+at async PGStore._asyncQuery (/home/runner/workspace/node_modules/connect-pg-simple/index.js:315:7)
+2025-06-02 21:25:35.73
+b15c9d6f
+User
+error: password authentication failed for user 'neondb_owner'
+2025-06-02 21:25:35.73
+b15c9d6f
+User
+at file:///home/runner/workspace/node_modules/@neondatabase/serverless/index.mjs:1345:74
+2025-06-02 21:25:35.73
+b15c9d6f
+User
+at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-06-02 21:25:35.73
+b15c9d6f
+User
+at async PGStore._asyncQuery (/home/runner/workspace/node_modules/connect-pg-simple/index.js:322:21)
+2025-06-02 21:25:35.73
+b15c9d6f
+User
+at async PGStore._rawEnsureSessionStoreTable (/home/runner/workspace/node_modules/connect-pg-simple/index.js:177:19)
+2025-06-02 21:25:35.73
+b15c9d6f
+User
+at async PGStore._asyncQuery (/home/runner/workspace/node_modules/connect-pg-simple/index.js:315:7)
+2025-06-02 21:26:04.73
+e65c121b
+System
+system: received signal terminated
+2025-06-02 21:26:04.75
+e65c121b
+System
+command finished with error [sh -c npm run start]: signal: terminated
+2025-06-02 21:26:04.83
+e65c121b
+System
+main done, exiting
+
+Wrap
+
+Colors
+4m
+ • 
+5 minutes ago
+Port :5000 opened on
+
+Commit
+Assistant checkpoint: Increased SnackStation logo size
+Assistant generated file changes:
+
+client/src/components/layout/navbar.tsx: Increase logo size
+User prompt:
+
+Make the SnackStation logo Slightly bigiger
+
+JA
+
+James Barton
+James Barton
+committed
+4 months ago
+1 parent 
+Filter changed files
+Showing 1 changed file.
+
+
+Unified
+
+Split
+navbar.tsx
+client/src/components/layout
+Modified
+
+
+Unified
+
+Split
+⦚ 27 unchanged lines ⦚
+              title: "Cashless Operation",
+              description:
+                "Card-only system minimizes maintenance issues and keeps your machine running efficiently.",
+            },
+            {
+              icon: Settings,
+              title: "Free Installation",
+              description:
+                "Our local team manages the complete installation process at no extra cost.",
+            },
+            {
+              icon: ShieldCheck,
+              title: "Fully Managed Service",
+              description:
+                "We handle supply, stocking, servicing and maintenance to ensure your machine is always operational.",
+            },
+            {
+              icon: Clock,
+⦚ 10 unchanged lines ⦚
+              viewport={{ once: true }}
+              className="text-center p-6"
+            >
+              <feature.icon className="w-12 h-12 text-primary mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+              <p className="text-muted-foreground">{feature.description}</p>
+            </motion.div>
+⦚ 6 unchanged lines ⦚
+⦚ 27 unchanged lines ⦚
+              title: "Cashless Operation",
+              description:
+                "Card-only system minimizes maintenance issues and keeps your machine running efficiently.",
+              image: "https://www.barton.gi/wp-content/uploads/2025/02/7-IMG_5297-Large.jpeg"
+            },
+            {
+              icon: Settings,
+              title: "Free Installation",
+              description:
+                "Our local team manages the complete installation process at no extra cost.",
+              image: "https://www.barton.gi/wp-content/uploads/2025/02/31-IMG_5233-Large.jpeg"
+            },
+            {
+              icon: ShieldCheck,
+              title: "Fully Managed Service",
+              description:
+                "We handle supply, stocking, servicing and maintenance to ensure your machine is always operational.",
+              image: "https://www.barton.gi/wp-content/uploads/2025/02/20-IMG_5264-Large.jpeg"
+            },
+            {
+              icon: Clock,
+⦚ 10 unchanged lines ⦚
+              viewport={{ once: true }}
+              className="text-center p-6"
+            >
+              {feature.image ? (
+                <img src={feature.image} alt={feature.title} className="w-full h-48 object-cover rounded-lg mb-4" />
+              ) : (
+                <feature.icon className="w-12 h-12 text-primary mx-auto mb-4" />
+              )}
+              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+              <p className="text-muted-foreground">{feature.description}</p>
+            </motion.div>
+⦚ 6 unchanged lines ⦚
