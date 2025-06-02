@@ -1,4 +1,4 @@
-import { users, type User, type InsertUser, machines, type Machine, type InsertMachine, sales, type Sales, type InsertSales, inquiries, type Inquiry, type InsertInquiry } from "@shared/schema";
+import { users, type User, type InsertUser, machines, type Machine, type InsertMachine, sales, type Sales, type InsertSales, inquiries, type Inquiry, type InsertInquiry, products, type Product, type InsertProduct } from "@shared/schema";
 import { eq, and, gte, lte } from "drizzle-orm";
 import session from "express-session";
 import connectPg from "connect-pg-simple";
@@ -23,6 +23,11 @@ export interface IStorage {
 
   getAllUsers(): Promise<User[]>;
   getUsersWithMachines(): Promise<(User & { machines: Machine[] })[]>;
+
+  // Product operations
+  getProducts(): Promise<Product[]>;
+  getProductsByCategory(category: string): Promise<Product[]>;
+  createProduct(product: InsertProduct): Promise<Product>;
 
   sessionStore: session.Store;
 }
@@ -108,6 +113,19 @@ export class DatabaseStorage implements IStorage {
       }))
     );
     return usersWithMachines;
+  }
+
+  async getProducts(): Promise<Product[]> {
+    return await db.select().from(products);
+  }
+
+  async getProductsByCategory(category: string): Promise<Product[]> {
+    return await db.select().from(products).where(eq(products.category, category));
+  }
+
+  async createProduct(product: InsertProduct): Promise<Product> {
+    const [newProduct] = await db.insert(products).values(product).returning();
+    return newProduct;
   }
 }
 
