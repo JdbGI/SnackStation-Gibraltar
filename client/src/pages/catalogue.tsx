@@ -173,14 +173,6 @@ function ProductCard({ product }: { product: Product }) {
             </p>
           )}
         </div>
-        
-        <div className="mt-auto">
-          <div className="flex items-center justify-end">
-            <Button size="sm" variant="outline" className="border-blue-300 text-blue-700 hover:bg-blue-50 hover:border-blue-400">
-              Add to Selection
-            </Button>
-          </div>
-        </div>
       </CardContent>
     </Card>
   );
