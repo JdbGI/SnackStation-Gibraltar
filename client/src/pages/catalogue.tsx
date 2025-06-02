@@ -54,8 +54,8 @@ export default function Catalogue() {
           <div className="flex items-center gap-3">
             <Package className="h-8 w-8 text-blue-600" />
             <div>
-              <h1 className="text-3xl font-bold text-blue-900">Product Catalogue</h1>
-              <p className="text-blue-700 mt-1">Personal Care Items for Vending Machines</p>
+              <h1 className="text-3xl font-bold text-blue-900">SnackStation Catalogue</h1>
+              <p className="text-blue-700 mt-1">Quality products available in SnackStation vending machines</p>
             </div>
           </div>
         </div>
@@ -164,12 +164,6 @@ function ProductCard({ product }: { product: Product }) {
           {product.description && (
             <p className="text-xs text-blue-700 mb-3 line-clamp-2">
               {product.description}
-            </p>
-          )}
-          
-          {product.price && (
-            <p className="text-sm font-semibold text-blue-900 mb-2">
-              £{parseFloat(product.price).toFixed(2)}
             </p>
           )}
         </div>
