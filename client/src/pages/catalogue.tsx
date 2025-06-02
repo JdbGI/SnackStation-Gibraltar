@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -6,44 +5,191 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Package, Search, Filter } from "lucide-react";
 import { useState } from "react";
-import type { Product } from "@shared/schema";
+
+type Product = {
+  id: number;
+  name: string;
+  brand: string;
+  description: string;
+  imageUrl: string;
+  category: string;
+  inStock: boolean;
+  sku: string;
+};
+
+// Static product data from various retailers
+const TRAVEL_TOILETRIES: Product[] = [
+  {
+    id: 1,
+    name: "Malibu Travel 3 Pack - Lotion SPF30 100ml, Lotion SPF50 100ml & Aftersun Lotion 100ml",
+    brand: "Malibu",
+    description: "Travel-sized sun protection pack with SPF30, SPF50 lotions and aftersun lotion",
+    imageUrl: "https://bunny-wp-pullzone-azlbpjuk8d.b-cdn.net/wp-content/uploads/2025/05/69274-Malibu-Travel-3-Pack-Lotion-SPF30-100ml-Lotion-SPF50-100ml-Aftersun-Lotion-100ml-300x300.png",
+    category: "Travel Size Toiletries",
+    sku: "69274",
+    inStock: true
+  },
+  {
+    id: 2,
+    name: "Aussie Conditioner Miracle Moist Travel 100ml",
+    brand: "Aussie",
+    description: "Travel-sized miracle moist conditioner for dry hair",
+    imageUrl: "https://bunny-wp-pullzone-azlbpjuk8d.b-cdn.net/wp-content/uploads/2025/05/Aussie-Conditioner-Miracle-Moist-Travel-100ml-69232B-300x300.jpg",
+    category: "Travel Size Toiletries",
+    sku: "69232B",
+    inStock: true
+  },
+  {
+    id: 3,
+    name: "Aussie Shampoo Miracle Moist Travel 100ml",
+    brand: "Aussie",
+    description: "Travel-sized miracle moist shampoo for dry hair",
+    imageUrl: "https://bunny-wp-pullzone-azlbpjuk8d.b-cdn.net/wp-content/uploads/2025/05/Aussie-Shampoo-Miracle-Moist-Travel-100ml-69231A-300x300.jpg",
+    category: "Travel Size Toiletries",
+    sku: "69231A",
+    inStock: true
+  },
+  {
+    id: 4,
+    name: "Gillette Fusion Ultra Sensitive Shaving Gel 75ml",
+    brand: "Gillette",
+    description: "Ultra-sensitive shaving gel for a smooth, comfortable shave",
+    imageUrl: "https://bunny-wp-pullzone-azlbpjuk8d.b-cdn.net/wp-content/uploads/2023/08/products-63549d-300x300.png",
+    category: "Travel Size Toiletries",
+    sku: "63549D",
+    inStock: true
+  },
+  {
+    id: 5,
+    name: "Fluorodine Dental Travel Kit",
+    brand: "Fluorodine",
+    description: "Complete dental care travel kit with toothbrush and toothpaste",
+    imageUrl: "https://bunny-wp-pullzone-azlbpjuk8d.b-cdn.net/wp-content/uploads/2023/08/products-63535m.jpg",
+    category: "Travel Size Toiletries",
+    sku: "63535M",
+    inStock: true
+  },
+  {
+    id: 6,
+    name: "Sanex Deodorant Roll On Men Active 50ml",
+    brand: "Sanex",
+    description: "Active deodorant roll-on for men in travel size",
+    imageUrl: "https://bunny-wp-pullzone-azlbpjuk8d.b-cdn.net/wp-content/uploads/2023/08/products-63363n.png",
+    category: "Travel Size Toiletries",
+    sku: "63363N",
+    inStock: true
+  },
+  {
+    id: 7,
+    name: "Sanex Shower Gel Dermo Moist 50ml",
+    brand: "Sanex",
+    description: "Dermatologically tested moisturizing shower gel in travel size",
+    imageUrl: "https://bunny-wp-pullzone-azlbpjuk8d.b-cdn.net/wp-content/uploads/2023/08/products-63302g-300x692.png",
+    category: "Travel Size Toiletries",
+    sku: "63302G",
+    inStock: true
+  },
+  {
+    id: 8,
+    name: "Head & Shoulders Classic Clean Travel Shampoo 90ml",
+    brand: "Head & Shoulders",
+    description: "Anti-dandruff shampoo with zinc pyrithione for effective dandruff control in convenient travel size",
+    imageUrl: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=300&fit=crop",
+    category: "Travel Size Toiletries",
+    sku: "HS90",
+    inStock: true
+  },
+  {
+    id: 9,
+    name: "Dove Original Beauty Bar Travel Size 25g",
+    brand: "Dove",
+    description: "¼ moisturizing cream beauty bar that cleanses and nourishes skin in travel-friendly size",
+    imageUrl: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=300&h=300&fit=crop",
+    category: "Travel Size Toiletries",
+    sku: "DV25",
+    inStock: true
+  },
+  {
+    id: 10,
+    name: "Nivea Protect & Care Deodorant Roll-On 25ml",
+    brand: "Nivea",
+    description: "48h protection deodorant with caring aloe vera extract in mini travel size",
+    imageUrl: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=300&h=300&fit=crop",
+    category: "Travel Size Toiletries",
+    sku: "NV25",
+    inStock: true
+  },
+  {
+    id: 11,
+    name: "Colgate Total Toothpaste Travel Size 19ml",
+    brand: "Colgate",
+    description: "Advanced whitening toothpaste with 12-hour protection against bacteria in portable tube",
+    imageUrl: "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=300&h=300&fit=crop",
+    category: "Travel Size Toiletries",
+    sku: "CG19",
+    inStock: true
+  },
+  {
+    id: 12,
+    name: "L'Oréal Elvive Total Repair 5 Shampoo 50ml",
+    brand: "L'Oréal",
+    description: "Reconstructing shampoo for damaged hair with ceramide and protein complex",
+    imageUrl: "https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=300&h=300&fit=crop",
+    category: "Travel Size Toiletries",
+    sku: "LO50",
+    inStock: true
+  },
+  {
+    id: 13,
+    name: "Johnson's Baby Shampoo Travel Size 50ml",
+    brand: "Johnson's",
+    description: "No more tears formula gentle baby shampoo with mild cleansing ingredients",
+    imageUrl: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=300&h=300&fit=crop",
+    category: "Travel Size Toiletries",
+    sku: "JB50",
+    inStock: true
+  },
+  {
+    id: 14,
+    name: "Pantene Pro-V Daily Moisture Renewal Conditioner 50ml",
+    brand: "Pantene",
+    description: "Nourishing conditioner with Pro-Vitamin B5 for soft, manageable hair",
+    imageUrl: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=300&fit=crop",
+    category: "Travel Size Toiletries",
+    sku: "PT50",
+    inStock: true
+  },
+  {
+    id: 15,
+    name: "Simple Kind to Skin Refreshing Facial Wash 50ml",
+    brand: "Simple",
+    description: "Soap-free facial cleanser with vitamin B5 and vitamin E for sensitive skin",
+    imageUrl: "https://images.unsplash.com/photo-1556229010-aa4e0b57b4c9?w=300&h=300&fit=crop",
+    category: "Travel Size Toiletries",
+    sku: "SP50",
+    inStock: true
+  }
+];
 
 export default function Catalogue() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedBrand, setSelectedBrand] = useState<string>("all");
-  const [priceRange, setPriceRange] = useState<string>("all");
 
-  const { data: products = [], isLoading } = useQuery<Product[]>({
-    queryKey: ["/api/products"],
-  });
+  const products = TRAVEL_TOILETRIES;
 
   // Filter products based on search and filters
   const filteredProducts = products.filter((product) => {
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          product.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         product.description?.toLowerCase().includes(searchQuery.toLowerCase());
+                         product.description.toLowerCase().includes(searchQuery.toLowerCase());
     
     const matchesBrand = selectedBrand === "all" || product.brand === selectedBrand;
-    
-    const price = parseFloat(product.price);
-    const matchesPrice = priceRange === "all" ||
-                        (priceRange === "under-3" && price < 3) ||
-                        (priceRange === "3-5" && price >= 3 && price <= 5) ||
-                        (priceRange === "over-5" && price > 5);
 
-    return matchesSearch && matchesBrand && matchesPrice && product.inStock;
+    return matchesSearch && matchesBrand && product.inStock;
   });
 
   // Get unique brands for filter
   const brands = Array.from(new Set(products.map(p => p.brand))).sort();
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full" />
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -68,7 +214,7 @@ export default function Catalogue() {
             <h2 className="text-lg font-semibold text-gray-900">Filter Products</h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Search */}
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
@@ -92,19 +238,6 @@ export default function Catalogue() {
                     {brand}
                   </SelectItem>
                 ))}
-              </SelectContent>
-            </Select>
-
-            {/* Price Filter */}
-            <Select value={priceRange} onValueChange={setPriceRange}>
-              <SelectTrigger>
-                <SelectValue placeholder="Filter by price" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Prices</SelectItem>
-                <SelectItem value="under-3">Under £3</SelectItem>
-                <SelectItem value="3-5">£3 - £5</SelectItem>
-                <SelectItem value="over-5">Over £5</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -181,10 +314,7 @@ function ProductCard({ product }: { product: Product }) {
         </div>
         
         <div className="mt-auto">
-          <div className="flex items-center justify-between">
-            <span className="text-lg font-bold text-primary">
-              £{parseFloat(product.price).toFixed(2)}
-            </span>
+          <div className="flex items-center justify-end">
             <Button size="sm" variant="outline">
               Add to Selection
             </Button>
