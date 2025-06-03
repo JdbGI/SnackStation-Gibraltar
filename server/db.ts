@@ -6,14 +6,15 @@ import * as schema from "@shared/schema";
 // Configure Neon for serverless environments
 neonConfig.webSocketConstructor = ws;
 
-// Use the provided Neon database URL or fallback to environment variable
-const databaseUrl = process.env.NEON_DATABASE_URL || process.env.DATABASE_URL || "postgresql://neondb_owner:npg_5WtJlhG9sAIj@ep-aged-star-a4xgfo75.us-east-1.aws.neon.tech/neondb?sslmode=require";
+// Production Neon database URL
+const NEON_DB_URL = "postgresql://neondb_owner:npg_5WtJlhG9sAIj@ep-aged-star-a4xgfo75.us-east-1.aws.neon.tech/neondb?sslmode=require";
 
-if (!databaseUrl) {
-  throw new Error(
-    "DATABASE_URL must be set. Did you forget to provision a database?",
-  );
-}
+// Use production URL for deployment, local URL for development
+const databaseUrl = process.env.NODE_ENV === 'production' 
+  ? NEON_DB_URL 
+  : (process.env.DATABASE_URL || NEON_DB_URL);
+
+console.log(`Using database: ${databaseUrl.split('@')[0]}@***`);
 
 // Create the database connection using neon function
 const sql = neon(databaseUrl);
