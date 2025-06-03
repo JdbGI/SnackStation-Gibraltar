@@ -78,22 +78,22 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getSalesByMachine(machineId: number, month?: Date): Promise<Sales[]> {
-    let query = db.select().from(sales).where(eq(sales.machineId, machineId));
-
     if (month) {
       const startDate = new Date(month.getFullYear(), month.getMonth(), 1);
       const endDate = new Date(month.getFullYear(), month.getMonth() + 1, 0);
 
-      query = query.where(
+      const result = await db.select().from(sales).where(
         and(
           eq(sales.machineId, machineId),
           gte(sales.date, startDate.toISOString().split('T')[0]),
           lte(sales.date, endDate.toISOString().split('T')[0])
         )
       );
+      return result;
     }
 
-    return await query;
+    const result = await db.select().from(sales).where(eq(sales.machineId, machineId));
+    return result;
   }
 
   async createSales(salesData: InsertSales): Promise<Sales> {
