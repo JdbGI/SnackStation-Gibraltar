@@ -2,6 +2,7 @@ import express from "express";
 import path from "path";
 import { setupVite, serveStatic } from "./vite";
 import { registerRoutes } from "./routes";
+import { seedDatabase } from "./seed-data";
 
 const app = express();
 
@@ -12,6 +13,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve("public")));
 
 (async () => {
+  try {
+    // Initialize database with product data
+    await seedDatabase();
+  } catch (error) {
+    console.error("Failed to seed database:", error);
+  }
+
   // Register API routes first
   const server = registerRoutes(app);
   
