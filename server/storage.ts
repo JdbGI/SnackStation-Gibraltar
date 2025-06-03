@@ -2,10 +2,9 @@ import { users, type User, type InsertUser, machines, type Machine, type InsertM
 import { eq, and, gte, lte } from "drizzle-orm";
 import session from "express-session";
 import MemoryStore from "memorystore";
-import connectPg from "connect-pg-simple";
-import { db, pool } from "./db";
+import { db } from "./db";
 
-const PostgresSessionStore = connectPg(session);
+const MemStore = MemoryStore(session);
 
 export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
@@ -37,9 +36,8 @@ export class DatabaseStorage implements IStorage {
   sessionStore: session.Store;
 
   constructor() {
-    this.sessionStore = new PostgresSessionStore({
-      pool,
-      createTableIfMissing: true,
+    this.sessionStore = new MemStore({
+      checkPeriod: 86400000 // prune expired entries every 24h
     });
   }
 

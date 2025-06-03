@@ -1,4 +1,4 @@
-import { neon, neonConfig, Pool } from '@neondatabase/serverless';
+import { neon, neonConfig } from '@neondatabase/serverless';
 import { drizzle } from 'drizzle-orm/neon-http';
 import ws from "ws";
 import * as schema from "@shared/schema";
@@ -17,6 +17,3 @@ const sql = neon(process.env.DATABASE_URL!);
 export const db = drizzle(sql, { 
   schema
 });
-
-// Create a Pool for session storage
-export const pool = new Pool({ connectionString: process.env.DATABASE_URL });
