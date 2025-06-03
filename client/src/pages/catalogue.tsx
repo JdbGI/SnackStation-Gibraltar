@@ -19,10 +19,6 @@ export default function Catalogue() {
     queryKey: ['/api/products'],
   });
 
-  console.log('Products data:', products);
-  console.log('Products loading:', isLoading);
-  console.log('Products error:', error);
-
   // Filter products based on search and filters
   const filteredProducts = products.filter((product: Product) => {
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
