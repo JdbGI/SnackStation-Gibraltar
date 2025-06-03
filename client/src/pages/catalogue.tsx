@@ -15,9 +15,13 @@ export default function Catalogue() {
   const [selectedBrand, setSelectedBrand] = useState<string>("all");
 
   // Fetch products from database
-  const { data: products = [], isLoading } = useQuery<Product[]>({
+  const { data: products = [], isLoading, error } = useQuery<Product[]>({
     queryKey: ['/api/products'],
   });
+
+  console.log('Products data:', products);
+  console.log('Products loading:', isLoading);
+  console.log('Products error:', error);
 
   // Filter products based on search and filters
   const filteredProducts = products.filter((product: Product) => {
@@ -40,6 +44,34 @@ export default function Catalogue() {
           <div className="text-center">
             <Package className="h-12 w-12 text-blue-500 mx-auto mb-4 animate-pulse" />
             <p className="text-gray-600">Loading products...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-white">
+        <div className="flex items-center justify-center py-12">
+          <div className="text-center">
+            <Package className="h-12 w-12 text-red-500 mx-auto mb-4" />
+            <p className="text-red-600">Error loading products: {error.message}</p>
+            <p className="text-gray-600 mt-2">Please try refreshing the page</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!products || products.length === 0) {
+    return (
+      <div className="min-h-screen bg-white">
+        <div className="flex items-center justify-center py-12">
+          <div className="text-center">
+            <Package className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+            <p className="text-gray-600">No products available</p>
+            <p className="text-gray-500 mt-2">Products count: {products?.length || 0}</p>
           </div>
         </div>
       </div>
