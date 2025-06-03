@@ -1,6 +1,7 @@
 import { users, type User, type InsertUser, machines, type Machine, type InsertMachine, sales, type Sales, type InsertSales, inquiries, type Inquiry, type InsertInquiry, products, type Product, type InsertProduct } from "@shared/schema";
 import { eq, and, gte, lte } from "drizzle-orm";
 import session from "express-session";
+import MemoryStore from "memorystore";
 import connectPg from "connect-pg-simple";
 import { db, pool } from "./db";
 
