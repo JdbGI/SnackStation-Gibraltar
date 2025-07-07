@@ -49,7 +49,7 @@ export default function Locations() {
             },
             {
               name: "Gibraltar Defence Police HQ",
-              image: "https://www.barton.gi/wp-content/uploads/2025/03/GDP-Web-Image.jpg",
+              image: "/gdp-web-image.jpg",
               description: "Supporting Gibraltar's security forces around the clock. Our vending machines provide quick refreshments for officers working around the clock, ensuring they stay alert and energized while protecting our community.",
               features: ["Security Hub", "24/7 Operations", "Round-the-Clock Service"]
             },
