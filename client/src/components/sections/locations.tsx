@@ -49,9 +49,15 @@ export default function Locations() {
             },
             {
               name: "Gibraltar Defence Police HQ",
-              image: "https://www.barton.gi/wp-content/uploads/2025/03/gdp-web-image.jpg",
+              image: "https://www.barton.gi/wp-content/uploads/2025/03/GDP-Web-Image.jpg",
               description: "Supporting Gibraltar's security forces around the clock. Our vending machines provide quick refreshments for officers working around the clock, ensuring they stay alert and energized while protecting our community.",
               features: ["Security Hub", "24/7 Operations", "Round-the-Clock Service"]
+            },
+            {
+              name: "Holiday Inn Express",
+              image: "/holiday-inn-express.jpg",
+              description: "Providing convenient refreshments for hotel guests and visitors 24/7. Our modern vending machines offer a wide selection of snacks and drinks, perfect for travelers and staff at any hour.",
+              features: ["Hotel Location", "24/7 Access", "Tourist Friendly"]
             },
           ].map((location, index) => (
             <motion.div
