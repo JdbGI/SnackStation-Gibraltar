@@ -1,3 +1,4 @@
+import React from "react";
 import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -13,12 +14,12 @@ import Catalogue from "@/pages/catalogue";
 import { useAuth } from "@/hooks/use-auth";
 import { Redirect, Route as WouterRoute } from "wouter";
 
-function AdminRoute({ 
-  path, 
-  component: Component 
-}: { 
-  path: string; 
-  component: () => React.JSX.Element;
+function AdminRoute({
+  path,
+  component: Component
+}: {
+  path: string;
+  component: React.ComponentType<any>;
 }) {
   const { user, isLoading } = useAuth();
 
