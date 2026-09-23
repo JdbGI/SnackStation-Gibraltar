@@ -1,88 +1,120 @@
-import { motion } from "framer-motion";
-import { Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { ArrowUpRight, Check } from "lucide-react";
+import {
+  FadeIn,
+  RevealText,
+  SectionLabel,
+  TiltCard,
+} from "@/components/effects/primitives";
+import { MODELS, whatsappLink, type BusinessModel } from "@/lib/site-data";
+import { cn } from "@/lib/utils";
+
+function ModelCard({ model, index }: { model: BusinessModel; index: number }) {
+  const featured = Boolean(model.badge);
+  const details: [string, string][] = [
+    ["Cost to your business", model.cost],
+    ["Our role", model.role],
+    ["Benefits", model.benefits],
+    ["Ideal for", model.idealFor],
+  ];
+
+  return (
+    <div
+      className={cn(
+        "relative flex h-full flex-col rounded-[28px] p-8 md:p-9",
+        featured
+          ? "bg-gradient-to-b from-brand-900/70 via-ink-800 to-ink-800"
+          : "border border-white/10 bg-ink-800/80",
+      )}
+    >
+      {featured && <span aria-hidden className="conic-ring" />}
+      {model.badge && (
+        <span className="font-display absolute -right-3 -top-6 animate-wobble rounded-xl bg-brand px-4 py-2 text-2xl text-ink shadow-[4px_4px_0_#891F5E]">
+          {model.badge}
+        </span>
+      )}
+
+      <span className="font-mono text-xs uppercase tracking-[0.2em] text-white/40">
+        Model 0{index + 1}
+      </span>
+      <h3 className="font-display mt-5 text-3xl md:text-[2.1rem]">{model.title}</h3>
+      <p className="mt-2 text-lg font-semibold text-brand">{model.subtitle}</p>
+      <p className="mt-4 leading-relaxed text-white/60">{model.description}</p>
+
+      <dl className="mt-8 space-y-4 border-t border-white/10 pt-6 text-sm">
+        {details.map(([term, value]) => (
+          <div key={term}>
+            <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand/80">{term}</dt>
+            <dd className="mt-1 text-white/80">{value}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <ul className="mt-8 grid grid-cols-2 gap-3 text-sm">
+        {model.features.map((feature) => (
+          <li key={feature} className="flex items-center gap-2">
+            <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand text-ink">
+              <Check className="h-3 w-3" strokeWidth={3} />
+            </span>
+            {feature}
+          </li>
+        ))}
+      </ul>
+
+      <div className="mt-auto pt-9">
+        <a
+          href={whatsappLink(
+            `Hi SnackStation! I'm interested in the ${model.title} (${model.subtitle}) option for my location.`,
+          )}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={cn(
+            "group/cta flex items-center justify-between rounded-full px-6 py-4 font-bold transition-colors duration-300",
+            featured
+              ? "bg-brand text-ink hover:bg-white"
+              : "border border-white/15 text-white hover:border-brand hover:bg-brand hover:text-ink",
+          )}
+        >
+          Enquire about this model
+          <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover/cta:-translate-y-0.5 group-hover/cta:translate-x-0.5" />
+        </a>
+      </div>
+    </div>
+  );
+}
 
 export default function Offer() {
   return (
-    <section id="offer" className="py-20 px-4">
-      <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Flexible Business Models
-          </h2>
-          <p className="text-muted-foreground max-w-3xl mx-auto">
-            We offer three adaptable models to ensure a mutually beneficial partnership,
-            designed to suit various business locations and customer needs.
-          </p>
-        </motion.div>
+    <section id="offer" className="relative overflow-hidden py-24 md:py-32">
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[40rem] w-[60rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-800/25 blur-[160px]" />
+      <div className="container relative">
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
+          <div>
+            <SectionLabel index="05">Business models</SectionLabel>
+            <RevealText
+              text="Flexible business *models*."
+              className="font-display text-[clamp(2.6rem,6.2vw,5.75rem)]"
+            />
+          </div>
+          <FadeIn className="text-lg leading-relaxed text-white/60 lg:max-w-md lg:justify-self-end lg:pb-3">
+            We offer three adaptable models to ensure a mutually beneficial partnership, designed to
+            suit various business locations and customer needs.
+          </FadeIn>
+        </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            {
-              title: "Standard Locations",
-              subtitle: "Fully Managed, No Cost",
-              description:
-                "Perfect for sites with high footfall and significant sales potential. No upfront or ongoing costs, with full supply, installation, stocking and maintenance included.",
-              idealFor: "Large offices, public spaces, and waiting areas.",
-              features: ["Free installation", "No ongoing costs", "Full management", "Enhanced service"],
-              badge: "Free!",
-            },
-            {
-              title: "Lower Footfall Locations",
-              subtitle: "Small Fee Model",
-              description:
-                "Designed for locations where sales potential may be lower. A small management fee covers operational costs while maintaining our complete supply and management service.",
-              idealFor: "Smaller offices and moderate traffic areas.",
-              features: ["Minimal fee", "Complete management", "Regular maintenance", "Flexible terms"],
-            },
-            {
-              title: "Premium Locations",
-              subtitle: "Profit-Sharing Model",
-              description:
-                "For premium locations with high commercial viability. The machine is installed and managed at no cost, with profits shared between partners.",
-              idealFor: "High-traffic commercial areas and premium business locations.",
-              features: ["No upfront cost", "Profit sharing", "Full maintenance", "Partnership benefits"],
-            },
-          ].map((model, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Card className="h-full relative">
-                {model.badge && (
-                  <span className="absolute -top-3 right-4 bg-primary/90 text-primary-foreground text-sm font-bold px-4 py-1.5 rounded-lg shadow-lg transform -rotate-12 border-2 border-primary/20 backdrop-blur-sm">
-                    {model.badge}
-                  </span>
-                )}
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{model.title}</h3>
-                  <p className="text-primary font-medium mb-4">{model.subtitle}</p>
-                  <p className="text-muted-foreground mb-4">{model.description}</p>
-                  <p className="font-medium mb-2">Ideal For:</p>
-                  <p className="text-muted-foreground mb-4">{model.idealFor}</p>
-                  <ul className="space-y-2">
-                    {model.features.map((feature, fIndex) => (
-                      <li key={fIndex} className="flex items-center gap-2">
-                        <Check className="h-4 w-4 text-primary" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </motion.div>
+        <div className="mt-20 grid gap-8 lg:grid-cols-3 lg:gap-6">
+          {MODELS.map((model, i) => (
+            <FadeIn key={model.title} delay={i * 0.1} className="h-full">
+              <TiltCard className="h-full" max={5}>
+                <ModelCard model={model} index={i} />
+              </TiltCard>
+            </FadeIn>
           ))}
         </div>
+
+        <FadeIn className="mx-auto mt-14 max-w-2xl text-center text-lg text-white/60">
+          Each model is designed to be customer-centred and maximise profitability for both your
+          business and <span className="font-semibold text-brand">SnackStation</span>.
+        </FadeIn>
       </div>
     </section>
   );
