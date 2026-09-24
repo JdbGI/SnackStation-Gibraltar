@@ -161,7 +161,7 @@ export const BRANDS = [
 
 export const BENEFITS = [
   {
-    title: "Snacks & Drinks — 24/7",
+    title: "Snacks & Drinks 24/7",
     description:
       "Ensure everyone in your space can easily grab their favourite snacks and drinks whenever they need them.",
     image: "https://www.barton.gi/wp-content/uploads/2025/02/20-IMG_5264-Large.jpeg",
@@ -268,7 +268,7 @@ export const PLANS: ServicePlan[] = [
     monthlyFee: "None",
     minimumTerm: "12 months",
     bestFor: [
-      "Offices of 60–150 staff",
+      "Offices of 60-150 staff",
       "Company headquarters",
       "Depots and staff rooms",
       "Receptions with steady visitors",
@@ -284,7 +284,7 @@ export const PLANS: ServicePlan[] = [
     installation: "One-off fee",
     monthlyFee: "Small monthly fee",
     minimumTerm: "12 months",
-    bestFor: ["Teams of 20–60 staff", "Small offices", "Studios and workshops", "Sites with lighter footfall"],
+    bestFor: ["Teams of 20-60 staff", "Small offices", "Studios and workshops", "Sites with lighter footfall"],
     note: {
       title: "The fee can switch itself off.",
       text: "When your machine sells well, the monthly fee drops away.",
@@ -425,7 +425,7 @@ export const LOCATIONS: Location[] = [
 ];
 
 /* ------------------------------------------------------------------ */
-/* FAQs — shown on the page and published as FAQPage structured data.  */
+/* FAQs: shown on the page and published as FAQPage structured data.  */
 /* ------------------------------------------------------------------ */
 
 function listNames(names: string[]) {

@@ -45,7 +45,7 @@ SnackStation is a full-stack web application for managing vending machines acros
 - Ticker bands, "What we offer" bento grid with live Gibraltar clock, animated stats
 - "Local team" section with an illustrated SnackStation van
 - Brand logo marquees, benefits, "Why choose us", three service plans (Free Placement, Standard, Small Team; no fee amounts shown), "How it works" steps
-- Pinned horizontal location gallery on desktop (swipe carousel on mobile); locations without a photo get an illustrated card — add an `image` to a location in `site-data.ts` to show a photo instead
+- Pinned horizontal location gallery on desktop (swipe carousel on mobile); locations without a photo get an illustrated card; add an `image` to a location in `site-data.ts` to show a photo instead
 - WhatsApp contact and Partner Login links throughout
 - Animations respect the visitor's reduced-motion setting
 

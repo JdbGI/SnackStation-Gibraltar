@@ -83,7 +83,7 @@ export default function Footer() {
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
               <p className="mt-1 text-sm text-white/50">
-                Existing partners — view your machine stats and reports.
+                Existing partners can view their machine stats and reports.
               </p>
             </li>
           </ul>

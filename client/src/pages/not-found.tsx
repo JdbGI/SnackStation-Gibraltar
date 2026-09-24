@@ -24,7 +24,7 @@ export default function NotFound() {
           404
         </motion.h1>
         <p className="mx-auto mt-6 max-w-md text-lg text-white/60">
-          Looks like this one&apos;s sold out. The page you&apos;re after isn&apos;t in the machine —
+          Looks like this one&apos;s sold out. The page you&apos;re after isn&apos;t in the machine,
           but there&apos;s plenty more to grab back home.
         </p>
         <div className="mt-10 flex justify-center">

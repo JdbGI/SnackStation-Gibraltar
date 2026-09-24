@@ -36,7 +36,7 @@ export default function Brands() {
           />
         </div>
         <FadeIn className="text-lg leading-relaxed text-white/60 lg:max-w-md lg:justify-self-end lg:pb-3">
-          Our vending machines are stocked with the big names people actually reach for — from
+          Our vending machines are stocked with the big names people actually reach for, from
           chocolate, sweets and crisps to soft drinks, water and protein bars.
         </FadeIn>
       </div>
