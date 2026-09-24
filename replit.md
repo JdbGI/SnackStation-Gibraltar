@@ -39,11 +39,22 @@ SnackStation is a full-stack web application for managing vending machines acros
 - Protected routes for dashboard access
 
 ### Public Website
-- Hero section with animated vending machine
-- Service offerings with three business models
-- Brand showcase with major snack/drink brands
-- Location highlights with real deployment photos
-- Contact form for lead generation
+- Brand system: hot pink `#FF80BF` + berry `#891F5E` on ink, taken from the logo/favicon (tokens in `tailwind.config.ts` and `client/src/index.css`)
+- All copy, contact details, brands, business models and locations live in `client/src/lib/site-data.ts`
+- Intro preloader; a still halftone vending machine in the hero (click it and it drops a drink)
+- Ticker bands, "What we offer" bento grid with live Gibraltar clock, animated stats
+- "Local team" section with an illustrated SnackStation van
+- Brand logo marquees, benefits, "Why choose us", three business models, free machine offer
+- Pinned horizontal location gallery on desktop (swipe carousel on mobile); locations without a photo get an illustrated card — add an `image` to a location in `site-data.ts` to show a photo instead
+- WhatsApp contact and Partner Login links throughout
+- Animations respect the visitor's reduced-motion setting
+
+### SEO
+- Homepage `<title>`, description, canonical (`https://www.snackstation.gi/`), Open Graph/Twitter tags and share image (`client/public/og-image.jpg`) live in `client/index.html`
+- Structured data (LocalBusiness, Service, WebSite and FAQPage) is generated from `client/src/lib/site-data.ts` by `client/src/lib/seo.tsx`, so it always matches the page; the FAQ answers are in `FAQS`
+- `npm run vercel-build` / `npm run build` pre-render the homepage to static HTML (`scripts/prerender.mjs`) so crawlers, AI assistants and link previews get the full text without JavaScript; if that step fails the normal page is kept
+- `client/public/robots.txt` keeps partner/admin pages out of search; `client/public/sitemap.xml` lists the public pages (update `lastmod` after big content changes)
+- Partner, login and 404 pages set `noindex`; fonts are self-hosted in `client/public/fonts`
 
 ### Partner Dashboard
 - Machine-specific sales reporting

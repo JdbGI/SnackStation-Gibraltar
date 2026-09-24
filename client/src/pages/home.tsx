@@ -1,38 +1,49 @@
-import Navbar from "@/components/layout/navbar";
-import Hero from "@/components/sections/hero";
-import About from "@/components/sections/about";
+import { useEffect } from "react";
+import { IntroProvider } from "@/components/effects/intro";
+import SiteShell from "@/components/layout/site-shell";
+import About, { Stats } from "@/components/sections/about";
 import Benefits from "@/components/sections/benefits";
-import Offer from "@/components/sections/offer";
-import Locations from "@/components/sections/locations";
 import Brands from "@/components/sections/brands";
 import Contact from "@/components/sections/contact";
+import Faq from "@/components/sections/faq";
+import FreeOffer from "@/components/sections/free-offer";
+import Hero from "@/components/sections/hero";
+import Locations from "@/components/sections/locations";
+import Offer from "@/components/sections/offer";
+import Team from "@/components/sections/team";
+import Ticker from "@/components/sections/ticker";
+import Why from "@/components/sections/why";
+import { BusinessStructuredData } from "@/lib/seo";
 
 export default function Home() {
+  // Arriving from another page via /#section: jump there once the page has laid out.
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (!id) return;
+    const timer = window.setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ block: "start" });
+    }, 120);
+    return () => window.clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <main>
+    <IntroProvider>
+      <SiteShell>
+        <BusinessStructuredData />
         <Hero />
+        <Ticker />
         <About />
+        <Stats />
+        <Team />
         <Brands />
         <Benefits />
+        <Why />
         <Offer />
+        <FreeOffer />
         <Locations />
+        <Faq />
         <Contact />
-      </main>
-      <footer className="py-4 text-center text-sm text-muted-foreground border-t">
-        <p>
-          © Superfoods Limited • Website built by{" "}
-          <a 
-            href="https://www.barton.gi" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-primary hover:underline"
-          >
-            Barton Solutions
-          </a>
-        </p>
-      </footer>
-    </div>
+      </SiteShell>
+    </IntroProvider>
   );
 }
