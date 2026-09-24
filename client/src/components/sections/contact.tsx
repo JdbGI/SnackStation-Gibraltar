@@ -95,10 +95,9 @@ export default function Contact() {
               Let&apos;s reach your destination together.
             </p>
             <p className="mt-5 text-lg leading-relaxed text-white/60">
-              Contact us today to find out how SnackStation can benefit your business and discover
-              if you qualify for a free vending machine. Looking to install a vending machine?
-              Message us on WhatsApp for a quick response and we&apos;ll find the best vending
-              solution for your location.
+              Contact us today to find out how SnackStation can benefit your business. Message us on
+              WhatsApp with your business, location and roughly how many people are on site, and
+              we&apos;ll book a free site visit to find the best vending solution for your location.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <PrimaryButton

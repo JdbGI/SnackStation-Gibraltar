@@ -140,7 +140,7 @@ export default function Catalogue() {
               }
             />
           ) : inStock.length === 0 ? (
-            <StatusMessage title="No products available" body="Check back soon — we restock regularly." />
+            <StatusMessage title="No products available" body="Check back soon. We restock regularly." />
           ) : (
             <>
               <p className="mt-10 font-mono text-xs uppercase tracking-[0.2em] text-white/50" aria-live="polite">

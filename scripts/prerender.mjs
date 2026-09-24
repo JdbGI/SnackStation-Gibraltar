@@ -32,7 +32,7 @@ try {
   );
   console.log(`[prerender] Homepage pre-rendered (${Math.round(appHtml.length / 1024)} KB of HTML).`);
 } catch (error) {
-  console.warn("[prerender] Skipped — serving the client-rendered page instead.\n", error);
+  console.warn("[prerender] Skipped, serving the client-rendered page instead.\n", error);
 } finally {
   await fs.rm(outDir, { recursive: true, force: true });
 }

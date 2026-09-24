@@ -387,7 +387,7 @@ export function Star({ className }: { className?: string }) {
 }
 
 /**
- * Stacked "speed lines" that grow longer towards the bottom — the same motif
+ * Stacked "speed lines" that grow longer towards the bottom: the same motif
  * that trails off the end of the SnackStation wordmark.
  */
 export function SpeedLines({

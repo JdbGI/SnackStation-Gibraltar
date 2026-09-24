@@ -137,7 +137,7 @@
 }
 
 @layer components {
-  /* Heavy, wide, italic caps — echoes the SnackStation wordmark */
+  /* Heavy, wide, italic caps, echoing the SnackStation wordmark */
   .font-display {
     font-family: "Archivo", ui-sans-serif, system-ui, sans-serif;
     font-stretch: 118%;

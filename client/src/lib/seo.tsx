@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { CONTACT, FAQS, MODELS, SITE } from "@/lib/site-data";
+import { CONTACT, FAQS, INCLUDED_ON_EVERY_PLAN, PLANS, SITE } from "@/lib/site-data";
 
 function setMeta(selector: string, create: () => HTMLElement, attr: string, value: string | null) {
   let el = document.head.querySelector<HTMLElement>(selector);
@@ -135,13 +135,15 @@ export function BusinessStructuredData() {
             ],
             hasOfferCatalog: {
               "@type": "OfferCatalog",
-              name: "Vending machine services in Gibraltar",
-              itemListElement: MODELS.map((model) => ({
+              name: "SnackStation service plans",
+              itemListElement: PLANS.map((plan) => ({
                 "@type": "Offer",
+                name: plan.name,
+                description: `${plan.audience}. ${plan.priceCaption} Minimum term ${plan.minimumTerm}.`,
                 itemOffered: {
                   "@type": "Service",
-                  name: `${model.title} — ${model.subtitle}`,
-                  description: model.description,
+                  name: `${plan.name} vending plan`,
+                  description: `Fully managed vending in Gibraltar: ${INCLUDED_ON_EVERY_PLAN.join("; ")}. Best for ${plan.bestFor.join(", ").toLowerCase()}.`,
                   areaServed: { "@type": "Place", name: "Gibraltar" },
                 },
               })),
