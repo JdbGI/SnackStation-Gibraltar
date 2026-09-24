@@ -102,24 +102,6 @@ function CashlessCard({ className }: { className?: string }) {
   );
 }
 
-function InstallCard({ className }: { className?: string }) {
-  return (
-    <SpotlightCard className={cn("flex flex-col gap-6 p-8 sm:flex-row sm:items-center md:p-10", className)}>
-      <div className="flex-1">
-        <CardHeading feature={FEATURES.install} />
-      </div>
-      <div className="shrink-0 text-center sm:text-right">
-        <p className="font-display text-7xl text-brand transition-[text-shadow] duration-500 group-hover:[text-shadow:0.03em_0.03em_0_#891F5E,0.06em_0.06em_0_#891F5E] md:text-8xl">
-          £0
-        </p>
-        <p className="mt-2 font-mono text-xs uppercase tracking-[0.2em] text-white/50">
-          Installation cost
-        </p>
-      </div>
-    </SpotlightCard>
-  );
-}
-
 const gibraltarTime = new Intl.DateTimeFormat("en-GB", {
   timeZone: "Europe/Gibraltar",
   hour: "2-digit",
@@ -149,7 +131,7 @@ function ClockCard({ className }: { className?: string }) {
             <span className="absolute inline-flex h-full w-full animate-ping-soft rounded-full bg-emerald-400" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
           </span>
-          Open now — always
+          Available around the clock
         </div>
         <p className="mt-4 font-mono text-5xl font-bold tabular-nums tracking-tight text-white md:text-6xl">
           {text}
@@ -173,12 +155,14 @@ function ClockCard({ className }: { className?: string }) {
   );
 }
 
-function LocalCard({ className }: { className?: string }) {
+function StockCard({ className }: { className?: string }) {
   const levels = [0.9, 0.55, 0.75, 0.4, 0.85];
   return (
-    <SpotlightCard className={cn("flex flex-col justify-between gap-8 p-8 md:p-10", className)}>
-      <CardHeading feature={FEATURES.local} />
-      <div aria-hidden className="flex h-24 items-end gap-2">
+    <SpotlightCard className={cn("flex flex-col gap-8 p-8 sm:flex-row sm:items-center md:p-10", className)}>
+      <div className="flex-1">
+        <CardHeading feature={FEATURES.stock} />
+      </div>
+      <div aria-hidden className="flex h-24 w-full shrink-0 items-end gap-2 sm:w-40">
         {levels.map((level, i) => (
           <motion.span
             key={i}
@@ -247,13 +231,10 @@ export default function About() {
             <CashlessCard />
           </FadeIn>
           <FadeIn delay={0.2} className="lg:col-span-3 [&>*]:h-full">
-            <InstallCard />
+            <StockCard />
           </FadeIn>
-          <FadeIn delay={0.1} className="lg:col-span-4 [&>*]:h-full">
+          <FadeIn delay={0.1} className="lg:col-span-6 [&>*]:h-full">
             <ClockCard />
-          </FadeIn>
-          <FadeIn delay={0.2} className="lg:col-span-2 [&>*]:h-full">
-            <LocalCard />
           </FadeIn>
         </div>
       </div>

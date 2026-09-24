@@ -1,13 +1,18 @@
 import {
+  Anchor,
   BadgeCheck,
+  CalendarCheck,
   Clock,
+  ConciergeBell,
   CreditCard,
   MapPin,
   PackageCheck,
-  Settings,
   ShieldCheck,
   Sparkles,
   Timer,
+  Trophy,
+  UtensilsCrossed,
+  Warehouse,
   Wrench,
   type LucideIcon,
 } from "lucide-react";
@@ -44,13 +49,13 @@ export const NAV_LINKS = [
 ] as const;
 
 export const TICKER_ITEMS = [
-  "Snacks & drinks 24/7",
+  "Snacks & drinks",
   "Card-only · cashless",
-  "Free installation",
   "Fully managed",
   "Local Gibraltar team",
-  "365 days a year",
-  "Always fully stocked",
+  "Top brands",
+  "Hassle-free vending",
+  "Made for your space",
 ];
 
 export type Feature = {
@@ -64,7 +69,7 @@ export const FEATURES = {
     icon: ShieldCheck,
     title: "Fully Managed Service",
     description:
-      "We handle supply, stocking, servicing and maintenance to ensure your machine is always fully operational.",
+      "We handle supply, stocking, servicing and maintenance, so there's nothing for you to manage.",
   },
   cashless: {
     icon: CreditCard,
@@ -73,20 +78,20 @@ export const FEATURES = {
       "Our card-only system minimises maintenance issues and keeps your machine running efficiently.",
   },
   install: {
-    icon: Settings,
-    title: "Free Installation",
-    description: "Our local team manages the complete installation process at no extra cost.",
+    icon: Wrench,
+    title: "Installation Handled",
+    description: "Our local team manages the complete installation process for you.",
   },
   allDay: {
     icon: Clock,
     title: "24/7 Availability",
     description: "Round-the-clock access to refreshments, perfect for any schedule.",
   },
-  local: {
+  stock: {
     icon: PackageCheck,
-    title: "Local Team, Smart Stock",
+    title: "Smart Stock Tracking",
     description:
-      "A Gibraltar-based team provides ongoing support, using a digital inventory management system to keep machines stocked.",
+      "A digital inventory management system helps us keep track of what's selling and plan restocking visits.",
   },
 } satisfies Record<string, Feature>;
 
@@ -94,7 +99,7 @@ export const MANAGED_TASKS = ["Supply", "Stocking", "Servicing", "Maintenance"];
 
 export const STATS = [
   { value: 24, suffix: "/7", label: "Round-the-clock access" },
-  { value: 365, suffix: "", label: "Days a year, no closing time" },
+  { value: 365, suffix: "", label: "Days a year" },
   { value: 20, suffix: "+", label: "Top snack & drink brands" },
   { value: 100, suffix: "%", label: "Card-only & cashless" },
 ];
@@ -153,7 +158,7 @@ export const REASONS = [
   {
     icon: Timer,
     title: "Speedy Service",
-    description: "Enjoy snacks without delays — our machines are always on schedule.",
+    description: "Quick, simple card payments, so a snack or a drink only takes a moment.",
   },
   {
     icon: Sparkles,
@@ -168,8 +173,8 @@ export const REASONS = [
   },
   {
     icon: MapPin,
-    title: "Always Within Reach",
-    description: "Our growing network ensures a SnackStation is never far away.",
+    title: "A Growing Network",
+    description: "SnackStation machines are popping up in more places across Gibraltar.",
   },
 ];
 
@@ -196,7 +201,7 @@ export const MODELS: BusinessModel[] = [
     benefits:
       "No investment required, professional management, and enhanced service for your customers or staff.",
     idealFor: "Large offices, public spaces, and waiting areas.",
-    features: ["Free installation", "No ongoing costs", "Full management", "Enhanced service"],
+    features: ["Installation included", "No ongoing costs", "Full management", "Enhanced service"],
     badge: "Free!",
   },
   {
@@ -223,6 +228,20 @@ export const MODELS: BusinessModel[] = [
   },
 ];
 
+export const TEAM_POINTS = [
+  FEATURES.install,
+  {
+    icon: CalendarCheck,
+    title: "Regular Visits",
+    description: "We call in regularly to restock and check everything is working as it should.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Servicing & Maintenance",
+    description: "Our team looks after servicing and maintenance, so you don't have to.",
+  },
+] satisfies Feature[];
+
 export const STEPS = [
   {
     icon: BadgeCheck,
@@ -238,51 +257,60 @@ export const STEPS = [
     icon: PackageCheck,
     title: "Enjoy Ongoing Support",
     description:
-      "Our team visits regularly to ensure your station runs smoothly and remains fully stocked.",
+      "Our team visits regularly to restock and keep your station running smoothly.",
   },
 ];
 
 export type Location = {
   name: string;
-  image: string;
+  /** Short label for the illustrated card art. */
+  tag: string;
+  icon: LucideIcon;
   description: string;
   features: string[];
+  /** Optional photo. Cards without one get an illustrated panel instead. */
+  image?: string;
 };
 
 export const LOCATIONS: Location[] = [
   {
-    name: "Gibtelecom Mount Pleasant",
-    image: "https://www.barton.gi/wp-content/uploads/2025/02/Gibtel-Machine-Image.jpg",
+    name: "Rock Hotel Canteen",
+    tag: "Rock Hotel",
+    icon: UtensilsCrossed,
     description:
-      "Supporting Gibtelecom's workforce with quality refreshments throughout the day. Our machines help keep their team energised and productive.",
-    features: ["Corporate Location", "Premium Snacks", "Staff Favourite"],
+      "Snacks and drinks on hand for the Rock Hotel team, right in the staff canteen.",
+    features: ["Hotel", "Staff Canteen"],
   },
   {
-    name: "Gibraltar Broadcasting Corporation",
-    image: "https://www.barton.gi/wp-content/uploads/2025/03/GBC-Web-image.jpg",
+    name: "Rock Hotel Lobby",
+    tag: "Rock Hotel",
+    icon: ConciergeBell,
     description:
-      "From morning radio hosts to evening news teams, the busy staff at GBC now have drinks and snacks available on site throughout their workday, keeping them energised and focused.",
-    features: ["Media Centre", "24/7 Access", "Staff Favourite"],
+      "A quick treat for hotel guests and visitors as they pass through the lobby.",
+    features: ["Hotel", "Guests & Visitors"],
   },
   {
-    name: "Bus Company Depot",
-    image: "https://www.barton.gi/wp-content/uploads/2025/03/Bus-Company.jpg",
+    name: "Gibdock Reception",
+    tag: "Gibdock",
+    icon: Anchor,
     description:
-      "Providing essential refreshments for Gibraltar's transport workers at all hours. Our strategically placed vending machines ensure drivers and staff stay fuelled throughout their shifts.",
-    features: ["Transportation Hub", "24/7 Access", "Staff Essential"],
+      "Refreshments for staff and visitors arriving at Gibdock's reception.",
+    features: ["Shipyard", "Reception"],
   },
   {
-    name: "Gibraltar Defence Police HQ",
-    image: "/images/locations/gibraltar-defence-police.webp",
+    name: "Gibdock Warehouse",
+    tag: "Gibdock",
+    icon: Warehouse,
     description:
-      "Supporting Gibraltar's security forces around the clock. Our vending machines provide quick refreshments for officers working around the clock, ensuring they stay alert and energised while protecting our community.",
-    features: ["Security Hub", "24/7 Operations", "Round-the-Clock Service"],
+      "Keeping the warehouse team at Gibdock going with snacks and drinks during the working day.",
+    features: ["Shipyard", "Staff Area"],
   },
   {
-    name: "Holiday Inn Express",
-    image: "/images/locations/holiday-inn-express.webp",
+    name: "Europa Point Stadium",
+    tag: "Europa Point",
+    icon: Trophy,
     description:
-      "Providing convenient refreshments for hotel guests and visitors 24/7. Our modern vending machines offer a wide selection of snacks and drinks, perfect for travellers and staff at any hour.",
-    features: ["Hotel Location", "24/7 Access", "Tourist Friendly"],
+      "Drinks and snacks for players, staff and visitors at Europa Point Stadium.",
+    features: ["Sports Venue", "Europa Point"],
   },
 ];

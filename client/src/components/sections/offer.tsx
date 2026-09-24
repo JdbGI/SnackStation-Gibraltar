@@ -89,7 +89,7 @@ export default function Offer() {
       <div className="container relative">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
           <div>
-            <SectionLabel index="05">Business models</SectionLabel>
+            <SectionLabel index="06">Business models</SectionLabel>
             <RevealText
               text="Flexible business *models*."
               className="font-display text-[clamp(2.6rem,6.2vw,5.75rem)]"

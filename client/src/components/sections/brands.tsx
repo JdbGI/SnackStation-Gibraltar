@@ -29,7 +29,7 @@ export default function Brands() {
     <section id="brands" className="relative overflow-hidden py-24 md:py-32">
       <div className="container mb-14 grid gap-8 lg:grid-cols-2 lg:items-end">
         <div>
-          <SectionLabel index="02">Brands</SectionLabel>
+          <SectionLabel index="03">Brands</SectionLabel>
           <RevealText
             text="Stocking the *best* brands."
             className="font-display text-[clamp(2.6rem,6.2vw,5.75rem)]"

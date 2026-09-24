@@ -41,10 +41,11 @@ SnackStation is a full-stack web application for managing vending machines acros
 ### Public Website
 - Brand system: hot pink `#FF80BF` + berry `#891F5E` on ink, taken from the logo/favicon (tokens in `tailwind.config.ts` and `client/src/index.css`)
 - All copy, contact details, brands, business models and locations live in `client/src/lib/site-data.ts`
-- Intro preloader, interactive halftone vending machine (canvas, click to vend) in the hero
+- Intro preloader; a still halftone vending machine in the hero (click it and it drops a drink)
 - Ticker bands, "What we offer" bento grid with live Gibraltar clock, animated stats
+- "Local team" section with an illustrated SnackStation van
 - Brand logo marquees, benefits, "Why choose us", three business models, free machine offer
-- Pinned horizontal location gallery on desktop (swipe carousel on mobile)
+- Pinned horizontal location gallery on desktop (swipe carousel on mobile); locations without a photo get an illustrated card — add an `image` to a location in `site-data.ts` to show a photo instead
 - WhatsApp contact and Partner Login links throughout
 - Animations respect the visitor's reduced-motion setting
 

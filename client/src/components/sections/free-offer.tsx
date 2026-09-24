@@ -26,7 +26,7 @@ export default function FreeOffer() {
       <div className="container relative">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-end">
           <div>
-            <SectionLabel index="06" tone="ink">
+            <SectionLabel index="07" tone="ink">
               Free vending machine offer
             </SectionLabel>
             <RevealText

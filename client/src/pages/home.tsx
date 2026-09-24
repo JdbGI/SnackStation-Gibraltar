@@ -9,6 +9,7 @@ import FreeOffer from "@/components/sections/free-offer";
 import Hero from "@/components/sections/hero";
 import Locations from "@/components/sections/locations";
 import Offer from "@/components/sections/offer";
+import Team from "@/components/sections/team";
 import Ticker from "@/components/sections/ticker";
 import Why from "@/components/sections/why";
 
@@ -30,6 +31,7 @@ export default function Home() {
         <Ticker />
         <About />
         <Stats />
+        <Team />
         <Brands />
         <Benefits />
         <Why />

@@ -67,7 +67,7 @@ export default function Benefits() {
       <div className="container relative">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
           <div>
-            <SectionLabel index="03">Benefits</SectionLabel>
+            <SectionLabel index="04">Benefits</SectionLabel>
             <RevealText
               text="Benefits for *your* location."
               className="font-display text-[clamp(2.6rem,6.2vw,5.75rem)]"

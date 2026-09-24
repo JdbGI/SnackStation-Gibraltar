@@ -14,6 +14,55 @@ import { cn } from "@/lib/utils";
 
 const TOTAL = String(LOCATIONS.length).padStart(2, "0");
 
+// Illustrated panels cycle through the brand colours for variety.
+const ART_TONES = [
+  {
+    panel: "bg-brand",
+    dots: "bg-halftone-berry",
+    tile: "bg-ink text-brand shadow-[6px_6px_0_#891F5E]",
+    tag: "text-ink",
+  },
+  {
+    panel: "bg-brand-800",
+    dots: "bg-halftone",
+    tile: "bg-brand text-ink shadow-[6px_6px_0_#0A0A0C]",
+    tag: "text-brand",
+  },
+  {
+    panel: "bg-ink-700",
+    dots: "bg-halftone",
+    tile: "bg-brand text-ink shadow-[6px_6px_0_#891F5E]",
+    tag: "text-brand",
+  },
+];
+
+/** Stand-in artwork for locations that don't have a photo yet. */
+function LocationArt({ location, index }: { location: Location; index: number }) {
+  const tone = ART_TONES[index % ART_TONES.length];
+  const Icon = location.icon;
+  return (
+    <div aria-hidden className={cn("absolute inset-0", tone.panel)}>
+      <div
+        className={cn(
+          "absolute inset-0 opacity-80 [mask-image:radial-gradient(circle_at_75%_45%,#000_10%,transparent_75%)]",
+          tone.dots,
+        )}
+      />
+      <span
+        className={cn(
+          "absolute right-[12%] top-1/2 flex h-24 w-24 -translate-y-1/2 items-center justify-center rounded-[1.75rem] transition-transform duration-700 ease-out-expo group-hover:-rotate-6 group-hover:scale-110 md:h-28 md:w-28",
+          tone.tile,
+        )}
+      >
+        <Icon className="h-11 w-11 md:h-12 md:w-12" strokeWidth={1.75} />
+      </span>
+      <span className={cn("font-display absolute bottom-5 left-5 text-3xl leading-none md:text-4xl", tone.tag)}>
+        {location.tag}
+      </span>
+    </div>
+  );
+}
+
 function LocationCard({
   location,
   index,
@@ -31,17 +80,23 @@ function LocationCard({
       )}
     >
       <div className="relative aspect-[16/10] overflow-hidden">
-        <img
-          src={location.image}
-          alt={`SnackStation vending machine at ${location.name}`}
-          loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-1400 ease-out group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink-800 via-transparent to-transparent" />
+        {location.image ? (
+          <>
+            <img
+              src={location.image}
+              alt={`SnackStation vending machine at ${location.name}`}
+              loading="lazy"
+              className="h-full w-full object-cover transition-transform duration-1400 ease-out group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink-800 via-transparent to-transparent" />
+          </>
+        ) : (
+          <LocationArt location={location} index={index} />
+        )}
         <span className="glass absolute left-4 top-4 rounded-full border border-white/10 px-3 py-1 font-mono text-xs text-white">
           {String(index + 1).padStart(2, "0")} / {TOTAL}
         </span>
-        <span className="absolute right-4 top-4 flex items-center gap-1.5 rounded-full bg-brand px-3 py-1 text-xs font-bold text-ink">
+        <span className="absolute right-4 top-4 flex items-center gap-1.5 rounded-full bg-ink px-3 py-1 text-xs font-bold text-brand">
           <MapPin className="h-3.5 w-3.5" />
           Gibraltar
         </span>
@@ -95,7 +150,7 @@ function NextStopCard({ className }: { className?: string }) {
 function Intro({ className }: { className?: string }) {
   return (
     <div className={className}>
-      <SectionLabel index="07">Locations</SectionLabel>
+      <SectionLabel index="08">Locations</SectionLabel>
       <RevealText
         text="Our growing *network*."
         className="font-display text-[clamp(2.4rem,8vw,4rem)] lg:text-[clamp(2.4rem,4.2vw,4.5rem)]"

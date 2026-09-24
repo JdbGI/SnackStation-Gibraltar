@@ -7,14 +7,13 @@ export default function Why() {
     <section id="why" className="relative py-24 md:py-32">
       <div className="container grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
         <div className="lg:sticky lg:top-32 lg:self-start">
-          <SectionLabel index="04">Why SnackStation</SectionLabel>
+          <SectionLabel index="05">Why SnackStation</SectionLabel>
           <RevealText
             text="Why *choose* SnackStation?"
             className="font-display text-[clamp(1.75rem,8.6vw,3.25rem)] lg:text-[clamp(2.4rem,4.2vw,4.5rem)]"
           />
           <FadeIn className="mt-8 max-w-md text-lg leading-relaxed text-white/60">
-            Fast, first-class and always on. Here&apos;s what keeps people coming back to a
-            SnackStation.
+            A few reasons SnackStation could be a good fit for your space.
           </FadeIn>
           <FadeIn delay={0.1} className="mt-10">
             <PrimaryButton href="#contact">Talk to our team</PrimaryButton>

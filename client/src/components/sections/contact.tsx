@@ -83,7 +83,7 @@ export default function Contact() {
       <RockOutline />
 
       <div className="container relative">
-        <SectionLabel index="08">Contact</SectionLabel>
+        <SectionLabel index="09">Contact</SectionLabel>
         <RevealText
           text="Ready for your *next step?*"
           className="font-display text-[clamp(3rem,9.5vw,8.75rem)]"

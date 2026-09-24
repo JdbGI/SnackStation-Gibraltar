@@ -29,8 +29,8 @@ export default function Footer() {
             style={{ filter: "drop-shadow(3px 3px 0 #891F5E)" }}
           />
           <p className="mt-6 text-white/60">
-            Fully managed, Gibraltar-based vending. Card-only machines, free installation and
-            snacks &amp; drinks around the clock — 24/7, 365 days a year.
+            Fully managed, Gibraltar-based vending. Card-only machines, top brands and a local team
+            looking after everything.
           </p>
         </div>
 
