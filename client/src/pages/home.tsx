@@ -6,8 +6,8 @@ import Benefits from "@/components/sections/benefits";
 import Brands from "@/components/sections/brands";
 import Contact from "@/components/sections/contact";
 import Faq from "@/components/sections/faq";
-import FreeOffer from "@/components/sections/free-offer";
 import Hero from "@/components/sections/hero";
+import HowItWorks from "@/components/sections/how-it-works";
 import Locations from "@/components/sections/locations";
 import Offer from "@/components/sections/offer";
 import Team from "@/components/sections/team";
@@ -39,7 +39,7 @@ export default function Home() {
         <Benefits />
         <Why />
         <Offer />
-        <FreeOffer />
+        <HowItWorks />
         <Locations />
         <Faq />
         <Contact />

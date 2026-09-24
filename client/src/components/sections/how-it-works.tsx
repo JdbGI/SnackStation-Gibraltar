@@ -5,7 +5,7 @@ import { PrimaryButton } from "@/components/brand/buttons";
 import { FadeIn, RevealText, SectionLabel } from "@/components/effects/primitives";
 import { CONTACT, STEPS } from "@/lib/site-data";
 
-export default function FreeOffer() {
+export default function HowItWorks() {
   const stepsRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: stepsRef,
@@ -14,38 +14,37 @@ export default function FreeOffer() {
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
 
   return (
-    <section id="free-offer" className="relative overflow-hidden bg-brand py-24 text-ink md:py-32">
+    <section id="how-it-works" className="relative overflow-hidden bg-brand py-24 text-ink md:py-32">
       <div className="bg-halftone-berry pointer-events-none absolute inset-0 opacity-70 [mask-image:linear-gradient(to_bottom,#000,transparent_75%)]" />
       <div
         aria-hidden
         className="font-display pointer-events-none absolute -right-[4vw] top-10 select-none text-[26vw] leading-none text-ink/[0.06]"
       >
-        Free
+        Plug
       </div>
 
       <div className="container relative">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-end">
           <div>
             <SectionLabel index="07" tone="ink">
-              Free vending machine offer
+              How it works
             </SectionLabel>
             <RevealText
-              text="Want a *free* vending machine?"
+              text="You just provide the *plug.*"
               highlightClassName="text-white extrude-ink"
               className="font-display text-[clamp(2.8rem,7vw,6.5rem)]"
             />
           </div>
           <FadeIn className="text-lg font-medium leading-relaxed text-ink/75 lg:pb-3">
-            On our Free Placement plan, high-footfall sites and large workforces get a fully
-            managed SnackStation with nothing up front and nothing monthly. It&apos;s ideal for
-            hotels and attractions, marinas, ports and stadiums, public waiting areas and
-            workplaces of 150+ staff.
+            We stock it, service it and fix it. Getting a SnackStation for your workplace takes
+            four simple steps, and we recommend the right plan for your site before you sign
+            anything.
           </FadeIn>
         </div>
 
         <div ref={stepsRef} className="mt-16">
           <div className="mb-10 flex items-center gap-4">
-            <span className="font-mono text-xs font-bold uppercase tracking-[0.2em]">How it works</span>
+            <span className="font-mono text-xs font-bold uppercase tracking-[0.2em]">Four steps</span>
             <div className="relative hidden h-1 flex-1 rounded-full bg-ink/15 md:block">
               <motion.div
                 style={{ scaleX: progress }}
@@ -89,13 +88,13 @@ export default function FreeOffer() {
 
         <FadeIn className="mt-14 flex flex-col gap-6 rounded-[28px] border-2 border-dashed border-ink/30 p-6 md:flex-row md:items-center md:justify-between md:p-8">
           <p className="max-w-2xl text-lg text-ink/80">
-            <strong className="text-ink">Not a high-footfall site?</strong> Our Standard plan (£150
-            one-off, no monthly fee) and Small Team plan (£150 + from £75/mo) bring the same fully
-            managed service to mid-sized and smaller workplaces.
+            <strong className="text-ink">Not sure which plan fits?</strong> Tell us about your site and
+            roughly how many people are there each day. We&apos;ll visit, find the best spot and
+            recommend the right plan for you.
           </p>
           <PrimaryButton
             tone="ink"
-            href={CONTACT.whatsappFreeMachine}
+            href={CONTACT.whatsappSiteVisit}
             target="_blank"
             rel="noopener noreferrer"
             icon={<SiWhatsapp className="h-5 w-5" />}

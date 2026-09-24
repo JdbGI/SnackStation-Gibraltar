@@ -48,7 +48,7 @@ export const CONTACT = {
   whatsappEnquiry: whatsappLink(
     "Hi SnackStation! I'd like to find out about a vending machine for my location.",
   ),
-  whatsappFreeMachine: whatsappLink(
+  whatsappSiteVisit: whatsappLink(
     "Hi SnackStation! I'd like to book a free site visit to see which plan suits my location.",
   ),
   partnerLogin: "https://partners.snackstation.gi",
@@ -68,7 +68,7 @@ export const NAV_LINKS: NavLink[] = [
   { id: "brands", label: "Brands" },
   { id: "benefits", label: "Benefits" },
   { id: "offer", label: "Plans" },
-  { id: "free-offer", label: "Free Machine" },
+  { id: "how-it-works", label: "How it Works" },
   { id: "locations", label: "Locations" },
   { id: "faq", label: "FAQ", xlOnly: true },
   { id: "contact", label: "Contact" },
@@ -175,7 +175,7 @@ export const BENEFITS = [
   {
     title: "Modern Payment Solutions",
     description:
-      "Accept all payment methods including contactless cards and mobile payments.",
+      "Card, contactless and mobile payments, so there's no cash to handle.",
     image: "https://www.barton.gi/wp-content/uploads/2025/02/7-IMG_5297-Large.jpeg",
   },
 ];
@@ -208,9 +208,12 @@ export type ServicePlan = {
   name: string;
   /** Who the plan is aimed at. */
   audience: string;
-  /** Headline price, e.g. "£150". */
+  /**
+   * Headline cost, kept general on purpose: fees are agreed per site, so the
+   * website never shows amounts.
+   */
   price: string;
-  /** Small text next to the price, e.g. "one-off". */
+  /** Small text next to the headline, e.g. "installation fee". */
   priceSuffix?: string;
   priceCaption: string;
   installation: string;
@@ -219,9 +222,6 @@ export type ServicePlan = {
   bestFor: string[];
   note: { title?: string; text: string };
   featured?: boolean;
-  /** Numbers for structured data (GBP). */
-  installationFee: number;
-  monthlyFeeFrom?: number;
 };
 
 // From the SnackStation Service Plans (Gibraltar, 2026).
@@ -257,15 +257,14 @@ export const PLANS: ServicePlan[] = [
     ],
     note: { title: "Fully managed,", text: "at no cost to you." },
     featured: true,
-    installationFee: 0,
   },
   {
     name: "Standard",
     audience: "For mid-sized offices and workplaces",
-    price: "£150",
-    priceSuffix: "one-off",
-    priceCaption: "Installation only. No monthly fee.",
-    installation: "£150",
+    price: "One-off",
+    priceSuffix: "installation fee",
+    priceCaption: "A one-off installation fee. No monthly fee.",
+    installation: "One-off fee",
     monthlyFee: "None",
     minimumTerm: "12 months",
     bestFor: [
@@ -275,24 +274,21 @@ export const PLANS: ServicePlan[] = [
       "Receptions with steady visitors",
     ],
     note: { text: "Pay once for delivery and installation. After that, everything is on us." },
-    installationFee: 150,
   },
   {
     name: "Small Team",
     audience: "For smaller offices and teams",
-    price: "£150",
-    priceSuffix: "+ from £75/mo",
-    priceCaption: "Installation plus a small service fee.",
-    installation: "£150",
-    monthlyFee: "From £75",
+    price: "One-off",
+    priceSuffix: "+ monthly fee",
+    priceCaption: "A one-off installation fee plus a small monthly service fee.",
+    installation: "One-off fee",
+    monthlyFee: "Small monthly fee",
     minimumTerm: "12 months",
     bestFor: ["Teams of 20–60 staff", "Small offices", "Studios and workshops", "Sites with lighter footfall"],
     note: {
-      title: "The fee switches itself off.",
-      text: "You pay no fee in any month your machine has averaged £450+ in sales over the previous three months.",
+      title: "The fee can switch itself off.",
+      text: "When your machine sells well, the monthly fee drops away.",
     },
-    installationFee: 150,
-    monthlyFeeFrom: 75,
   },
 ];
 
@@ -445,17 +441,12 @@ export const FAQS: { question: string; answer: string }[] = [
   {
     question: "How much does a vending machine cost?",
     answer:
-      "It depends on the size of your site. Free Placement, for high-footfall sites and workplaces of 150+ staff, has nothing to pay up front or monthly. Standard, for offices of 60–150 staff, is a £150 one-off installation fee with no monthly fee. Small Team, for teams of 20–60, is £150 installation plus a service fee from £75 a month. We confirm your plan after a free site visit.",
+      "It depends on the size of your site, because bigger sites sell more and so cost you less. Free Placement, for high-footfall sites and large workforces, has nothing to pay up front or monthly. Standard, for mid-sized workplaces, has a one-off installation fee and no monthly fee. Small Team, for smaller offices, has a one-off installation fee and a small monthly service fee. We confirm your plan and costs after a free site visit.",
   },
   {
-    question: "Can I get a free vending machine for my business?",
+    question: "Which plan is right for my site?",
     answer:
-      "Yes, if your site has high footfall. Hotels and attractions, marinas, ports and stadiums, public waiting areas and workplaces of 150+ staff can get a fully managed machine on our Free Placement plan, with nothing up front and nothing monthly. Smaller sites can choose our Standard or Small Team plans.",
-  },
-  {
-    question: "How do I stop paying the Small Team fee?",
-    answer:
-      "Use it! In any month your machine has averaged £450+ in sales over the previous three months, there's no fee.",
+      "Free Placement suits high-footfall sites such as hotels and attractions, marinas, ports and stadiums, public waiting areas and workplaces of 150+ staff. Standard suits mid-sized offices, company headquarters, depots and busy receptions. Small Team suits smaller offices, studios, workshops and sites with lighter footfall. Staff numbers are a guide, and we confirm your plan after a free site visit.",
   },
   {
     question: "Do I need to buy or rent a vending machine?",
@@ -470,7 +461,7 @@ export const FAQS: { question: string; answer: string }[] = [
   {
     question: "Can I end the agreement early?",
     answer:
-      "Yes. If you ask us to remove the machine in the first 6 months, it costs £300 (removal and early exit); in months 7–12 it costs £150 (removal). On the Small Team plan, any remaining monthly fees for the first 12 months also apply. After 12 months, with one month's notice, there's nothing to pay.",
+      "Yes. Removing the machine during the minimum term carries a removal and early-exit charge, and on the Small Team plan any remaining monthly fees for that term also apply. After the minimum term, with one month's notice, there's nothing to pay.",
   },
   {
     question: "What if nobody uses the machine?",

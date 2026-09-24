@@ -33,18 +33,19 @@ function PlanCard({ plan }: { plan: ServicePlan }) {
       )}
     >
       {featured && <span aria-hidden className="conic-ring" />}
-      {featured && (
-        <span className="font-display absolute -right-3 -top-6 animate-wobble rounded-xl bg-brand px-4 py-2 text-2xl text-ink shadow-[4px_4px_0_#891F5E]">
-          Free!
-        </span>
-      )}
 
       <h3 className="font-display text-3xl md:text-[2.1rem]">{plan.name}</h3>
       <p className="mt-2 text-white/60">{plan.audience}</p>
 
       <div className="mt-7 border-t border-white/10 pt-6">
         <p className="flex flex-wrap items-baseline gap-x-2">
-          <span className={cn("font-display text-6xl", featured ? "text-brand extrude" : "text-white")}>
+          <span
+            className={cn(
+              "font-display",
+              plan.price.length > 4 ? "text-5xl" : "text-6xl",
+              featured ? "text-brand extrude" : "text-white",
+            )}
+          >
             {plan.price}
           </span>
           {plan.priceSuffix && (

@@ -140,27 +140,6 @@ export function BusinessStructuredData() {
                 "@type": "Offer",
                 name: plan.name,
                 description: `${plan.audience}. ${plan.priceCaption} Minimum term ${plan.minimumTerm}.`,
-                price: plan.installationFee,
-                priceCurrency: "GBP",
-                priceSpecification: [
-                  {
-                    "@type": "PriceSpecification",
-                    name: "Installation",
-                    price: plan.installationFee,
-                    priceCurrency: "GBP",
-                  },
-                  ...(plan.monthlyFeeFrom
-                    ? [
-                        {
-                          "@type": "UnitPriceSpecification",
-                          name: "Monthly service fee",
-                          minPrice: plan.monthlyFeeFrom,
-                          priceCurrency: "GBP",
-                          unitText: "MONTH",
-                        },
-                      ]
-                    : []),
-                ],
                 itemOffered: {
                   "@type": "Service",
                   name: `${plan.name} vending plan`,
