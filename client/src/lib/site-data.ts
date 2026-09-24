@@ -1,20 +1,23 @@
 import {
   Anchor,
-  BadgeCheck,
   CalendarCheck,
+  ClipboardCheck,
   Clock,
   ConciergeBell,
   CreditCard,
   Hotel,
   MapPin,
+  MessageCircle,
   Mic,
   PackageCheck,
+  PenLine,
   RadioTower,
   Shield,
   ShieldCheck,
   Sparkles,
   Timer,
   Trophy,
+  Truck,
   UtensilsCrossed,
   Warehouse,
   Wrench,
@@ -46,7 +49,7 @@ export const CONTACT = {
     "Hi SnackStation! I'd like to find out about a vending machine for my location.",
   ),
   whatsappFreeMachine: whatsappLink(
-    "Hi SnackStation! I'd like to check if my location qualifies for a free vending machine.",
+    "Hi SnackStation! I'd like to book a free site visit to see which plan suits my location.",
   ),
   partnerLogin: "https://partners.snackstation.gi",
   company: "Superfoods Limited",
@@ -64,7 +67,7 @@ export const NAV_LINKS: NavLink[] = [
   { id: "about", label: "About" },
   { id: "brands", label: "Brands" },
   { id: "benefits", label: "Benefits" },
-  { id: "offer", label: "Models" },
+  { id: "offer", label: "Plans" },
   { id: "free-offer", label: "Free Machine" },
   { id: "locations", label: "Locations" },
   { id: "faq", label: "FAQ", xlOnly: true },
@@ -201,53 +204,95 @@ export const REASONS = [
   },
 ];
 
-export type BusinessModel = {
-  title: string;
-  subtitle: string;
-  description: string;
-  cost: string;
-  role: string;
-  benefits: string;
-  idealFor: string;
-  features: string[];
-  badge?: string;
+export type ServicePlan = {
+  name: string;
+  /** Who the plan is aimed at. */
+  audience: string;
+  /** Headline price, e.g. "£150". */
+  price: string;
+  /** Small text next to the price, e.g. "one-off". */
+  priceSuffix?: string;
+  priceCaption: string;
+  installation: string;
+  monthlyFee: string;
+  minimumTerm: string;
+  bestFor: string[];
+  note: { title?: string; text: string };
+  featured?: boolean;
+  /** Numbers for structured data (GBP). */
+  installationFee: number;
+  monthlyFeeFrom?: number;
 };
 
-export const MODELS: BusinessModel[] = [
+// From the SnackStation Service Plans (Gibraltar, 2026).
+export const PLANS_INTRO =
+  "The plan depends on the size of your site. Bigger sites sell more, so they cost you less.";
+
+export const PLANS_FOOTNOTE =
+  "Staff numbers are a guide. We confirm your plan after a free site visit, looking at how many people are on site each day and where the machine would go.";
+
+export const INCLUDED_ON_EVERY_PLAN = [
+  "A modern cashless machine, delivered and installed by our local team",
+  "All stock supplied and restocked by us",
+  "Card, contactless and mobile payments",
+  "Repairs and maintenance, all handled by us",
+  "A range of top brands chosen for your site",
+  "Snacks and drinks for your people, 24/7",
+];
+
+export const PLANS: ServicePlan[] = [
   {
-    title: "Standard Locations",
-    subtitle: "Fully Managed, No Cost",
-    description:
-      "Perfect for sites with high footfall and significant sales potential. No upfront or ongoing costs, with full supply, installation, stocking and maintenance included.",
-    cost: "Free — no upfront or ongoing costs.",
-    role: "Full supply, installation, stocking and maintenance.",
-    benefits:
-      "No investment required, professional management, and enhanced service for your customers or staff.",
-    idealFor: "Large offices, public spaces, and waiting areas.",
-    features: ["Installation included", "No ongoing costs", "Full management", "Enhanced service"],
-    badge: "Free!",
+    name: "Free Placement",
+    audience: "For high-footfall sites and large workforces",
+    price: "Free",
+    priceCaption: "Nothing up front. Nothing monthly.",
+    installation: "Free",
+    monthlyFee: "None",
+    minimumTerm: "12 months",
+    bestFor: [
+      "Hotels and attractions",
+      "Marinas, ports and stadiums",
+      "Public waiting areas",
+      "Workplaces of 150+ staff",
+    ],
+    note: { title: "Fully managed,", text: "at no cost to you." },
+    featured: true,
+    installationFee: 0,
   },
   {
-    title: "Lower Footfall Locations",
-    subtitle: "Small Fee Model",
-    description:
-      "Designed for locations where sales potential may be lower. A small management fee covers operational costs while maintaining our complete supply and management service.",
-    cost: "A small management fee covers operational costs.",
-    role: "Complete supply, installation, stocking and management.",
-    benefits: "A hassle-free vending solution ensuring your machine remains operational.",
-    idealFor: "Smaller offices and moderate traffic areas.",
-    features: ["Minimal fee", "Complete management", "Regular maintenance", "Flexible terms"],
+    name: "Standard",
+    audience: "For mid-sized offices and workplaces",
+    price: "£150",
+    priceSuffix: "one-off",
+    priceCaption: "Installation only. No monthly fee.",
+    installation: "£150",
+    monthlyFee: "None",
+    minimumTerm: "12 months",
+    bestFor: [
+      "Offices of 60–150 staff",
+      "Company headquarters",
+      "Depots and staff rooms",
+      "Receptions with steady visitors",
+    ],
+    note: { text: "Pay once for delivery and installation. After that, everything is on us." },
+    installationFee: 150,
   },
   {
-    title: "Premium Locations",
-    subtitle: "Profit-Sharing Model",
-    description:
-      "For premium locations with high commercial viability. The machine is installed and managed at no cost, with profits shared between partners.",
-    cost: "None — the machine is installed and managed at no cost.",
-    role: "Full management including stocking and maintenance.",
-    benefits: "No upfront investment, profit-sharing benefits and a collaborative partnership.",
-    idealFor: "High-traffic commercial areas and premium business locations.",
-    features: ["No upfront cost", "Profit sharing", "Full maintenance", "Partnership benefits"],
+    name: "Small Team",
+    audience: "For smaller offices and teams",
+    price: "£150",
+    priceSuffix: "+ from £75/mo",
+    priceCaption: "Installation plus a small service fee.",
+    installation: "£150",
+    monthlyFee: "From £75",
+    minimumTerm: "12 months",
+    bestFor: ["Teams of 20–60 staff", "Small offices", "Studios and workshops", "Sites with lighter footfall"],
+    note: {
+      title: "The fee switches itself off.",
+      text: "You pay no fee in any month your machine has averaged £450+ in sales over the previous three months.",
+    },
+    installationFee: 150,
+    monthlyFeeFrom: 75,
   },
 ];
 
@@ -267,20 +312,25 @@ export const TEAM_POINTS = [
 
 export const STEPS = [
   {
-    icon: BadgeCheck,
+    icon: MessageCircle,
     title: "Get in Touch",
-    description: "Contact us to express your interest and arrange a free site survey.",
-  },
-  {
-    icon: Wrench,
-    title: "Set Up Your Station",
-    description: "We install your SnackStation quickly and efficiently.",
-  },
-  {
-    icon: PackageCheck,
-    title: "Enjoy Ongoing Support",
     description:
-      "Our team visits regularly to restock and keep your station running smoothly.",
+      "Message us on WhatsApp with your business, location and roughly how many people are on site.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Free Site Visit",
+    description: "We look at the space, find the best spot and recommend the right plan.",
+  },
+  {
+    icon: PenLine,
+    title: "Sign Up",
+    description: "A simple 12-month agreement. Any installation fee is paid when you sign.",
+  },
+  {
+    icon: Truck,
+    title: "We Install & Run It",
+    description: "We deliver, install, stock, service and repair. You enjoy it.",
   },
 ];
 
@@ -390,22 +440,47 @@ export const FAQS: { question: string; answer: string }[] = [
   {
     question: "Do you supply vending machines in Gibraltar?",
     answer:
-      "Yes. SnackStation is a Gibraltar-based vending machine supplier. We provide fully managed snack and drink vending machines for businesses and venues across Gibraltar, including offices, hotels, shipyards, warehouses and sports venues.",
+      "Yes. SnackStation is a Gibraltar-based vending machine supplier. We provide fully managed snack and drink vending machines for workplaces and venues across Gibraltar, including offices, hotels, shipyards, warehouses and sports venues. We stock it, service it and fix it. You just provide the plug.",
   },
   {
     question: "How much does a vending machine cost?",
     answer:
-      "It depends on your location. We offer three models: high-footfall sites can have a fully managed machine with no upfront or ongoing costs, lower-footfall sites pay a small management fee, and premium locations can share in the profits. Get in touch and we'll recommend the right option for your site.",
+      "It depends on the size of your site. Free Placement, for high-footfall sites and workplaces of 150+ staff, has nothing to pay up front or monthly. Standard, for offices of 60–150 staff, is a £150 one-off installation fee with no monthly fee. Small Team, for teams of 20–60, is £150 installation plus a service fee from £75 a month. We confirm your plan after a free site visit.",
   },
   {
     question: "Can I get a free vending machine for my business?",
     answer:
-      "Eligible locations with high footfall can have a fully managed vending machine at no cost to the business. If your location doesn't meet the criteria, we also offer a small monthly fee option, so you can still benefit from our fully managed service.",
+      "Yes, if your site has high footfall. Hotels and attractions, marinas, ports and stadiums, public waiting areas and workplaces of 150+ staff can get a fully managed machine on our Free Placement plan, with nothing up front and nothing monthly. Smaller sites can choose our Standard or Small Team plans.",
+  },
+  {
+    question: "How do I stop paying the Small Team fee?",
+    answer:
+      "Use it! In any month your machine has averaged £450+ in sales over the previous three months, there's no fee.",
   },
   {
     question: "Do I need to buy or rent a vending machine?",
     answer:
-      "You don't need to. Rather than buying or renting a machine yourself, you can use SnackStation's fully managed vending service: we supply, install, stock and maintain the machine for you under one of our three business models.",
+      "No. On every plan we supply a modern cashless machine and deliver, install, stock, service and repair it for you.",
+  },
+  {
+    question: "Is there a minimum term?",
+    answer:
+      "Every plan has a 12-month minimum term, which lets us cover the cost of bringing a machine to you. After 12 months, either of us can end the agreement with one month's notice and we collect the machine free of charge.",
+  },
+  {
+    question: "Can I end the agreement early?",
+    answer:
+      "Yes. If you ask us to remove the machine in the first 6 months, it costs £300 (removal and early exit); in months 7–12 it costs £150 (removal). On the Small Team plan, any remaining monthly fees for the first 12 months also apply. After 12 months, with one month's notice, there's nothing to pay.",
+  },
+  {
+    question: "What if nobody uses the machine?",
+    answer:
+      "We monitor every machine's sales. If one isn't selling at your site, we'll remove it at our own cost, so you're never stuck with a machine nobody uses.",
+  },
+  {
+    question: "What do I need to provide?",
+    answer:
+      "Just a standard power socket and access for our team. During the agreement, SnackStation is the only vending or self-service snack and drink provider on your premises. If you want the machine moved somewhere else on site, we'll move it for you at cost.",
   },
   {
     question: "What snacks and drinks do your machines stock?",
@@ -413,14 +488,14 @@ export const FAQS: { question: string; answer: string }[] = [
       "Our vending machines stock popular snack and drink brands such as Coca-Cola, Pepsi, Fanta, Sprite, 7Up, Powerade, Aquarius, Font Vella, Cadbury, M&M's, Skittles, Kettle and Grenade.",
   },
   {
-    question: "How do customers pay?",
+    question: "Who chooses the products and prices?",
     answer:
-      "Our machines are card-only and cashless. Customers pay with contactless cards and mobile payments, which keeps things quick and reduces maintenance issues.",
+      "We do, using sales data from across Gibraltar. Tell us what your team likes and we'll build the range around it.",
   },
   {
-    question: "Who restocks and maintains the machine?",
+    question: "How do customers pay?",
     answer:
-      "We do. Our local Gibraltar team handles installation, restocking, servicing and maintenance, and uses a digital inventory management system to plan restocking visits.",
+      "Our machines are cashless and take card, contactless and mobile payments, which keeps things quick and reduces maintenance issues.",
   },
   {
     question: "Are your vending machines available 24/7?",
@@ -435,6 +510,6 @@ export const FAQS: { question: string; answer: string }[] = [
   },
   {
     question: "How do I get a vending machine for my workplace?",
-    answer: `Message us on WhatsApp on ${CONTACT.whatsappDisplay}. We'll arrange a site survey, recommend the right model for your location and take care of the installation.`,
+    answer: `Message us on WhatsApp on ${CONTACT.whatsappDisplay} with your business, location and roughly how many people are on site. We'll book a free site visit, find the best spot and recommend the right plan. Then it's a simple 12-month agreement, and we install and run the machine for you.`,
   },
 ];

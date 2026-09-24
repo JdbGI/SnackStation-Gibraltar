@@ -5,16 +5,22 @@ import {
   SectionLabel,
   TiltCard,
 } from "@/components/effects/primitives";
-import { MODELS, whatsappLink, type BusinessModel } from "@/lib/site-data";
+import {
+  INCLUDED_ON_EVERY_PLAN,
+  PLANS,
+  PLANS_FOOTNOTE,
+  PLANS_INTRO,
+  whatsappLink,
+  type ServicePlan,
+} from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
-function ModelCard({ model, index }: { model: BusinessModel; index: number }) {
-  const featured = Boolean(model.badge);
-  const details: [string, string][] = [
-    ["Cost to your business", model.cost],
-    ["Our role", model.role],
-    ["Benefits", model.benefits],
-    ["Ideal for", model.idealFor],
+function PlanCard({ plan }: { plan: ServicePlan }) {
+  const featured = Boolean(plan.featured);
+  const rows: [string, string][] = [
+    ["Installation", plan.installation],
+    ["Monthly fee", plan.monthlyFee],
+    ["Minimum term", plan.minimumTerm],
   ];
 
   return (
@@ -27,43 +33,62 @@ function ModelCard({ model, index }: { model: BusinessModel; index: number }) {
       )}
     >
       {featured && <span aria-hidden className="conic-ring" />}
-      {model.badge && (
+      {featured && (
         <span className="font-display absolute -right-3 -top-6 animate-wobble rounded-xl bg-brand px-4 py-2 text-2xl text-ink shadow-[4px_4px_0_#891F5E]">
-          {model.badge}
+          Free!
         </span>
       )}
 
-      <span className="font-mono text-xs uppercase tracking-[0.2em] text-white/55">
-        Model 0{index + 1}
-      </span>
-      <h3 className="font-display mt-5 text-3xl md:text-[2.1rem]">{model.title}</h3>
-      <p className="mt-2 text-lg font-semibold text-brand">{model.subtitle}</p>
-      <p className="mt-4 leading-relaxed text-white/60">{model.description}</p>
+      <h3 className="font-display text-3xl md:text-[2.1rem]">{plan.name}</h3>
+      <p className="mt-2 text-white/60">{plan.audience}</p>
 
-      <dl className="mt-8 space-y-4 border-t border-white/10 pt-6 text-sm">
-        {details.map(([term, value]) => (
-          <div key={term}>
-            <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand/80">{term}</dt>
-            <dd className="mt-1 text-white/80">{value}</dd>
+      <div className="mt-7 border-t border-white/10 pt-6">
+        <p className="flex flex-wrap items-baseline gap-x-2">
+          <span className={cn("font-display text-6xl", featured ? "text-brand extrude" : "text-white")}>
+            {plan.price}
+          </span>
+          {plan.priceSuffix && (
+            <span className="text-lg font-semibold text-white/70">{plan.priceSuffix}</span>
+          )}
+        </p>
+        <p className="mt-2 text-white/60">{plan.priceCaption}</p>
+      </div>
+
+      <dl className="mt-6 divide-y divide-dashed divide-white/10 border-y border-white/10 text-sm">
+        {rows.map(([term, value]) => (
+          <div key={term} className="flex items-center justify-between py-3">
+            <dt className="text-white/60">{term}</dt>
+            <dd className="font-bold text-white">{value}</dd>
           </div>
         ))}
       </dl>
 
-      <ul className="mt-8 grid grid-cols-2 gap-3 text-sm">
-        {model.features.map((feature) => (
-          <li key={feature} className="flex items-center gap-2">
+      <p className="mt-7 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-brand">Best for</p>
+      <ul className="mt-3 space-y-2 text-sm">
+        {plan.bestFor.map((item) => (
+          <li key={item} className="flex items-center gap-2.5">
             <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand text-ink">
               <Check className="h-3 w-3" strokeWidth={3} />
             </span>
-            {feature}
+            {item}
           </li>
         ))}
       </ul>
 
-      <div className="mt-auto pt-9">
+      <p
+        className={cn(
+          "mt-7 rounded-2xl p-4 text-sm leading-relaxed",
+          featured ? "bg-white/[0.06] text-white/80" : "bg-brand/10 text-white/80",
+        )}
+      >
+        {plan.note.title && <strong className="text-brand">{plan.note.title} </strong>}
+        {plan.note.text}
+      </p>
+
+      <div className="mt-auto pt-8">
         <a
           href={whatsappLink(
-            `Hi SnackStation! I'm interested in the ${model.title} (${model.subtitle}) option for my location.`,
+            `Hi SnackStation! I'm interested in the ${plan.name} plan for my workplace. Could we book a free site visit?`,
           )}
           target="_blank"
           rel="noopener noreferrer"
@@ -74,7 +99,7 @@ function ModelCard({ model, index }: { model: BusinessModel; index: number }) {
               : "border border-white/15 text-white hover:border-brand hover:bg-brand hover:text-ink",
           )}
         >
-          Enquire about this model
+          Enquire about {plan.name}
           <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover/cta:-translate-y-0.5 group-hover/cta:translate-x-0.5" />
         </a>
       </div>
@@ -89,31 +114,44 @@ export default function Offer() {
       <div className="container relative">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
           <div>
-            <SectionLabel index="06">Business models</SectionLabel>
+            <SectionLabel index="06">Service plans</SectionLabel>
             <RevealText
-              text="Flexible business *models*."
+              text="Choose your *plan*."
               className="font-display text-[clamp(2.6rem,6.2vw,5.75rem)]"
             />
           </div>
           <FadeIn className="text-lg leading-relaxed text-white/60 lg:max-w-md lg:justify-self-end lg:pb-3">
-            We offer three adaptable models to ensure a mutually beneficial partnership, designed to
-            suit various business locations and customer needs.
+            Fully managed vending for Gibraltar workplaces. We stock it, service it and fix it. You
+            just provide the plug. {PLANS_INTRO}
           </FadeIn>
         </div>
 
-        <div className="mt-20 grid gap-8 lg:grid-cols-3 lg:gap-6">
-          {MODELS.map((model, i) => (
-            <FadeIn key={model.title} delay={i * 0.1} className="h-full">
+        <FadeIn className="mt-14 rounded-[28px] border border-white/10 bg-white/[0.03] p-6 md:p-8">
+          <h3 className="font-display text-xl md:text-2xl">Included on every plan</h3>
+          <ul className="mt-5 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
+            {INCLUDED_ON_EVERY_PLAN.map((item) => (
+              <li key={item} className="flex items-start gap-3 text-white/80">
+                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand text-ink">
+                  <Check className="h-3 w-3" strokeWidth={3} />
+                </span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </FadeIn>
+
+        <div className="mt-16 grid gap-8 lg:grid-cols-3 lg:gap-6">
+          {PLANS.map((plan, i) => (
+            <FadeIn key={plan.name} delay={i * 0.1} className="h-full">
               <TiltCard className="h-full" max={5}>
-                <ModelCard model={model} index={i} />
+                <PlanCard plan={plan} />
               </TiltCard>
             </FadeIn>
           ))}
         </div>
 
-        <FadeIn className="mx-auto mt-14 max-w-2xl text-center text-lg text-white/60">
-          Each model is designed to be customer-centred and maximise profitability for both your
-          business and <span className="font-semibold text-brand">SnackStation</span>.
+        <FadeIn className="mx-auto mt-12 max-w-3xl text-center text-white/60">
+          {PLANS_FOOTNOTE}
         </FadeIn>
       </div>
     </section>
