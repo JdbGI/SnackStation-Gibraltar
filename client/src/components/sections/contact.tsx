@@ -78,12 +78,12 @@ function RockOutline() {
 export default function Contact() {
   return (
     <section id="contact" className="relative overflow-hidden pb-48 pt-28 md:pb-64 md:pt-40">
-      <div className="pointer-events-none absolute -bottom-40 left-1/2 h-[36rem] w-[70rem] -translate-x-1/2 rounded-full bg-brand/15 blur-[140px]" />
+      <div className="pointer-events-none absolute -bottom-40 left-1/2 h-[36rem] w-[70rem] -translate-x-1/2 rounded-full glow-pink [--glow:0.22]" />
       <div className="bg-grid mask-radial pointer-events-none absolute inset-0 opacity-60" />
       <RockOutline />
 
       <div className="container relative">
-        <SectionLabel index="09">Contact</SectionLabel>
+        <SectionLabel index="10">Contact</SectionLabel>
         <RevealText
           text="Ready for your *next step?*"
           className="font-display text-[clamp(3rem,9.5vw,8.75rem)]"
@@ -115,7 +115,7 @@ export default function Contact() {
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </GhostButton>
             </div>
-            <p className="mt-8 font-mono text-sm text-white/40">
+            <p className="mt-8 font-mono text-sm text-white/55">
               WhatsApp · <span className="text-white/70">{CONTACT.whatsappDisplay}</span>
             </p>
           </FadeIn>

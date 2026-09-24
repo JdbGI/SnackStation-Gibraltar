@@ -4,10 +4,16 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { EASE_OUT_EXPO, FadeIn, RevealText, SectionLabel } from "@/components/effects/primitives";
 import SiteShell from "@/components/layout/site-shell";
+import { usePageMeta } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 import type { Product } from "@shared/schema";
 
 export default function Catalogue() {
+  usePageMeta({
+    title: "Product Catalogue | SnackStation Gibraltar",
+    description: "Browse the products available in SnackStation vending machines in Gibraltar.",
+    path: "/catalogue",
+  });
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedBrand, setSelectedBrand] = useState<string>("all");
 
@@ -32,7 +38,7 @@ export default function Catalogue() {
     <SiteShell>
       <section className="relative min-h-screen overflow-hidden pb-28 pt-36 md:pt-44">
         <div className="bg-grid mask-radial pointer-events-none absolute inset-0" />
-        <div className="pointer-events-none absolute -right-40 -top-40 h-[36rem] w-[36rem] rounded-full bg-brand/20 blur-[140px]" />
+        <div className="pointer-events-none absolute -right-40 -top-40 h-[36rem] w-[36rem] rounded-full glow-pink [--glow:0.28]" />
 
         <div className="container relative">
           <SectionLabel index="SS">Product catalogue</SectionLabel>
@@ -58,7 +64,7 @@ export default function Catalogue() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search products, brands…"
-                className="h-14 w-full rounded-full border border-white/10 bg-white/[0.04] pl-14 pr-12 text-base text-white placeholder:text-white/35 focus:border-brand focus:outline-none [&::-webkit-search-cancel-button]:hidden"
+                className="h-14 w-full rounded-full border border-white/10 bg-white/[0.04] pl-14 pr-12 text-base text-white placeholder:text-white/55 focus:border-brand focus:outline-none [&::-webkit-search-cancel-button]:hidden"
               />
               {searchQuery && (
                 <button
@@ -218,7 +224,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           <p className="mt-2 line-clamp-2 text-sm text-white/55">{product.description}</p>
         )}
         {product.sku && (
-          <p className="mt-auto pt-4 font-mono text-[11px] uppercase tracking-wider text-white/35">
+          <p className="mt-auto pt-4 font-mono text-[11px] uppercase tracking-wider text-white/55">
             SKU {product.sku}
           </p>
         )}

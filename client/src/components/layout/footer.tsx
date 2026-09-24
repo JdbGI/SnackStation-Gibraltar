@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-ink-950 pt-20">
       <div className="bg-halftone mask-fade-b pointer-events-none absolute inset-x-0 top-0 h-64 opacity-20" />
-      <div className="pointer-events-none absolute -top-40 left-1/2 h-80 w-[60rem] -translate-x-1/2 rounded-full bg-brand/10 blur-[120px]" />
+      <div className="pointer-events-none absolute -top-40 left-1/2 h-80 w-[60rem] -translate-x-1/2 rounded-full glow-pink [--glow:0.14]" />
 
       <div className="container relative grid gap-12 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1.2fr_auto]">
         <div className="max-w-sm">
@@ -29,8 +29,8 @@ export default function Footer() {
             style={{ filter: "drop-shadow(3px 3px 0 #891F5E)" }}
           />
           <p className="mt-6 text-white/60">
-            Fully managed, Gibraltar-based vending. Card-only machines, top brands and a local team
-            looking after everything.
+            Fully managed vending machines in Gibraltar. Card-only snack and drink machines, top
+            brands and a local team looking after everything.
           </p>
         </div>
 

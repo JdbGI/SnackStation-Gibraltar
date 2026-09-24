@@ -33,7 +33,7 @@ function ModelCard({ model, index }: { model: BusinessModel; index: number }) {
         </span>
       )}
 
-      <span className="font-mono text-xs uppercase tracking-[0.2em] text-white/40">
+      <span className="font-mono text-xs uppercase tracking-[0.2em] text-white/55">
         Model 0{index + 1}
       </span>
       <h3 className="font-display mt-5 text-3xl md:text-[2.1rem]">{model.title}</h3>
@@ -85,7 +85,7 @@ function ModelCard({ model, index }: { model: BusinessModel; index: number }) {
 export default function Offer() {
   return (
     <section id="offer" className="relative overflow-hidden py-24 md:py-32">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[40rem] w-[60rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-800/25 blur-[160px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[40rem] w-[60rem] -translate-x-1/2 -translate-y-1/2 rounded-full glow-berry [--glow:0.4]" />
       <div className="container relative">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
           <div>

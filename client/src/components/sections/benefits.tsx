@@ -37,7 +37,7 @@ function BenefitCard({
       <motion.div style={{ y: imageY }} className="absolute -inset-y-[10%] inset-x-0">
         <img
           src={benefit.image}
-          alt=""
+          alt={`SnackStation vending machine in Gibraltar: ${benefit.title}`}
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-1400 ease-out group-hover:scale-110"
         />
@@ -63,7 +63,7 @@ function BenefitCard({
 export default function Benefits() {
   return (
     <section id="benefits" className="relative overflow-hidden py-24 md:py-32">
-      <div className="pointer-events-none absolute right-0 top-1/3 h-[30rem] w-[30rem] rounded-full bg-brand-800/30 blur-[140px]" />
+      <div className="pointer-events-none absolute right-0 top-1/3 h-[30rem] w-[30rem] rounded-full glow-berry [--glow:0.45]" />
       <div className="container relative">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
           <div>

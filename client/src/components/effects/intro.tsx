@@ -51,7 +51,7 @@ function Preloader({ onReveal }: { onReveal: () => void }) {
     const root = document.documentElement;
     root.style.overflow = "hidden";
     const controls = animate(0, 100, {
-      duration: 1.5,
+      duration: 0.9,
       ease: [0.65, 0, 0.35, 1],
       onUpdate: (v) => setCount(Math.round(v)),
       onComplete: () => setPhase("wipe"),
@@ -76,7 +76,7 @@ function Preloader({ onReveal }: { onReveal: () => void }) {
           aria-hidden
           className="fixed inset-0 z-[200] flex flex-col overflow-hidden bg-ink"
           exit={{ y: "-100%" }}
-          transition={{ duration: 0.9, ease: EASE_IN_OUT }}
+          transition={{ duration: 0.7, ease: EASE_IN_OUT }}
         >
           <div className="bg-halftone mask-radial pointer-events-none absolute inset-0 opacity-30" />
 
@@ -85,7 +85,7 @@ function Preloader({ onReveal }: { onReveal: () => void }) {
               <motion.div
                 initial={{ x: "30%", opacity: 0 }}
                 animate={{ x: "0%", opacity: 1 }}
-                transition={{ duration: 1.1, ease: EASE_OUT_EXPO }}
+                transition={{ duration: 0.8, ease: EASE_OUT_EXPO }}
                 className="absolute -left-[45%] top-1/2 w-[55%] -translate-y-1/2 text-brand/70"
               >
                 <SpeedLines lines={9} animated className="h-20 w-full md:h-28" />
@@ -95,7 +95,7 @@ function Preloader({ onReveal }: { onReveal: () => void }) {
                 alt=""
                 initial={{ clipPath: "inset(0 100% 0 0)", x: -40, skewX: -12 }}
                 animate={{ clipPath: "inset(0 0% 0 0)", x: 0, skewX: 0 }}
-                transition={{ duration: 1.1, ease: EASE_OUT_EXPO, delay: 0.1 }}
+                transition={{ duration: 0.8, ease: EASE_OUT_EXPO, delay: 0.05 }}
                 className="relative w-full"
                 style={{ filter: "drop-shadow(6px 6px 0 #891F5E)" }}
               />
@@ -114,7 +114,7 @@ function Preloader({ onReveal }: { onReveal: () => void }) {
             className="absolute inset-0 origin-bottom bg-brand"
             initial={{ scaleY: 0 }}
             animate={phase === "wipe" ? { scaleY: 1 } : { scaleY: 0 }}
-            transition={{ duration: 0.6, ease: EASE_IN_OUT }}
+            transition={{ duration: 0.45, ease: EASE_IN_OUT }}
             onAnimationComplete={() => {
               if (phase === "wipe") lift();
             }}

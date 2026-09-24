@@ -46,7 +46,7 @@ function ManagedCard({ className }: { className?: string }) {
             className="flex items-center justify-between rounded-2xl border border-white/10 bg-ink/60 px-4 py-3"
           >
             <span className="flex items-center gap-3">
-              <span className="font-mono text-xs text-white/40">0{i + 1}</span>
+              <span className="font-mono text-xs text-white/55">0{i + 1}</span>
               <span className="font-semibold">{task}</span>
             </span>
             <motion.span
@@ -136,7 +136,7 @@ function ClockCard({ className }: { className?: string }) {
         <p className="mt-4 font-mono text-5xl font-bold tabular-nums tracking-tight text-white md:text-6xl">
           {text}
         </p>
-        <p className="mt-1 font-mono text-xs uppercase tracking-[0.2em] text-white/40">
+        <p className="mt-1 font-mono text-xs uppercase tracking-[0.2em] text-white/55">
           Gibraltar time
         </p>
         <div aria-hidden className="mt-5 flex h-10 items-end gap-[3px] lg:justify-end">
@@ -219,7 +219,11 @@ export default function About() {
               We&apos;re Gibraltar&apos;s leading vending machine provider, offering modern
               solutions that combine convenience with quality refreshments.
             </p>
-            <p>Our vending solutions are designed to suit various business locations and customer needs.</p>
+            <p>
+              From offices and hotels to shipyards, warehouses and sports venues, we supply and
+              manage snack and drink vending machines right across Gibraltar, designed to suit
+              various business locations and customer needs.
+            </p>
           </FadeIn>
         </div>
 

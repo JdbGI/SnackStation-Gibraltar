@@ -92,7 +92,7 @@ export default function Navbar() {
 
           <ul className="hidden items-center lg:flex" onMouseLeave={() => setHovered(null)}>
             {NAV_LINKS.map((link) => (
-              <li key={link.id}>
+              <li key={link.id} className={link.xlOnly ? "hidden xl:block" : undefined}>
                 <a
                   href={href(link.id)}
                   onMouseEnter={() => setHovered(link.id)}

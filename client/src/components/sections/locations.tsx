@@ -84,6 +84,8 @@ function LocationCard({
           <>
             <img
               src={location.image}
+              srcSet={location.imageSrcSet}
+              sizes={location.imageSrcSet ? "(min-width: 1024px) 30rem, 82vw" : undefined}
               alt={`SnackStation vending machine at ${location.name}`}
               loading="lazy"
               className="h-full w-full object-cover transition-transform duration-1400 ease-out group-hover:scale-110"
@@ -156,8 +158,8 @@ function Intro({ className }: { className?: string }) {
         className="font-display text-[clamp(2.4rem,8vw,4rem)] lg:text-[clamp(2.4rem,4.2vw,4.5rem)]"
       />
       <FadeIn className="mt-6 max-w-md text-lg leading-relaxed text-white/60">
-        Join our expanding network of SnackStation locations across Gibraltar. Our machines are
-        strategically placed to serve various communities and businesses.
+        Join our expanding network of SnackStation vending machine locations across Gibraltar.
+        Our machines are strategically placed to serve various communities and businesses.
       </FadeIn>
     </div>
   );
@@ -220,7 +222,7 @@ function PinnedGallery() {
           <div className="relative h-px flex-1 bg-white/15">
             <motion.div style={{ scaleX: bar }} className="absolute inset-0 origin-left bg-brand" />
           </div>
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-white/40">Scroll</span>
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-white/55">Scroll</span>
         </div>
       </div>
     </div>
@@ -243,7 +245,7 @@ function SwipeGallery() {
         ))}
         <NextStopCard className="w-[70vw] max-w-sm snap-center" />
       </div>
-      <p className="container mt-2 font-mono text-xs uppercase tracking-[0.2em] text-white/40">
+      <p className="container mt-2 font-mono text-xs uppercase tracking-[0.2em] text-white/55">
         Swipe to explore →
       </p>
     </div>

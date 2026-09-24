@@ -43,7 +43,7 @@ export default function Team() {
           />
           <div
             aria-hidden
-            className="absolute left-1/2 top-1/2 h-2/3 w-2/3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand/20 blur-[90px]"
+            className="absolute left-1/2 top-1/2 h-2/3 w-2/3 -translate-x-1/2 -translate-y-1/2 rounded-full glow-pink [--glow:0.3]"
           />
           <Van className="relative" />
         </FadeIn>

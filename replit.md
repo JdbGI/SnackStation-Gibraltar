@@ -49,6 +49,13 @@ SnackStation is a full-stack web application for managing vending machines acros
 - WhatsApp contact and Partner Login links throughout
 - Animations respect the visitor's reduced-motion setting
 
+### SEO
+- Homepage `<title>`, description, canonical (`https://www.snackstation.gi/`), Open Graph/Twitter tags and share image (`client/public/og-image.jpg`) live in `client/index.html`
+- Structured data (LocalBusiness, Service, WebSite and FAQPage) is generated from `client/src/lib/site-data.ts` by `client/src/lib/seo.tsx`, so it always matches the page; the FAQ answers are in `FAQS`
+- `npm run vercel-build` / `npm run build` pre-render the homepage to static HTML (`scripts/prerender.mjs`) so crawlers, AI assistants and link previews get the full text without JavaScript; if that step fails the normal page is kept
+- `client/public/robots.txt` keeps partner/admin pages out of search; `client/public/sitemap.xml` lists the public pages (update `lastmod` after big content changes)
+- Partner, login and 404 pages set `noindex`; fonts are self-hosted in `client/public/fonts`
+
 ### Partner Dashboard
 - Machine-specific sales reporting
 - Revenue and commission tracking

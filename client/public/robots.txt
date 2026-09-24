@@ -1,0 +1,9 @@
+# SnackStation Gibraltar - https://www.snackstation.gi
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /auth
+Disallow: /dashboard
+Disallow: /admin
+
+Sitemap: https://www.snackstation.gi/sitemap.xml

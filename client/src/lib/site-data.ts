@@ -23,6 +23,17 @@ import {
 
 const WHATSAPP_NUMBER = "35054004002";
 
+/** Canonical site details, used for SEO tags and structured data. */
+export const SITE = {
+  url: "https://www.snackstation.gi",
+  name: "SnackStation Gibraltar",
+  title: "Vending Machines in Gibraltar | SnackStation",
+  description:
+    "Gibraltar's fully managed vending machine supplier. Card-only snack and drink machines for offices, hotels and venues, stocked and serviced by our local team.",
+  telephone: "+35054004002",
+  ogImage: "/og-image.jpg",
+};
+
 export function whatsappLink(message?: string) {
   const base = `https://wa.me/${WHATSAPP_NUMBER}`;
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;
@@ -42,15 +53,23 @@ export const CONTACT = {
   builtBy: { name: "Barton Solutions", href: "https://www.barton.gi" },
 };
 
-export const NAV_LINKS = [
+export type NavLink = {
+  id: string;
+  label: string;
+  /** Only shown in the desktop bar on extra-wide screens (always in menus). */
+  xlOnly?: boolean;
+};
+
+export const NAV_LINKS: NavLink[] = [
   { id: "about", label: "About" },
   { id: "brands", label: "Brands" },
   { id: "benefits", label: "Benefits" },
   { id: "offer", label: "Models" },
   { id: "free-offer", label: "Free Machine" },
   { id: "locations", label: "Locations" },
+  { id: "faq", label: "FAQ", xlOnly: true },
   { id: "contact", label: "Contact" },
-] as const;
+];
 
 export const TICKER_ITEMS = [
   "Snacks & drinks",
@@ -274,6 +293,8 @@ export type Location = {
   features: string[];
   /** Optional photo. Cards without one get an illustrated panel instead. */
   image?: string;
+  /** Optional smaller versions of a local photo, as an <img srcset>. */
+  imageSrcSet?: string;
 };
 
 export const LOCATIONS: Location[] = [
@@ -300,6 +321,7 @@ export const LOCATIONS: Location[] = [
     tag: "Defence Police",
     icon: Shield,
     image: "/images/locations/gibraltar-defence-police.webp",
+    imageSrcSet: "/images/locations/gibraltar-defence-police-800.webp 800w, /images/locations/gibraltar-defence-police.webp 1600w",
     description:
       "Supporting Gibraltar's security forces around the clock. Our vending machines provide quick refreshments for officers working around the clock, ensuring they stay alert and energised while protecting our community.",
     features: ["Security Hub", "24/7 Operations", "Round-the-Clock Service"],
@@ -309,6 +331,7 @@ export const LOCATIONS: Location[] = [
     tag: "Holiday Inn",
     icon: Hotel,
     image: "/images/locations/holiday-inn-express.webp",
+    imageSrcSet: "/images/locations/holiday-inn-express-800.webp 800w, /images/locations/holiday-inn-express.webp 1600w",
     description:
       "Providing convenient refreshments for hotel guests and visitors 24/7. Our modern vending machines offer a wide selection of snacks and drinks, perfect for travellers and staff at any hour.",
     features: ["Hotel Location", "24/7 Access", "Tourist Friendly"],
@@ -352,5 +375,66 @@ export const LOCATIONS: Location[] = [
     description:
       "Drinks and snacks for players, staff and visitors at Europa Point Stadium.",
     features: ["Sports Venue", "Europa Point"],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/* FAQs — shown on the page and published as FAQPage structured data.  */
+/* ------------------------------------------------------------------ */
+
+function listNames(names: string[]) {
+  return names.length > 1 ? `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}` : names[0];
+}
+
+export const FAQS: { question: string; answer: string }[] = [
+  {
+    question: "Do you supply vending machines in Gibraltar?",
+    answer:
+      "Yes. SnackStation is a Gibraltar-based vending machine supplier. We provide fully managed snack and drink vending machines for businesses and venues across Gibraltar, including offices, hotels, shipyards, warehouses and sports venues.",
+  },
+  {
+    question: "How much does a vending machine cost?",
+    answer:
+      "It depends on your location. We offer three models: high-footfall sites can have a fully managed machine with no upfront or ongoing costs, lower-footfall sites pay a small management fee, and premium locations can share in the profits. Get in touch and we'll recommend the right option for your site.",
+  },
+  {
+    question: "Can I get a free vending machine for my business?",
+    answer:
+      "Eligible locations with high footfall can have a fully managed vending machine at no cost to the business. If your location doesn't meet the criteria, we also offer a small monthly fee option, so you can still benefit from our fully managed service.",
+  },
+  {
+    question: "Do I need to buy or rent a vending machine?",
+    answer:
+      "You don't need to. Rather than buying or renting a machine yourself, you can use SnackStation's fully managed vending service: we supply, install, stock and maintain the machine for you under one of our three business models.",
+  },
+  {
+    question: "What snacks and drinks do your machines stock?",
+    answer:
+      "Our vending machines stock popular snack and drink brands such as Coca-Cola, Pepsi, Fanta, Sprite, 7Up, Powerade, Aquarius, Font Vella, Cadbury, M&M's, Skittles, Kettle and Grenade.",
+  },
+  {
+    question: "How do customers pay?",
+    answer:
+      "Our machines are card-only and cashless. Customers pay with contactless cards and mobile payments, which keeps things quick and reduces maintenance issues.",
+  },
+  {
+    question: "Who restocks and maintains the machine?",
+    answer:
+      "We do. Our local Gibraltar team handles installation, restocking, servicing and maintenance, and uses a digital inventory management system to plan restocking visits.",
+  },
+  {
+    question: "Are your vending machines available 24/7?",
+    answer:
+      "Our machines can run 24 hours a day, 365 days a year. When people can use them depends on the access and opening hours of the venue where they're installed.",
+  },
+  {
+    question: "Where are SnackStation vending machines in Gibraltar?",
+    answer: `You'll find SnackStation vending machines at ${listNames(
+      LOCATIONS.map((l) => l.name),
+    )}, with more locations joining our network.`,
+  },
+  {
+    question: "How do I get a vending machine for my workplace?",
+    answer: `Message us on WhatsApp on ${CONTACT.whatsappDisplay}. We'll arrange a site survey, recommend the right model for your location and take care of the installation.`,
   },
 ];

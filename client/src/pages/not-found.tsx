@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
 import { PrimaryButton } from "@/components/brand/buttons";
 import { EASE_OUT_EXPO } from "@/components/effects/primitives";
+import { usePageMeta } from "@/lib/seo";
 
 export default function NotFound() {
+  usePageMeta({ title: "Page not found | SnackStation", noindex: true });
   return (
     <main className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-ink px-5 text-white">
       <div className="bg-grid mask-radial pointer-events-none absolute inset-0" />
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand/20 blur-[120px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full glow-pink [--glow:0.3]" />
 
       <div className="relative text-center">
         <a href="/" className="mx-auto mb-12 block w-fit">

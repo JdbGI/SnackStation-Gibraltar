@@ -63,13 +63,13 @@ export default function Hero() {
       <div className="bg-grid mask-radial absolute inset-0 -z-10" />
       <motion.div
         aria-hidden
-        className="absolute -right-48 -top-48 -z-10 h-[42rem] w-[42rem] rounded-full bg-brand/25 blur-[140px]"
+        className="absolute -right-48 -top-48 -z-10 h-[42rem] w-[42rem] rounded-full glow-pink [--glow:0.32]"
         animate={{ x: [0, -70, 0], y: [0, 50, 0], scale: [1, 1.12, 1] }}
         transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         aria-hidden
-        className="absolute -bottom-56 -left-40 -z-10 h-[36rem] w-[36rem] rounded-full bg-brand-800/50 blur-[140px]"
+        className="absolute -bottom-56 -left-40 -z-10 h-[36rem] w-[36rem] rounded-full glow-berry [--glow:0.6]"
         animate={{ x: [0, 80, 0], y: [0, -40, 0] }}
         transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -94,11 +94,8 @@ export default function Hero() {
             Gibraltar-based · fully managed
           </motion.div>
 
-          <h1 className="font-display text-[clamp(3.6rem,10.5vw,8.75rem)]">
-            <span className="sr-only">
-              SnackStation — fully managed vending solutions in Gibraltar. Snacks and drinks, 24/7.
-            </span>
-            <span aria-hidden className="block">
+          <h1>
+            <span className="font-display block text-[clamp(3.6rem,10.5vw,8.75rem)]">
               {LINES.map((line, i) => (
                 <span key={line} className="-mb-[0.1em] block overflow-hidden pb-[0.1em] pr-[0.12em]">
                   <motion.span
@@ -115,14 +112,17 @@ export default function Hero() {
                     {i === 2 && (
                       <SpeedLines lines={6} className="h-[0.62em] w-[1.1em] -skew-x-12 text-brand-800" />
                     )}
-                  </motion.span>
+                  </motion.span>{" "}
                 </span>
               ))}
-            </span>
+            </span>{" "}
+            <motion.span {...enter(0.5)} className="mt-8 block text-xl font-semibold text-white md:text-2xl">
+              Fully managed vending machines in Gibraltar
+            </motion.span>
           </h1>
 
-          <motion.p {...enter(0.5)} className="mt-8 text-xl text-white md:text-2xl">
-            Fully managed vending for Gibraltar&apos;s <RotatingWord play={ready} />
+          <motion.p {...enter(0.55)} className="mt-2 text-lg text-white/70 md:text-xl">
+            Snack &amp; drink vending for Gibraltar&apos;s <RotatingWord play={ready} />
           </motion.p>
 
           <motion.p {...enter(0.6)} className="mt-5 max-w-xl text-base leading-relaxed text-white/60 md:text-lg">
@@ -160,7 +160,7 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: EASE_OUT_EXPO, delay: 0.2 }}
           className="relative mx-auto w-full max-w-[300px] sm:max-w-[340px] lg:max-w-[360px]"
         >
-          <div aria-hidden className="absolute inset-[8%] -z-10 rounded-full bg-brand/25 blur-[90px]" />
+          <div aria-hidden className="absolute inset-[8%] -z-10 rounded-full glow-pink [--glow:0.35]" />
           <HalftoneMachine onVend={() => setDrinks((n) => n + 1)} />
           <p
             aria-live="polite"
@@ -175,7 +175,7 @@ export default function Hero() {
       <a
         href="#about"
         aria-label="Scroll to learn more"
-        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/40 transition-colors hover:text-brand md:flex"
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/55 transition-colors hover:text-brand md:flex"
       >
         <span className="flex h-9 w-6 justify-center rounded-full border border-current pt-2">
           <span className="h-2 w-1 animate-scroll-dot rounded-full bg-brand" />

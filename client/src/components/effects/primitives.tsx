@@ -192,7 +192,7 @@ export function Counter({
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(() => (typeof window === "undefined" ? to : 0));
 
   useEffect(() => {
     if (!inView) return;

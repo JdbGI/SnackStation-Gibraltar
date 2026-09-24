@@ -10,6 +10,7 @@ import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "./lib/protected-route";
 import { useAuth } from "@/hooks/use-auth";
 import { Redirect, Route as WouterRoute } from "wouter";
+import { usePageMeta } from "@/lib/seo";
 
 // Everything off the marketing homepage is split out so the homepage ships
 // without the dashboard/chart code.
@@ -58,11 +59,13 @@ function AdminRoute({
   return <WouterRoute path={path} component={Component} />;
 }
 
-function Router() {
+// Partner login and dashboards: the only routes that need the signed-in user,
+// so the public pages never make the /api/user request. Kept out of search.
+function PartnerArea() {
+  usePageMeta({ noindex: true });
   return (
-    <Suspense fallback={<PageLoader />}>
+    <AuthProvider>
       <Switch>
-        <Route path="/" component={Home} />
         <Route path="/auth" component={AuthPage} />
         <ProtectedRoute path="/dashboard" component={DashboardPage} />
         <AdminRoute path="/admin" component={AdminDashboard} />
@@ -70,8 +73,19 @@ function Router() {
         <AdminRoute path="/admin/machines" component={() => <div>Machines Page (Coming Soon)</div>} />
         <AdminRoute path="/admin/reports" component={() => <div>Reports Page (Coming Soon)</div>} />
         <AdminRoute path="/admin/settings" component={() => <div>Settings Page (Coming Soon)</div>} />
-        <Route path="/catalogue" component={Catalogue} />
         <Route component={NotFound} />
+      </Switch>
+    </AuthProvider>
+  );
+}
+
+function Router() {
+  return (
+    <Suspense fallback={<PageLoader />}>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/catalogue" component={Catalogue} />
+        <Route component={PartnerArea} />
       </Switch>
     </Suspense>
   );
@@ -80,12 +94,10 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <MotionConfig reducedMotion="user">
-          <Router />
-        </MotionConfig>
-        <Toaster />
-      </AuthProvider>
+      <MotionConfig reducedMotion="user">
+        <Router />
+      </MotionConfig>
+      <Toaster />
     </QueryClientProvider>
   );
 }
