@@ -5,8 +5,12 @@ import {
   Clock,
   ConciergeBell,
   CreditCard,
+  Hotel,
   MapPin,
+  Mic,
   PackageCheck,
+  RadioTower,
+  Shield,
   ShieldCheck,
   Sparkles,
   Timer,
@@ -273,6 +277,42 @@ export type Location = {
 };
 
 export const LOCATIONS: Location[] = [
+  {
+    name: "Gibtelecom Mount Pleasant",
+    tag: "Gibtelecom",
+    icon: RadioTower,
+    image: "https://www.barton.gi/wp-content/uploads/2025/02/Gibtel-Machine-Image.jpg",
+    description:
+      "Supporting Gibtelecom's workforce with quality refreshments throughout the day. Our machines help keep their team energised and productive.",
+    features: ["Corporate Location", "Premium Snacks", "Staff Favourite"],
+  },
+  {
+    name: "Gibraltar Broadcasting Corporation",
+    tag: "GBC",
+    icon: Mic,
+    image: "https://www.barton.gi/wp-content/uploads/2025/03/GBC-Web-image.jpg",
+    description:
+      "From morning radio hosts to evening news teams, the busy staff at GBC now have drinks and snacks available on site throughout their workday, keeping them energised and focused.",
+    features: ["Media Centre", "24/7 Access", "Staff Favourite"],
+  },
+  {
+    name: "Gibraltar Defence Police HQ",
+    tag: "Defence Police",
+    icon: Shield,
+    image: "/images/locations/gibraltar-defence-police.webp",
+    description:
+      "Supporting Gibraltar's security forces around the clock. Our vending machines provide quick refreshments for officers working around the clock, ensuring they stay alert and energised while protecting our community.",
+    features: ["Security Hub", "24/7 Operations", "Round-the-Clock Service"],
+  },
+  {
+    name: "Holiday Inn Express",
+    tag: "Holiday Inn",
+    icon: Hotel,
+    image: "/images/locations/holiday-inn-express.webp",
+    description:
+      "Providing convenient refreshments for hotel guests and visitors 24/7. Our modern vending machines offer a wide selection of snacks and drinks, perfect for travellers and staff at any hour.",
+    features: ["Hotel Location", "24/7 Access", "Tourist Friendly"],
+  },
   {
     name: "Rock Hotel Canteen",
     tag: "Rock Hotel",
