@@ -8,7 +8,7 @@ const offices: SectorContent = {
   intro:
     "A SnackStation machine gives your team snacks and drinks without leaving the building. We install it, keep it stocked and fix it, and the plan depends on how many people work in your office.",
   facts: [
-    { label: "Usual plan", value: "Set by headcount, from Small Team to Free Placement" },
+    { label: "Usual plan", value: "Small Team or Standard, set by headcount" },
     { label: "Best spots", value: "Staff kitchen, reception, shared landings" },
     { label: "Popular picks", value: "Coca-Cola, Kettle Chips, Grenade bars" },
   ],
@@ -28,13 +28,13 @@ const offices: SectorContent = {
       body: [
         "In a lot of Gibraltar offices, a snack or a drink means leaving the building. That might be a walk across Europort, a trip down the stairs to Main Street or a lunchtime queue in Casemates. Multiply it by a team of fifty and it adds up to a lot of time away from desks.",
         "A machine on your floor fixes that. People grab what they need in a minute and get back to work, whether they started at seven or are staying late to get something finished. There's no petty cash, no supermarket runs and no stock cupboard for anyone to keep tidy.",
-        "It also costs your business very little. On our Free Placement plan there's nothing to pay at all, and on every plan we supply the machine, stock it, service it and repair it. Your staff simply pay for what they buy, by card or phone.",
+        "It also costs your business very little. You pay a one-off installation fee, then we supply the machine, stock it, service it and repair it. Your staff simply pay for what they buy, by card or phone.",
       ],
     },
     {
       heading: "A plan sized to your headcount",
       body: [
-        "We price office vending by the number of people on site each day, because more people means more sales. As a guide, teams of 20 to 60 suit our Small Team plan, offices of 60 to 150 suit Standard, and workplaces of 150 or more usually qualify for Free Placement, with nothing to pay up front or monthly.",
+        "We price office vending by the number of people on site each day, because more people means more sales. As a guide, teams of 20 to 60 suit our Small Team plan and offices of 60 or more suit Standard, which has no monthly fee. Our busiest workplaces may be invited onto Profit Sharing.",
         "Count everyone who is in the building on a normal day: staff, contractors and regular visitors. If you share a building with other companies, one machine in a shared area can serve all of you, which often moves everyone up a plan. Our page on [business centres and co-working spaces](/vending-machines/business-centres) explains how that works.",
         "We confirm the plan after a free site visit, so you know exactly where you stand before you sign anything.",
       ],
@@ -86,8 +86,8 @@ const offices: SectorContent = {
     text: "Office plans follow headcount. Count the people on site on a normal day and find your row below. We'll confirm it when we visit.",
     fits: [
       { plan: "Small Team", when: "20 to 60 people" },
-      { plan: "Standard", when: "60 to 150 people" },
-      { plan: "Free Placement", when: "150 or more people" },
+      { plan: "Standard", when: "60 or more people" },
+      { plan: "Profit Sharing", when: "Our busiest workplaces, by invitation" },
     ],
   },
   proof: {
@@ -100,7 +100,7 @@ const offices: SectorContent = {
     {
       question: "How much does an office vending machine cost in Gibraltar?",
       answer:
-        "It depends on your headcount. Offices of 150 or more people usually qualify for Free Placement, with nothing to pay up front or monthly. Offices of 60 to 150 pay a one-off installation fee on our Standard plan, and teams of 20 to 60 pay a one-off fee plus a small monthly fee on Small Team, which drops away when the machine sells well. You never buy or rent the machine itself.",
+        "It depends on your headcount. Every plan starts with a one-off installation fee. Offices of 60 or more people usually go on our Standard plan, which has no monthly fee, and teams of 20 to 60 go on Small Team, which adds a small monthly fee that drops away when the machine sells well. You never buy or rent the machine itself.",
     },
     {
       question: "Is our office big enough for a vending machine?",

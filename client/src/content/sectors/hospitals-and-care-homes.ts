@@ -8,7 +8,7 @@ const hospitalsAndCareHomes: SectorContent = {
   intro:
     "Hospitals and care homes don't close at night, but cafés do. A vending machine means nurses on nights, families waiting for news and visitors at the end of a long day can still get a drink and a snack.",
   facts: [
-    { label: "Usual plan", value: "Free Placement for busy sites" },
+    { label: "Usual plan", value: "Standard for most sites" },
     { label: "Best spots", value: "Waiting rooms, staff rooms, main entrances" },
     { label: "Popular picks", value: "Font Vella, Cadbury, dental kits" },
   ],
@@ -84,11 +84,11 @@ const hospitalsAndCareHomes: SectorContent = {
     },
   ],
   plan: {
-    text: "Busy hospital areas usually qualify for Free Placement. Care homes and clinics suit Standard or Small Team, depending on staff and visitor numbers. We confirm the plan after a free site visit.",
+    text: "Hospitals, busy waiting areas and care homes usually go on Standard, and smaller clinics on Small Team, depending on staff and visitor numbers. We confirm the plan after a free site visit.",
     fits: [
-      { plan: "Free Placement", when: "Hospitals and busy waiting areas" },
-      { plan: "Standard", when: "Care homes and larger clinics" },
+      { plan: "Standard", when: "Hospitals, care homes and larger clinics" },
       { plan: "Small Team", when: "Smaller clinics and practices" },
+      { plan: "Profit Sharing", when: "Our busiest sites, by invitation" },
     ],
   },
   proof: {
@@ -126,7 +126,7 @@ const hospitalsAndCareHomes: SectorContent = {
     {
       question: "How much does a machine cost for a care home?",
       answer:
-        "It depends on the number of staff and visitors on a normal day. Many care homes suit our Standard plan, with a one-off installation fee and no monthly fee, and busier sites can qualify for Free Placement. We confirm the plan after a free site visit.",
+        "It depends on the number of staff and visitors on a normal day. Many care homes suit our Standard plan, with a one-off installation fee and no monthly fee, while smaller homes may suit Small Team. We confirm the plan after a free site visit.",
     },
     {
       question: "Can we have a separate machine for staff?",

@@ -3,12 +3,12 @@ import type { SectorContent } from "./types";
 const marinas: SectorContent = {
   title: "Marina Vending Machines in Gibraltar | SnackStation",
   description:
-    "Vending machines for Gibraltar's marinas. Drinks, snacks and travel toiletries for berth holders, crews and visiting yachts, at no cost to most marinas.",
+    "Vending machines for Gibraltar's marinas. Drinks, snacks and travel toiletries for berth holders, crews and visiting yachts, run by our local team.",
   headline: "Marina vending machines in *Gibraltar.*",
   intro:
     "Yachts arrive in Gibraltar at all hours, often after a long passage, and the first thing crews want is a cold drink and a few basics. A machine at your marina is open when they tie up.",
   facts: [
-    { label: "Usual plan", value: "Free Placement" },
+    { label: "Usual plan", value: "Standard" },
     { label: "Best spots", value: "Marina office, shower block, pontoon entrance" },
     { label: "Popular picks", value: "Font Vella, Coca-Cola, shower gel" },
   ],
@@ -19,7 +19,7 @@ const marinas: SectorContent = {
     "Crew essentials",
     "Card-only",
     "Indoor or outdoor",
-    "Free Placement",
+    "Late arrivals",
   ],
   sections: [
     {
@@ -42,14 +42,14 @@ const marinas: SectorContent = {
       heading: "Built for the waterfront",
       body: [
         "Machines can go indoors or outside. On a quay or pontoon we look for power and shelter from sun, wind and spray, and we check the spot on a free site visit.",
-        "Marinas are on our Free Placement list, so there's usually no installation fee and no monthly fee. Our local team does the installing, restocking and repairs. Commercial quays and shipyards have their own page: [port and shipyard vending](/vending-machines/port-and-shipyards).",
+        "Most marinas go on our Standard plan: a one-off installation fee and no monthly fee. Our local team does the installing, restocking and repairs. Commercial quays and shipyards have their own page: [port and shipyard vending](/vending-machines/port-and-shipyards).",
         "If your marina also has a boatyard or repair business, a second machine can go where the yard team takes its breaks.",
       ],
       points: [
         "Open when the marina office isn't",
         "Travel toiletries for crews",
         "Indoor or waterfront machines",
-        "Free Placement for marinas",
+        "Restocked by our local team",
       ],
     },
   ],
@@ -88,8 +88,12 @@ const marinas: SectorContent = {
     },
   ],
   plan: {
-    text: "Marinas are high-footfall sites, so they usually qualify for Free Placement, subject to a quick site visit.",
-    fits: [{ plan: "Free Placement", when: "Marinas" }],
+    text: "Most marinas go on our Standard plan, and the busiest may be invited onto Profit Sharing, subject to a quick site visit.",
+    fits: [
+      { plan: "Standard", when: "Most marinas" },
+      { plan: "Small Team", when: "Yacht clubs and smaller marinas" },
+      { plan: "Profit Sharing", when: "The busiest marinas, by invitation" },
+    ],
   },
   proof: {
     heading: "Already on the *waterfront.*",
@@ -104,9 +108,9 @@ const marinas: SectorContent = {
         "Yes. We supply and run machines for marinas, indoors in offices and shower blocks or outdoors near the pontoons, wherever there's power and shelter.",
     },
     {
-      question: "Is a marina vending machine free?",
+      question: "What does a marina vending machine cost?",
       answer:
-        "Usually. Marinas are on our Free Placement list, so there's no installation fee and no monthly fee. Like every plan, it has a 12-month minimum term, and the free site visit confirms it.",
+        "Most marinas go on our Standard plan: a one-off installation fee and no monthly fee. Like every plan, it has a 12-month minimum term, and the free site visit confirms it.",
     },
     {
       question: "Can the machine sell toiletries for crews?",
@@ -136,7 +140,7 @@ const marinas: SectorContent = {
     {
       question: "Can a yacht club have a machine?",
       answer:
-        "Yes, if there's enough use. Smaller clubs with lighter footfall usually suit Standard or Small Team rather than Free Placement. We'll look at how busy the club is on a free site visit.",
+        "Yes, if there's enough use. Smaller clubs with lighter footfall usually suit our Small Team plan. We'll look at how busy the club is on a free site visit.",
     },
   ],
   related: ["port-and-shipyards", "tourist-attractions", "hotels"],

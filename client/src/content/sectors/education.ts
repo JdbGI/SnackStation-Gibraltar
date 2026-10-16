@@ -8,7 +8,7 @@ const education: SectorContent = {
   intro:
     "Students study late, lecturers teach back to back and school staff rooms are busy from the first bell. A vending machine gives them all a drink and a snack on site, and we look after everything.",
   facts: [
-    { label: "Usual plan", value: "Free Placement for busy campuses" },
+    { label: "Usual plan", value: "Standard for busy campuses" },
     { label: "Best spots", value: "Common rooms, library entrances, staff rooms" },
     { label: "Popular picks", value: "Font Vella, Kettle Chips, Grenade bars" },
   ],
@@ -83,11 +83,11 @@ const education: SectorContent = {
     },
   ],
   plan: {
-    text: "Busy campuses and big student residences can qualify for Free Placement. School staff rooms usually suit Small Team or Standard, depending on staff numbers.",
+    text: "Busy campuses and big student residences usually go on Standard. School staff rooms suit Small Team or Standard, depending on staff numbers.",
     fits: [
-      { plan: "Free Placement", when: "Campuses with 150+ people a day" },
-      { plan: "Standard", when: "Colleges and large staff rooms" },
+      { plan: "Standard", when: "Campuses, colleges and large staff rooms" },
       { plan: "Small Team", when: "School staff rooms of 20 to 60" },
+      { plan: "Profit Sharing", when: "The busiest campuses, by invitation" },
     ],
   },
   proof: {
@@ -105,7 +105,7 @@ const education: SectorContent = {
     {
       question: "Do you supply vending machines for university and college campuses?",
       answer:
-        "Yes. We can place machines in common rooms, libraries, study areas and student accommodation. Busy campuses often qualify for Free Placement.",
+        "Yes. We can place machines in common rooms, libraries, study areas and student accommodation. Busy campuses usually suit our Standard plan, with no monthly fee.",
     },
     {
       question: "Can the school or college choose what goes in the machine?",

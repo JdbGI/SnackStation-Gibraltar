@@ -42,7 +42,7 @@ const gyms: SectorContent = {
       heading: "Gyms, studios and clubs",
       body: [
         "Fitness is popular in Gibraltar, with gyms, CrossFit boxes, martial arts clubs and studios around town. Many are run by small teams, and every minute behind the desk counts. A card-only machine sells without anyone watching it, early in the morning and late at night.",
-        "Bigger gyms with high footfall can qualify for Free Placement. Smaller studios usually suit Small Team, with a one-off installation fee and a small monthly fee that drops away when the machine sells well.",
+        "Bigger gyms with high footfall usually suit our Standard plan, with no monthly fee. Smaller studios usually suit Small Team, with a small monthly fee that drops away when the machine sells well. Both start with a one-off installation fee.",
         "Sports clubs, pools and leisure centres have their own page: [stadiums and sports centres](/vending-machines/sports-venues).",
       ],
       points: [
@@ -87,11 +87,11 @@ const gyms: SectorContent = {
     },
   ],
   plan: {
-    text: "Gyms are priced on daily footfall, so busy gyms can qualify for Free Placement and smaller studios suit Small Team. We'll tell you which after a free site visit.",
+    text: "Gyms are priced on daily footfall, so busy gyms suit Standard and smaller studios suit Small Team. We'll tell you which after a free site visit.",
     fits: [
-      { plan: "Free Placement", when: "Busy gyms with high footfall" },
-      { plan: "Standard", when: "Mid-sized gyms and clubs" },
+      { plan: "Standard", when: "Busy and mid-sized gyms" },
       { plan: "Small Team", when: "Small studios and boxes" },
+      { plan: "Profit Sharing", when: "The busiest gyms, by invitation" },
     ],
   },
   proof: {
@@ -124,7 +124,7 @@ const gyms: SectorContent = {
     {
       question: "Does my gym need to be big?",
       answer:
-        "No. Small studios usually suit our Small Team plan, and the monthly fee drops away when the machine sells well. Busy gyms with high footfall can qualify for Free Placement.",
+        "No. Small studios usually suit our Small Team plan, and the monthly fee drops away when the machine sells well. Busier gyms go on Standard, which has no monthly fee.",
     },
     {
       question: "Can members use the machine at 6am?",

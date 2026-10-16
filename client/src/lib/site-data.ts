@@ -223,13 +223,16 @@ export type ServicePlan = {
   priceCaption: string;
   installation: string;
   monthlyFee: string;
+  /** Label for the monthlyFee row, if it isn't a monthly fee (e.g. "Profit share"). */
+  monthlyFeeLabel?: string;
   minimumTerm: string;
   bestFor: string[];
   note: { title?: string; text: string };
   featured?: boolean;
 };
 
-// From the SnackStation Service Plans (Gibraltar, 2026).
+// SnackStation service plans. Every plan has a one-off installation fee, and
+// Profit Sharing is by invitation only. The website never shows amounts.
 export const PLANS_INTRO =
   "The plan depends on the size of your site. Bigger sites sell more, so they cost you less.";
 
@@ -247,25 +250,24 @@ export const INCLUDED_ON_EVERY_PLAN = [
 
 export const PLANS: ServicePlan[] = [
   {
-    name: "Free Placement",
-    audience: "For high-footfall sites and large workforces",
-    price: "Free",
-    priceCaption: "Nothing up front. Nothing monthly.",
-    installation: "Free",
-    monthlyFee: "None",
+    name: "Profit Sharing",
+    audience: "For our busiest sites",
+    price: "One-off",
+    priceSuffix: "installation fee",
+    priceCaption: "A one-off installation fee, and we share the profits with you.",
+    installation: "One-off fee",
+    monthlyFee: "Agreed per site",
+    monthlyFeeLabel: "Profit share",
     minimumTerm: "12 months",
-    bestFor: [
-      "Hotels and attractions",
-      "Marinas, ports and stadiums",
-      "Public waiting areas",
-      "Workplaces of 150+ staff",
-    ],
-    note: { title: "Fully managed,", text: "at no cost to you." },
-    featured: true,
+    bestFor: ["Our busiest sites", "High-footfall venues", "Large workforces"],
+    note: {
+      title: "By invitation only.",
+      text: "After your site visit, we'll let you know if your site qualifies.",
+    },
   },
   {
     name: "Standard",
-    audience: "For mid-sized offices and workplaces",
+    audience: "For most offices, workplaces and venues",
     price: "One-off",
     priceSuffix: "installation fee",
     priceCaption: "A one-off installation fee. No monthly fee.",
@@ -273,12 +275,13 @@ export const PLANS: ServicePlan[] = [
     monthlyFee: "None",
     minimumTerm: "12 months",
     bestFor: [
-      "Offices of 60-150 staff",
+      "Offices of 60+ staff",
       "Company headquarters",
-      "Depots and staff rooms",
+      "Hotels, venues and depots",
       "Receptions with steady visitors",
     ],
     note: { text: "Pay once for delivery and installation. After that, everything is on us." },
+    featured: true,
   },
   {
     name: "Small Team",
@@ -326,7 +329,7 @@ export const STEPS = [
   {
     icon: PenLine,
     title: "Sign Up",
-    description: "A simple 12-month agreement. Any installation fee is paid when you sign.",
+    description: "A simple 12-month agreement. The installation fee is paid when you sign.",
   },
   {
     icon: Truck,
@@ -448,12 +451,12 @@ export const FAQS: FaqEntry[] = [
   {
     question: "How much does a vending machine cost?",
     answer:
-      "It depends on the size of your site, because bigger sites sell more and so cost you less. Free Placement, for high-footfall sites and large workforces, has nothing to pay up front or monthly. Standard, for mid-sized workplaces, has a one-off installation fee and no monthly fee. Small Team, for smaller offices, has a one-off installation fee and a small monthly service fee. We confirm your plan and costs after a free site visit.",
+      "It depends on the size of your site, because bigger sites sell more and so cost you less. Every plan starts with a one-off installation fee, and you never buy or rent the machine. Standard, for most offices, workplaces and venues, has no monthly fee. Small Team, for smaller offices, adds a small monthly service fee. Profit Sharing is offered by invitation to our busiest sites. We confirm your plan and costs after a free site visit.",
   },
   {
     question: "Which plan is right for my site?",
     answer:
-      "Free Placement suits high-footfall sites such as hotels and attractions, marinas, ports and stadiums, public waiting areas and workplaces of 150+ staff. Standard suits mid-sized offices, company headquarters, depots and busy receptions. Small Team suits smaller offices, studios, workshops and sites with lighter footfall. Staff numbers are a guide, and we confirm your plan after a free site visit.",
+      "Standard suits most sites: offices of 60 or more staff, company headquarters, hotels, depots and busy receptions. Small Team suits smaller offices, studios, workshops and sites with lighter footfall. Profit Sharing is by invitation only, for our busiest sites. Staff numbers are a guide, and we confirm your plan after a free site visit.",
   },
   {
     question: "Do I need to buy or rent a vending machine?",

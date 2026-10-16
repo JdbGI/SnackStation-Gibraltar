@@ -465,7 +465,7 @@ function PlanFit({ fit }: { fit: SectorContent["plan"]["fits"][number] }) {
   if (!plan) return null;
   const rows: [string, string][] = [
     ["Installation", plan.installation],
-    ["Monthly fee", plan.monthlyFee],
+    [plan.monthlyFeeLabel ?? "Monthly fee", plan.monthlyFee],
     ["Minimum term", plan.minimumTerm],
   ];
   return (

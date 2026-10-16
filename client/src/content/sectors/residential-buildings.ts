@@ -26,7 +26,7 @@ const residentialBuildings: SectorContent = {
       heading: "An extra for residents",
       body: [
         "Developments like Ocean Village, Kings Wharf, Midtown, Eurocity, E1 and the newer estates on the east side are small communities in their own right, and many have a concierge, a residents' gym, a pool or a shared lounge. Some are a fair walk from the nearest shop.",
-        "A vending machine gives residents something they notice straight away: a cold drink, a snack or a forgotten toothbrush at any hour, without leaving the building. For a managing agent or developer, it's an extra for residents that costs little or nothing to provide.",
+        "A vending machine gives residents something they notice straight away: a cold drink, a snack or a forgotten toothbrush at any hour, without leaving the building. For a managing agent or developer, it's an easy extra to offer, with no stock or repairs to deal with.",
         "It also suits people working from home, who don't always want to stop and walk to the shop.",
       ],
     },
@@ -41,12 +41,12 @@ const residentialBuildings: SectorContent = {
       heading: "How it works for a building",
       body: [
         "The agreement is with whoever manages the common areas, usually the managing agent, the residents' association or the developer. Residents just use the machine and pay by card or phone.",
-        "We price by how many people use the building each day. Large developments with hundreds of residents can qualify for Free Placement, while smaller blocks suit Standard or Small Team. We'll confirm the plan when we come to look at the building.",
+        "We price by how many people use the building each day. Large developments usually suit our Standard plan, while smaller blocks suit Small Team. We'll confirm the plan when we come to look at the building.",
         "Our team restocks and services the machine on visits arranged with your concierge or building manager, and we follow the building's access rules.",
         "If you manage several buildings, we can look at them together and suggest where a machine would get the most use.",
       ],
       points: [
-        "An extra for residents at little or no cost",
+        "An easy extra for residents",
         "Drinks, snacks and toiletries",
         "Restocking arranged with your concierge",
         "Card-only, so no cash in the building",
@@ -83,11 +83,11 @@ const residentialBuildings: SectorContent = {
     },
   ],
   plan: {
-    text: "We count the people who use the building on a normal day. Large developments can qualify for Free Placement, and smaller blocks suit Standard or Small Team.",
+    text: "We count the people who use the building on a normal day. Large developments usually suit Standard, and smaller blocks suit Small Team.",
     fits: [
-      { plan: "Free Placement", when: "Large developments" },
-      { plan: "Standard", when: "Mid-sized blocks and student housing" },
+      { plan: "Standard", when: "Large developments and student housing" },
       { plan: "Small Team", when: "Smaller blocks" },
+      { plan: "Profit Sharing", when: "The largest developments, by invitation" },
     ],
   },
   proof: {
@@ -105,7 +105,7 @@ const residentialBuildings: SectorContent = {
     {
       question: "Who pays for the machine?",
       answer:
-        "Nobody buys or rents it. Depending on the size of the building, the plan is free or has a one-off installation fee, plus a small monthly fee on our Small Team plan. Residents pay for what they buy, by card or phone.",
+        "Nobody buys or rents it. There's a one-off installation fee, plus a small monthly fee on our Small Team plan for smaller buildings. Residents pay for what they buy, by card or phone.",
     },
     {
       question: "Do residents need to sign anything?",

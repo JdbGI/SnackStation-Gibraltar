@@ -8,7 +8,7 @@ const leisureVenues: SectorContent = {
   intro:
     "A night out, a birthday party or a rainy afternoon with the kids. Whatever brings people to your venue, they'll want a drink and a snack while they're there, and a machine can sell both without adding to your staff's workload.",
   facts: [
-    { label: "Usual plan", value: "Free Placement for busy venues" },
+    { label: "Usual plan", value: "Standard for busy venues" },
     { label: "Best spots", value: "Foyer, waiting areas, party rooms" },
     { label: "Popular picks", value: "M&M's, Coca-Cola, Skittles" },
   ],
@@ -42,13 +42,13 @@ const leisureVenues: SectorContent = {
       heading: "Works alongside your bar or kiosk",
       body: [
         "If you run a kiosk or bar, a machine takes the pressure off at peak times and keeps selling when the counter is closed. For venues without catering, it's a simple way to offer refreshments with no staff and no stock to manage.",
-        "Busy leisure venues are high-footfall sites, so most qualify for Free Placement. Smaller venues suit Standard or Small Team. Sports halls and pools are covered on our [stadiums and sports centres page](/vending-machines/sports-venues).",
+        "Busy leisure venues usually go on our Standard plan, and smaller venues suit Small Team. Sports halls and pools are covered on our [stadiums and sports centres page](/vending-machines/sports-venues).",
       ],
       points: [
         "Foyers, waiting areas and party rooms",
         "Family favourites and lighter options",
         "Sells when the kiosk is closed",
-        "Free Placement for busy venues",
+        "Restocked before big events",
       ],
     },
   ],
@@ -81,11 +81,11 @@ const leisureVenues: SectorContent = {
     },
   ],
   plan: {
-    text: "Busy leisure venues usually qualify for Free Placement. Smaller venues suit Standard or Small Team. We'll confirm yours on a free site visit.",
+    text: "Busy leisure venues usually go on Standard and smaller venues on Small Team. We'll confirm yours on a free site visit.",
     fits: [
-      { plan: "Free Placement", when: "Busy venues and event halls" },
-      { plan: "Standard", when: "Mid-sized venues" },
+      { plan: "Standard", when: "Busy venues and event halls" },
       { plan: "Small Team", when: "Small venues and studios" },
+      { plan: "Profit Sharing", when: "The busiest venues, by invitation" },
     ],
   },
   proof: {
@@ -106,9 +106,9 @@ const leisureVenues: SectorContent = {
         "It's there for the quick purchases and for the hours when your counter is closed. We'll look at what you sell now and plan the range around it on the site visit.",
     },
     {
-      question: "Is a vending machine free for a leisure venue?",
+      question: "What does a machine cost for a leisure venue?",
       answer:
-        "Busy leisure venues usually qualify for Free Placement, with no installation fee and no monthly fee. Smaller venues suit Standard or Small Team. We confirm the plan after a free site visit.",
+        "Busy leisure venues usually go on our Standard plan, with a one-off installation fee and no monthly fee. Smaller venues suit Small Team. We confirm the plan after a free site visit.",
     },
     {
       question: "Can we choose what goes in the machine?",

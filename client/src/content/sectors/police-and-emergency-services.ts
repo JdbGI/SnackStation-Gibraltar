@@ -86,9 +86,9 @@ const policeAndEmergencyServices: SectorContent = {
   plan: {
     text: "Stations follow headcount like any workplace. Count everyone who uses the building on a normal day, across all shifts.",
     fits: [
-      { plan: "Free Placement", when: "Headquarters with 150+ people" },
-      { plan: "Standard", when: "Stations with 60 to 150" },
+      { plan: "Standard", when: "Stations and HQs with 60+ people" },
       { plan: "Small Team", when: "Smaller stations of 20 to 60" },
+      { plan: "Profit Sharing", when: "Our busiest sites, by invitation" },
     ],
   },
   proof: {
@@ -121,7 +121,7 @@ const policeAndEmergencyServices: SectorContent = {
     {
       question: "How much does a machine for a station cost?",
       answer:
-        "It depends on how many people use the site each day. Headquarters with 150 or more people usually qualify for Free Placement. Smaller stations pay a one-off installation fee on Standard or Small Team, and Small Team also has a small monthly fee.",
+        "It depends on how many people use the site each day. Every plan starts with a one-off installation fee. Most stations and headquarters go on Standard, which has no monthly fee, and smaller stations on Small Team, which adds a small monthly fee.",
     },
     {
       question: "Can members of the public use the machine too?",

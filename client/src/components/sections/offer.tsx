@@ -19,7 +19,7 @@ function PlanCard({ plan }: { plan: ServicePlan }) {
   const featured = Boolean(plan.featured);
   const rows: [string, string][] = [
     ["Installation", plan.installation],
-    ["Monthly fee", plan.monthlyFee],
+    [plan.monthlyFeeLabel ?? "Monthly fee", plan.monthlyFee],
     ["Minimum term", plan.minimumTerm],
   ];
 

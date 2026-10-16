@@ -3,12 +3,12 @@ import type { SectorContent } from "./types";
 const hotels: SectorContent = {
   title: "Hotel Vending Machines in Gibraltar | SnackStation",
   description:
-    "Vending machines for Gibraltar hotels, hostels and serviced apartments. Snacks, drinks and travel toiletries for guests 24/7, at no cost to most hotels.",
+    "Vending machines for Gibraltar hotels, hostels and serviced apartments. Snacks, drinks and travel toiletries for guests 24/7, run by our local team.",
   headline: "Hotel vending machines in *Gibraltar.*",
   intro:
-    "Guests check in late, get peckish after the bar shuts and forget their toothbrush. A machine in your lobby sorts all three, and most hotels pay nothing for it.",
+    "Guests check in late, get peckish after the bar shuts and forget their toothbrush. A machine in your lobby sorts all three, and we look after it for you.",
   facts: [
-    { label: "Usual plan", value: "Free Placement" },
+    { label: "Usual plan", value: "Standard" },
     { label: "Best spots", value: "Lobby, guest floors, staff canteen" },
     { label: "Popular picks", value: "Coca-Cola, Cadbury, dental kits" },
   ],
@@ -18,7 +18,7 @@ const hotels: SectorContent = {
     "Guest toiletries",
     "Staff canteens",
     "Card-only",
-    "Free Placement",
+    "Late-night snacks",
     "Restocked by us",
   ],
   heroLocation: "Holiday Inn Express",
@@ -43,10 +43,10 @@ const hotels: SectorContent = {
       heading: "A machine for your staff too",
       body: [
         "Hotel teams work early, late and through the night. At the Rock Hotel we run two machines: one in the lobby for guests and one in the staff canteen for the team. It's a simple way to look after staff on every shift.",
-        "Because hotels see so many people, most qualify for Free Placement, with no installation fee and no monthly fee. We install, stock and repair the machine at no cost to you.",
+        "Most hotels go on our Standard plan: a one-off installation fee and no monthly fee. After that we stock, service and repair the machine, and guests and staff simply pay for what they buy.",
       ],
       points: [
-        "Free Placement for most hotels",
+        "Machines that run all night",
         "Travel toiletries for guests",
         "A second machine for staff",
         "Card-only, so no cash at reception",
@@ -87,10 +87,11 @@ const hotels: SectorContent = {
     },
   ],
   plan: {
-    text: "Hotels are on our Free Placement list because they see so many people. A free site visit confirms which plan applies.",
+    text: "Most hotels go on our Standard plan, and our busiest hotels may be invited onto Profit Sharing. A free site visit confirms which plan applies.",
     fits: [
-      { plan: "Free Placement", when: "Most hotels" },
-      { plan: "Standard", when: "Smaller hotels and serviced apartments" },
+      { plan: "Standard", when: "Most hotels and serviced apartments" },
+      { plan: "Small Team", when: "Small guesthouses" },
+      { plan: "Profit Sharing", when: "The busiest hotels, by invitation" },
     ],
   },
   proof: {
@@ -101,9 +102,9 @@ const hotels: SectorContent = {
   faqTitle: "Hotel vending, *answered.*",
   faqs: [
     {
-      question: "Is a hotel vending machine free in Gibraltar?",
+      question: "How much does a hotel vending machine cost in Gibraltar?",
       answer:
-        "For most hotels, yes. Hotels qualify for our Free Placement plan because of the number of guests and staff, so there's no installation fee and no monthly fee. There's a 12-month minimum term, and we confirm the plan after a free site visit.",
+        "Most hotels go on our Standard plan: a one-off installation fee and no monthly fee, with nothing to buy or rent. There's a 12-month minimum term, and we confirm the plan after a free site visit.",
     },
     {
       question: "Can the machine sell toiletries for guests?",
@@ -133,7 +134,7 @@ const hotels: SectorContent = {
     {
       question: "Do you supply guesthouses and serviced apartments?",
       answer:
-        "Yes. Smaller places with lighter footfall usually go on our Standard plan rather than Free Placement. A machine in the entrance or a shared lounge looks after guests who arrive when nobody is on the desk.",
+        "Yes. Smaller places with lighter footfall usually go on our Small Team plan. A machine in the entrance or a shared lounge looks after guests who arrive when nobody is on the desk.",
     },
   ],
   related: ["tourist-attractions", "airport-and-transport", "marinas"],

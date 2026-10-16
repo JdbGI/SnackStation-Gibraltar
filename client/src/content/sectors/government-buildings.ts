@@ -8,7 +8,7 @@ const governmentBuildings: SectorContent = {
   intro:
     "Government departments and public bodies deal with a steady stream of people every week, and the staff behind the counter work long days. One machine can look after both, with no admin for your team.",
   facts: [
-    { label: "Usual plan", value: "Free Placement for public waiting areas" },
+    { label: "Usual plan", value: "Standard for public waiting areas" },
     { label: "Best spots", value: "Waiting areas, staff rooms, entrance halls" },
     { label: "Popular picks", value: "Font Vella, Coca-Cola, Cadbury" },
   ],
@@ -32,10 +32,10 @@ const governmentBuildings: SectorContent = {
       ],
     },
     {
-      heading: "Why public waiting areas often go free",
+      heading: "How the plan is set",
       body: [
-        "Footfall decides the plan. Public waiting areas are on our Free Placement list because so many people pass through, so there's usually no installation fee and no monthly fee.",
-        "Staff-only buildings are priced by headcount like any other workplace: Free Placement from 150 people, Standard from 60 and Small Team from 20.",
+        "Footfall decides the plan. Public waiting areas see so many people that they usually suit our Standard plan: a one-off installation fee and no monthly fee.",
+        "Staff-only buildings are priced by headcount like any other workplace: Standard from around 60 people and Small Team from 20. Profit Sharing is offered by invitation to our busiest sites.",
         "We confirm the plan after a free site visit, and everything is set out in the agreement before anyone signs.",
       ],
     },
@@ -83,11 +83,11 @@ const governmentBuildings: SectorContent = {
     },
   ],
   plan: {
-    text: "Public waiting areas usually qualify for Free Placement. Staff-only buildings follow headcount, like any workplace.",
+    text: "Public waiting areas usually go on our Standard plan. Staff-only buildings follow headcount, like any workplace.",
     fits: [
-      { plan: "Free Placement", when: "Public waiting areas or 150+ staff" },
-      { plan: "Standard", when: "Departments of 60 to 150" },
+      { plan: "Standard", when: "Public waiting areas or 60+ staff" },
       { plan: "Small Team", when: "Teams of 20 to 60" },
+      { plan: "Profit Sharing", when: "Our busiest sites, by invitation" },
     ],
   },
   proof: {
@@ -103,9 +103,9 @@ const governmentBuildings: SectorContent = {
         "Yes. We supply and run machines for public offices, departments and agencies, in staff areas, public waiting areas or both.",
     },
     {
-      question: "Is a vending machine free for a public waiting area?",
+      question: "What does a machine cost for a public waiting area?",
       answer:
-        "Public waiting areas usually qualify for Free Placement because of the number of people passing through. That means no installation fee and no monthly fee, which we confirm on a free site visit.",
+        "Public waiting areas usually go on our Standard plan: a one-off installation fee and no monthly fee, which we confirm on a free site visit.",
     },
     {
       question: "What does the agreement involve?",

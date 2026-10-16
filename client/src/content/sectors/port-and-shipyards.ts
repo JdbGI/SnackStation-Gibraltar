@@ -8,7 +8,7 @@ const portAndShipyards: SectorContent = {
   intro:
     "Gibraltar's port works long after most offices close. Ship repair teams, bunkering crews, agents and visiting seafarers all need a drink and a bite at odd hours, often a long way from town, so we put the machine where they work.",
   facts: [
-    { label: "Usual plan", value: "Free Placement for ports and busy yards" },
+    { label: "Usual plan", value: "Standard for most port businesses" },
     { label: "Best spots", value: "Reception, mess room, gatehouse" },
     { label: "Popular picks", value: "Powerade, Coca-Cola, crew toiletries" },
   ],
@@ -83,11 +83,11 @@ const portAndShipyards: SectorContent = {
     },
   ],
   plan: {
-    text: "Ports and busy yards usually qualify for Free Placement. Smaller marine businesses suit Standard or Small Team, depending on how many people are on site.",
+    text: "Ports, yards and most marine businesses go on our Standard plan. Smaller marine offices suit Small Team, and Profit Sharing is by invitation for our busiest sites.",
     fits: [
-      { plan: "Free Placement", when: "Ports, yards and 150+ people" },
-      { plan: "Standard", when: "Marine firms of 60 to 150" },
+      { plan: "Standard", when: "Ports, yards and marine firms" },
       { plan: "Small Team", when: "Smaller marine offices" },
+      { plan: "Profit Sharing", when: "Our busiest sites, by invitation" },
     ],
   },
   proof: {
@@ -125,7 +125,7 @@ const portAndShipyards: SectorContent = {
     {
       question: "Is there a cost for a machine at a port or shipyard?",
       answer:
-        "Ports and busy marine sites usually qualify for Free Placement, with nothing to pay up front or monthly. Smaller marine businesses pay a one-off installation fee on Standard, or a one-off fee plus a small monthly fee on Small Team. Every plan has a 12-month minimum term.",
+        "Every plan starts with a one-off installation fee. Most port and marine sites go on Standard, which has no monthly fee, while smaller marine offices go on Small Team, which adds a small monthly fee. Every plan has a 12-month minimum term.",
     },
     {
       question: "Can ship agents and crew welfare rooms have a machine?",

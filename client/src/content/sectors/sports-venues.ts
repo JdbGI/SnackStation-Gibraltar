@@ -8,7 +8,7 @@ const sportsVenues: SectorContent = {
   intro:
     "Players need a drink after training, spectators want one at half-time and parents on the touchline want a snack. Our machine at Europa Point Stadium already serves all of them, and we can do the same at your venue.",
   facts: [
-    { label: "Usual plan", value: "Free Placement" },
+    { label: "Usual plan", value: "Standard" },
     { label: "Best spots", value: "Concourse, changing rooms, club house" },
     { label: "Popular picks", value: "Powerade, Font Vella, Aquarius" },
   ],
@@ -19,7 +19,7 @@ const sportsVenues: SectorContent = {
     "Clubs",
     "Match days",
     "Card-only",
-    "Free Placement",
+    "Training nights",
   ],
   sections: [
     {
@@ -43,7 +43,7 @@ const sportsVenues: SectorContent = {
       body: [
         "Clubs that share a venue or run their own club house can have a machine too. Members and visiting teams get a drink without anyone running a bar or a tuck shop, and it's there for early training and late fixtures.",
         "For the volunteers who run a club, that's one less job on match day.",
-        "Stadiums and busy sports centres are on our Free Placement list. Smaller club houses usually suit Standard or Small Team, depending on how many people use them. For private gyms and studios, see our [gym vending page](/vending-machines/gyms).",
+        "Stadiums and busy sports centres usually go on our Standard plan, and smaller club houses suit Standard or Small Team, depending on how many people use them. For private gyms and studios, see our [gym vending page](/vending-machines/gyms).",
       ],
       points: [
         "A machine already at Europa Point Stadium",
@@ -82,11 +82,11 @@ const sportsVenues: SectorContent = {
     },
   ],
   plan: {
-    text: "Stadiums and sports centres are high-footfall sites, so they usually qualify for Free Placement. Smaller club houses suit Standard or Small Team.",
+    text: "Stadiums and sports centres usually go on Standard, and smaller club houses suit Standard or Small Team. The busiest venues may be invited onto Profit Sharing.",
     fits: [
-      { plan: "Free Placement", when: "Stadiums and sports centres" },
-      { plan: "Standard", when: "Larger club houses" },
+      { plan: "Standard", when: "Stadiums, sports centres and larger club houses" },
       { plan: "Small Team", when: "Small clubs" },
+      { plan: "Profit Sharing", when: "The busiest venues, by invitation" },
     ],
   },
   proof: {
@@ -102,9 +102,9 @@ const sportsVenues: SectorContent = {
         "Yes. We already run a machine at Europa Point Stadium, and we supply stadiums, sports halls, pools, club houses and other sports venues across Gibraltar.",
     },
     {
-      question: "Is a vending machine free for a stadium or sports centre?",
+      question: "What does a machine cost for a stadium or sports centre?",
       answer:
-        "Usually. Stadiums and busy sports centres are high-footfall sites, so they normally qualify for Free Placement, with nothing to pay up front or monthly.",
+        "Stadiums and busy sports centres usually go on our Standard plan: a one-off installation fee and no monthly fee.",
     },
     {
       question: "Can the machine go outdoors by a pitch?",

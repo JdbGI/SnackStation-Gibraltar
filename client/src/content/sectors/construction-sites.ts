@@ -35,7 +35,7 @@ const constructionSites: SectorContent = {
       body: [
         "Every plan has a 12-month minimum term, so a machine suits longer projects, a main contractor's compound or a site that runs for a year or more. If you run several sites, talk to us about where a machine would get the most use.",
         "We can put the machine in a welfare cabin, a site canteen or a covered spot outside, as long as there's power. It's card-only, so there's no cash box on site.",
-        "Count the people on site on a normal day, including subcontractors. Sites with 150 or more people usually qualify for Free Placement. Smaller crews suit Standard or Small Team. Depots and yards that outlast the build are covered on our [warehouse and industrial page](/vending-machines/warehouses-and-industrial).",
+        "Count the people on site on a normal day, including subcontractors. Bigger sites usually suit Standard, and smaller crews suit Small Team. Depots and yards that outlast the build are covered on our [warehouse and industrial page](/vending-machines/warehouses-and-industrial).",
       ],
     },
     {
@@ -80,11 +80,11 @@ const constructionSites: SectorContent = {
     },
   ],
   plan: {
-    text: "Crew size decides it. Big sites often get Free Placement, mid-sized ones suit Standard and small crews suit Small Team. Every plan runs for at least 12 months.",
+    text: "Crew size decides it. Bigger sites suit Standard and small crews suit Small Team. Every plan starts with a one-off installation fee and runs for at least 12 months.",
     fits: [
-      { plan: "Free Placement", when: "150 or more on site" },
-      { plan: "Standard", when: "60 to 150 on site" },
+      { plan: "Standard", when: "60 or more on site" },
       { plan: "Small Team", when: "Crews of 20 to 60" },
+      { plan: "Profit Sharing", when: "The biggest sites, by invitation" },
     ],
   },
   proof: {

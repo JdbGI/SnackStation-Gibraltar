@@ -42,7 +42,7 @@ export const HUB_FAQS: FaqEntry[] = [
   {
     question: "Which plan will my site be on?",
     answer:
-      "It depends on how many people use the site each day. High-footfall sites such as hotels, attractions, marinas, ports, stadiums and public waiting areas, and workplaces of 150 or more staff, usually qualify for Free Placement. Mid-sized workplaces usually suit Standard, and smaller teams suit Small Team. We confirm the plan after a free site visit.",
+      "It depends on how many people use the site each day. Every plan starts with a one-off installation fee. Most offices, hotels, venues and other busy sites suit Standard, which has no monthly fee, and smaller teams suit Small Team. Profit Sharing is offered by invitation to our busiest sites. We confirm the plan after a free site visit.",
   },
   {
     question: "What if my kind of business isn't listed?",

@@ -41,7 +41,7 @@ const warehousesAndIndustrial: SectorContent = {
     {
       heading: "Which plan fits a depot",
       body: [
-        "Depots and staff rooms usually suit our Standard plan: a one-off installation fee and no monthly fee. Bigger operations with 150 or more people on site often qualify for Free Placement, and small workshops of 20 to 60 people suit Small Team.",
+        "Depots and staff rooms usually suit our Standard plan: a one-off installation fee and no monthly fee. Small workshops of 20 to 60 people suit Small Team, and our busiest sites may be invited onto Profit Sharing.",
         "Count everyone who uses the site on a normal day, including the drivers who come and go. They buy from the machine too. If you're running a building project rather than a warehouse, our page on [construction sites](/vending-machines/construction-sites) covers how that works.",
       ],
       points: [
@@ -81,11 +81,11 @@ const warehousesAndIndustrial: SectorContent = {
     },
   ],
   plan: {
-    text: "Depots and staff rooms usually sit on Standard. Big sites can qualify for Free Placement, and small workshops suit Small Team.",
+    text: "Depots and staff rooms usually sit on Standard, and small workshops suit Small Team. Profit Sharing is by invitation only.",
     fits: [
       { plan: "Standard", when: "Most depots and staff rooms" },
-      { plan: "Free Placement", when: "150 or more people on site" },
       { plan: "Small Team", when: "Workshops of 20 to 60" },
+      { plan: "Profit Sharing", when: "Our busiest sites, by invitation" },
     ],
   },
   proof: {

@@ -3,12 +3,12 @@ import type { SectorContent } from "./types";
 const touristAttractions: SectorContent = {
   title: "Attraction & Beach Vending in Gibraltar | SnackStation",
   description:
-    "Vending machines for Gibraltar's attractions, viewpoints and beaches. Cold drinks and snacks for visitors, indoors or outdoors, at no cost to most sites.",
+    "Vending machines for Gibraltar's attractions, viewpoints and beaches. Cold drinks and snacks for visitors, indoors or outdoors, run by our local team.",
   headline: "Vending for attractions and beaches in *Gibraltar.*",
   intro:
     "Millions of people visit Gibraltar, and a lot of them end up hot, thirsty and a long way from a shop. A machine at your attraction, viewpoint or beach gives them a cold drink and a snack on the spot.",
   facts: [
-    { label: "Usual plan", value: "Free Placement" },
+    { label: "Usual plan", value: "Standard" },
     { label: "Best spots", value: "Ticket offices, visitor centres, beach fronts" },
     { label: "Popular picks", value: "Font Vella, Aquarius, Coca-Cola" },
   ],
@@ -19,7 +19,7 @@ const touristAttractions: SectorContent = {
     "Cold drinks",
     "Indoor or outdoor",
     "Card-only",
-    "Free Placement",
+    "Hot days",
   ],
   sections: [
     {
@@ -41,13 +41,13 @@ const touristAttractions: SectorContent = {
       body: [
         "Catalan Bay, Eastern Beach, Sandy Bay, Camp Bay and Little Bay fill up from June to September. Beach kiosks close in the evening, but a machine keeps going for late swimmers and families staying on.",
         "Visitors from Spain, cruise passengers and day-trippers don't always carry pounds. Our machines are card-only, so anyone can pay with a contactless card or a phone, and nobody needs the right change.",
-        "Attractions, viewpoints and beaches see so many people that they usually qualify for Free Placement, with nothing to pay up front and nothing monthly. If you also run accommodation, see our [hotel vending page](/vending-machines/hotels).",
+        "Most attractions, viewpoints and beaches go on our Standard plan, with a one-off installation fee and no monthly fee. If you also run accommodation, see our [hotel vending page](/vending-machines/hotels).",
       ],
       points: [
         "Indoor or outdoor machines",
         "Placed with the macaques in mind",
         "Card and phone payments for every visitor",
-        "Free Placement for busy sites",
+        "Restocked more often in summer",
       ],
     },
   ],
@@ -78,8 +78,11 @@ const touristAttractions: SectorContent = {
     },
   ],
   plan: {
-    text: "Attractions, viewpoints and beaches are high-footfall sites, so they usually qualify for Free Placement. The free site visit confirms it.",
-    fits: [{ plan: "Free Placement", when: "Attractions, viewpoints and beaches" }],
+    text: "Attractions, viewpoints and beaches usually go on our Standard plan, and our busiest sites may be invited onto Profit Sharing. The free site visit confirms it.",
+    fits: [
+      { plan: "Standard", when: "Attractions, viewpoints and beaches" },
+      { plan: "Profit Sharing", when: "The busiest sites, by invitation" },
+    ],
   },
   proof: {
     heading: "Already where *visitors go.*",
@@ -94,9 +97,9 @@ const touristAttractions: SectorContent = {
         "Yes. We can put machines outside as well as indoors. We look for a spot with power and some shade, and check it on a free site visit before anything is agreed.",
     },
     {
-      question: "Is a vending machine free for a tourist attraction?",
+      question: "What does a machine cost for a tourist attraction?",
       answer:
-        "Usually. Attractions, viewpoints and beaches are high-footfall sites, so they normally qualify for Free Placement, with nothing to pay up front or monthly. There's a 12-month minimum term.",
+        "Most attractions, viewpoints and beaches go on our Standard plan: a one-off installation fee and no monthly fee. There's a 12-month minimum term.",
     },
     {
       question: "What about the macaques on the Upper Rock?",

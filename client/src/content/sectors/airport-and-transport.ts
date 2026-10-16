@@ -3,12 +3,12 @@ import type { SectorContent } from "./types";
 const airportAndTransport: SectorContent = {
   title: "Airport & Transport Vending in Gibraltar | SnackStation",
   description:
-    "Vending machines for terminals, waiting areas, car parks and coach parks in Gibraltar. Snacks and drinks for travellers, at no cost to most sites.",
+    "Vending machines for terminals, waiting areas, car parks and coach parks in Gibraltar. Snacks and drinks for travellers, run by our local team.",
   headline: "Airport and transport vending in *Gibraltar.*",
   intro:
     "Flights, cruise ships, buses and coaches bring a constant flow of people through Gibraltar, and most of them spend some of the trip waiting. A machine gives them a drink and a snack while they do.",
   facts: [
-    { label: "Usual plan", value: "Free Placement for waiting areas" },
+    { label: "Usual plan", value: "Standard for waiting areas" },
     { label: "Best spots", value: "Terminals, car park lifts, coach and taxi ranks" },
     { label: "Popular picks", value: "Font Vella, Coca-Cola, Kettle Chips" },
   ],
@@ -19,7 +19,7 @@ const airportAndTransport: SectorContent = {
     "Car parks",
     "Bus routes",
     "Card-only",
-    "Free Placement",
+    "Travel essentials",
   ],
   sections: [
     {
@@ -43,10 +43,10 @@ const airportAndTransport: SectorContent = {
       heading: "Built for busy public spaces",
       body: [
         "Transport sites need machines that are quick to use. Ours are card-only and take contactless cards and phone payments, including cards issued in Spain and further afield, so nobody needs the right change in pounds.",
-        "Waiting areas are on our Free Placement list, so most transport sites pay nothing for the machine. We install it, restock it from its sales data and repair it if anything goes wrong. Plenty of travellers stay nearby, which is why we also run machines in [hotels](/vending-machines/hotels).",
+        "Most transport sites go on our Standard plan: a one-off installation fee and no monthly fee. We install the machine, restock it from its sales data and repair it if anything goes wrong. Plenty of travellers stay nearby, which is why we also run machines in [hotels](/vending-machines/hotels).",
       ],
       points: [
-        "Free Placement for public waiting areas",
+        "Travel essentials as well as snacks",
         "Card and phone payments from anywhere",
         "Indoor or covered outdoor spots",
         "Restocked from sales data",
@@ -84,10 +84,11 @@ const airportAndTransport: SectorContent = {
     },
   ],
   plan: {
-    text: "Waiting areas see so many people that they usually qualify for Free Placement. Staff-only depots are priced by headcount.",
+    text: "Waiting areas and terminals usually go on our Standard plan, and staff-only depots are priced by headcount. Our busiest sites may be invited onto Profit Sharing.",
     fits: [
-      { plan: "Free Placement", when: "Terminals, waiting areas and car parks" },
-      { plan: "Standard", when: "Transport depots and staff rooms" },
+      { plan: "Standard", when: "Terminals, waiting areas and car parks" },
+      { plan: "Small Team", when: "Smaller depots and staff rooms" },
+      { plan: "Profit Sharing", when: "The busiest sites, by invitation" },
     ],
   },
   proof: {
@@ -103,9 +104,9 @@ const airportAndTransport: SectorContent = {
         "Yes. We supply and run machines for terminals, waiting areas, car parks, coach parks and transport depots across Gibraltar.",
     },
     {
-      question: "Do transport sites pay for the machine?",
+      question: "What does a machine cost at a transport site?",
       answer:
-        "Most don't. Public waiting areas and busy terminals usually qualify for Free Placement, with no installation fee and no monthly fee. Staff-only depots are priced by headcount.",
+        "Most transport sites go on our Standard plan, with a one-off installation fee and no monthly fee. Staff-only depots are priced by headcount.",
     },
     {
       question: "Can passengers from abroad pay?",

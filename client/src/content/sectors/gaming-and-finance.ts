@@ -8,7 +8,7 @@ const gamingAndFinance: SectorContent = {
   intro:
     "Online gaming, fintech and insurance employ thousands of people in Gibraltar, and plenty of them work shifts that run late into the night. A machine on the floor keeps every shift fed without anyone leaving the building.",
   facts: [
-    { label: "Usual plan", value: "Free Placement for 150+ staff" },
+    { label: "Usual plan", value: "Standard for most firms" },
     { label: "Best spots", value: "Break-out areas and a kitchen on each floor" },
     { label: "Popular picks", value: "Grenade bars, Coca-Cola, Font Vella" },
   ],
@@ -34,7 +34,7 @@ const gamingAndFinance: SectorContent = {
       heading: "One machine or one per floor",
       body: [
         "Gaming and finance firms often spread over several floors, in places like Europort, the World Trade Center on Bayside Road, Ocean Village and Midtown. We look at how people move around your building and suggest whether one central machine or one on each floor will work better.",
-        "Large teams mean steady sales, so most firms of this size qualify for Free Placement: no installation fee, no monthly fee and no machine to buy. Smaller studios and start-ups usually fit our Standard or Small Team plans, depending on headcount. The [office vending page](/vending-machines/offices) explains how headcount sets the plan.",
+        "Large teams mean steady sales, so most firms of this size go on our Standard plan: a one-off installation fee, no monthly fee and no machine to buy. Smaller studios and start-ups may suit Small Team, and our busiest sites can be invited onto Profit Sharing. The [office vending page](/vending-machines/offices) explains how headcount sets the plan.",
       ],
     },
     {
@@ -48,7 +48,7 @@ const gamingAndFinance: SectorContent = {
         "Machines that run around the clock",
         "One per floor or one central machine",
         "Restocking that fits your access rules",
-        "Free Placement for 150+ staff",
+        "A plan sized to your headcount",
       ],
     },
   ],
@@ -81,11 +81,11 @@ const gamingAndFinance: SectorContent = {
     },
   ],
   plan: {
-    text: "Most gaming and finance offices have the headcount for Free Placement. Smaller firms go on Standard or Small Team. A free site visit settles which one.",
+    text: "Most gaming and finance offices have the headcount for Standard, and smaller firms go on Small Team. Profit Sharing is by invitation, for our busiest sites. A free site visit settles which one.",
     fits: [
-      { plan: "Free Placement", when: "150 or more staff" },
-      { plan: "Standard", when: "60 to 150 staff" },
+      { plan: "Standard", when: "60 or more staff" },
       { plan: "Small Team", when: "20 to 60 staff" },
+      { plan: "Profit Sharing", when: "Our busiest sites, by invitation" },
     ],
   },
   proof: {
@@ -111,9 +111,9 @@ const gamingAndFinance: SectorContent = {
         "It depends on the layout and how many people work on each floor. Some firms do best with one central machine in a busy break area, others with one per floor. We'll recommend a setup when we visit.",
     },
     {
-      question: "Is a vending machine free for a large company?",
+      question: "What does a vending machine cost a large company?",
       answer:
-        "Usually. Workplaces with 150 or more staff on site normally qualify for Free Placement, which means no installation fee, no monthly fee and nothing to buy. There's a 12-month minimum term, and if the machine doesn't sell, we remove it at our cost.",
+        "Large offices usually go on our Standard plan: a one-off installation fee, no monthly fee and nothing to buy. There's a 12-month minimum term, and if the machine doesn't sell, we remove it at our cost.",
     },
     {
       question: "Can the range support our staff wellbeing programme?",

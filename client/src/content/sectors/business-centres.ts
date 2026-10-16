@@ -41,7 +41,7 @@ const businessCentres: SectorContent = {
     {
       heading: "How the plan works for a shared building",
       body: [
-        "We price by how many people use the site each day. For a shared building, that means everyone across all the tenants, plus visitors. Buildings with 150 or more people a day usually qualify for Free Placement, and smaller buildings suit Standard or Small Team.",
+        "We price by how many people use the site each day. For a shared building, that means everyone across all the tenants, plus visitors. Busy buildings usually suit our Standard plan, which has no monthly fee, and smaller ones suit Small Team.",
         "The agreement is usually with the landlord, managing agent or centre operator. Tenants just use the machine. If a single company fills the building, our [office vending page](/vending-machines/offices) explains the headcount guide.",
       ],
       points: [
@@ -83,9 +83,9 @@ const businessCentres: SectorContent = {
   plan: {
     text: "We count everyone in the building, across all the tenants. That's why shared buildings often do better than single offices. We confirm the plan after a free site visit.",
     fits: [
-      { plan: "Free Placement", when: "150 or more people a day" },
-      { plan: "Standard", when: "60 to 150 people a day" },
+      { plan: "Standard", when: "60 or more people a day" },
       { plan: "Small Team", when: "20 to 60 people a day" },
+      { plan: "Profit Sharing", when: "The busiest buildings, by invitation" },
     ],
   },
   proof: {
@@ -108,7 +108,7 @@ const businessCentres: SectorContent = {
     {
       question: "How do you work out the plan for a building full of small companies?",
       answer:
-        "We count everyone who uses the building on a normal day, across all the tenants, plus regular visitors. A building with 150 or more people a day usually qualifies for Free Placement.",
+        "We count everyone who uses the building on a normal day, across all the tenants, plus regular visitors. A building with 60 or more people a day usually suits our Standard plan, which has no monthly fee.",
     },
     {
       question: "We already offer free tea and coffee. Is a machine still worth it?",
