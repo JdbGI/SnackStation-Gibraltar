@@ -3,6 +3,7 @@ import { ArrowUp, ArrowUpRight } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 import { useLocation } from "wouter";
 import { EASE_OUT_EXPO, Magnetic } from "@/components/effects/primitives";
+import { SECTOR_GROUPS, SECTORS_PATH, sectorPath, sectorsInGroup } from "@/lib/sectors";
 import { CONTACT, NAV_LINKS } from "@/lib/site-data";
 
 const WORDMARK = "SNACKSTATION".split("");
@@ -40,7 +41,7 @@ export default function Footer() {
             {NAV_LINKS.map((link) => (
               <li key={link.id}>
                 <a
-                  href={onHome ? `#${link.id}` : `/#${link.id}`}
+                  href={link.href ?? (onHome ? `#${link.id}` : `/#${link.id}`)}
                   className="group inline-flex items-center gap-2 text-white/70 transition-colors hover:text-white"
                 >
                   <span className="h-px w-0 bg-brand transition-all duration-300 group-hover:w-4" />
@@ -102,6 +103,38 @@ export default function Footer() {
           </Magnetic>
         </div>
       </div>
+
+      <nav aria-label="Sectors" className="container relative mt-16 border-t border-white/10 pt-12">
+        <div className="flex flex-wrap items-baseline justify-between gap-4">
+          <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-brand">Vending machines for</h3>
+          <a
+            href={SECTORS_PATH}
+            className="group inline-flex items-center gap-2 text-sm font-semibold text-white/70 transition-colors hover:text-brand"
+          >
+            Every sector
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </a>
+        </div>
+        <div className="mt-8 grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-5">
+          {SECTOR_GROUPS.map((group) => (
+            <div key={group.id}>
+              <p className="text-sm font-semibold text-white">{group.label}</p>
+              <ul className="mt-3 space-y-2">
+                {sectorsInGroup(group.id).map((sector) => (
+                  <li key={sector.slug}>
+                    <a
+                      href={sectorPath(sector.slug)}
+                      className="text-sm text-white/55 transition-colors hover:text-white"
+                    >
+                      {sector.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </nav>
 
       <div aria-hidden className="relative mt-20 select-none overflow-hidden px-2">
         <motion.div

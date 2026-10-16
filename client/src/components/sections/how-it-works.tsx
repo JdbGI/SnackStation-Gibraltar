@@ -5,7 +5,7 @@ import { PrimaryButton } from "@/components/brand/buttons";
 import { FadeIn, RevealText, SectionLabel } from "@/components/effects/primitives";
 import { CONTACT, STEPS } from "@/lib/site-data";
 
-export default function HowItWorks() {
+export default function HowItWorks({ index = "07" }: { index?: string }) {
   const stepsRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: stepsRef,
@@ -26,7 +26,7 @@ export default function HowItWorks() {
       <div className="container relative">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-end">
           <div>
-            <SectionLabel index="07" tone="ink">
+            <SectionLabel index={index} tone="ink">
               How it works
             </SectionLabel>
             <RevealText

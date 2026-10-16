@@ -10,6 +10,7 @@ import Hero from "@/components/sections/hero";
 import HowItWorks from "@/components/sections/how-it-works";
 import Locations from "@/components/sections/locations";
 import Offer from "@/components/sections/offer";
+import Sectors from "@/components/sections/sectors";
 import Team from "@/components/sections/team";
 import Ticker from "@/components/sections/ticker";
 import Why from "@/components/sections/why";
@@ -41,6 +42,7 @@ export default function Home() {
         <Offer />
         <HowItWorks />
         <Locations />
+        <Sectors />
         <Faq />
         <Contact />
       </SiteShell>

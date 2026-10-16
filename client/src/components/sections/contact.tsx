@@ -12,11 +12,11 @@ import {
 } from "@/components/effects/primitives";
 import { CONTACT } from "@/lib/site-data";
 
-function WhatsAppOrb() {
+function WhatsAppOrb({ enquiry }: { enquiry: string }) {
   const id = useId().replace(/:/g, "");
   return (
     <a
-      href={CONTACT.whatsappEnquiry}
+      href={enquiry}
       target="_blank"
       rel="noopener noreferrer"
       data-cursor="Chat"
@@ -75,7 +75,14 @@ function RockOutline() {
   );
 }
 
-export default function Contact() {
+export default function Contact({
+  index = "11",
+  enquiry = CONTACT.whatsappEnquiry,
+}: {
+  index?: string;
+  /** WhatsApp link, pre-filled with a message for the page. */
+  enquiry?: string;
+}) {
   return (
     <section id="contact" className="relative overflow-hidden pb-48 pt-28 md:pb-64 md:pt-40">
       <div className="pointer-events-none absolute -bottom-40 left-1/2 h-[36rem] w-[70rem] -translate-x-1/2 rounded-full glow-pink [--glow:0.22]" />
@@ -83,7 +90,7 @@ export default function Contact() {
       <RockOutline />
 
       <div className="container relative">
-        <SectionLabel index="10">Contact</SectionLabel>
+        <SectionLabel index={index}>Contact</SectionLabel>
         <RevealText
           text="Ready for your *next step?*"
           className="font-display text-[clamp(3rem,9.5vw,8.75rem)]"
@@ -101,7 +108,7 @@ export default function Contact() {
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <PrimaryButton
-                href={CONTACT.whatsappEnquiry}
+                href={enquiry}
                 target="_blank"
                 rel="noopener noreferrer"
                 icon={<SiWhatsapp className="h-5 w-5" />}
@@ -121,7 +128,7 @@ export default function Contact() {
 
           <FadeIn delay={0.15} className="flex justify-center lg:justify-end">
             <Magnetic strength={0.25}>
-              <WhatsAppOrb />
+              <WhatsAppOrb enquiry={enquiry} />
             </Magnetic>
           </FadeIn>
         </div>

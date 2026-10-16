@@ -23,6 +23,7 @@ import {
   Wrench,
   type LucideIcon,
 } from "lucide-react";
+import { SECTORS_PATH } from "@/lib/sectors";
 
 const WHATSAPP_NUMBER = "35054004002";
 
@@ -57,8 +58,11 @@ export const CONTACT = {
 };
 
 export type NavLink = {
+  /** Homepage section id (also used to highlight the link while that section is in view). */
   id: string;
   label: string;
+  /** A page to link to instead of the homepage section. */
+  href?: string;
   /** Only shown in the desktop bar on extra-wide screens (always in menus). */
   xlOnly?: boolean;
 };
@@ -66,10 +70,11 @@ export type NavLink = {
 export const NAV_LINKS: NavLink[] = [
   { id: "about", label: "About" },
   { id: "brands", label: "Brands" },
-  { id: "benefits", label: "Benefits" },
+  { id: "benefits", label: "Benefits", xlOnly: true },
   { id: "offer", label: "Plans" },
   { id: "how-it-works", label: "How it Works" },
   { id: "locations", label: "Locations" },
+  { id: "sectors", label: "Sectors", href: SECTORS_PATH },
   { id: "faq", label: "FAQ", xlOnly: true },
   { id: "contact", label: "Contact" },
 ];
@@ -432,7 +437,9 @@ function listNames(names: string[]) {
   return names.length > 1 ? `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}` : names[0];
 }
 
-export const FAQS: { question: string; answer: string }[] = [
+export type FaqEntry = { question: string; answer: string };
+
+export const FAQS: FaqEntry[] = [
   {
     question: "Do you supply vending machines in Gibraltar?",
     answer:

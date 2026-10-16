@@ -46,13 +46,23 @@ SnackStation is a full-stack web application for managing vending machines acros
 - "Local team" section with an illustrated SnackStation van
 - Brand logo marquees, benefits, "Why choose us", three service plans (Free Placement, Standard, Small Team; no fee amounts shown), "How it works" steps
 - Pinned horizontal location gallery on desktop (swipe carousel on mobile); locations without a photo get an illustrated card; add an `image` to a location in `site-data.ts` to show a photo instead
+- "Sectors" homepage section, menu link and footer block linking to the sector landing pages below
+
+### Sector landing pages
+- A hub at `/vending-machines` and 18 sector pages at `/vending-machines/<slug>` (offices, hotels, gyms, marinas, warehouses, tourist attractions and so on), each written for search in Gibraltar
+- The light index (slug, name, group, icon, one-line summary) is `client/src/lib/sectors.ts`; the homepage, menu and footer use it
+- Each page's copy and FAQs live in `client/src/content/sectors/<slug>.ts` (shape in `types.ts`), registered in `content/sectors/index.ts`; hub copy is in `content/sectors/hub.ts`. Paragraphs can link to other pages with `[text](/path)`
+- Page template: `client/src/pages/sector.tsx`; hub: `client/src/pages/sectors-hub.tsx`. Both load as one lazy chunk (`client/src/pages/vending-machines.tsx`), fetched before the first render (`client/src/lib/lazy-pages.tsx`) so the pre-rendered page isn't swapped for a spinner
+- Customer photos and "already on site" cards come from `LOCATIONS` in `site-data.ts`, referenced by name
+- To add a sector: add it to `SECTORS`, write `content/sectors/<slug>.ts`, register it in `content/sectors/index.ts` and add the URL to `client/public/sitemap.xml`
 - WhatsApp contact and Partner Login links throughout
 - Animations respect the visitor's reduced-motion setting
 
 ### SEO
 - Homepage `<title>`, description, canonical (`https://www.snackstation.gi/`), Open Graph/Twitter tags and share image (`client/public/og-image.jpg`) live in `client/index.html`
 - Structured data (LocalBusiness, Service, WebSite and FAQPage) is generated from `client/src/lib/site-data.ts` by `client/src/lib/seo.tsx`, so it always matches the page; the FAQ answers are in `FAQS`
-- `npm run vercel-build` / `npm run build` pre-render the homepage to static HTML (`scripts/prerender.mjs`) so crawlers, AI assistants and link previews get the full text without JavaScript; if that step fails the normal page is kept
+- Sector pages get their own title, description, canonical URL, Open Graph tags and WebPage, Service, BreadcrumbList and FAQPage structured data; the hub gets CollectionPage and ItemList
+- `npm run vercel-build` / `npm run build` pre-render every public page to static HTML (`scripts/prerender.mjs`): the homepage to `dist/public/index.html` and the others to `dist/public/<path>/index.html`, each with its own head tags, so crawlers, AI assistants and link previews get the full text without JavaScript; if a page fails it is client-rendered instead
 - `client/public/robots.txt` keeps partner/admin pages out of search; `client/public/sitemap.xml` lists the public pages (update `lastmod` after big content changes)
 - Partner, login and 404 pages set `noindex`; fonts are self-hosted in `client/public/fonts`
 

@@ -3,7 +3,7 @@ import { useId, useState } from "react";
 import { SiWhatsapp } from "react-icons/si";
 import { PrimaryButton } from "@/components/brand/buttons";
 import { FadeIn, RevealText, SectionLabel } from "@/components/effects/primitives";
-import { CONTACT, FAQS } from "@/lib/site-data";
+import { CONTACT, FAQS, type FaqEntry } from "@/lib/site-data";
 import { FaqStructuredData } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
@@ -64,25 +64,36 @@ function FaqItem({
   );
 }
 
-export default function Faq() {
+export default function Faq({
+  faqs = FAQS,
+  index = "10",
+  title = "Vending questions, *answered.*",
+  intro = "Everything you need to know about getting a vending machine in Gibraltar. Can't find your answer? Send us a message.",
+  enquiry = CONTACT.whatsappEnquiry,
+}: {
+  faqs?: FaqEntry[];
+  index?: string;
+  /** Wrap words in *asterisks* to highlight them. */
+  title?: string;
+  intro?: string;
+  /** WhatsApp link for the "Ask us" button. */
+  enquiry?: string;
+}) {
   const [open, setOpen] = useState(0);
   return (
     <section id="faq" className="relative py-24 md:py-32">
-      <FaqStructuredData />
+      <FaqStructuredData faqs={faqs} />
       <div className="container grid gap-14 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
         <div className="lg:sticky lg:top-32 lg:self-start">
-          <SectionLabel index="09">FAQ</SectionLabel>
+          <SectionLabel index={index}>FAQ</SectionLabel>
           <RevealText
-            text="Vending questions, *answered.*"
+            text={title}
             className="font-display text-[clamp(2.4rem,7vw,4.5rem)] lg:text-[clamp(2.4rem,4.2vw,4.5rem)]"
           />
-          <FadeIn className="mt-6 max-w-md text-lg leading-relaxed text-white/60">
-            Everything you need to know about getting a vending machine in Gibraltar. Can&apos;t
-            find your answer? Send us a message.
-          </FadeIn>
+          <FadeIn className="mt-6 max-w-md text-lg leading-relaxed text-white/60">{intro}</FadeIn>
           <FadeIn delay={0.1} className="mt-10">
             <PrimaryButton
-              href={CONTACT.whatsappEnquiry}
+              href={enquiry}
               target="_blank"
               rel="noopener noreferrer"
               icon={<SiWhatsapp className="h-5 w-5" />}
@@ -94,7 +105,7 @@ export default function Faq() {
         </div>
 
         <FadeIn className="border-t border-white/10">
-          {FAQS.map((faq, i) => (
+          {faqs.map((faq, i) => (
             <FaqItem
               key={faq.question}
               index={i}

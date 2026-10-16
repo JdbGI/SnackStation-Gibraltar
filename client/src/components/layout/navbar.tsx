@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { SiWhatsapp } from "react-icons/si";
 import { useLocation } from "wouter";
 import { EASE_IN_OUT, EASE_OUT_EXPO } from "@/components/effects/primitives";
-import { CONTACT, NAV_LINKS } from "@/lib/site-data";
+import { SECTORS_PATH } from "@/lib/sectors";
+import { CONTACT, NAV_LINKS, type NavLink } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 const SECTION_IDS = NAV_LINKS.map((l) => l.id);
@@ -33,14 +34,15 @@ function useActiveSection(ids: readonly string[], enabled: boolean) {
 export default function Navbar() {
   const [location] = useLocation();
   const onHome = location === "/";
-  const href = (id: string) => (onHome ? `#${id}` : `/#${id}`);
+  const href = (link: NavLink) => link.href ?? (onHome ? `#${link.id}` : `/#${link.id}`);
 
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
-  const active = useActiveSection(SECTION_IDS, onHome);
+  const inView = useActiveSection(SECTION_IDS, onHome);
+  const active = onHome ? inView : location.startsWith(SECTORS_PATH) ? "sectors" : null;
 
   useMotionValueEvent(scrollY, "change", (y) => {
     const prev = scrollY.getPrevious() ?? 0;
@@ -94,7 +96,7 @@ export default function Navbar() {
             {NAV_LINKS.map((link) => (
               <li key={link.id} className={link.xlOnly ? "hidden xl:block" : undefined}>
                 <a
-                  href={href(link.id)}
+                  href={href(link)}
                   onMouseEnter={() => setHovered(link.id)}
                   className={cn(
                     "relative block rounded-full px-4 py-2 text-sm font-medium transition-colors duration-300",
@@ -165,7 +167,7 @@ export default function Navbar() {
   );
 }
 
-function MobileMenu({ href, onClose }: { href: (id: string) => string; onClose: () => void }) {
+function MobileMenu({ href, onClose }: { href: (link: NavLink) => string; onClose: () => void }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", onKey);
@@ -186,7 +188,7 @@ function MobileMenu({ href, onClose }: { href: (id: string) => string; onClose: 
         {[{ id: "top", label: "Home" }, ...NAV_LINKS].map((link, i) => (
           <li key={link.id} className="overflow-hidden">
             <motion.a
-              href={href(link.id)}
+              href={href(link)}
               onClick={onClose}
               initial={{ y: "110%" }}
               animate={{ y: 0 }}
@@ -195,7 +197,7 @@ function MobileMenu({ href, onClose }: { href: (id: string) => string; onClose: 
               className="font-display flex items-baseline gap-3 py-1 text-[clamp(2.4rem,11vw,4rem)] transition-colors active:text-white"
             >
               <span className="font-mono text-xs not-italic tracking-normal opacity-60">
-                0{i + 1}
+                {String(i + 1).padStart(2, "0")}
               </span>
               {link.label}
             </motion.a>

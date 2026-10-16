@@ -11,6 +11,8 @@ import { ProtectedRoute } from "./lib/protected-route";
 import { useAuth } from "@/hooks/use-auth";
 import { Redirect, Route as WouterRoute } from "wouter";
 import { usePageMeta } from "@/lib/seo";
+import { VendingMachinesPage } from "@/lib/lazy-pages";
+import { SECTORS_PATH } from "@/lib/sectors";
 
 // Everything off the marketing homepage is split out so the homepage ships
 // without the dashboard/chart code.
@@ -84,6 +86,8 @@ function Router() {
     <Suspense fallback={<PageLoader />}>
       <Switch>
         <Route path="/" component={Home} />
+        <Route path={SECTORS_PATH} component={VendingMachinesPage} />
+        <Route path={`${SECTORS_PATH}/:slug`} component={VendingMachinesPage} />
         <Route path="/catalogue" component={Catalogue} />
         <Route component={PartnerArea} />
       </Switch>
