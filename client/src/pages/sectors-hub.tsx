@@ -47,10 +47,10 @@ function Hero() {
           <Breadcrumbs crumbs={CRUMBS} />
         </FadeIn>
 
-        <div className="mt-10 grid items-center gap-12 lg:mt-14 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)] lg:gap-14">
+        <div className="mt-10 grid grid-cols-1 items-center gap-12 lg:mt-14 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)] lg:gap-14">
           <div>
             <SectionLabel index="SS">Sectors</SectionLabel>
-            <RevealText as="h1" play text={HUB.headline} className="font-display text-[clamp(2.4rem,5.6vw,4.75rem)]" />
+            <RevealText as="h1" play text={HUB.headline} className="font-display text-[clamp(1.6rem,8vw,3.4rem)] lg:text-[clamp(2.4rem,5.2vw,4.75rem)]" />
             <FadeIn delay={0.2} className="mt-7 max-w-2xl text-lg leading-relaxed text-white/70 md:text-xl">
               <p>{HUB.intro}</p>
             </FadeIn>
@@ -111,10 +111,10 @@ function Groups() {
       <div className="container space-y-24 md:space-y-32">
         {SECTOR_GROUPS.map((group, i) => (
           <div key={group.id} id={group.id}>
-            <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-end">
               <div>
                 <SectionLabel index={pad(i + 1)}>{group.label}</SectionLabel>
-                <RevealText text={group.heading} className="font-display text-[clamp(2.4rem,6vw,4.75rem)]" />
+                <RevealText text={group.heading} className="font-display text-[clamp(1.9rem,8.5vw,3.5rem)] md:text-[clamp(2.4rem,6vw,4.75rem)]" />
               </div>
               <FadeIn className="text-lg leading-relaxed text-white/60 lg:max-w-md lg:justify-self-end lg:pb-3">
                 <p>{group.description}</p>
@@ -139,10 +139,10 @@ function Network() {
     <section id="network" className="relative overflow-hidden border-t border-white/10 py-24 md:py-32">
       <div className="pointer-events-none absolute -right-40 top-1/4 h-[30rem] w-[30rem] rounded-full glow-pink [--glow:0.14]" />
       <div className="container relative">
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-end">
           <div>
             <SectionLabel index={pad(SECTOR_GROUPS.length + 1)}>Locations</SectionLabel>
-            <RevealText text={HUB.networkHeading} className="font-display text-[clamp(2.4rem,6vw,4.75rem)]" />
+            <RevealText text={HUB.networkHeading} className="font-display text-[clamp(1.9rem,8.5vw,3.5rem)] md:text-[clamp(2.4rem,6vw,4.75rem)]" />
           </div>
           <FadeIn className="text-lg leading-relaxed text-white/60 lg:max-w-md lg:justify-self-end lg:pb-3">
             <p>{HUB.networkText}</p>

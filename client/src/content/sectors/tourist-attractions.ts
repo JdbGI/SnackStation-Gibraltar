@@ -86,7 +86,7 @@ const touristAttractions: SectorContent = {
     text: "Visitors already use our machines at Europa Point Stadium, a short walk from the lighthouse, and at the Rock Hotel and the Holiday Inn Express, where many of them stay.",
     locations: ["Europa Point Stadium", "Rock Hotel Lobby", "Holiday Inn Express"],
   },
-  faqTitle: "Attractions and beaches, *answered.*",
+  faqTitle: "Visitor sites, *answered.*",
   faqs: [
     {
       question: "Can vending machines go outdoors at attractions and beaches?",

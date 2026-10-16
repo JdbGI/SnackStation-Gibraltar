@@ -246,7 +246,7 @@ export const SECTORS: Sector[] = [
     tag: "Leisure",
     icon: Ticket,
     summary:
-      "Snacks and drinks for visitors at the cinema, bowling, theatres, casinos and event venues.",
+      "Snacks and drinks for visitors at the cinema, bowling, bouldering, theatres and event venues.",
   },
   {
     slug: "residential-buildings",

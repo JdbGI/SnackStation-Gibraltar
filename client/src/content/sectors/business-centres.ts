@@ -93,7 +93,7 @@ const businessCentres: SectorContent = {
     text: "Our machines already run at Gibtelecom, the Gibraltar Broadcasting Corporation and Gibdock, where they serve staff, visitors and contractors every day.",
     locations: ["Gibtelecom Mount Pleasant", "Gibraltar Broadcasting Corporation", "Gibdock Reception"],
   },
-  faqTitle: "Shared buildings, *answered.*",
+  faqTitle: "Shared offices, *answered.*",
   faqs: [
     {
       question: "Can tenants from different companies share one vending machine?",

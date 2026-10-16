@@ -4,7 +4,7 @@ const leisureVenues: SectorContent = {
   title: "Leisure Venue Vending Machines in Gibraltar | SnackStation",
   description:
     "Vending machines for cinemas, bowling, bouldering, theatres, event halls and play centres in Gibraltar. Snacks and drinks for visitors, fully managed.",
-  headline: "Leisure and entertainment vending in *Gibraltar.*",
+  headline: "Leisure venue vending in *Gibraltar.*",
   intro:
     "A night out, a birthday party or a rainy afternoon with the kids. Whatever brings people to your venue, they'll want a drink and a snack while they're there, and a machine can sell both without adding to your staff's workload.",
   facts: [

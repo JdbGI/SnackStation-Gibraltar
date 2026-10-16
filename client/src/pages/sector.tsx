@@ -58,7 +58,7 @@ function HeroArt({ sector, index }: { sector: Sector; index: number }) {
     <div
       aria-hidden
       className={cn(
-        "group relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[28px] lg:max-w-none",
+        "group relative mx-auto flex aspect-[4/5] w-full max-w-md flex-col overflow-hidden rounded-[28px] p-6 [container-type:inline-size] lg:max-w-none",
         tone.panel,
       )}
     >
@@ -68,15 +68,21 @@ function HeroArt({ sector, index }: { sector: Sector; index: number }) {
           tone.dots,
         )}
       />
-      <span
-        className={cn(
-          "absolute left-1/2 top-[40%] flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[2.25rem] transition-transform duration-700 ease-out-expo group-hover:-rotate-6 group-hover:scale-105 md:h-44 md:w-44",
-          tone.tile,
-        )}
-      >
-        <Icon className="h-16 w-16 md:h-20 md:w-20" strokeWidth={1.6} />
+      <span className="relative flex items-center gap-1.5 self-end rounded-full bg-ink px-3 py-1 text-xs font-bold text-brand">
+        <MapPin className="h-3.5 w-3.5" />
+        Gibraltar
       </span>
-      <ul className="absolute inset-x-5 bottom-24 flex flex-wrap justify-center gap-2 md:bottom-28">
+      <div className="relative flex flex-1 items-center justify-center">
+        <span
+          className={cn(
+            "flex h-36 w-36 items-center justify-center rounded-[2.25rem] transition-transform duration-700 ease-out-expo group-hover:-rotate-6 group-hover:scale-105 md:h-44 md:w-44",
+            tone.tile,
+          )}
+        >
+          <Icon className="h-16 w-16 md:h-20 md:w-20" strokeWidth={1.6} />
+        </span>
+      </div>
+      <ul className="relative flex flex-wrap justify-center gap-2">
         {HERO_CHIPS.map(({ icon: ChipIcon, label }) => (
           <li
             key={label}
@@ -87,12 +93,9 @@ function HeroArt({ sector, index }: { sector: Sector; index: number }) {
           </li>
         ))}
       </ul>
-      <span className={cn("font-display absolute bottom-6 left-6 right-6 text-4xl leading-none md:text-5xl", tone.tag)}>
+      {/* Sized to the panel so long one-word tags ("Construction") still fit. */}
+      <span className={cn("font-display relative mt-6 leading-none [font-size:min(3rem,9cqw)]", tone.tag)}>
         {sector.tag}
-      </span>
-      <span className="absolute right-4 top-4 flex items-center gap-1.5 rounded-full bg-ink px-3 py-1 text-xs font-bold text-brand">
-        <MapPin className="h-3.5 w-3.5" />
-        Gibraltar
       </span>
     </div>
   );
@@ -154,14 +157,14 @@ function Hero({
           <Breadcrumbs crumbs={crumbs} />
         </FadeIn>
 
-        <div className="mt-10 grid items-center gap-12 lg:mt-14 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:gap-14">
+        <div className="mt-10 grid grid-cols-1 items-center gap-12 lg:mt-14 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:gap-14">
           <div>
             <SectionLabel index="SS">{group?.label ?? "Sectors"}</SectionLabel>
             <RevealText
               as="h1"
               play
               text={content.headline}
-              className="font-display text-[clamp(2.4rem,5.6vw,4.75rem)]"
+              className="font-display text-[clamp(1.6rem,8vw,3.4rem)] lg:text-[clamp(2.4rem,5.2vw,4.75rem)]"
             />
             <FadeIn delay={0.2} className="mt-7 max-w-2xl text-lg leading-relaxed text-white/70 md:text-xl">
               <p>{content.intro}</p>
@@ -219,7 +222,7 @@ function Guide({ sector, content }: { sector: Sector; content: SectorContent }) 
 
   return (
     <section aria-label={`Vending machines for ${sector.name.toLowerCase()}`} className="relative py-20 md:py-28">
-      <div className="container grid gap-14 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-20">
+      <div className="container grid grid-cols-1 gap-14 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-20">
         <aside className="lg:sticky lg:top-32 lg:self-start">
           <SectionLabel index="01">The guide</SectionLabel>
           <nav aria-label="On this page">
@@ -260,7 +263,7 @@ function Guide({ sector, content }: { sector: Sector; content: SectorContent }) 
         <div className="space-y-16 md:space-y-20">
           {content.sections.map((section) => (
             <FadeIn key={section.heading} id={anchor(section.heading)}>
-              <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)]">{section.heading}</h2>
+              <h2 className="font-display text-[clamp(1.6rem,7vw,3rem)] md:text-[clamp(1.9rem,4vw,3rem)]">{section.heading}</h2>
               <div className="mt-6 space-y-5 text-lg leading-relaxed text-white/70">
                 {section.body.map((paragraph, i) => (
                   <p key={i}>
@@ -301,12 +304,12 @@ function Stock({ content }: { content: SectorContent }) {
     <section id="stock" className="relative overflow-hidden border-y border-white/10 bg-ink-950 py-24 md:py-32">
       <div className="bg-halftone pointer-events-none absolute inset-x-0 top-0 h-72 opacity-20 [mask-image:linear-gradient(to_bottom,#000,transparent)]" />
       <div className="container relative">
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-end">
           <div>
             <SectionLabel index="02">In the machine</SectionLabel>
             <RevealText
               text="What goes *in the machine.*"
-              className="font-display text-[clamp(2.4rem,6vw,5rem)]"
+              className="font-display text-[clamp(1.9rem,8.5vw,3.5rem)] md:text-[clamp(2.4rem,6vw,5rem)]"
             />
           </div>
           <FadeIn className="text-lg leading-relaxed text-white/60 lg:max-w-md lg:justify-self-end lg:pb-3">
@@ -359,12 +362,12 @@ function Stock({ content }: { content: SectorContent }) {
 function Spots({ content }: { content: SectorContent }) {
   return (
     <section id="spots" className="relative py-24 md:py-32">
-      <div className="container grid gap-14 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+      <div className="container grid grid-cols-1 gap-14 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
         <div className="lg:sticky lg:top-32 lg:self-start">
           <SectionLabel index="03">On site</SectionLabel>
           <RevealText
             text="Where the *machine goes.*"
-            className="font-display text-[clamp(2.4rem,6vw,4.5rem)] lg:text-[clamp(2.4rem,4.2vw,4.5rem)]"
+            className="font-display text-[clamp(1.9rem,8.5vw,3.5rem)] md:text-[clamp(2.4rem,6vw,4.5rem)] lg:text-[clamp(2.4rem,4.2vw,4.5rem)]"
           />
           <FadeIn className="mt-6 max-w-md text-lg leading-relaxed text-white/60">
             <p>
@@ -404,12 +407,12 @@ function Proof({ content }: { content: SectorContent }) {
     <section id="proof" className="relative overflow-hidden py-24 md:py-32">
       <div className="pointer-events-none absolute -left-40 top-1/3 h-[30rem] w-[30rem] rounded-full glow-pink [--glow:0.14]" />
       <div className="container relative">
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-end">
           <div>
             <SectionLabel index="04">Already in Gibraltar</SectionLabel>
             <RevealText
               text={content.proof.heading}
-              className="font-display text-[clamp(2.4rem,6vw,4.75rem)]"
+              className="font-display text-[clamp(1.9rem,8.5vw,3.5rem)] md:text-[clamp(2.4rem,6vw,4.75rem)]"
             />
           </div>
           <FadeIn className="text-lg leading-relaxed text-white/60 lg:max-w-md lg:justify-self-end lg:pb-3">
@@ -497,7 +500,7 @@ function Plan({ content }: { content: SectorContent }) {
     <section id="plan" className="relative overflow-hidden py-24 md:py-32">
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[40rem] w-[60rem] -translate-x-1/2 -translate-y-1/2 rounded-full glow-berry [--glow:0.4]" />
       <div className="container relative">
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-end">
           <div>
             <SectionLabel index="05">Service plan</SectionLabel>
             <RevealText
@@ -512,7 +515,7 @@ function Plan({ content }: { content: SectorContent }) {
           </FadeIn>
         </div>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)]">
+        <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)]">
           <div className="grid content-start gap-5">
             {content.plan.fits.map((fit, i) => (
               <FadeIn key={fit.plan} delay={i * 0.08}>
@@ -561,7 +564,7 @@ function Related({ content }: { content: SectorContent }) {
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div>
             <SectionLabel index="08">Keep exploring</SectionLabel>
-            <RevealText text="More places *we go.*" className="font-display text-[clamp(2.4rem,6vw,4.75rem)]" />
+            <RevealText text="More places *we go.*" className="font-display text-[clamp(1.9rem,8.5vw,3.5rem)] md:text-[clamp(2.4rem,6vw,4.75rem)]" />
           </div>
           <FadeIn>
             <GhostButton href={SECTORS_PATH}>

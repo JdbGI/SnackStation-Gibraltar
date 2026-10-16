@@ -96,7 +96,7 @@ const hospitalsAndCareHomes: SectorContent = {
     text: "Our machines serve people at all hours at the Gibraltar Defence Police headquarters and the Holiday Inn Express, so we know how to keep a 24-hour site stocked.",
     locations: ["Gibraltar Defence Police HQ", "Holiday Inn Express"],
   },
-  faqTitle: "Healthcare vending, *answered.*",
+  faqTitle: "Hospital vending, *answered.*",
   faqs: [
     {
       question: "Do you supply vending machines to hospitals and care homes in Gibraltar?",

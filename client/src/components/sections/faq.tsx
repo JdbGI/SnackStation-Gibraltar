@@ -83,7 +83,7 @@ export default function Faq({
   return (
     <section id="faq" className="relative py-24 md:py-32">
       <FaqStructuredData faqs={faqs} />
-      <div className="container grid gap-14 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+      <div className="container grid grid-cols-1 gap-14 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
         <div className="lg:sticky lg:top-32 lg:self-start">
           <SectionLabel index={index}>FAQ</SectionLabel>
           <RevealText

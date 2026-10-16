@@ -95,7 +95,7 @@ const residentialBuildings: SectorContent = {
     text: "The Rock Hotel and the Holiday Inn Express both have SnackStation machines in their lobbies, serving guests at all hours, which is very close to what a residential lobby needs.",
     locations: ["Rock Hotel Lobby", "Holiday Inn Express"],
   },
-  faqTitle: "Residential vending, *answered.*",
+  faqTitle: "Apartment blocks, *answered.*",
   faqs: [
     {
       question: "Can you put a vending machine in an apartment building in Gibraltar?",
