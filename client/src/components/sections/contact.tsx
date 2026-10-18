@@ -76,7 +76,7 @@ function RockOutline() {
 }
 
 export default function Contact({
-  index = "11",
+  index = "12",
   enquiry = CONTACT.whatsappEnquiry,
 }: {
   index?: string;

@@ -1,16 +1,21 @@
 import {
   Anchor,
   CalendarCheck,
+  Candy,
   ClipboardCheck,
   Clock,
   ConciergeBell,
+  Cookie,
   CreditCard,
+  Cylinder,
   Hotel,
   MapPin,
   MessageCircle,
   Mic,
+  Milk,
   PackageCheck,
   PenLine,
+  Popcorn,
   RadioTower,
   Shield,
   ShieldCheck,
@@ -71,6 +76,7 @@ export const NAV_LINKS: NavLink[] = [
   { id: "about", label: "About" },
   { id: "brands", label: "Brands" },
   { id: "benefits", label: "Benefits", xlOnly: true },
+  { id: "machines", label: "Machines" },
   { id: "offer", label: "Plans" },
   { id: "how-it-works", label: "How it Works" },
   { id: "locations", label: "Locations" },
@@ -296,6 +302,130 @@ export const PLANS: ServicePlan[] = [
     note: {
       title: "The fee can switch itself off.",
       text: "When your machine sells well, the monthly fee drops away.",
+    },
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/* Machines: the three SnackStation models and their spec sheets.     */
+/* ------------------------------------------------------------------ */
+
+export type MachineView = "front-left" | "front" | "front-right";
+
+export const MACHINE_VIEWS: MachineView[] = ["front-left", "front", "front-right"];
+
+/**
+ * Every machine image is drawn on the same 864 x 1428 canvas, so the
+ * positions in `Machine.art` line up across models and views.
+ */
+export const MACHINE_ART = { width: 864, height: 1428 };
+
+/** Images live in /images/machines as <id>-<view>.webp, plus a 432px-wide copy. */
+export function machineImage(id: string, view: MachineView) {
+  const base = `/images/machines/${id}-${view}`;
+  return { src: `${base}.webp`, srcSet: `${base}-432.webp 432w, ${base}.webp 864w` };
+}
+
+/** The standard stock layout, top shelf first. It's the same in every model. */
+export const MACHINE_SHELVES = [
+  { label: "Sharing bags", icon: Popcorn },
+  { label: "Snacks & protein bars", icon: Cookie },
+  { label: "Sweets & chocolate", icon: Candy },
+  { label: "500 ml bottles", icon: Milk },
+  { label: "500 ml bottles", icon: Milk },
+  { label: "Cans", icon: Cylinder },
+];
+
+export const MACHINE_PAYMENT = "Card, contactless and mobile";
+
+export type Machine = {
+  id: "mini" | "mighty" | "mega";
+  name: string;
+  /** One line under the name. */
+  summary: string;
+  /** From the manufacturer's spec sheet. */
+  specs: {
+    /** Outside size in mm. */
+    height: number;
+    width: number;
+    depth: number;
+    weightKg: number;
+    /** Roughly how many items it holds. The real number depends on product size. */
+    capacity: number;
+    /** The most product choices it can offer at once. */
+    selections: number;
+    shelves: number;
+    /** Adjustable chilled range in °C. */
+    temperature: [number, number];
+  };
+  /**
+   * Where things sit in the front image, in px on the MACHINE_ART canvas: the
+   * cabinet outline (for the size marks) and the glass window's left and right
+   * edges plus the top of each shelf and the bottom of the last one (for the
+   * shelf highlights).
+   */
+  art: {
+    cabinet: { left: number; top: number; right: number; bottom: number };
+    window: { left: number; right: number; shelves: number[] };
+  };
+};
+
+export const MACHINES: Machine[] = [
+  {
+    id: "mini",
+    name: "Mini",
+    summary: "Our slimmest machine, for smaller spaces and teams.",
+    specs: {
+      height: 1940,
+      width: 570,
+      depth: 790,
+      weightKg: 140,
+      capacity: 180,
+      selections: 36,
+      shelves: 6,
+      temperature: [4, 25],
+    },
+    art: {
+      cabinet: { left: 221, top: 13, right: 643, bottom: 1417 },
+      window: { left: 262, right: 602, shelves: [58, 218, 352, 488, 665, 840, 955] },
+    },
+  },
+  {
+    id: "mighty",
+    name: "Mighty",
+    summary: "Our all-rounder, for most offices and workplaces.",
+    specs: {
+      height: 1940,
+      width: 880,
+      depth: 790,
+      weightKg: 225,
+      capacity: 300,
+      selections: 60,
+      shelves: 6,
+      temperature: [4, 25],
+    },
+    art: {
+      cabinet: { left: 113, top: 13, right: 751, bottom: 1401 },
+      window: { left: 157, right: 707, shelves: [62, 218, 352, 486, 655, 822, 948] },
+    },
+  },
+  {
+    id: "mega",
+    name: "Mega",
+    summary: "Our biggest machine, for the busiest sites.",
+    specs: {
+      height: 1940,
+      width: 1066,
+      depth: 850,
+      weightKg: 230,
+      capacity: 432,
+      selections: 60,
+      shelves: 6,
+      temperature: [4, 25],
+    },
+    art: {
+      cabinet: { left: 85, top: 13, right: 779, bottom: 1398 },
+      window: { left: 128, right: 736, shelves: [60, 238, 356, 488, 667, 845, 958] },
     },
   },
 ];

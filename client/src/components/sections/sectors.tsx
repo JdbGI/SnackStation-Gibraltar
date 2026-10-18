@@ -11,7 +11,7 @@ export default function Sectors() {
       <div className="container relative">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
           <div>
-            <SectionLabel index="09">Sectors</SectionLabel>
+            <SectionLabel index="10">Sectors</SectionLabel>
             <RevealText
               text="Made for every *kind of place.*"
               className="font-display text-[clamp(2.6rem,6.2vw,5.75rem)]"

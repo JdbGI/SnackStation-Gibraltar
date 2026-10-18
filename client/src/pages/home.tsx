@@ -9,6 +9,7 @@ import Faq from "@/components/sections/faq";
 import Hero from "@/components/sections/hero";
 import HowItWorks from "@/components/sections/how-it-works";
 import Locations from "@/components/sections/locations";
+import Machines from "@/components/sections/machines";
 import Offer from "@/components/sections/offer";
 import Sectors from "@/components/sections/sectors";
 import Team from "@/components/sections/team";
@@ -39,6 +40,7 @@ export default function Home() {
         <Brands />
         <Benefits />
         <Why />
+        <Machines />
         <Offer />
         <HowItWorks />
         <Locations />

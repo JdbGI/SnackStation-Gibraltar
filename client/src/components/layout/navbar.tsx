@@ -99,7 +99,7 @@ export default function Navbar() {
                   href={href(link)}
                   onMouseEnter={() => setHovered(link.id)}
                   className={cn(
-                    "relative block rounded-full px-4 py-2 text-sm font-medium transition-colors duration-300",
+                    "relative block whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium transition-colors duration-300 xl:px-4",
                     pillTarget === link.id ? "text-ink" : "text-white/70 hover:text-white",
                   )}
                 >
