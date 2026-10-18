@@ -389,7 +389,7 @@ function Stage({
       </div>
 
       <span className="absolute bottom-4 left-5 hidden font-mono text-[11px] uppercase tracking-[0.2em] text-white/45 lg:block">
-        Move across to turn
+        Move your mouse across to turn it
       </span>
     </div>
   );
@@ -412,8 +412,8 @@ function Details({
 }) {
   const { specs } = machine;
   const stats = [
-    { value: specs.capacity, label: "Items, approx." },
-    { value: specs.selections, label: "Choices, max." },
+    { value: specs.capacity, label: "Items (approx.)" },
+    { value: specs.selections, label: "Choices (max.)" },
     { value: specs.shelves, label: "Shelves" },
   ];
 
@@ -454,7 +454,7 @@ function Details({
           <h4 className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-brand">
             What&apos;s inside
           </h4>
-          <p className="text-xs text-white/50">Hover or tap a shelf to spot it</p>
+          <p className="text-xs text-white/50">Tap or hover over a shelf to see it</p>
         </div>
         <ol className="mt-3 border-t border-white/10" onPointerLeave={() => setShelf(null)}>
           {MACHINE_SHELVES.map((item, i) => {
@@ -495,7 +495,7 @@ function Details({
           })}
         </ol>
         <p className="mt-3 text-sm text-white/50">
-          Our standard layout. We build the range around what your site likes.
+          This is our standard layout. We can change the products to suit your site.
         </p>
       </div>
 
@@ -569,13 +569,13 @@ function Compare() {
     <div className="mt-24 md:mt-32">
       <div className="grid gap-6 md:grid-cols-2 md:items-end">
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand">Side by side</p>
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand">Compare</p>
           <h3 className="font-display mt-4 text-[clamp(2rem,5vw,3.75rem)]">
             Vending machine <span className="text-brand">specs</span>
           </h3>
         </div>
         <p className="text-white/60 md:max-w-sm md:justify-self-end">
-          Same height, three widths. Every machine is chilled, cashless and stocked by our team.
+          The full specs for each machine. All three are chilled, cashless and stocked by our team.
         </p>
       </div>
 
@@ -691,9 +691,9 @@ function Compare() {
       </FadeIn>
 
       <p className="mt-6 max-w-3xl text-sm leading-relaxed text-white/50">
-        Specs are from the manufacturer. How many items a machine holds depends on the size of the
-        products. Machine images are illustrations, and the range in your machine is chosen for
-        your site.
+        Specs are from the manufacturer. The number of items a machine holds depends on the size of
+        the products. The pictures are for illustration only, and we choose the products in your
+        machine to suit your site.
       </p>
     </div>
   );
@@ -728,9 +728,9 @@ export default function Machines() {
             />
           </div>
           <FadeIn className="text-lg leading-relaxed text-white/60 lg:max-w-md lg:justify-self-end lg:pb-3">
-            Three chilled, cashless machines, one for every size of site. They all stand 1940{"\u00a0"}mm
-            tall. What changes is the width, and how much they hold. We&apos;ll recommend the right
-            one after your free site visit.
+            We offer three vending machine models: the Mini, the Mighty and the Mega. All three are
+            chilled and take card, contactless and mobile payments. After a free site visit,
+            we&apos;ll recommend the right one for you.
           </FadeIn>
         </div>
 
