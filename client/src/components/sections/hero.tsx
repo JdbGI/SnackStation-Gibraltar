@@ -17,8 +17,16 @@ function RotatingWord({ play }: { play: boolean }) {
     const id = window.setInterval(() => setIndex((i) => (i + 1) % AUDIENCES.length), 2200);
     return () => window.clearInterval(id);
   }, [play]);
+  // Every word sits in the same grid cell, so the cell is always as wide as
+  // the longest one. Otherwise a long word can wrap onto a new line on phones
+  // and push the whole page down and back up every couple of seconds.
   return (
-    <span className="relative inline-block overflow-hidden pr-1 align-top">
+    <span className="relative inline-grid overflow-hidden pr-1 align-top">
+      {AUDIENCES.map((word) => (
+        <span key={word} aria-hidden className="invisible col-start-1 row-start-1 font-bold italic">
+          {word}.
+        </span>
+      ))}
       <AnimatePresence mode="wait" initial={false}>
         <motion.span
           key={AUDIENCES[index]}
@@ -26,7 +34,7 @@ function RotatingWord({ play }: { play: boolean }) {
           animate={{ y: "0%", opacity: 1 }}
           exit={{ y: "-100%", opacity: 0 }}
           transition={{ duration: 0.45, ease: EASE_OUT_EXPO }}
-          className="inline-block font-bold italic text-brand"
+          className="col-start-1 row-start-1 font-bold italic text-brand"
         >
           {AUDIENCES[index]}.
         </motion.span>
