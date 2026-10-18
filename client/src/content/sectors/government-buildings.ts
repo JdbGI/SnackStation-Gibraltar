@@ -4,6 +4,7 @@ const governmentBuildings: SectorContent = {
   title: "Government Building Vending in Gibraltar | SnackStation",
   description:
     "Vending machines for government departments, public offices and waiting areas in Gibraltar. Snacks and drinks for staff and the public, fully managed.",
+  updated: "2026-10-18",
   headline: "Vending for public buildings in *Gibraltar.*",
   intro:
     "Government departments and public bodies deal with a steady stream of people every week, and the staff behind the counter work long days. One machine can look after both, with no admin for your team.",

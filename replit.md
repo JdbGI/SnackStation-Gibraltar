@@ -55,7 +55,7 @@ SnackStation is a full-stack web application for managing vending machines acros
 - Each page's copy and FAQs live in `client/src/content/sectors/<slug>.ts` (shape in `types.ts`), registered in `content/sectors/index.ts`; hub copy is in `content/sectors/hub.ts`. Paragraphs can link to other pages with `[text](/path)`
 - Page template: `client/src/pages/sector.tsx`; hub: `client/src/pages/sectors-hub.tsx`. Both load as one lazy chunk (`client/src/pages/vending-machines.tsx`), fetched before the first render (`client/src/lib/lazy-pages.tsx`) so the pre-rendered page isn't swapped for a spinner
 - Customer photos and "already on site" cards come from `LOCATIONS` in `site-data.ts`, referenced by name
-- To add a sector: add it to `SECTORS`, write `content/sectors/<slug>.ts`, register it in `content/sectors/index.ts` and add the URL to `client/public/sitemap.xml`
+- To add a sector: add it to `SECTORS`, write `content/sectors/<slug>.ts` (with an `updated` date) and register it in `content/sectors/index.ts`. The build adds it to the sitemap and llms.txt
 - WhatsApp contact and Partner Login links throughout
 - Animations respect the visitor's reduced-motion setting
 
@@ -64,7 +64,9 @@ SnackStation is a full-stack web application for managing vending machines acros
 - Structured data (LocalBusiness, Service, WebSite and FAQPage) is generated from `client/src/lib/site-data.ts` by `client/src/lib/seo.tsx`, so it always matches the page; the FAQ answers are in `FAQS`
 - Sector pages get their own title, description, canonical URL, Open Graph tags and WebPage, Service, BreadcrumbList and FAQPage structured data; the hub gets CollectionPage and ItemList
 - `npm run vercel-build` / `npm run build` pre-render every public page to static HTML (`scripts/prerender.mjs`): the homepage to `dist/public/index.html` and the others to `dist/public/<path>/index.html`, each with its own head tags, so crawlers, AI assistants and link previews get the full text without JavaScript; if a page fails it is client-rendered instead
-- `client/public/robots.txt` keeps partner/admin pages out of search; `client/public/sitemap.xml` lists the public pages (update `lastmod` after big content changes)
+- `client/public/robots.txt` keeps partner/admin pages out of search
+- The build writes `sitemap.xml` (every public page with its `lastmod` and the images on it, for Google Images) and `llms.txt` (a plain-text guide to the business and its pages for AI assistants) from `SITE_PAGES` in `client/src/lib/site-pages.ts`. A page's `lastmod` is its `updated` date: `SITE.updated` for the homepage, `SECTORS_HUB.updated` for the hub and `updated` in each sector's content file, so bump it when a page's content changes. If these files can't be written the build fails, so the live site keeps its last good copies
+- `vercel.json`: unknown addresses get a real 404 status with a pre-rendered "page not found" page (`404.html`) instead of a copy of the homepage; `/auth`, `/dashboard`, `/admin` and `/catalogue` are app-only routes served from `index.html`; addresses ending in `/` redirect (308) to the version without; and the `snack-station-gibraltar.vercel.app` address sends `X-Robots-Tag: noindex, nofollow` so only the real domain is indexed
 - Partner, login and 404 pages set `noindex`; fonts are self-hosted in `client/public/fonts`
 
 ### Partner Dashboard

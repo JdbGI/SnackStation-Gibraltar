@@ -35,6 +35,8 @@ export const sectorPath = (slug: string) => `${SECTORS_PATH}/${slug}`;
 /** The hub page that lists every sector. */
 export const SECTORS_HUB = {
   title: "Vending Machines for Every Sector in Gibraltar | SnackStation",
+  /** Last real change to the hub page (YYYY-MM-DD). It's the page's <lastmod> in the sitemap. */
+  updated: "2026-10-16",
   description:
     "Offices, hotels, gyms, marinas, warehouses, attractions and more: see how SnackStation's fully managed vending machines work across Gibraltar.",
 };

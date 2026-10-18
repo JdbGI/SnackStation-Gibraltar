@@ -4,6 +4,7 @@ const constructionSites: SectorContent = {
   title: "Construction Site Vending in Gibraltar | SnackStation",
   description:
     "Vending machines for construction sites and welfare units in Gibraltar. Cold drinks and snacks for crews, restocked and serviced by our local team.",
+  updated: "2026-10-18",
   headline: "Construction site vending in *Gibraltar.*",
   intro:
     "Building sites start early, carry on in all weathers and are often a walk from the nearest shop. A machine in the welfare cabin keeps crews in drinks and snacks without anyone signing off site.",

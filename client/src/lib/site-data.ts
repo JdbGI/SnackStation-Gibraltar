@@ -41,6 +41,8 @@ export const SITE = {
     "Gibraltar's fully managed vending machine supplier. Card-only snack and drink machines for offices, hotels and venues, stocked and serviced by our local team.",
   telephone: "+35054004002",
   ogImage: "/og-image.jpg",
+  /** Last real change to the homepage (YYYY-MM-DD). It's the page's <lastmod> in the sitemap. */
+  updated: "2026-10-18",
 };
 
 export function whatsappLink(message?: string) {
@@ -419,7 +421,7 @@ export const MACHINES: Machine[] = [
       depth: 850,
       weightKg: 230,
       capacity: 432,
-      selections: 60,
+      selections: 72,
       shelves: 6,
       temperature: [4, 25],
     },
@@ -617,6 +619,15 @@ export const FAQS: FaqEntry[] = [
     question: "What snacks and drinks do your machines stock?",
     answer:
       "Our vending machines stock popular snack and drink brands such as Coca-Cola, Pepsi, Fanta, Sprite, 7Up, Powerade, Aquarius, Font Vella, Cadbury, M&M's, Skittles, Kettle and Grenade.",
+  },
+  {
+    question: "Which vending machines do you offer?",
+    answer: `We have three SnackStation machines: ${listNames(
+      MACHINES.map(
+        ({ name, specs }) =>
+          `the ${name} (${specs.width} mm wide and ${specs.height} mm tall, holding about ${specs.capacity} items with up to ${specs.selections} choices)`,
+      ),
+    )}. All of them are chilled and take ${MACHINE_PAYMENT.toLowerCase()} payments. We recommend the right machine for your site after a free site visit.`,
   },
   {
     question: "Who chooses the products and prices?",

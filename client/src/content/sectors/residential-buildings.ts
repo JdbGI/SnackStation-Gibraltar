@@ -4,6 +4,7 @@ const residentialBuildings: SectorContent = {
   title: "Residential Vending Machines in Gibraltar | SnackStation",
   description:
     "Vending machines for apartment complexes, residential towers and student housing in Gibraltar. Snacks, drinks and toiletries for residents, fully managed.",
+  updated: "2026-10-18",
   headline: "Vending for apartment buildings in *Gibraltar.*",
   intro:
     "Gibraltar's big residential developments house hundreds of people under one roof. A machine in the lobby, the residents' gym or the games room sells them drinks, snacks and toiletries without a trip to the shop.",

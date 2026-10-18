@@ -2,28 +2,16 @@ import { MotionConfig } from "framer-motion";
 import { renderToString } from "react-dom/server";
 import { Router } from "wouter";
 import { SECTOR_CONTENT } from "@/content/sectors";
-import { SECTORS, SECTORS_HUB, SECTORS_PATH, sectorPath } from "@/lib/sectors";
+import { SECTORS } from "@/lib/sectors";
+import { SITE_PAGES } from "@/lib/site-pages";
 import Home from "@/pages/home";
+import NotFound from "@/pages/not-found";
 import VendingMachines from "@/pages/vending-machines";
 
-export type PrerenderRoute = {
-  path: string;
-  /** Head tags for the page. The homepage keeps the ones in index.html. */
-  meta?: { title: string; description: string };
-};
+export { llmsTxt, sitemapXml } from "@/lib/site-pages";
 
 /** Every public page that gets its own static HTML file. */
-export const routes: PrerenderRoute[] = [
-  { path: "/" },
-  { path: SECTORS_PATH, meta: SECTORS_HUB },
-  ...SECTORS.filter((sector) => SECTOR_CONTENT[sector.slug]).map((sector) => ({
-    path: sectorPath(sector.slug),
-    meta: {
-      title: SECTOR_CONTENT[sector.slug].title,
-      description: SECTOR_CONTENT[sector.slug].description,
-    },
-  })),
-];
+export const routes = SITE_PAGES;
 
 /** Sectors that are listed but have no page copy yet (should be none). */
 export const missingContent = SECTORS.filter((sector) => !SECTOR_CONTENT[sector.slug]).map(
@@ -38,6 +26,15 @@ export function render(path = "/") {
       <Router ssrPath={path}>
         <Page />
       </Router>
+    </MotionConfig>,
+  );
+}
+
+/** The page sent, with a 404 status, for any address that isn't a page (see vercel.json). */
+export function renderNotFound() {
+  return renderToString(
+    <MotionConfig reducedMotion="user">
+      <NotFound />
     </MotionConfig>,
   );
 }

@@ -4,6 +4,7 @@ const hotels: SectorContent = {
   title: "Hotel Vending Machines in Gibraltar | SnackStation",
   description:
     "Vending machines for Gibraltar hotels, hostels and serviced apartments. Snacks, drinks and travel toiletries for guests 24/7, run by our local team.",
+  updated: "2026-10-18",
   headline: "Hotel vending machines in *Gibraltar.*",
   intro:
     "Guests check in late, get peckish after the bar shuts and forget their toothbrush. A machine in your lobby sorts all three, and we look after it for you.",

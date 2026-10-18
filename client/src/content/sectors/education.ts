@@ -4,6 +4,7 @@ const education: SectorContent = {
   title: "College & University Vending in Gibraltar | SnackStation",
   description:
     "Vending machines for universities, colleges, schools and student housing in Gibraltar. Snacks and drinks for students and staff, run by our local team.",
+  updated: "2026-10-18",
   headline: "University, college and school vending in *Gibraltar.*",
   intro:
     "Students study late, lecturers teach back to back and school staff rooms are busy from the first bell. A vending machine gives them all a drink and a snack on site, and we look after everything.",

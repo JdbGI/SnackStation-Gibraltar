@@ -18,6 +18,7 @@ import {
   CONTACT,
   INCLUDED_ON_EVERY_PLAN,
   LOCATIONS,
+  MACHINES,
   PLANS,
   PLANS_FOOTNOTE,
   whatsappLink,
@@ -26,6 +27,11 @@ import {
 import { cn } from "@/lib/utils";
 
 const pad = (n: number) => String(n).padStart(2, "0");
+
+/** "Mini, Mighty and Mega" */
+const listMachines = MACHINES.map((machine) => machine.name)
+  .join(", ")
+  .replace(/, ([^,]*)$/, " and $1");
 
 const anchor = (heading: string) =>
   heading
@@ -346,8 +352,9 @@ function Stock({ content }: { content: SectorContent }) {
         </div>
         <FadeIn>
           <p className="mt-8 max-w-2xl text-sm leading-relaxed text-white/55">
-            We choose each machine&apos;s range using sales data from across Gibraltar, and we change it
-            as we learn what sells at your site. Tell us your favourites and we&apos;ll add them.
+            <RichText
+              text={`We choose each machine's range using sales data from across Gibraltar, and we change it as we learn what sells at your site. Tell us your favourites and we'll add them. See the specs of our [${listMachines} machines](/#machines).`}
+            />
           </p>
         </FadeIn>
       </div>

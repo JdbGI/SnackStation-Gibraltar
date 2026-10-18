@@ -4,6 +4,7 @@ const sportsVenues: SectorContent = {
   title: "Stadium & Sports Centre Vending in Gibraltar | SnackStation",
   description:
     "Vending machines for stadiums, sports halls, pools and clubs in Gibraltar. Drinks and snacks for players and spectators, as used at Europa Point Stadium.",
+  updated: "2026-10-18",
   headline: "Stadium and sports centre vending in *Gibraltar.*",
   intro:
     "Players need a drink after training, spectators want one at half-time and parents on the touchline want a snack. Our machine at Europa Point Stadium already serves all of them, and we can do the same at your venue.",

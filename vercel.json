@@ -15,6 +15,17 @@
     ],
     "routes": [
         {
+            "src": "/(.*)",
+            "has": [{ "type": "host", "value": "snack-station-gibraltar.vercel.app" }],
+            "headers": { "X-Robots-Tag": "noindex, nofollow" },
+            "continue": true
+        },
+        {
+            "src": "/(.+)/",
+            "status": 308,
+            "headers": { "Location": "/$1" }
+        },
+        {
             "src": "/api/(.*)",
             "dest": "/api/index.ts"
         },
@@ -26,8 +37,13 @@
             "handle": "filesystem"
         },
         {
-            "src": "/(.*)",
+            "src": "/(auth|dashboard|admin|catalogue)(/.*)?",
             "dest": "/index.html"
+        },
+        {
+            "src": "/(.*)",
+            "status": 404,
+            "dest": "/404.html"
         }
     ]
 }

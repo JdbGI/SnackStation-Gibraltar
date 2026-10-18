@@ -4,6 +4,7 @@ const offices: SectorContent = {
   title: "Office Vending Machines in Gibraltar | SnackStation",
   description:
     "Snack and drink vending machines for Gibraltar offices, stocked and serviced by our local team. Card-only, with a plan sized to your headcount.",
+  updated: "2026-10-18",
   headline: "Office vending machines in *Gibraltar.*",
   intro:
     "A SnackStation machine gives your team snacks and drinks without leaving the building. We install it, keep it stocked and fix it, and the plan depends on how many people work in your office.",

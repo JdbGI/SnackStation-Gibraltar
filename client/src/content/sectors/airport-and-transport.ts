@@ -4,6 +4,7 @@ const airportAndTransport: SectorContent = {
   title: "Airport & Transport Vending in Gibraltar | SnackStation",
   description:
     "Vending machines for terminals, waiting areas, car parks and coach parks in Gibraltar. Snacks and drinks for travellers, run by our local team.",
+  updated: "2026-10-18",
   headline: "Airport and transport vending in *Gibraltar.*",
   intro:
     "Flights, cruise ships, buses and coaches bring a constant flow of people through Gibraltar, and most of them spend some of the trip waiting. A machine gives them a drink and a snack while they do.",

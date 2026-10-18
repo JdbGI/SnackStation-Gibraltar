@@ -4,6 +4,7 @@ const portAndShipyards: SectorContent = {
   title: "Port & Shipyard Vending Machines in Gibraltar | SnackStation",
   description:
     "Vending machines for Gibraltar's port, shipyard and marine businesses. Snacks, drinks and essentials for crews and dock teams, fully managed.",
+  updated: "2026-10-18",
   headline: "Port and shipyard vending in *Gibraltar.*",
   intro:
     "Gibraltar's port works long after most offices close. Ship repair teams, bunkering crews, agents and visiting seafarers all need a drink and a bite at odd hours, often a long way from town, so we put the machine where they work.",
