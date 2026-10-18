@@ -5,7 +5,7 @@ import { PrimaryButton } from "@/components/brand/buttons";
 import { FadeIn, RevealText, SectionLabel } from "@/components/effects/primitives";
 import { CONTACT, STEPS } from "@/lib/site-data";
 
-export default function HowItWorks({ index = "07" }: { index?: string }) {
+export default function HowItWorks({ index = "08" }: { index?: string }) {
   const stepsRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: stepsRef,

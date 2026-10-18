@@ -66,7 +66,7 @@ function FaqItem({
 
 export default function Faq({
   faqs = FAQS,
-  index = "10",
+  index = "11",
   title = "Vending questions, *answered.*",
   intro = "Everything you need to know about getting a vending machine in Gibraltar. Can't find your answer? Send us a message.",
   enquiry = CONTACT.whatsappEnquiry,

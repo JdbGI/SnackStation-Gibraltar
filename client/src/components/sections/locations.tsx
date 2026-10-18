@@ -163,7 +163,7 @@ function NextStopCard({ className }: { className?: string }) {
 function Intro({ className }: { className?: string }) {
   return (
     <div className={className}>
-      <SectionLabel index="08">Locations</SectionLabel>
+      <SectionLabel index="09">Locations</SectionLabel>
       <RevealText
         text="Our growing *network*."
         className="font-display text-[clamp(2.4rem,8vw,4rem)] lg:text-[clamp(2.4rem,4.2vw,4.5rem)]"

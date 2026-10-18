@@ -115,7 +115,7 @@ export default function Offer() {
       <div className="container relative">
         <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
           <div>
-            <SectionLabel index="06">Service plans</SectionLabel>
+            <SectionLabel index="07">Service plans</SectionLabel>
             <RevealText
               text="Choose your *plan*."
               className="font-display text-[clamp(2.6rem,6.2vw,5.75rem)]"

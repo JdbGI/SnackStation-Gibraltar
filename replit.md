@@ -44,6 +44,7 @@ SnackStation is a full-stack web application for managing vending machines acros
 - Intro preloader; a still halftone vending machine in the hero (click it and it drops a drink)
 - Ticker bands, "What we offer" bento grid with live Gibraltar clock, animated stats
 - "Local team" section with an illustrated SnackStation van
+- "Our machines" section for the Mini, Mighty and Mega: a showroom stage that turns between three views (hover, swipe or the Left/Front/Right buttons), a "What's inside" shelf list that lights up each shelf on the machine, and a to-scale spec comparison table. Specs, the standard shelf layout and the shelf/cabinet positions in the artwork are `MACHINES` and `MACHINE_SHELVES` in `site-data.ts`; images are `client/public/images/machines/<id>-<view>.webp` (plus a 432px `-432` copy), all drawn on the same 864 x 1428 canvas so the positions line up
 - Brand logo marquees, benefits, "Why choose us", three service plans (Profit Sharing, by invitation only; Standard; Small Team), all with a one-off installation fee and no amounts shown, "How it works" steps
 - Pinned horizontal location gallery on desktop (swipe carousel on mobile); locations without a photo get an illustrated card; add an `image` to a location in `site-data.ts` to show a photo instead
 - "Sectors" homepage section, menu link and footer block linking to the sector landing pages below
