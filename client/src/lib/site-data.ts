@@ -421,7 +421,7 @@ export const MACHINES: Machine[] = [
       depth: 850,
       weightKg: 230,
       capacity: 432,
-      selections: 60,
+      selections: 72,
       shelves: 6,
       temperature: [4, 25],
     },
