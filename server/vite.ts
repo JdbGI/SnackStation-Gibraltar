@@ -79,10 +79,21 @@ export function serveStatic(app: Express) {
     );
   }
 
-  app.use(express.static(distPath));
+  app.use(express.static(distPath, { redirect: false }));
 
-  // fall through to index.html if the file doesn't exist
-  app.use("*", (_req, res) => {
-    res.sendFile(path.resolve(distPath, "index.html"));
+  // Pre-rendered pages are saved as <path>/index.html (see scripts/prerender.mjs).
+  // Anything else falls through to the homepage's index.html and renders client-side.
+  app.use("*", (req, res) => {
+    let page: string | undefined;
+    try {
+      const pathname = decodeURIComponent(req.originalUrl.split("?")[0]).replace(/\/+$/, "");
+      const candidate = path.resolve(distPath, `.${pathname}`, "index.html");
+      if (pathname && candidate.startsWith(distPath + path.sep) && fs.existsSync(candidate)) {
+        page = candidate;
+      }
+    } catch {
+      // A malformed URL just gets the homepage.
+    }
+    res.sendFile(page ?? path.resolve(distPath, "index.html"));
   });
 }

@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 const TOTAL = String(LOCATIONS.length).padStart(2, "0");
 
 // Illustrated panels cycle through the brand colours for variety.
-const ART_TONES = [
+export const ART_TONES = [
   {
     panel: "bg-brand",
     dots: "bg-halftone-berry",
@@ -37,7 +37,13 @@ const ART_TONES = [
 ];
 
 /** Stand-in artwork for locations that don't have a photo yet. */
-function LocationArt({ location, index }: { location: Location; index: number }) {
+export function LocationArt({
+  location,
+  index,
+}: {
+  location: Pick<Location, "icon" | "tag">;
+  index: number;
+}) {
   const tone = ART_TONES[index % ART_TONES.length];
   const Icon = location.icon;
   return (
@@ -63,14 +69,17 @@ function LocationArt({ location, index }: { location: Location; index: number })
   );
 }
 
-function LocationCard({
+export function LocationCard({
   location,
   index,
   className,
+  counter = true,
 }: {
   location: Location;
   index: number;
   className?: string;
+  /** Show the "01 / 09" position in the network. */
+  counter?: boolean;
 }) {
   return (
     <article
@@ -95,9 +104,11 @@ function LocationCard({
         ) : (
           <LocationArt location={location} index={index} />
         )}
-        <span className="glass absolute left-4 top-4 rounded-full border border-white/10 px-3 py-1 font-mono text-xs text-white">
-          {String(index + 1).padStart(2, "0")} / {TOTAL}
-        </span>
+        {counter && (
+          <span className="glass absolute left-4 top-4 rounded-full border border-white/10 px-3 py-1 font-mono text-xs text-white">
+            {String(index + 1).padStart(2, "0")} / {TOTAL}
+          </span>
+        )}
         <span className="absolute right-4 top-4 flex items-center gap-1.5 rounded-full bg-ink px-3 py-1 text-xs font-bold text-brand">
           <MapPin className="h-3.5 w-3.5" />
           Gibraltar
