@@ -376,7 +376,7 @@ export const MACHINES: Machine[] = [
   {
     id: "mini",
     name: "Mini",
-    summary: "Our slimmest machine, for smaller spaces and teams.",
+    summary: "Our smallest machine, for smaller spaces and teams.",
     specs: {
       height: 1940,
       width: 570,
@@ -395,7 +395,7 @@ export const MACHINES: Machine[] = [
   {
     id: "mighty",
     name: "Mighty",
-    summary: "Our all-rounder, for most offices and workplaces.",
+    summary: "Our mid-size machine, for most offices and workplaces.",
     specs: {
       height: 1940,
       width: 880,
@@ -414,7 +414,7 @@ export const MACHINES: Machine[] = [
   {
     id: "mega",
     name: "Mega",
-    summary: "Our biggest machine, for the busiest sites.",
+    summary: "Our largest machine, for the busiest sites.",
     specs: {
       height: 1940,
       width: 1066,
@@ -622,12 +622,16 @@ export const FAQS: FaqEntry[] = [
   },
   {
     question: "Which vending machines do you offer?",
-    answer: `We have three SnackStation machines: ${listNames(
+    answer: `We offer three models: ${listNames(
       MACHINES.map(
         ({ name, specs }) =>
-          `the ${name} (${specs.width} mm wide and ${specs.height} mm tall, holding about ${specs.capacity} items with up to ${specs.selections} choices)`,
+          `the ${name} (${specs.width} mm wide, holds about ${specs.capacity} items, up to ${specs.selections} choices)`,
       ),
-    )}. All of them are chilled and take ${MACHINE_PAYMENT.toLowerCase()} payments. We recommend the right machine for your site after a free site visit.`,
+    )}. ${
+      new Set(MACHINES.map((m) => m.specs.height)).size === 1
+        ? `All of them are ${MACHINES[0].specs.height} mm tall, chilled`
+        : "All of them are chilled"
+    } and take ${MACHINE_PAYMENT.toLowerCase()} payments. After a free site visit, we'll recommend the right one for your site.`,
   },
   {
     question: "Who chooses the products and prices?",
