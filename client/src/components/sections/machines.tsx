@@ -571,7 +571,7 @@ function Compare() {
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand">Side by side</p>
           <h3 className="font-display mt-4 text-[clamp(2rem,5vw,3.75rem)]">
-            Compare the <span className="text-brand">specs</span>
+            Vending machine <span className="text-brand">specs</span>
           </h3>
         </div>
         <p className="text-white/60 md:max-w-sm md:justify-self-end">

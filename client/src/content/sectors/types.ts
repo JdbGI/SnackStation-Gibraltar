@@ -12,6 +12,8 @@ export type SectorContent = {
   title: string;
   /** Meta description. Keep it to roughly 150 characters. */
   description: string;
+  /** Last real change to this page (YYYY-MM-DD). It's the page's <lastmod> in the sitemap. */
+  updated: string;
   /** The H1. Wrap words in *asterisks* to highlight them. */
   headline: string;
   /** Opening paragraph under the H1. */

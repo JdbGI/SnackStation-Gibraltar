@@ -4,6 +4,7 @@ const warehousesAndIndustrial: SectorContent = {
   title: "Warehouse Vending Machines in Gibraltar | SnackStation",
   description:
     "Vending machines for warehouses, depots, workshops and industrial units in Gibraltar. Snacks and drinks for early starts, run by our local team.",
+  updated: "2026-10-18",
   headline: "Warehouse and depot vending in *Gibraltar.*",
   intro:
     "Warehouse and depot teams start early, work on their feet and are often nowhere near a shop. A machine in the staff area gives them a drink and something to eat without leaving site.",

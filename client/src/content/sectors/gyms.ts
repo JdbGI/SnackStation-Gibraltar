@@ -4,6 +4,7 @@ const gyms: SectorContent = {
   title: "Gym Vending Machines in Gibraltar | SnackStation",
   description:
     "Vending machines for Gibraltar gyms and fitness studios. Protein bars, sports drinks, water and shower essentials for members, run by our local team.",
+  updated: "2026-10-18",
   headline: "Gym vending machines in *Gibraltar.*",
   intro:
     "Members finish a session thirsty and hungry, and plenty of them forget their shower gel. A machine stocks what they need, from protein bars to deodorant, and we run it for you.",

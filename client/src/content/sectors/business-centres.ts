@@ -4,6 +4,7 @@ const businessCentres: SectorContent = {
   title: "Business Centre Vending Machines in Gibraltar | SnackStation",
   description:
     "One vending machine every tenant can use, run by us. For business centres, shared office buildings and co-working spaces in Gibraltar.",
+  updated: "2026-10-18",
   headline: "Business centre and co-working vending in *Gibraltar.*",
   intro:
     "If you manage a business centre, a shared office building or a co-working space, one vending machine can serve every tenant. We run it, so your building gets a useful extra and you don't get any extra work.",

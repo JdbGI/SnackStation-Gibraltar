@@ -4,6 +4,7 @@ const touristAttractions: SectorContent = {
   title: "Attraction & Beach Vending in Gibraltar | SnackStation",
   description:
     "Vending machines for Gibraltar's attractions, viewpoints and beaches. Cold drinks and snacks for visitors, indoors or outdoors, run by our local team.",
+  updated: "2026-10-18",
   headline: "Vending for attractions and beaches in *Gibraltar.*",
   intro:
     "Millions of people visit Gibraltar, and a lot of them end up hot, thirsty and a long way from a shop. A machine at your attraction, viewpoint or beach gives them a cold drink and a snack on the spot.",

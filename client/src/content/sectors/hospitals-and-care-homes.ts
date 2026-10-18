@@ -4,6 +4,7 @@ const hospitalsAndCareHomes: SectorContent = {
   title: "Hospital & Care Home Vending in Gibraltar | SnackStation",
   description:
     "Vending machines for hospitals, clinics and care homes in Gibraltar. Snacks and drinks for night shifts, visitors and families, run by our local team.",
+  updated: "2026-10-18",
   headline: "Hospital and care home vending in *Gibraltar.*",
   intro:
     "Hospitals and care homes don't close at night, but cafés do. A vending machine means nurses on nights, families waiting for news and visitors at the end of a long day can still get a drink and a snack.",

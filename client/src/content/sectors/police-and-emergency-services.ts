@@ -4,6 +4,7 @@ const policeAndEmergencyServices: SectorContent = {
   title: "Police & Fire Station Vending in Gibraltar | SnackStation",
   description:
     "Vending machines for police, fire, ambulance and border teams in Gibraltar. Snacks and drinks on every shift, fully managed by our local team.",
+  updated: "2026-10-18",
   headline: "Emergency services vending in *Gibraltar.*",
   intro:
     "Police officers, firefighters, paramedics and border teams work every hour of the day, and their breaks rarely come at a set time. A machine on station means food and drink are there whenever they get a minute.",

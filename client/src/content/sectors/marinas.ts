@@ -4,6 +4,7 @@ const marinas: SectorContent = {
   title: "Marina Vending Machines in Gibraltar | SnackStation",
   description:
     "Vending machines for Gibraltar's marinas. Drinks, snacks and travel toiletries for berth holders, crews and visiting yachts, run by our local team.",
+  updated: "2026-10-18",
   headline: "Marina vending machines in *Gibraltar.*",
   intro:
     "Yachts arrive in Gibraltar at all hours, often after a long passage, and the first thing crews want is a cold drink and a few basics. A machine at your marina is open when they tie up.",

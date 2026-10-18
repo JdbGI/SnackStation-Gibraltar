@@ -4,6 +4,7 @@ const gamingAndFinance: SectorContent = {
   title: "iGaming & Finance Office Vending in Gibraltar | SnackStation",
   description:
     "Vending machines for Gibraltar's online gaming, fintech and insurance firms. Snacks and drinks for every shift, fully managed by our local team.",
+  updated: "2026-10-18",
   headline: "Vending for gaming and finance firms in *Gibraltar.*",
   intro:
     "Online gaming, fintech and insurance employ thousands of people in Gibraltar, and plenty of them work shifts that run late into the night. A machine on the floor keeps every shift fed without anyone leaving the building.",
